@@ -1,0 +1,705 @@
+02:58:20 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1 HR WALL_FLOOR BOTTOM.rvt
+02:58:27 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1HR BOTTOM OF SHAFT WALL DETAIL.rvt
+02:58:35 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1HR BOTTOM OF WALL DETAIL.rvt
+02:59:29 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\DOOR DETAIL @ ROOF - ACCESS DOOR.rvt
+02:59:37 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ELEVATOR WATERPROOFING DETAL.rvt
+02:59:45 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ELEVATOR_WATERPROOFING DETAIL.rvt
+02:59:53 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\EXPANSION JOINT - SECTION AT ROOF.rvt
+03:00:00 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\FLASHING @ HIGH PARAPET WALL.rvt
+03:00:07 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\FLASHING @ HIGH PARAPET WALL1.rvt
+03:00:13 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\HIGH ROOF SECTION.rvt
+03:00:20 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PARAPET AND TERRACE WALL COPING.rvt
+03:00:27 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PARAPET AND TERRACE WALL.rvt
+03:00:34 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PARAPET TERRACE WALL COPING.rvt
+03:00:39 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PARAPET WALL DTL.rvt
+03:00:46 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PIT SECTION AT SUMP PUMP W_CRYSTALLINE WATERPROOFING.rvt
+03:00:52 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PIT SECTION AT SUMP PUMP W_CRYSTALLINE WATERPROOFING1.rvt
+03:00:59 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PIT SECTION W_CRYSTALLINE WATERPROOFING.rvt
+03:01:06 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PIT SECTION W_CRYSTALLINE WATERPROOFING1.rvt
+03:01:13 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PLANTER CAP AND WATERPROOFING.rvt
+03:01:19 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\PLANTER CAP W_STONE AND WATERPROOFING.rvt
+03:01:26 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF - VENT BOOT FLASHING.rvt
+03:01:33 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF - WALKPAD SYSTEM.rvt
+03:01:39 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF ACCESS DOOR SILL @ UTILITY ROOMS.rvt
+03:01:46 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF ACCESS DOOR SILL @ UTILITY ROOMS1.rvt
+03:01:52 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF ANCHOR DETAIL.rvt
+03:01:59 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF CRICKET DIAGRAM.rvt
+03:02:06 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF DRAIN DETAIL.rvt
+03:02:12 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF EQUIPMENT SUPPORT STAND.rvt
+03:02:19 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF FLASHING @ PARAPET WALL COPING.rvt
+03:02:25 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF LIGHTNING PROTECTION.rvt
+03:02:32 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF SPECIAL CONDITION.rvt
+03:02:39 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF THRU FLASHING @ EQUIPMENT STAND.rvt
+03:02:46 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF VENT BOOT FLASHING.rvt
+03:02:52 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF _ DRAIN DETAIL.rvt
+03:03:00 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF-WALKPAD SYSTEM.rvt
+03:03:07 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOFTOP MASONRY WALL SUNSET DECK.rvt
+03:03:13 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOFTOP WALL SCREEN-PPRC Copy 1.rvt
+03:03:20 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOFTOP WALL SCREEN-PPRC.rvt
+03:03:26 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_1-PLY OVERFLOW SCUPPER.rvt
+03:03:33 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_1-PLY PARAPET WALL WITH COPING.rvt
+03:03:39 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_CHEM CURB.rvt
+03:03:46 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_CRICKET DIAGRAM.rvt
+03:03:52 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_ENCLOSURE FOR PIPING.rvt
+03:03:59 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_EQUIPMENT SUPPORT STAND.rvt
+03:04:06 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_LIGHTNING PROTECTION.rvt
+03:04:12 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_MECH DUCT ENCLOSURE.rvt
+03:04:19 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_MOD BIT ROOF DRAIN.rvt
+03:04:25 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_OVERFLOW SCUPPER.rvt
+03:04:32 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_PENETRATION POCKET.rvt
+03:04:38 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_PLUMBING VENT.rvt
+03:04:45 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_PREFAB METAL CURB OLD POLYISO.rvt
+03:04:51 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_SURFACE MOUNTED COUNTER FLASH 3D.rvt
+03:04:58 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_THRU FLASHING AT EQUIPMENT STAND.rvt
+03:05:05 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\ROOF_THRU FLASHING AT EQUIPMENT STAND1.rvt
+03:05:11 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\SHOWER_GUESTROOM SHOWER WATERPROOFING LAYERING DIAGRAM - 90 DEGREE CORNER.rvt
+03:05:18 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\SHOWER_GUESTROOM SHOWER WATERPROOFING LAYERING DIAGRAM - 90 DEGREE CORNER1.rvt
+03:05:24 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\TRASH CHUTE ROOF CAP.rvt
+03:05:30 SUCCESS: D:\Revit Detail Libraries\Revit Details\01 - Roof Details\VIBRATION ISOLATION PAD FLASHING W_ FLUID APPLIED MEMBRANE & TPO ROOFING.rvt
+03:05:37 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\AMENITIES RESTROOM VANITY SINK.rvt
+03:05:44 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\CASEWORK_CABINET SECTION-SINK.rvt
+03:05:50 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\CASEWORK_CABINET SECTION-TYP.rvt
+03:05:57 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\CASEWORK_EXTERIOR GRILLE1.rvt
+03:06:03 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\CASEWORK_RECEPTION COUNTER.rvt
+03:06:10 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\ENLARGED COUNTERTOP DETAILS @ UNITS.rvt
+03:06:17 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\EXTERIOR BAR SINK CABINET_COUNTER.rvt
+03:06:23 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\EXTERIOR BBQ GRILLE CABINET DETAIL.rvt
+03:06:30 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\LED LIGHT RECESS @ GYM MILLWORK.rvt
+03:06:36 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\LED LIGHT RECESS @ GYM MILLWORK1.rvt
+03:06:43 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\RECESSED SHELVING DETAIL @ UNIT.rvt
+03:06:49 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ BASE CABINET W_TRASH DROP & TOWEL DISPENSER.rvt
+03:06:56 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ RESTROOM BASE CABINET W_TRASH DROP & TOWEL DISPENSER1.rvt
+03:07:02 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ TYPICAL BASE CABINET.rvt
+03:07:09 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ TYPICAL BASE CABINET2.rvt
+03:07:15 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ TYPICAL DRAWER BASE CABINET.rvt
+03:07:22 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ TYPICAL KITCHEN ISLAND BASE CABINET @ UNITS.rvt
+03:07:28 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ TYPICAL SINK BASE CABINET.rvt
+03:07:36 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ TYPICAL SINK VANITY BASE CABINET @ UNITS.rvt
+03:07:43 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ TYPICAL SINK VANITY IN AMENITIES BATHROOMS.rvt
+03:07:50 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ WALL CABINET - 2.rvt
+03:07:56 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SECTION @ WALL CABINET.rvt
+03:08:03 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\SHELVING @ CLUBROOM.rvt
+03:08:09 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\TYPICAL BASE CABINET @ BAR Copy 1.rvt
+03:08:16 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\TYPICAL BASE CABINET @ BAR.rvt
+03:08:22 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\TYPICAL KITCHEN CASEWORK SECTION DETAIL - 2 @ UNITS.rvt
+03:08:29 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\TYPICAL KITCHEN CASEWORK SECTION DETAIL @ UNITS.rvt
+03:08:36 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\TYPICAL REFRIGERATOR CASEWORK @ UNITS.rvt
+03:08:42 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\TYPICAL REFRIGERATOR CASEWORK @ UNITS1 - Section 1.rvt
+03:08:49 SUCCESS: D:\Revit Detail Libraries\Revit Details\02 - Cabinetry & Millwork\TYPICAL UPPER CABINET2.rvt
+03:08:54 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1 HR WALL_FLOOR BOTTOM.rvt
+03:08:59 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1HR BOTTOM OF SHAFT WALL DETAIL.rvt
+03:09:04 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1HR BOTTOM OF WALL DETAIL.rvt
+03:09:11 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1HR PARTITION HEAD DETAIL.rvt
+03:09:17 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1HR SHAFT_FLOOR WALL BOTTOM.rvt
+03:09:24 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\1HR SMK BAR WALL TOP CONC.rvt
+03:09:30 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\2HR BOTTOM OF WALL DETAIL.rvt
+03:09:37 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\2HR PARTITION HEAD DETAIL.rvt
+03:09:43 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\2HR RATED SHAFTWALL CEILING_CHASE.rvt
+03:09:50 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\2HR RATED SHAFTWALL CEILING_CHASE1.rvt
+03:09:56 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\2HR SHAFT_FLOOR WALL BOTTOM.rvt
+03:10:03 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\2HR SMK BAR WALL TOP CONC.rvt
+03:10:09 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\2HR WALL_FLOOR BOTTOM.rvt
+03:10:16 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\ACOUSTICAL PUTTY PAD IN INTERIOR PARTITION DEMISING WALL.rvt
+03:10:22 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\ACOUSTICAL PUTTY PAD IN INTERIOR PARTITION DEMISING WALL1.rvt
+03:10:29 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\AMENITIES DECK PLANTER WALL DTL.rvt
+03:10:35 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\BELOW_GRADE WALL PENETRATION DETAIL.rvt
+03:10:42 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CABLE SLEEVE @ RATED PARTITION.rvt
+03:10:48 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CABLE SLEEVE @ RATED PARTITION1.rvt
+03:10:55 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CEILING_GWB HEADER.rvt
+03:11:02 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CEILING_GWB HEADER1.rvt
+03:11:08 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CEILING_SOFFIT DETAIL (GWB).rvt
+03:11:15 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CMU WALL @ TERRACE DETAIL.rvt
+03:11:21 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CMU WALL AT BALCONY TERRACE DETAIL.rvt
+03:11:28 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CMU WALL AT TERRACE DETAILCMU WALL AT TERRACE DETAIL.rvt
+03:11:34 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CMU WALL SLAB SECTION 2.rvt
+03:11:39 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\CMU WALL SLAB SECTION.rvt
+03:11:46 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DETAL @ COATING TO STUCCO.rvt
+03:11:52 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DOOR JAMB - GYP. BD. WALLS.rvt
+03:11:59 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DOOR JAMB - GYP. BD. WALLS1.rvt
+03:17:05 SUCCESS: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DOOR JAMB @ CONCRETE SHEAR WALLS.rvt
+03:27:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DOOR JAMB @ CONCRETE SHEAR WALLS1.rvt
+03:32:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DOORS_EXT H.M. DOOR HEAD_JAMB (STUCCO_STUCCO).rvt
+03:37:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DOORS_INT H.M. DOOR JAMB (CONCRETE WALLS).rvt
+03:42:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DOORS_JAMB (SHEAR WALLS).rvt
+03:47:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DUCT PENETRATION @ STC RATED WALLS.rvt
+03:52:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\DUCT PENETRATION @ STC RATED WALLS1.rvt
+03:57:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\ELEVATOR JAMB DETAIL - CMU.rvt
+04:02:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\ELEVATOR SILL DETAIL AT GROUND FLOOR - CONCRETE WALL.rvt
+04:07:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\FIRE RATED GYP WALL PENETRATION.rvt
+04:12:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\GWB HEADER DETAIL.rvt
+04:17:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\HM DOOR JAMB @ CONCRETE SHEAR WALLS.rvt
+04:22:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\HM DOOR JAMB @ CONCRETE SHEAR WALLS1.rvt
+04:27:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL - 1 HOUR.rvt
+04:32:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL - EXTERIOR WALL - 3 HOUR (U907).rvt
+04:37:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL - EXTERIOR WALL - NON RATED.rvt
+04:42:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL - TYPICAL 8.rvt
+04:47:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL TYPE CM-1.rvt
+04:52:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL TYPE CM-2.rvt
+04:57:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL TYPE CM-3.rvt
+05:02:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL TYPE CM-4.rvt
+05:07:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL TYPE CM-5.rvt
+05:12:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\MASONRY WALL TYPE CM-6.rvt
+05:17:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\NON-RATED PARTITION HEAD DETAIL.rvt
+05:22:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\NON-RATED_SMOKE PARTITION HEAD DETAIL.rvt
+05:27:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\PARTITION PRIORITY LEGEND.rvt
+05:32:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\PARTITION PRIORITY LEGEND1.rvt
+05:37:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\PARTITION PRIORITY LEGEND2.rvt
+05:42:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\PLANTER WALL AND RETAINING WALL DETAIL.rvt
+05:47:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\POURED CONCRETE WALL TYPE PC-1.rvt
+05:52:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\POURED CONCRETE WALL TYPE PC-2.rvt
+05:57:05 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\POURED CONCRETE WALL TYPE PC-3.rvt
+06:02:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\POURED CONCRETE WALL TYPE PC-4.rvt
+06:07:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED PARTITION_CONCRETE WALL 1.rvt
+06:12:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED PARTITION_CONCRETE WALL 2.rvt
+06:17:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED PARTITION_CONCRETE WALL.rvt
+06:22:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED PARTITION_CONCRETE WALL1.rvt
+06:27:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED SHAFT WALL HORIZONTAL ASSEMBLY.rvt
+06:32:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED SHAFT WALL HORIZONTAL ASSEMBLY1.rvt
+06:37:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED SHAFT WALL VERT TO HOR ASSEMBLY.rvt
+06:42:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED SHAFT WALL VERT TO HOR ASSEMBLY1.rvt
+06:47:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED WALL PENETRATION.rvt
+06:52:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\RATED WALL PENETRATION1.rvt
+06:57:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SECTION THROUGH SCUPPER @ BALCONY WALL.rvt
+07:02:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHAFT WALL - 1 HOUR RATED.rvt
+07:07:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHAFT WALL - 2 HOUR RATED.rvt
+07:12:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHAFT WALL HORIZONTAL ASSEMBLY-2-HR RATED STAIR SOFFITS.rvt
+07:17:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHAFT WALL VERTICAL TO HORIZONTAL ASSEMBLY- 1-HR_2-HR RATED.rvt
+07:22:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHOWER_ENCLOSURE JAMB AT GYP. WALL - TILE WALL.rvt
+07:27:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHOWER_ENCLOSURE JAMB AT GYP. WALL - TILE WALL1.rvt
+07:32:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHOWER_TYPICAL SHOWER FLOOR _ WALL TRANSITION.rvt
+07:37:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHOWER_TYPICAL SHOWER FLOOR _ WALL TRANSITION1.rvt
+07:42:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SHOWER_WALL TRANSITION DETAIL AT ACCESSIBLE SHOWER WITH 3” SLAB DEPRESSION.rvt
+07:47:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\SLAT WALL _ SOLID PANEL.rvt
+07:52:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STAIR - HANDRAIL WALL MOUNTED.rvt
+07:57:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STAIR - HANDRAIL WALL MOUNTED1.rvt
+08:02:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STAIR RAILING AT WALL.rvt
+08:07:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STAIR RAILING AT WALL1.rvt
+08:12:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STAIR_HANDRAIL WALL MOUNTED.rvt
+08:17:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STONE VENEER TO STUCCO DTL OLD.rvt
+08:22:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STONE VENEER TO STUCCO SECTION1.rvt
+08:27:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STOREFRONT DOOR HEAD_JAMB (STUCCO) DTL.rvt
+08:32:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUCCO BAND DETAIL.rvt
+08:37:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUCCO TO STUCCO SECTION DTL.rvt
+08:42:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUCCO V CONTROL JOINT.rvt
+08:47:06 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUD WALL TYPE ST-1.rvt
+08:47:14 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUD WALL TYPE ST-2.rvt
+08:47:14 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUD WALL TYPE ST-3.rvt
+08:47:14 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUD WALL TYPE ST-4.rvt
+08:47:14 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUD WALL TYPE ST-5 (2-HR).rvt
+08:47:14 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUD WALL TYPE ST-6 (2-HR @ SHAFTS).rvt
+08:47:14 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUD WALL TYPE ST-7 (TENANT TO CORRIDOR).rvt
+08:47:14 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\STUD WALL TYPE ST-8 (TENANT TO TENANT).rvt
+08:47:14 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\TENANT CORRIDOR DEMISING WALL TOP.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\TENANT DEMISING WALL TOP.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\TERRACE PLANTER TILE WALL DETAIL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\TERRACE PLANTER WALL AT SLAB EDGE.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\TERRACE PLANTER WALL DETAIL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\TRENCH DRAIN DETAIL PAVERS & WALL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\TV RECESS @ TYPICAL WALL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\TV RECESS AT TYPICAL WALL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALL FLASHING DTL..rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALL PENETRATION DETAIL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FIRE EXTINGUISHER MOUNTING.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING HT LIMITS.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING HT LIMITS1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_DRYER VENT.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_GWB TO MULLION.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_TYP (1 HOUR).rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_TYP (FULL HT).rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_TYP (FULL HT)1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_TYP (PARTITION).rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_UL453(2 HOUR) 3-5_8_ STUD.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_UL453(2 HOUR) 6_ STUD.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_FRAMING_UL453(2 HOUR) 6_ STUD1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALLS_PENETRATION (1 HOUR).rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\03 - Wall Details\WALL_BASE DETAIL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\CABLE SLEEVE @ CONCRETE FLOOR.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\CABLE SLEEVE @ CONCRETE FLOOR1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\CARPET_TILE TRANSITION.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\CORNER TILE DETAIL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\ELEVATOR SILL DETAIL @ GROUND FLOOR.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\ENLARGED ELEV. LOBBY_MAIL FLOOR PLAN - Elevation 1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\ENLARGED STAIR PLAN - GROUND FLOOR - Section 1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\EXPANSION JOINT SLAB TO SLAB DTL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\FIRE RATED FLOOR PENETRATION.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\FLOOR TRANSITION DETAILS.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\FLOOR TRANSITION DETAILS1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\FLOORING TRANSITIONS.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\GARAGE SECTION @ 5TH FLOOR Copy 2 - Callout 1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\MIDDLE TILE DETAIL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\OVERALL SECOND FLOOR RCP - Callout 1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\PLANTER FLOOR DRAIN TERRACE DETAIL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\PORCELAIN TILE ON MASONRY.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\SHOWER_THRESHOLD DETAIL AT ACCESSIBLE SHOWER WITH 3_ SLAB DEPRESSION.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\TILE CORNER DETAIL.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\TILE CORNER DETAIL1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\TILE_CARPET TRANSITION.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT A - FLOOR PLAN - Callout 1.rvt
+08:47:15 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT A - FLOOR PLAN - Callout 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT C - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT C - FLOOR PLAN - Callout 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT D - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT E - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT F - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT F - FLOOR PLAN - Callout 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT G - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT G - FLOOR PLAN - Callout 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT H - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT H - FLOOR PLAN - Callout 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT I - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT I - FLOOR PLAN - Callout 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT J - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT K - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT M - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT M - FLOOR PLAN - Elevation 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT M - FLOOR PLAN - Elevation 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT M - FLOOR PLAN - Elevation 3.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT M - FLOOR PLAN - Elevation 4.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT M - FLOOR PLAN - Elevation 5.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\UNIT N - FLOOR PLAN - Callout 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\WINDOW CASEMENT HEAD - B.O. SLAB.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\WINDOW HEAD DTL (AT FLAT SLAB EDGE) 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\WINDOW HEAD DTL (AT FLAT SLAB EDGE) 3.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\WINDOW HEAD DTL (AT FLAT SLAB).rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\WINDOW SINGLE HUNG HEAD - B.O. SLAB.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\04 - Floor Details\WW 7000 DETAIL @ SLAB.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\BI-FOLD DOORS SILL.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\BI-FOLD DOORS W_ TRANSOM TUBE.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\CASCADE DOOR & SIDE LITE SILL.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\CASCADE GLASS DOOR & SIDELITE JAMB.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\CASCADE GLASS DOOR HEAD.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\COLOR GLASS FRAME DETAIL - HEAD.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\COLOR GLASS FRAME DETAIL - INTERMEDIATE.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\COLOR GLASS FRAME DETAIL - JAMB.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\COLOR GLASS FRAME DETAIL - SILL.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\CONCEALED FRAME FLUSH ACCESS PANEL.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\CONCEALED FRAME FLUSH ACCESS PANEL1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\Copy of DOOR_BARN DOOR HARDWARE.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR JAMB @ RESTROOMS.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR JAMB @ RESTROOMS1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR OPENING LOCATION.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR SILL @ UNIT D 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR SILL @ UNIT D 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR THRESHOLD AT UNIT ENTRY.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS AT STOREFRONT_TYPICAL THRESHOLD.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_HEAD+JAMB (TYP).rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_HEAD+JAMB (TYP)1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_HEAD+JAMB (WOOD).rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_INT H.M. DOOR HEAD_JAMB (CONC.).rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_INT H.M. DOOR HEAD_JAMB (CONCRETE).rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_INT H.M. DOOR HEAD_JAMB.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_JAMB LOCATION (H.M.).rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_JAMB LOCATION (WD).rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_STOREFRONT @ TERRACE.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOORS_TYPICAL THRESHOLD.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR_BARN DOOR HARDWARE SECTION.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR_GARAGE_JAMB.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\DOOR_H.M._THRESHOLD.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\ELEVATOR DOOR HEAD_JAMB DTL 1.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\ELEVATOR DOOR HEAD_JAMB DTL 2.rvt
+08:47:16 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\ELEVATOR JAMB DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\ELEVATOR_DOOR JAMB.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\ELEVATOR_DOOR SILL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\EWM 350 INSWING DOOR SILL @ TERRACE.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\EWM 350 INSWING DOOR SILL @ TERRACE1.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\GARAGE DOOR JAMB DTL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\HORIZONTAL ROLLING WINDOW JAMB DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\LOUVER JAMB DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\NANA DOOR HEAD.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\NANA DOOR JAMB.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\NANA DOOR SILL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\NO GLASS FRAME DETAIL - HEAD.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\NO GLASS FRAME DETAIL - INTERMEDIATE.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\NO GLASS FRAME DETAIL - JAMB.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\NO GLASS FRAME DETAIL - SILL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\OUTSWING DOOR SILL @ TERRACE.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\OUTSWING DOOR SILL @ TERRACE1.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\OVERHEAD COILING DOOR JAMB DTL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\OVERHEAD DOOR_HEAD.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\OVERHEAD DOOR_THRESHOLD.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SGD 2020 JAMB.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SGD 2020 JAMB1.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SGD 2400ST JAMB.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SGD 2400ST JAMB1.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SHOWER STEAM DOOR.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SHOWER_CURB AT TYPICAL SHOWER DOOR.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SHOWER_CURB AT TYPICAL SHOWER DOOR1.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SHOWER_ENCLOSURE TRANSITION AT TOILET DOOR.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\SLIDING GLASS DOOR JAMB FIXED @ MULL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\STORE FRONT_DETAIL @ DOOR HEAD.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\STORE FRONT_DETAIL @ DOOR JAMB.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\STOREFRONT DOOR HEAD_JAMB DTL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WINDOW - HORIZTONAL ROLLING JAMB.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WINDOW JAMB DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WINDOW_CGI_JAMB FIXED @ MULL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WINDOW_CGI_JAMB FIXED.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WINDOW_CGI_JAMB_FIXEDSCREEN.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WW 7000 DETAIL DOOR JAMB @ HINGE SIDE WITH PANIC DEVICE.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WW 7000 DOOR INTERMEDIATE DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WW 7000 DOOR JAMB @ HINGE.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\05 - Door Details\WW 7000 JAMB.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\CONCEALED SOLAR SHADE AT WINDOW HEADER.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\FIXED WINDOW SILL DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\HORIZONTAL ROLLING WINDOW SILL DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\HORIZONTAL_ROLLING_WINDOW_DETAIL @ CONC HEADER.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\SLIDING WINDOW HEAD DTL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\SLIDING WINDOW SILL DTL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\STOREFRONT AT BALCONY TERRACE DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\STOREFRONT DETAIL @ HORIZONTAL MULLION.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\STOREFRONT HEAD DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\STOREFRONT SILL AT TERRACE.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\STOREFRONT SILL DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\STOREFRONT_THRESHOLD.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\TERMINATION @ GLAZING.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\TERMINATION @ GLAZING1.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW HEAD DETAIL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW SILL DTL.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW SINGLE HUNG HEAD - HEADER.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW_CGI_SILL FIXED.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW_DETAIL @ CONC HEADER.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW_DETAIL @ CONCRETE SILL-CASEMENT.rvt
+08:47:17 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW_DETAIL @ CONCRETE SILL.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW_DETAIL @ INTERMEDIATE MULLION.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\06 - Window Details\WINDOW_SINGLE HUNG SILL.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\BALCONY RAILING DETAIL.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\BALCONY UNIT RAILING DETAIL W_GLASS.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\ENLARGED SECTION & RAILING DETAIL @ TYP UNIT BALCONY.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\POOL DECK RAILING DETAIL - 5.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\POOL DECK RAILING DETAIL.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\RAILING DETAIL @ AMENITY PLANTERS.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\RAILING DETAIL @ AMENITY TERRACE.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\RAILING DETAIL @ BALCONY Copy 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\RAILING DETAIL @ BALCONY.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\RAILING SCHEDULE 1 Copy 1 - Section 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR - INNER RAILING.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR - INNER RAILING1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR - OUTER RAILING.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR - OUTER RAILING1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR HANDRAIL TERMINATION.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR- BASE LANDING.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR- INTERMEDIATE LANDING DETAIL.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR- LANDING AT TOP.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR_HANDRAIL TERMINATION.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR_HANDRAIL TERMINATION1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR_PAN STAIR STRINGER.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR_PAN STAIR TERMINATION.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\07 - Stair & Railing\STAIR_PAN STAIR TREAD_RISER.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\CEILING BRACING DETAIL.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\CEILING DETAIL AS SHADE.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\CEILING DETAIL MASTER SHOWER.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\CEILING DETAIL.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\CEILING SOFFIT DETAIL @ UNITS.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\CEILING_SUPPORT GRID.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\CEILING_SUPPORT GRID1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\CEILING_TYP. AT KITCHENS.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\GYP. BD. SOFFIT.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SHOWER_ENCLOSURE HEAD AT GYPSUM CEILING.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SHOWER_ENCLOSURE HEAD AT GYPSUM CEILING1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SOFFIT CONTROL JOINT 2.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SOFFIT CONTROL JOINT.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SOFFIT CONTROL JOINT1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SOFFIT EXPANSION JOINT 2.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SOFFIT EXPANSION JOINT.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SOFFIT EXPANSION JOINT1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SOFFIT VENT.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SOFFIT VENT1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\08 - Ceiling Details\SUSPENDED CEILING HANGING DETAIL.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\1 - a - Section 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\3 - a - Section 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\3 - a - Section 2.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\4 - a - Section 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\BATH A - INTERIOR ELEVATION 1 - Section 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\CONTROL JOINT INTERSECTION 2.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\CONTROL JOINT INTERSECTION.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\CONTROL JOINT INTERSECTION1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\ENLARGED SECTION THROUGH AMENITIES DECK - EAST.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\GRILL ELEVATION - Section 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\GRILL SECTION.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\KITCHEN A - INTERIOR ELEVATION - Section 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\KITCHEN A - INTERIOR ELEVATION - Section 2.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\PARTIAL NORTH EXTERIOR ELEVATION - W5 - Section 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\PARTIAL NORTH EXTERIOR ELEVATION - W5 - Section 2.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\POSSIBLE POOL SECTION.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\RATED SECTION @ ELECTRICAL OUTLETS.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\RATED SECTION @ ELECTRICAL OUTLETS1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 1 - Callout 1.rvt
+08:47:18 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 1 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 1 - Callout 3.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 1 - Callout 4.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 1 - Callout 5.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 1 - Callout 6.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 1 - Callout 7.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 1 - Callout 8.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 3 - Callout 2 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 - Callout 1 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 - Callout 1 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 - Callout 2 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 - Callout 3 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 - Callout 3 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 - Callout 4 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 - Callout 4 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 Copy 1 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 Copy 1 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 Key Plan - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 4 Key Plan - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 5 - Callout 1 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 5 - Callout 1 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 5 - Callout 1 - Callout 3.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 5 - Callout 1 - Callout 4.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 5 - Callout 2 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 5 Key Plan - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 5 Key Plan - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 - Callout 1 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 - Callout 2 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 - Callout 2 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 - Callout 3 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 - Callout 3 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 - Callout 4 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 - Callout 4 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 Key Plan - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 6 Key Plan - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 1 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 2 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 2 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 3 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 3 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 3 - Callout 3.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 4 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 4 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 - Callout 4 - Callout 3.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 Key Plan - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 Key Plan - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 Key Plan - Callout 3.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 7 Key Plan - Callout 4.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 8 - Callout 1 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 8 - Callout 2 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 8 - Callout 2 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 8 - Callout 2 - Callout 3.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\Section 8 Key Plan - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\SECTION @ UNIT TERRACE.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\SHOWER_GUESTROOM SHOWER TUB SECTION.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\SHOWER_GUESTROOM SHOWER TUB SECTION1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\TRASH CHUTE - SECTION 2 - Callout 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\TRASH CHUTE - SECTION 2 - Callout 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT A - BATH 1 - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT D - BATH 1 - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT D TYP - BATH SINK - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT D TYP - BATH SINK - Section 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT J - KITCHEN-1 - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT J - KITCHEN-2 - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT J - KITCHEN-3 - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT K - BATH SINK - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT K - KITCHEN-1 - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT K - KITCHEN-1 - Section 2.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT K - KITCHEN-2 - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\10 - Building Sections\UNIT L - BATH SINK - Section 1.rvt
+08:47:19 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\ENLARGED ELEV. LOBBY_MAIL DIMENSION PLAN - Elevation 1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\ENLARGED ELEV. LOBBY_MAIL FINISH PLAN - Elevation 1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\LEVEL 2 FP - CLUB ROOM ENLARGED PLAN - Elevation 1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\LEVEL 2 FP - CLUB ROOM ENLARGED PLAN - Elevation 2.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\LEVEL 2 FP - CLUB ROOM ENLARGED PLAN - Elevation 3.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\LEVEL 2 FP - CLUB ROOM ENLARGED PLAN - Elevation 4.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\LEVEL 2 FP - CLUB ROOM ENLARGED PLAN - Elevation 5.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\TERRACE 2 - Elevation 1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\TERRACE 2 - Elevation 2.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\TERRACE 2 - Elevation 3.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\11 - Elevations\TERRACE 2 - Elevation 4.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER CONTROL VALVE PENETRATION.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER DETAIL (TYP.).rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER DTL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER GRAB BAR.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER HEAD PENETRATION DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER NICHE.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_CONTROL VALVE PENETRATION DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_CONTROL VALVE PENETRATION DETAIL1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_CURB AT SHOWER ENCLOSURE _ BATHROOM OR TOILET ROOM.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_CURB AT SHOWER ENCLOSURE _ BATHROOM OR TOILET ROOM1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_HEAD DETAIL1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_HEAD DETAIL2.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_HEAD PENETRATION DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_HEAD PENETRATION DETAIL1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_VALVE DETAIL1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\SHOWER_VALVE DETAIL2.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\STORE FRONT_DETAIL @ INTERM. TUBE.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\12 - Bathroom Details\TUB DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\14 - MEP Details\HORIZONTAL ENCLOSURE AT DUCTWORK FIRE RATED - 2HR.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\14 - MEP Details\HORIZONTAL ENCLOSURE AT DUCTWORK FIRE RATED - 2HR1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\14 - MEP Details\MECHANICAL DUCT ENCLOSURE DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\15 - Typical Details\DRAFTING STANDARDS.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\15 - Typical Details\TYPICAL COVE DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\15 - Typical Details\TYPICAL FRAMING DETAILS.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\15 - Typical Details\TYPICAL FRAMING DETAILS1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\15 - Typical Details\TYPICAL SHELF HEIGHTS @ UNITS.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\15 - Typical Details\TYPICAL STANDPIPE.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\15 - Typical Details\TYPICAL STANDPIPE1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\16 - Waterproofing & Insulation\ENLARGED EDGE FLASHING DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\17 - Structural Details\COLUMN ATTACHMENT DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\2-HR FIRE RESISTANT SMOKE BARRIER.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\A616A-A4.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ACCESSORY_EQUIP MOUNTING DETAIL TYPE A.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ACCESSORY_EQUIP MOUNTING DETAIL TYPE A1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ACCESSORY_EQUIP MOUNTING DETAIL TYPE B.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ACCESSORY_EQUIP MOUNTING DETAIL TYPE B1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ACCESSORY_EQUIP MOUNTING DETAIL TYPE C.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ACCESSORY_EQUIP MOUNTING DETAIL TYPE C1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ACCESSORY_EQUIPMENT MOUNTING DETAILS.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ACCESSORY_EQUIPMENT MOUNTING DETAILS1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ADA PARKING STALL DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ALUMINUM TRELLIS DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ANSI PUBLIC DETAILS.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ARCHITECTURAL FEATURE PLAN DTL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\BELOW_GRADE PERIMETER VERTICAL TERMINATION AT GRADE (PLASTER).rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\BUILT-IN LINEN _PANTRY @ UNITS Copy 1.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\BUILT-IN LINEN _PANTRY @ UNITS.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\BUILT-IN PANTRY_ LINEN.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\BULK HEAD DETAIL.rvt
+08:47:20 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\BULK HEAD DETAIL1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\CANOPY DETAIL @ GARAGE ENTRANCE.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\CASCADE SIDELITE HEAD.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\CONTROL JOINT TERMINATION 2.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\CONTROL JOINT TERMINATION.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\CONTROL JOINT TERMINATION1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\CONTROL JOINTS.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\CONTROL JOINTS1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\DECK DRAIN DETAIL.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\DEFLECTION JOINT 1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\DEFLECTION JOINT 2.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\DEFLECTION JOINT.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\DEFLECTION JOINT1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\Detail 1 - Callout 1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\DETAIL AT EDGE OF COVERED PATIO.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\DIRECT BOND PLASTER SYSTEM.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\DIRECT BOND PLASTER SYSTEM1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ELEVATOR HEAD AND SILL DETAIL.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ELEVATOR PIT ACCESS LADDER.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ELEVATOR PIT LADDER DETAILS.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ELEVATOR PIT PLAN (TYP).rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\ENCLOSURE FOR MULTIPLE PIPING THRU DECK.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\EXPANSION JOINT AT PLANTER.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\EXPANSION JOINT AT TERRACE.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\EXPANSION JOINT DTL.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\EXPANSION JOINT PLAN DTL 1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\EXPANSION JOINT PLAN DTL 2.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\EXPANSION JOINT TERMINATION 2.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\EXPANSION JOINT TERMINATION.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\EXPANSION JOINT TERMINATION1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FHA UNIT DETAILS.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FIRE EXTINGUISHER MOUNTING.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FIRE EXTINGUISHER MOUNTING1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FIRE EXTINGUISHER MOUNTING2.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FIRE EXTINGUISHER SEMI-RECESSED.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FIRE RESISTANCE RATING DESIGNS.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FLUSH CURB DETAIL - INTERIOR TO SUNSET DECK.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FOAM ATTACHMENT DETAIL.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FOAM TYPES DETAIL.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FP 02 - Callout 1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FP 02 - Callout 2.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FP 02 - Callout 3.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\FP 02 - DIMENSION PLAN - Callout 1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\GRAVEL STOP.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\GROUND LEVEL TERMINATION 1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\GROUND LEVEL TERMINATION 2.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\GROUND LEVEL TERMINATION.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\GROUND LEVEL TERMINATION1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\GS+P BIM Use Terms.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\GUTTER.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\GYPSUM BOARD HEADER DETAIL.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\HORIZONTAL ENCLOSURE AT BOTTOM OF SHAFTS FIRE RATED - 2HR.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\HORIZONTAL ENCLOSURE AT BOTTOM OF SHAFTS FIRE RATED - 2HR1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\HORIZONTAL ENCLOSURE AT TOP SHAFTS FIRE RATED - 2HR.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\HORIZONTAL ENCLOSURE AT TOP SHAFTS FIRE RATED - 2HR1.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\LOUVER HEAD DETAIL.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\LOUVER SILL DETAIL.rvt
+08:47:21 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\LOUVER_SILL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\OVERFLOW SCUPPER.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\PLANTER DETAIL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\POOL DECK_DRAIN DETAIL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\POOL GUTTER DETAIL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\POOL GUTTER DETAIL1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\PORCELAIN TO PORCELAIN CORNER PLAN DTL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\PORCELAIN TO PORCELAIN OUT. CORNER PLAN DTL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\PORTLAND CEMENT PLASTER SYSTEM COMPONENTS.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\PRE-FABRICATED METAL CURB.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\RAILLING DETAIL @ COVERED PATIO.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SAVE VIEW.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 HEAD @ HEADER.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 HEAD @ PENTHOUSE.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 HEAD @ PENTHOUSE1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 HEAD.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 HEAD1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 SILL @ BALCONY.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 SILL @ BALCONY1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 SILL @ SLAD EDGE.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 SILL @ TERRACE.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020 SILL @ TERRACE1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020_7000 HEAD @ THA.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2020_7000 HEAD @ THA1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2400ST CENTER.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2400ST CENTER1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2400ST HEAD.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2400ST HEAD1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2400ST SILL @ BALCONY.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2400ST SILL @ BALCONY1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2400ST SILL @ TERRACE.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SGD 2400ST SILL @ TERRACE1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\SIGNAGE ATTACHMENT DETAIL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\STORE FRONT_DETAIL @ CONCRETE SILL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\STORE FRONT_DETAIL @ HORIZONTAL MULLION.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\STORE FRONT_DETAIL @ VERTICAL MULLION.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\STORE FRONT_DETAIL @ VERTICAL TRANSOM MULLION.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\STORE FRONT_DETAIL @ VERTICAL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TERRACE DRAIN DTL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TERRACE EDGE DTL.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TERRACE PLANTER @ BALCONY.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TERRACE PLANTER @ COURTYARD.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TEXTURED ACRYLIC SYSTEM (TAC-05).rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TRANSOM.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TRASH CHUTE DISCHARGE.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TRENCH DRAIN @ PAVERS.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\TRENCH DRAIN DETAIL PAVERS.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT A - DIMENSION PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT A - FINISH PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT A - RCP - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT C - DIMENSION PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT C - DIMENSION PLAN - Callout 2.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT C - FINISH PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT C - RCP - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT E - DIMENSION PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT E - FINISH PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT E - RCP - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT F - DIMENSION PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT F - FINISH PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT F - RCP - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT G - DIMENSION PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT G - FINISH PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT G - RCP - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT H - DIMENSION PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT H - FINISH PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT H - RCP - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT I - DIMENSION PLAN - Callout 1.rvt
+08:47:22 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT I - FINISH PLAN - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT I - RCP - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT J - DIMENSION PLAN - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT J - FINISH PLAN - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT J - RCP - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT M - DIMENSION PLAN - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT M - FINISH PLAN - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT M - RCP - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT N - DIMENSION PLAN - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT N - FINISH PLAN - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\UNIT N - RCP - Callout 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\VERTICAL CONTROL JOINT 1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\VERTICAL CONTROL JOINT 2.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\VERTICAL CONTROL JOINT.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\VERTICAL CONTROL JOINT1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WOOD TRIM DETAIL.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WOOD TRIM DETAIL1.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WW 7000 DETAIL @ HORIZONTAL MULLION.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WW 7000 DETAIL @ VERTICAL MULLION.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WW 7000 HEAD @ DROPPED HEADER.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WW 7000 HEAD @ PENTHOUSE.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WW 7000 HEAD.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WW 7000 SILL @ AMENITY TERRACE.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WW 7000 SILL @ UNIT TERRACE.rvt
+08:47:23 FAILED TO OPEN: D:\Revit Detail Libraries\Revit Details\99 - General Details\WW 7000 SILL.rvt

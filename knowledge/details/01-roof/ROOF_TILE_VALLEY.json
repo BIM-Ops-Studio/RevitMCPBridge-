@@ -1,0 +1,1451 @@
+﻿{
+    "scale":  8,
+    "name":  "ROOF TILE VALLEY",
+    "id":  1740145,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  17.3453,
+                                                              "maxX":  19.9927,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  17.3181,
+                                                              "maxX":  20.0199,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  17.3207,
+                                                              "maxX":  17.9285,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  17.5728,
+                                                              "maxX":  18.5608,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  19.4095,
+                                                              "maxX":  20.0173,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  18.7772,
+                                                              "maxX":  19.7652,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.4111,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.3181
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.3181
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1527,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.3181
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.1678
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2689,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.1678
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.4287
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1229,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.4287
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.3181
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1685,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.3181
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.3181
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4111,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  20.0199
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  20.0199
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1527,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  20.0199
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  20.1702
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2689,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  20.1702
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.9093
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1229,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.9093
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  20.0199
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1685,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  20.0199
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  20.0199
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6350,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.3181
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.9045
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.9045
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.9285
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6610,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.9285
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.3181
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.5968
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.5728
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.0441,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.5728
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.5368
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.0441,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.5608
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.5968
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.5368
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.5608
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.8012
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.7772
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.0441,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.7772
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.7412
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.0441,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.7652
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.8012
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.7412
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.7652
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6350,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  20.0199
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.4335
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6610,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.4095
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  20.0199
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.4335
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.4095
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2438,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.5608
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.5608
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2898,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.6690
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.6690
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2438,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.7772
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.7772
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1263,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.6690
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.6026
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1263,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.7354
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.6690
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4396,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.6026
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.1968
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0319,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.1968
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.2043
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1549,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.2043
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.3473
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1549,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.3415
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.1985
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0319,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.3490
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.3415
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1532,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.2076
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.3490
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1065,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.1015
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.2076
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1180,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.9925
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.1015
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0878,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0796
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.9986
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4396,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.1412
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.7354
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0319,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.1337
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.1412
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1549,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.9965
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.1395
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0319,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.9890
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.9965
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1549,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.9907
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.1337
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1532,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.1305
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.9890
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1065,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.2365
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.1305
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1180,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3455
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.2365
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0880,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.2584
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3396
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1768,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.3946
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.2314
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.3505,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.9156
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.6690
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7105,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.9253
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.2695
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0542,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.9756
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.9253
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4649,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.4047
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.9756
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0241,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.4089
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.4047
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1177,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.5175
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.4089
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1177,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.8205
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.9292
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0241,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.9292
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.9333
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4649,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.9333
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3624
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0542,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3624
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.4127
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7105,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.4127
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  20.0686
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.3505,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.6690
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.4224
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1762,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  20.1068
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.9442
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0248,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  17.9986
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.9925
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0308,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0201
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0485
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0308,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0222
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0506
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0085,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0222
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0201
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0085,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0506
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0485
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0684,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0309
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0044
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0684,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0113
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0378
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0044
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0057
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0057
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0113
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0173
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0069
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0190
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0085
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0207
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0102
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0224
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0119
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0241
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0136
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0258
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0153
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0274
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0170
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0291
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0186
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0308
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0203
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0325
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0220
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0342
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0237
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0057
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0113
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0044
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0057
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0662,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0300
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0044
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0662,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0113
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0369
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0173
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0069
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0207
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0102
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.0190
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.0085
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0308,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3179
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.2895
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0308,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3158
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.2874
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0085,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3158
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3179
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0085,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.2874
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.2895
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3156
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3261
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3140
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3244
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3123
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3228
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3106
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3211
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3089
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3194
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3072
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3177
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3055
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3160
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3039
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3143
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3323
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3267
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3336
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3323
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0684,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3072
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3336
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0684,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3267
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3003
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3207
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3312
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3173
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3278
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0105,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3190
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3295
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0239,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.3396
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.3455
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  16.575
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  18.0803
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLYWOOD ROOF SHEATHING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  16.575
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  17.8436
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONCRETE TILE ROOF\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  16.575
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  18.4603
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PEEL \u0026 STICK MEMBRANE UNDERLAYMENT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  19.9468
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  19.2245
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. CLEAT FASTENED TO \\rSUBSTRATE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  19.9468
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  19.0634
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1\" MIN. VALLEY CLIP\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  19.9468
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  18.6537
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CENTER RIB - 1\" HIGH\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  108,
+                     "extractedAt":  "2025-12-28 00:16:58",
+                     "regionCount":  6,
+                     "componentCount":  6,
+                     "textCount":  6
+                 }
+}

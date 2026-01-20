@@ -1,0 +1,277 @@
+﻿{
+    "scale":  16,
+    "name":  "INTERIOR WALL SECTION (WD. STUD)",
+    "id":  1738840,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.5424,
+                                                              "maxX":  12.2970,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.5424,
+                                                              "maxX":  12.2922,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.4047,
+                                                              "maxX":  12.4078,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.1882,
+                                                              "maxX":  10.2507,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.6257,
+                                                              "maxX":  10.6882,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Sheathing-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.5841
+                                                               },
+                                                  "type":  "2x4"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Sheathing-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Sheathing-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Sheathing-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.5841
+                                                               },
+                                                  "type":  "2x4"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.4382
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.4382
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.7091
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  12.0841
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.5424
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  12.2507
+                                                               },
+                                                  "type":  "Break Line"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.3111
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.4743
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "2\"X4\" TOP PLATE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.3111
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.2365
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1/2\" GYPSUM BOARD \\rCLG.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.3111
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.7244
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "ROOF STRUCTURE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.3111
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.3994
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "R-30 INSULATION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.3111
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.4228
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "2\"X4\" BOTTOM PLATE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.3111
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.0687
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FLOORING AND BASE\\rAS SELECTED BY OWNER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.3111
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.3678
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONC. FLOOR SLAB\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.3111
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.6301
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1/2\" GYPSUM BOARD ON\\rBOTH SIDES OF 3 1/2\" WD.\\rSTUDS @ 24\" O.C.\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:16:00",
+                     "regionCount":  5,
+                     "componentCount":  17,
+                     "textCount":  8
+                 }
+}

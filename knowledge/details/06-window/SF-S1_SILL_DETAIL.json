@@ -1,0 +1,2477 @@
+﻿{
+    "scale":  4,
+    "name":  "SF-S1_SILL DETAIL",
+    "id":  1862919,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  3.5196,
+                                                              "maxX":  4.1551,
+                                                              "minY":  0.4347,
+                                                              "maxY":  0.4347
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  3.3530,
+                                                              "maxX":  4.3842,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  3.6187,
+                                                              "maxX":  4.0509,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  4.0501,
+                                                              "maxX":  4.2176,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.4754,
+                                             "style":  "3_DASH A (x1)",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.1606
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6852
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0232,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7391
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7386
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7335
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7218
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0204,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7150
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7163
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0029,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7150
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7139
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0082,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6619
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6566
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0051,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6776
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6743
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0051,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0005
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9972
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0079,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7699
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7649
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0125,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7865
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7879
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0130,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7948
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7865
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0026,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7940
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7948
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7849
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7808
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0103,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7699
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7765
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7335
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7335
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0056,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7391
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7335
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0056,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7218
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7163
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7218
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7218
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0745,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7139
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6395
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1933,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6395
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6395
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0172,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6395
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6566
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0216,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6566
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6566
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0124,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6619
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6743
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0055,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6619
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6619
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0032,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6776
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6776
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0073,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6796
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6723
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0078,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6723
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6723
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0104,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6723
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6619
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0183,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6619
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6619
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0328,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6619
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6291
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2083,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6291
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6291
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0044,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8768
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8807
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0062,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8768
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8768
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8806
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8806
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0125,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8847
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8847
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8806
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8806
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8768
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8768
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0054,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8768
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8817
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1641,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8817
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0457
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2083,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0457
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0457
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0183,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0129
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0129
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0104,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0129
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0025
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0078,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0025
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0025
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0084,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0025
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9940
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0032,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9972
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9972
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0124,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0005
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0129
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0217,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0181
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0181
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1038,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8858
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9896
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0091,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7699
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7699
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0263,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7386
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7649
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1450,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6291
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7741
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0230,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7751
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7751
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0127,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7751
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7879
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0113,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7879
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7879
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0142,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7948
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7948
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0765,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.7940
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.7940
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0043,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7765
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7808
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0033,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7933
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7913
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7848
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7830
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0049,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7770
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7816
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0287,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7896
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7652
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0272,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7896
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8150
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0033,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8127
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8150
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0088,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8127
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8070
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0182,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8039
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8070
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0030,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8039
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8056
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0161,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8044
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8134
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0110,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7948
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8044
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0101,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7948
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7948
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0417,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8581
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8165
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0208,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8165
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8165
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0082,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7948
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7948
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0054,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7933
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7947
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0065,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7848
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7913
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0101,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7823
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7830
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7845
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7828
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0068,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7816
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7864
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0059,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7744
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7770
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0154,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7741
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7777
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0099,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7652
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7751
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0048,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8150
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8150
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0085,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8141
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8056
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0119,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8040
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8141
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0100,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8040
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8040
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0101,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8134
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8040
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0081,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8064
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8012
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0096,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8242
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8192
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0071,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8207
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8242
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0045,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8207
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8181
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0041,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8090
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8064
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0041,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8064
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8090
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0041,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8658
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8684
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0041,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8684
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8658
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0045,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8567
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8541
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0071,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8506
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8541
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0096,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8556
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8506
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0081,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8736
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8684
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0232,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9357
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9362
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9413
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9529
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0232,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9580
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9585
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9887
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9858
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0082
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0063
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6684
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6665
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6888
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6860
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0232,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7163
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7167
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7218
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7335
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0232,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7386
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7391
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0547,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8012
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8012
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0128,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8192
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8064
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0091,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8090
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8181
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0506,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8064
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8064
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0506,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8684
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8684
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0091,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8658
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8567
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0128,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8556
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8684
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0547,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8736
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8736
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9413
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9413
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9529
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9529
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0153,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9963
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9887
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0087,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9929
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9929
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0134,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0063
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9929
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0088,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0063
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0063
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0090,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0122
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0082
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0088,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0122
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0122
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3498,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  4.0122
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6625
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0087,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6625
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6625
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0090,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6665
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6625
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0088,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6684
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6684
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0316,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9580
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9896
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6818
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6818
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0139,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6860
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6791
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0076,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6851
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6888
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0152,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6851
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6851
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0134,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.6684
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.6818
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0056,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7218
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7163
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7218
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7218
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7335
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7335
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0056,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7391
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7335
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0039,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8806
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8768
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0042,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8847
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8806
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0042,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8806
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8847
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0037,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8768
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8806
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0125,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8597
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8597
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0234,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8817
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8597
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0195,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8597
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8768
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0034,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9940
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9972
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0054,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9940
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9940
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0069,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6796
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6776
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0070,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6791
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.6818
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0038,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9929
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9963
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0626,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.7386
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8012
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0568,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8090
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8658
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0626,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8736
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9362
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0317,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.6851
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.7167
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0740,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.7849
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.7849
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0472,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8150
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.7849
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0472,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8598
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.8899
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0449,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8598
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.8150
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0329,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8150
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.7940
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0449,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8598
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.8150
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0329,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8598
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.8807
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0844,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8807
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.8807
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0989,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8899
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.8899
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0232,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9357
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9362
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9413
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9529
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0204,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9597
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9585
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0029,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9597
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9608
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9413
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9413
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0056,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9357
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9413
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0056,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9529
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9585
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0050,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9529
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.9529
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0745,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9608
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  4.0353
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0463,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.9362
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8899
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1934,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.0353
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  4.0353
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0172,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.0181
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  4.0353
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0208,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8581
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8581
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7771,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8593
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8593
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0442,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8152
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8593
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7562,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8152
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8152
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7771,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8410
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8410
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7562,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  3.8335
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  3.8335
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7083,
+                                             "style":  "1_DASH A (x0.5)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.1668
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  4.1668
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3898,
+                                             "style":  "3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.0419
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.6521
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4583,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.6291
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.6291
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4456,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.0457
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  4.0457
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6910,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.2197
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  4.2197
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4792,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.8817
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.8817
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4635,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  3.7929
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  3.7929
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7374,
+                                             "style":  "3_DASH A (x1)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.1606
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  4.1606
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Wood Blocking - Custom",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3.6521
+                                                               },
+                                                  "type":  "Wood Blocking - Custom"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "07-SEALANT-BACKER ROD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  4.0501
+                                                               },
+                                                  "type":  "1/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "07-SEALANT-BACKER ROD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3.6192
+                                                               },
+                                                  "type":  "1/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "04-CMU-2 Core-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3.5196
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\" 2"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FASTENERS_SCREW",
+                                                  "location":  {
+                                                                   "y":  -1.4205,
+                                                                   "x":  3.8374
+                                                               },
+                                                  "type":  "FLAT - 2\" Length"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3.2486
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "NOTE:\\rMANUFACTURER TO USE THE REQUIRED MULLION TYPE PER NOA TO COMPLY WITH SPECIFIED WIND LOADS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.0746
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "SLOPE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.7235
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3.8837
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "IMPACT RESISTANT ALUMINUM WINDOW FRAME AND GLASS SYSTEM\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.7235
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3.7703
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLASTIC SHIM AS REQ\u0027D\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.7235
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3.617
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. SEALANT AND BACKER ROD\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.7235
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.1626
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "R.O. FLASHING TO EXTEND 6\" ON EXTERIOR SIDE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.7235
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.0502
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. SEALANT AND BACKER ROD\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.7235
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.2198
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PORTLAND CEMENT PLASTER EXTERIOR FINISH - 3/8\" STRATCH COAT, 1/4\" BROWN COAT, 1/8\" FINISH COAT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  -28.3694,
+                                                            "x":  4.7235
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  -28.3694,
+                                                             "x":  3.9136
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "REINFORCED CONCRETE SILL - SEE STR\u0027L DWGS.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  -28.3694,
+                                                            "x":  4.7235
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  -28.3694,
+                                                             "x":  3.9463
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CMU / CONCRETE WALL\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  188,
+                     "extractedAt":  "2025-12-28 00:21:03",
+                     "regionCount":  4,
+                     "componentCount":  9,
+                     "textCount":  10
+                 }
+}

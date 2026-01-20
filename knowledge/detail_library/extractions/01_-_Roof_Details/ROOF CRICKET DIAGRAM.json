@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "ROOF CRICKET DIAGRAM.rvt",
+    "activeView":  {
+                       "scale":  1,
+                       "name":  "ROOF CRICKET DIAGRAM",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\ROOF CRICKET DIAGRAM.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:01:58"
+}

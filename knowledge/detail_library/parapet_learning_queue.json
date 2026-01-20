@@ -1,0 +1,80 @@
+{
+  "description": "Priority files for learning parapet and CMU wall details",
+  "generated_at": "2025-12-28",
+  "instructions": "Open these files in Revit one at a time. Use MCP to extract detail components, annotations, and dimensions.",
+  "learning_files": [
+    {
+      "priority": 1,
+      "category": "Parapet Core",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\PARAPET WALL DTL.rvt",
+      "why": "Main parapet detail - exactly what user was teaching"
+    },
+    {
+      "priority": 1,
+      "category": "Parapet Core",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\PARAPET AND TERRACE WALL COPING.rvt",
+      "why": "Coping detail - cap profile the user showed"
+    },
+    {
+      "priority": 1,
+      "category": "Parapet Core",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\ROOF_1-PLY PARAPET WALL WITH COPING.rvt",
+      "why": "Complete parapet assembly with roofing membrane"
+    },
+    {
+      "priority": 2,
+      "category": "Flashing",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\FLASHING @ HIGH PARAPET WALL.rvt",
+      "why": "Counter flashing and base flashing detail"
+    },
+    {
+      "priority": 2,
+      "category": "Flashing",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\ROOF FLASHING @ PARAPET WALL COPING.rvt",
+      "why": "Flashing integration with coping"
+    },
+    {
+      "priority": 3,
+      "category": "CMU Walls",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\MASONRY WALL TYPE CM-1.rvt",
+      "why": "Standard CMU wall type 1"
+    },
+    {
+      "priority": 3,
+      "category": "CMU Walls",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\MASONRY WALL TYPE CM-2.rvt",
+      "why": "Standard CMU wall type 2"
+    },
+    {
+      "priority": 3,
+      "category": "CMU Walls",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\CMU WALL SLAB SECTION.rvt",
+      "why": "CMU to slab connection"
+    },
+    {
+      "priority": 3,
+      "category": "CMU Walls",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\CMU WALL @ TERRACE DETAIL.rvt",
+      "why": "CMU at exterior condition"
+    },
+    {
+      "priority": 4,
+      "category": "Stucco",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\STUCCO TO STUCCO SECTION DTL.rvt",
+      "why": "Stucco finish detail"
+    },
+    {
+      "priority": 4,
+      "category": "Stucco",
+      "path": "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\STUCCO BAND DETAIL.rvt",
+      "why": "Stucco reveals and bands"
+    }
+  ],
+  "mcp_extraction_commands": [
+    "getDraftingViews - List all views in the file",
+    "getElementsByCategory(BuiltInCategory.OST_DetailComponents) - Get all detail components",
+    "getElementsByCategory(BuiltInCategory.OST_TextNotes) - Get annotations",
+    "getElementsByCategory(BuiltInCategory.OST_Dimensions) - Get dimensions",
+    "exportViewToImage - Capture the detail view"
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "project_name": "GOULDS TOWER-1",
+  "firm": "ARKY",
+  "extracted_at": "2026-01-17",
+  "project_type": "multi-family",
+  "statistics": {
+    "rooms": 447,
+    "views": 528,
+    "sheets": 73,
+    "levels": 12
+  },
+  "room_analysis": {
+    "Bedroom": {"count": 137, "avg_area": 133},
+    "Bathroom": {"count": 105, "avg_area": 62},
+    "Living": {"count": 48, "avg_area": 269},
+    "Kitchen": {"count": 48, "avg_area": 93},
+    "Stair": {"count": 22, "avg_area": 150},
+    "Utility": {"count": 20, "avg_area": 107},
+    "Closet": {"count": 16, "avg_area": 36},
+    "Office": {"count": 9, "avg_area": 802},
+    "Circulation": {"count": 25, "avg_area": 180},
+    "Balcony": {"count": 17, "avg_area": 85}
+  },
+  "view_analysis": {
+    "DraftingView": {"count": 194},
+    "FloorPlan": {"count": 71},
+    "CeilingPlan": {"count": 15},
+    "Section": {"count": 15},
+    "Elevation": {"count": 4},
+    "ThreeD": {"count": 12},
+    "Legend": {"count": 8},
+    "Schedule": {"count": 209}
+  },
+  "sheet_analysis": {
+    "A-0: General/Index": {
+      "count": 8,
+      "sheets": [
+        {"num": "A-0.0", "name": "COVER SHEET"},
+        {"num": "A-0.1", "name": "DRAWING INDEX & GENERAL NOTES"},
+        {"num": "A-0.2", "name": "ADA NOTES & DETAILS"},
+        {"num": "A-0.3", "name": "ADA NOTES & DETAILS"},
+        {"num": "A-0.4", "name": "ADA NOTES & DETAILS"},
+        {"num": "A-0.5", "name": "UL ASSEMBLY"},
+        {"num": "A-0.11", "name": "1ST FLOOR LIFE SAFETY PLAN"},
+        {"num": "A-0.12", "name": "2ND FLOOR LIFE SAFETY PLAN"}
+      ]
+    },
+    "A-1: Site": {
+      "count": 2,
+      "sheets": [
+        {"num": "A-1.0", "name": "SITE PLAN / PROPERTY DATA"},
+        {"num": "A-1.1", "name": "SITE PLAN DETAILS"}
+      ]
+    },
+    "A-2: Plans/RCP": {
+      "count": 6,
+      "sheets": [
+        {"num": "A-2.1", "name": "1ST AND 2ND LVL. FLOOR PLAN"},
+        {"num": "A-2.2", "name": "3RD AND 4TH THRU 11TH LVL. FLOOR PLAN"},
+        {"num": "A-2.3", "name": "1ST AND 2ND LVL. R.C.P"},
+        {"num": "A-2.4", "name": "3RD AND 4TH THRU 11TH LVL. R.C.P."},
+        {"num": "A-2.5", "name": "ROOF PLAN"},
+        {"num": "A-2.6", "name": "ROOF DETAILS"}
+      ]
+    },
+    "A-3: Elevations": {
+      "count": 4,
+      "sheets": [
+        {"num": "A-3.1", "name": "BUILDING EXTERIOR ELEVATIONS"},
+        {"num": "A-3.2", "name": "BUILDING EXTERIOR ELEVATIONS"},
+        {"num": "A-3.3", "name": "BUILDING EXTERIOR ELEVATIONS"},
+        {"num": "A-3.4", "name": "BUILDING EXTERIOR ELEVATIONS"}
+      ]
+    },
+    "A-4: Building Sections": {
+      "count": 3,
+      "sheets": [
+        {"num": "A-4.1", "name": "BUILDING SECTIONS"},
+        {"num": "A-4.2", "name": "BUILDING SECTIONS"},
+        {"num": "A-4.3", "name": "BUILDING SECTIONS"}
+      ]
+    },
+    "A-5: Wall Sections": {
+      "count": 2,
+      "sheets": [
+        {"num": "A-5.1", "name": "WALL SECTIONS"},
+        {"num": "A-5.2", "name": "WALL SECTIONS"}
+      ]
+    },
+    "A-6: Vertical Circulation": {
+      "count": 3,
+      "sheets": [
+        {"num": "A-6.1", "name": "STAIR / SECTIONS AND DETAILS"},
+        {"num": "A-6.2", "name": "STAIR / SECTIONS AND DETAILS"},
+        {"num": "A-6.5", "name": "ELEVATOR PLN. / SECTIONS AND DETAILS"}
+      ]
+    },
+    "A-7: Schedules": {
+      "count": 2,
+      "sheets": [
+        {"num": "A-7.1", "name": "DOOR SCHEDULES"},
+        {"num": "A-7.2", "name": "DOOR DETAILS"}
+      ]
+    },
+    "A-8: Windows/Finishes": {
+      "count": 3,
+      "sheets": [
+        {"num": "A-8.1", "name": "WINDOW SCHEDULES / STOREFRONT"},
+        {"num": "A-8.2", "name": "WINDOW DETAILS"},
+        {"num": "A-8.3", "name": "ROOM FINISH SCHEDULE"}
+      ]
+    },
+    "A-9: Enlarged Plans": {
+      "count": 8,
+      "sheets": [
+        {"num": "A-9.1", "name": "ENLARGED 3 BD. RM. UNIT-A FLR. PLN."},
+        {"num": "A-9.2", "name": "ENLARGED 3 BD. RM. UNIT-B FLR. PLN."},
+        {"num": "A-9.3", "name": "ENLARGED 3 BD. RM. UNIT-C FLR. PLN."},
+        {"num": "A-9.4", "name": "ENLARGED 3 BD. RM. UNIT-D FLR. PLN."},
+        {"num": "A-9.5", "name": "ENLARGED 3 BD. RM. UNIT-E FLR. PLN."},
+        {"num": "A-9.6", "name": "ENLARGED 3 BD. RM. UNIT-F FLR. PLN."},
+        {"num": "A-9.10", "name": "ENLARGED PLAN - PARKING SYSTEM"},
+        {"num": "A-9.15", "name": "ENLARGED RESTROOM FLOOR PLAN"}
+      ]
+    },
+    "A-10: Details": {
+      "count": 3,
+      "sheets": [
+        {"num": "A-10.1", "name": "WALL PARTION TYPES AND DETAILS"},
+        {"num": "A-10.2", "name": "CASEWORK DETAILS"},
+        {"num": "A-10.3", "name": "EXTRIOR DETAILS"}
+      ]
+    },
+    "LP: Landscape": {
+      "count": 3,
+      "sheets": [
+        {"num": "LP-1", "name": "LANDSCAPE PLAN / NOTES & DETAILS"},
+        {"num": "LP-2", "name": "ROOFTOP LANDSCAPE PLAN"},
+        {"num": "LP-3", "name": "LANDSCAPE DETAILS"}
+      ]
+    },
+    "C: Civil": {
+      "count": 1,
+      "sheets": [
+        {"num": "C-1", "name": "SITE PAVING PLAN"}
+      ]
+    }
+  },
+  "numbering_pattern": "Dot-decimal (A-2.1, A-2.2)",
+  "proposed_rules": [
+    {
+      "id": "UNIT_ENLARGED_PLANS",
+      "name": "Unit Enlarged Plans",
+      "condition": "project_type = 'multi-family' AND unit_types > 1",
+      "action": "Create enlarged floor plan for each unique unit type",
+      "confidence": "HIGH",
+      "evidence": [
+        "A-9.1: ENLARGED 3 BD. RM. UNIT-A FLR. PLN.",
+        "A-9.2: ENLARGED 3 BD. RM. UNIT-B FLR. PLN.",
+        "A-9.3: ENLARGED 3 BD. RM. UNIT-C FLR. PLN.",
+        "A-9.4: ENLARGED 3 BD. RM. UNIT-D FLR. PLN.",
+        "A-9.5: ENLARGED 3 BD. RM. UNIT-E FLR. PLN.",
+        "A-9.6: ENLARGED 3 BD. RM. UNIT-F FLR. PLN."
+      ]
+    },
+    {
+      "id": "TYPICAL_FLOOR_GROUPING",
+      "name": "Floor Plan Grouping (Typical Floors)",
+      "condition": "Multiple identical floors exist",
+      "action": "Combine typical floors on single sheet",
+      "confidence": "HIGH",
+      "evidence": [
+        "A-2.1: 1ST AND 2ND LVL. FLOOR PLAN",
+        "A-2.2: 3RD AND 4TH THRU 11TH LVL. FLOOR PLAN"
+      ]
+    },
+    {
+      "id": "LIFE_SAFETY_PLANS",
+      "name": "Life Safety Plans",
+      "condition": "building_height > 3_stories OR occupancy = assembly/institutional",
+      "action": "Create life safety plan for each unique floor",
+      "confidence": "HIGH",
+      "evidence": [
+        "A-0.11: 1ST FLOOR LIFE SAFETY PLAN",
+        "A-0.12: 2ND FLOOR LIFE SAFETY PLAN",
+        "A-0.13: 3RD FLOOR LIFE SAFETY PLAN",
+        "A-0.14: 4TH THRU 11TH FLR. LIFE SAFETY PLAN"
+      ]
+    },
+    {
+      "id": "SECTION_ORGANIZATION",
+      "name": "Building Sections vs Wall Sections",
+      "condition": "Project requires section documentation",
+      "action": "Separate building sections (A-4.x) from wall sections (A-5.x)",
+      "confidence": "HIGH",
+      "evidence": {
+        "building": ["A-4.1", "A-4.2", "A-4.3"],
+        "wall": ["A-5.1", "A-5.2"]
+      }
+    },
+    {
+      "id": "DETAIL_ORGANIZATION",
+      "name": "Detail Organization by Element Type",
+      "condition": "Project has construction details",
+      "action": "Organize details by building element type",
+      "confidence": "HIGH",
+      "evidence": [
+        "A-2.6: ROOF DETAILS",
+        "A-6.x: STAIR/ELEVATOR DETAILS",
+        "A-7.2: DOOR DETAILS",
+        "A-8.2: WINDOW DETAILS",
+        "A-10.x: PARTITION/CASEWORK DETAILS"
+      ]
+    },
+    {
+      "id": "COMMON_AREA_RESTROOMS",
+      "name": "Common Area Restroom Documentation",
+      "condition": "Restroom = public/common (not in unit)",
+      "action": "Create enlarged restroom plan",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "A-9.15: ENLARGED RESTROOM FLOOR PLAN",
+        "105 total bathrooms, 1 common restroom sheet"
+      ]
+    },
+    {
+      "id": "ADA_DOCUMENTATION",
+      "name": "ADA Documentation",
+      "condition": "Public building or common areas",
+      "action": "Include ADA notes and details",
+      "confidence": "HIGH",
+      "evidence": [
+        "A-0.2: ADA NOTES & DETAILS",
+        "A-0.3: ADA NOTES & DETAILS",
+        "A-0.4: ADA NOTES & DETAILS"
+      ]
+    }
+  ]
+}

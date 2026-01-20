@@ -1,0 +1,424 @@
+﻿{
+    "scale":  12,
+    "name":  "STAIR- INTERMEDIATE LANDING DETAIL",
+    "id":  2139666,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  11.1281,
+                                                              "maxX":  11.3156,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  11.1281,
+                                                              "maxX":  11.3148,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.2147,
+                                                              "maxX":  10.4022,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.2147,
+                                                              "maxX":  10.4014,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.3013,
+                                                              "maxX":  9.4888,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.3013,
+                                                              "maxX":  9.4880,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.3880,
+                                                              "maxX":  8.5755,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.3880,
+                                                              "maxX":  8.5747,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.0415,
+                                                              "maxX":  12.2290,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.0415,
+                                                              "maxX":  12.2281,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.8893,
+                                                              "maxX":  12.2302,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.0321,
+                                                              "maxX":  10.1987,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.0321,
+                                                              "maxX":  10.1987,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.0321,
+                                                              "maxX":  10.1987,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  7.4672,
+                                                              "maxX":  12.2302,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  7.4672,
+                                                              "maxX":  11.8338,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.3722,
+                                                              "maxX":  10.5735,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Guardrail-Square Metal-Intermediate Landing",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.1084
+                                                               },
+                                                  "type":  "Railing-Guardrail-Square Metal-Intermediate Landing"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Post-Square Metal 1_1-2 inch Side Elevation",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.7226
+                                                               },
+                                                  "type":  "Railing-Post-Square Metal 1_1-2 inch Side Elevation"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.0328
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.8338
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.3661
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.7411
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.4171
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.7504
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.0838
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.4588
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.8338
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Guardrail-Square Metal-Intermediate Landing Behind",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.1084
+                                                               },
+                                                  "type":  "Railing-Guardrail-Square Metal-Intermediate Landing Behind"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.7504
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.0838
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.4588
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.8338
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.4171
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.3661
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.7411
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Picket-Square-Metal",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.0328
+                                                               },
+                                                  "type":  "Railing-Picket-Square-Metal"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Pipe 1_1-2 inch Elevation",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.8551
+                                                               },
+                                                  "type":  "Railing-Pipe 1_1-2 inch Elevation"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Pipe 1_1-2 inch Elevation",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.9345
+                                                               },
+                                                  "type":  "Railing-Pipe 1_1-2 inch Elevation"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  7.4672
+                                                               },
+                                                  "type":  "Break Line"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  7.7334
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.0038
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "6\" SPHERE REJECTION\\rTYPICAL\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  7.7334
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.2895
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CAST-IN-PLACE CONCRETE STAIR - SEE STRUCTURAL\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  81,
+                     "extractedAt":  "2025-12-28 00:23:28",
+                     "regionCount":  17,
+                     "componentCount":  40,
+                     "textCount":  2
+                 }
+}

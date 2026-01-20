@@ -1,0 +1,26 @@
+﻿{
+    "scale":  48,
+    "name":  "TYPICAL FILLED CELL DETAIL",
+    "id":  1743051,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:19:35",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  0
+                 }
+}

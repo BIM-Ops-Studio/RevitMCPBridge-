@@ -1,0 +1,70 @@
+﻿{
+    "scale":  48,
+    "name":  "CONSULTANT LEGEND",
+    "id":  2215095,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.703
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "MEP ENGINEERING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.703
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CONSULTANTS:\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  13.7322
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "ML ENGINEERING \u0026 INSPECTION SERVICES, LLC\\r8400 N. UNIVERSITY DRIVE, SUITE 320\\rTAMARAC, FL 33321\\rPH: (954) 233-2665\\rMAURICE LORD, P.E. #72550\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  38.1498
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "STRUCTURAL ENGINEERING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  46.3336
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "NINO \u0026 MORENO, INC.\\r9825 W SAMPLE ROAD, SUITE 202\\rCORAL SPRINGS, FL 33065\\rPH: (954) 340-1409\\rCESAR A. NINO, P.E. #69305\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:24:13",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  5
+                 }
+}

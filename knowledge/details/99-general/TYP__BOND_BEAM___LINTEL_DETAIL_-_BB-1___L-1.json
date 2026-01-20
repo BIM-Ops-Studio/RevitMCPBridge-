@@ -1,0 +1,114 @@
+﻿{
+    "scale":  12,
+    "name":  "TYP. BOND BEAM \u0026 LINTEL DETAIL - BB-1 \u0026 L-1",
+    "id":  1741522,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beams-Single-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.1239
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.3415
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.8936
+                                                               },
+                                                  "type":  "#_5"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.2084
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1- #7 REBAR CONTINUOUS AT TOP. PLACE REBARS\\rON EACH FACE. (PROVIDE 1/2\" NEW CONCRETE COVER) \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.2227
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1- #7 REBAR CONTINUOUS AT BOTTOM. PLACE\\rREBARS ON EACH FACE.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.1375
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PRESTRESSED LINTEL W/ #7 REBAR CONTINUOUS AS PER\\rREBARS ON EACH FACE.\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:18:18",
+                     "regionCount":  0,
+                     "componentCount":  6,
+                     "textCount":  3
+                 }
+}

@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "CEILING_GWB HEADER1.rvt",
+    "activeView":  {
+                       "scale":  4,
+                       "name":  "CEILING_GWB HEADER1",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\CEILING_GWB HEADER1.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:11:00"
+}

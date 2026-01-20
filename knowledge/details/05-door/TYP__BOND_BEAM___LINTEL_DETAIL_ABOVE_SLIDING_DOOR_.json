@@ -1,0 +1,114 @@
+﻿{
+    "scale":  12,
+    "name":  "TYP. BOND BEAM \u0026 LINTEL DETAIL ABOVE SLIDING DOOR - BB-4",
+    "id":  1741569,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.1239
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beams-Single-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.1239
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.3415
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.8936
+                                                               },
+                                                  "type":  "#_5"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.2084
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1- #7 REBAR CONTINUOUS AT TOP. PLACE REBARS\\rON EACH FACE. (PROVIDE 1/2\" NEW CONCRETE COVER) \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.138
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "(2) #7 CONTINUOUS REBAR FOR THE BOND BEAM BOTTOM COURSE AROUND PERIMETER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.1375
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PRECAST U-LINTEL W/ #5 REBAR CONTINUOUS AS PER\\rMANUFACTURER\u0027S SPEC\u0027S ( DEPENS ON OPENING SIZE A\\rREGULAR U-LINTEL CAN BE REPLACED BY 8\" PRECAST\\rWITH 2\" RECESS DOOR U-LINTEL. ALL SOLID GROUT FILL.\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:18:30",
+                     "regionCount":  0,
+                     "componentCount":  6,
+                     "textCount":  3
+                 }
+}

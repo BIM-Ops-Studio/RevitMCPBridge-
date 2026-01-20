@@ -1,0 +1,862 @@
+﻿{
+    "extractedAt":  "2025-12-28 00:24:28",
+    "details":  [
+                    {
+                        "id":  1388299,
+                        "name":  "MILLWOK SUPPORT DETAIL",
+                        "regions":  1,
+                        "texts":  4,
+                        "components":  11,
+                        "lines":  4
+                    },
+                    {
+                        "id":  1737912,
+                        "name":  "STANDARD SETBACKS REQUIREMENTS",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1737919,
+                        "name":  "WALL SECTION FLAT ROOF (MONO-FT)",
+                        "regions":  6,
+                        "texts":  23,
+                        "components":  36,
+                        "lines":  39
+                    },
+                    {
+                        "id":  1738145,
+                        "name":  "WALL SECTION GABLE ROOF (MONO-FT)",
+                        "regions":  8,
+                        "texts":  25,
+                        "components":  40,
+                        "lines":  38
+                    },
+                    {
+                        "id":  1738408,
+                        "name":  "WALL SECTION GABLE ROOF (SPREAD-FT)",
+                        "regions":  10,
+                        "texts":  25,
+                        "components":  44,
+                        "lines":  40
+                    },
+                    {
+                        "id":  1738569,
+                        "name":  "WALL SECTION FLAT ROOF (SPREAD-FT)",
+                        "regions":  7,
+                        "texts":  25,
+                        "components":  37,
+                        "lines":  36
+                    },
+                    {
+                        "id":  1738840,
+                        "name":  "INTERIOR WALL SECTION (WD. STUD)",
+                        "regions":  5,
+                        "texts":  8,
+                        "components":  17,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1738919,
+                        "name":  "ROOF DETAIL-1",
+                        "regions":  1,
+                        "texts":  0,
+                        "components":  14,
+                        "lines":  4
+                    },
+                    {
+                        "id":  1738953,
+                        "name":  "ROOF EAVE DETAIL",
+                        "regions":  15,
+                        "texts":  14,
+                        "components":  20,
+                        "lines":  15
+                    },
+                    {
+                        "id":  1739182,
+                        "name":  "ROOF TILE EAVE DETAIL w/ gutter",
+                        "regions":  15,
+                        "texts":  19,
+                        "components":  25,
+                        "lines":  15
+                    },
+                    {
+                        "id":  1739455,
+                        "name":  "ROOF TILE EAVE DETAIL",
+                        "regions":  14,
+                        "texts":  15,
+                        "components":  20,
+                        "lines":  15
+                    },
+                    {
+                        "id":  1739691,
+                        "name":  "ROOF TILE MANSARDE CAP",
+                        "regions":  8,
+                        "texts":  8,
+                        "components":  10,
+                        "lines":  24
+                    },
+                    {
+                        "id":  1739834,
+                        "name":  "ROOF TILE RIDGE / HIP",
+                        "regions":  6,
+                        "texts":  5,
+                        "components":  8,
+                        "lines":  10
+                    },
+                    {
+                        "id":  1740001,
+                        "name":  "ROOF TILE SIDEWALL FLASHING",
+                        "regions":  8,
+                        "texts":  7,
+                        "components":  11,
+                        "lines":  23
+                    },
+                    {
+                        "id":  1740145,
+                        "name":  "ROOF TILE VALLEY",
+                        "regions":  6,
+                        "texts":  6,
+                        "components":  6,
+                        "lines":  108
+                    },
+                    {
+                        "id":  1740348,
+                        "name":  "WALL TYPE 8 - TYP. INTERIOR FULL HT SHAFT WALL",
+                        "regions":  0,
+                        "texts":  6,
+                        "components":  11,
+                        "lines":  2
+                    },
+                    {
+                        "id":  1740375,
+                        "name":  "WALL TYPE 4- TYP. CMU INTERIOR WALL",
+                        "regions":  0,
+                        "texts":  9,
+                        "components":  13,
+                        "lines":  2
+                    },
+                    {
+                        "id":  1740406,
+                        "name":  "WALL TYPE 3- TYP. CMU INTERIOR WALL",
+                        "regions":  1,
+                        "texts":  6,
+                        "components":  8,
+                        "lines":  2
+                    },
+                    {
+                        "id":  1740437,
+                        "name":  "TYPICAL BUIL-IN CABINETRY DETAIL AT SINK",
+                        "regions":  22,
+                        "texts":  35,
+                        "components":  22,
+                        "lines":  360
+                    },
+                    {
+                        "id":  1741150,
+                        "name":  "EXHAUST FAN DETAIL",
+                        "regions":  0,
+                        "texts":  9,
+                        "components":  1,
+                        "lines":  51
+                    },
+                    {
+                        "id":  1741216,
+                        "name":  "FLEXIBLE DUCT CONNECTION DETAIL",
+                        "regions":  1,
+                        "texts":  7,
+                        "components":  1,
+                        "lines":  80
+                    },
+                    {
+                        "id":  1741323,
+                        "name":  "DOORS_JAMB LOCATION (WD)",
+                        "regions":  0,
+                        "texts":  6,
+                        "components":  29,
+                        "lines":  5
+                    },
+                    {
+                        "id":  1741380,
+                        "name":  "ELECTRICAL PANEL RISER",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741392,
+                        "name":  "BUILDING SECTION - BB - Callout 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741398,
+                        "name":  "INTERIOR DETAILS",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741405,
+                        "name":  "ROOF FRAMING DETAILS Copy 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741412,
+                        "name":  "ENLARGED KITCHEN PLAN - Section 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741418,
+                        "name":  "ENLARGED KITCHEN PLAN - Section 2",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741424,
+                        "name":  "GARAGE DOOR DETAIL",
+                        "regions":  5,
+                        "texts":  4,
+                        "components":  8,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741490,
+                        "name":  "WINDOW BUCK DETAIL",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741496,
+                        "name":  "BB-1 TWO COURSE BOND BEAM",
+                        "regions":  0,
+                        "texts":  2,
+                        "components":  2,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741508,
+                        "name":  "BB-2 THREE COURSE BOND BEAM",
+                        "regions":  0,
+                        "texts":  3,
+                        "components":  3,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741522,
+                        "name":  "TYP. BOND BEAM \u0026 LINTEL DETAIL - BB-1 \u0026 L-1",
+                        "regions":  0,
+                        "texts":  3,
+                        "components":  6,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741539,
+                        "name":  "TYP. BOND BEAM \u0026 LINTEL DETAIL BY THE GARAGE - BB-3 \u0026 L-1",
+                        "regions":  1,
+                        "texts":  3,
+                        "components":  8,
+                        "lines":  3
+                    },
+                    {
+                        "id":  1741569,
+                        "name":  "TYP. BOND BEAM \u0026 LINTEL DETAIL ABOVE SLIDING DOOR - BB-4",
+                        "regions":  0,
+                        "texts":  3,
+                        "components":  6,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1741586,
+                        "name":  "WOOD TRUSS BRACING DETAIL",
+                        "regions":  0,
+                        "texts":  20,
+                        "components":  0,
+                        "lines":  356
+                    },
+                    {
+                        "id":  1741991,
+                        "name":  "TYPICAL CHAIN LINK FENCE",
+                        "regions":  0,
+                        "texts":  11,
+                        "components":  1,
+                        "lines":  528
+                    },
+                    {
+                        "id":  1742543,
+                        "name":  "TYPICAL SITE CONC. DETAIL NEW-EXISTING",
+                        "regions":  4,
+                        "texts":  3,
+                        "components":  6,
+                        "lines":  7
+                    },
+                    {
+                        "id":  1742599,
+                        "name":  "TYPICAL SWALE DETAIL",
+                        "regions":  1,
+                        "texts":  4,
+                        "components":  1,
+                        "lines":  11
+                    },
+                    {
+                        "id":  1742640,
+                        "name":  "IRRIGATION DETAILS",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  15
+                    },
+                    {
+                        "id":  1742647,
+                        "name":  "IRRIGATION DETAILS 2",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  10
+                    },
+                    {
+                        "id":  1742654,
+                        "name":  "ELECTRICAL SYMBOL LEGEND",
+                        "regions":  0,
+                        "texts":  24,
+                        "components":  0,
+                        "lines":  177
+                    },
+                    {
+                        "id":  1742887,
+                        "name":  "ENLARGED KITCHEN PLAN - Section 3",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1742893,
+                        "name":  "Elevation 1 - b1 - Callout 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1742899,
+                        "name":  "ATTIC ACCESS DET",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1742906,
+                        "name":  "BUILDING SECTION - BB - Callout 2",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1742912,
+                        "name":  "ENLARGED KITCHEN PLAN - Section 4",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1742918,
+                        "name":  "Elevation 1 - d1 - Callout 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1742924,
+                        "name":  "TYPICAL MASONRY JOINT REINFORCEMENT DETAIL",
+                        "regions":  0,
+                        "texts":  3,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1742934,
+                        "name":  "TYPICAL FOOTING SECTION",
+                        "regions":  5,
+                        "texts":  11,
+                        "components":  10,
+                        "lines":  11
+                    },
+                    {
+                        "id":  1743038,
+                        "name":  "TYPICAL BOND BEAM CORNER REINFORCEMENT DETAIL",
+                        "regions":  0,
+                        "texts":  1,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1743044,
+                        "name":  "TYPICAL MASONRY OPENING DETAIL",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1743051,
+                        "name":  "TYPICAL FILLED CELL DETAIL",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1743100,
+                        "name":  "TYPICAL SECTION",
+                        "regions":  8,
+                        "texts":  13,
+                        "components":  22,
+                        "lines":  28
+                    },
+                    {
+                        "id":  1743324,
+                        "name":  "TYPICAL FOOTER ELEVATION CHANGE DETAIL",
+                        "regions":  13,
+                        "texts":  6,
+                        "components":  13,
+                        "lines":  41
+                    },
+                    {
+                        "id":  1743599,
+                        "name":  "TYPICAL THICKENED EDGE DETAIL",
+                        "regions":  11,
+                        "texts":  3,
+                        "components":  11,
+                        "lines":  222
+                    },
+                    {
+                        "id":  1743998,
+                        "name":  "TYPICAL CORNER REINFORCEMENT DETAIL",
+                        "regions":  5,
+                        "texts":  5,
+                        "components":  5,
+                        "lines":  101
+                    },
+                    {
+                        "id":  1744187,
+                        "name":  "SLAB ELEVATION CHANGE DETAIL",
+                        "regions":  14,
+                        "texts":  5,
+                        "components":  14,
+                        "lines":  285
+                    },
+                    {
+                        "id":  1744695,
+                        "name":  "FOUNDATION PLAN - Section 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1744701,
+                        "name":  "FOUNDATION PLAN - Section 2",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1744707,
+                        "name":  "FOUNDATION PLAN - Section 3",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1744713,
+                        "name":  "FOUNDATION PLAN - Section 4",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1744719,
+                        "name":  "X-BRACE DETAIL",
+                        "regions":  3,
+                        "texts":  2,
+                        "components":  3,
+                        "lines":  153
+                    },
+                    {
+                        "id":  1744929,
+                        "name":  "WOOD LEDGER DETAIL",
+                        "regions":  33,
+                        "texts":  11,
+                        "components":  33,
+                        "lines":  123
+                    },
+                    {
+                        "id":  1745547,
+                        "name":  "TYPICAL SITE CONC. DETAIL",
+                        "regions":  3,
+                        "texts":  1,
+                        "components":  5,
+                        "lines":  2
+                    },
+                    {
+                        "id":  1850278,
+                        "name":  "INTERIOR DOOR AND JAMB DETAIL",
+                        "regions":  0,
+                        "texts":  9,
+                        "components":  3,
+                        "lines":  253
+                    },
+                    {
+                        "id":  1850553,
+                        "name":  "CASEWORK_CABINET SECTION-TYP",
+                        "regions":  0,
+                        "texts":  11,
+                        "components":  60,
+                        "lines":  2
+                    },
+                    {
+                        "id":  1850642,
+                        "name":  "CASEWORK_KITCHEN ISLAND",
+                        "regions":  1,
+                        "texts":  9,
+                        "components":  43,
+                        "lines":  4
+                    },
+                    {
+                        "id":  1862919,
+                        "name":  "SF-S1_SILL DETAIL",
+                        "regions":  4,
+                        "texts":  10,
+                        "components":  9,
+                        "lines":  188
+                    },
+                    {
+                        "id":  1863212,
+                        "name":  "SF-J2_JAMB DETAIL",
+                        "regions":  3,
+                        "texts":  10,
+                        "components":  9,
+                        "lines":  387
+                    },
+                    {
+                        "id":  1863670,
+                        "name":  "INTERIOR DOOR AND JAMB DETAIL1",
+                        "regions":  0,
+                        "texts":  9,
+                        "components":  3,
+                        "lines":  253
+                    },
+                    {
+                        "id":  1863945,
+                        "name":  "GARAGE DOOR DETAIL1",
+                        "regions":  5,
+                        "texts":  4,
+                        "components":  8,
+                        "lines":  0
+                    },
+                    {
+                        "id":  1864011,
+                        "name":  "Interior Bearing Partition",
+                        "regions":  3,
+                        "texts":  10,
+                        "components":  16,
+                        "lines":  24
+                    },
+                    {
+                        "id":  1864075,
+                        "name":  "Typical Interior Partition",
+                        "regions":  3,
+                        "texts":  9,
+                        "components":  14,
+                        "lines":  10
+                    },
+                    {
+                        "id":  1864154,
+                        "name":  "TYPICAL SHOWER PAN",
+                        "regions":  29,
+                        "texts":  9,
+                        "components":  36,
+                        "lines":  10
+                    },
+                    {
+                        "id":  1881592,
+                        "name":  "MASONRY WALL - TYPE W1",
+                        "regions":  5,
+                        "texts":  10,
+                        "components":  11,
+                        "lines":  6
+                    },
+                    {
+                        "id":  1937088,
+                        "name":  "BUILDING SECTION - A - Callout 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2111895,
+                        "name":  "ROOF - GUTTER DETAIL TYP.1",
+                        "regions":  4,
+                        "texts":  18,
+                        "components":  6,
+                        "lines":  631
+                    },
+                    {
+                        "id":  2113699,
+                        "name":  "sinlgleply drain detail Copy 1 Copy 1 Copy 1 Copy 1 Copy 2 Copy 1",
+                        "regions":  10,
+                        "texts":  13,
+                        "components":  13,
+                        "lines":  240
+                    },
+                    {
+                        "id":  2114458,
+                        "name":  "ROOF - EDGE DETAIL TYP.1",
+                        "regions":  5,
+                        "texts":  17,
+                        "components":  7,
+                        "lines":  381
+                    },
+                    {
+                        "id":  2135313,
+                        "name":  "PROPOSED ROOF PLAN - Section 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2135508,
+                        "name":  "PROPOSED ROOF PLAN - Section 2",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2136691,
+                        "name":  "BUILDING SECTION - C - Callout 2 - Callout 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2138926,
+                        "name":  "STAIR_HANDRAIL TERMINATION",
+                        "regions":  0,
+                        "texts":  3,
+                        "components":  2,
+                        "lines":  17
+                    },
+                    {
+                        "id":  2138954,
+                        "name":  "STAIR_HANDRAIL WALL MOUNTED",
+                        "regions":  0,
+                        "texts":  3,
+                        "components":  0,
+                        "lines":  16
+                    },
+                    {
+                        "id":  2138981,
+                        "name":  "STAIR_PAN STAIR TERMINATION",
+                        "regions":  0,
+                        "texts":  8,
+                        "components":  1,
+                        "lines":  54
+                    },
+                    {
+                        "id":  2139053,
+                        "name":  "STAIR_PAN STAIR STRINGER",
+                        "regions":  0,
+                        "texts":  6,
+                        "components":  0,
+                        "lines":  28
+                    },
+                    {
+                        "id":  2139094,
+                        "name":  "STAIR_PAN STAIR TREAD/RISER",
+                        "regions":  0,
+                        "texts":  6,
+                        "components":  1,
+                        "lines":  45
+                    },
+                    {
+                        "id":  2139161,
+                        "name":  "STAIR - HANDRAIL WALL MOUNTED1",
+                        "regions":  0,
+                        "texts":  3,
+                        "components":  0,
+                        "lines":  16
+                    },
+                    {
+                        "id":  2139189,
+                        "name":  "STAIR RAILING AT WALL1",
+                        "regions":  0,
+                        "texts":  4,
+                        "components":  0,
+                        "lines":  45
+                    },
+                    {
+                        "id":  2139249,
+                        "name":  "STAIR_HANDRAIL TERMINATION1",
+                        "regions":  1,
+                        "texts":  5,
+                        "components":  3,
+                        "lines":  13
+                    },
+                    {
+                        "id":  2139289,
+                        "name":  "STAIR - OUTER RAILING1",
+                        "regions":  2,
+                        "texts":  1,
+                        "components":  5,
+                        "lines":  28
+                    },
+                    {
+                        "id":  2139348,
+                        "name":  "STAIR- LANDING AT TOP",
+                        "regions":  16,
+                        "texts":  2,
+                        "components":  30,
+                        "lines":  60
+                    },
+                    {
+                        "id":  2139666,
+                        "name":  "STAIR- INTERMEDIATE LANDING DETAIL",
+                        "regions":  17,
+                        "texts":  2,
+                        "components":  40,
+                        "lines":  81
+                    },
+                    {
+                        "id":  2140043,
+                        "name":  "STAIR- BASE LANDING",
+                        "regions":  9,
+                        "texts":  4,
+                        "components":  19,
+                        "lines":  70
+                    },
+                    {
+                        "id":  2140307,
+                        "name":  "STAIR - INNER RAILING1",
+                        "regions":  0,
+                        "texts":  4,
+                        "components":  6,
+                        "lines":  1
+                    },
+                    {
+                        "id":  2152574,
+                        "name":  "2-CASEWORK_KITCHEN ISLAND",
+                        "regions":  1,
+                        "texts":  9,
+                        "components":  41,
+                        "lines":  3
+                    },
+                    {
+                        "id":  2161042,
+                        "name":  "ENLARGED KITCHEN FLOOR PLAN - Section 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2161050,
+                        "name":  "STAIR SECTION - Callout 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2161069,
+                        "name":  "STAIR SECTION - Callout 2",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2164943,
+                        "name":  "BUILDING SECTION - C - Callout 1 - Callout 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2168255,
+                        "name":  "BUILDING SECTION - B - Callout 1 - Callout 1",
+                        "regions":  0,
+                        "texts":  0,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2200478,
+                        "name":  "CODE ANALYSIS",
+                        "regions":  0,
+                        "texts":  11,
+                        "components":  0,
+                        "lines":  10
+                    },
+                    {
+                        "id":  2200485,
+                        "name":  "PROPERTY INFORMATION",
+                        "regions":  0,
+                        "texts":  11,
+                        "components":  0,
+                        "lines":  10
+                    },
+                    {
+                        "id":  2215095,
+                        "name":  "CONSULTANT LEGEND",
+                        "regions":  0,
+                        "texts":  5,
+                        "components":  0,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2221151,
+                        "name":  "ROOFTOP TERRACE PAVER DETAIL",
+                        "regions":  13,
+                        "texts":  14,
+                        "components":  15,
+                        "lines":  0
+                    },
+                    {
+                        "id":  2238350,
+                        "name":  "New Drafting View",
+                        "regions":  13,
+                        "texts":  7,
+                        "components":  13,
+                        "lines":  528
+                    }
+                ],
+    "totalDetails":  107
+}

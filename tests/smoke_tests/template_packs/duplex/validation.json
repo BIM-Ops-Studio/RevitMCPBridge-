@@ -1,0 +1,79 @@
+{
+  "$schema": "validation-pack-v1",
+  "_sector": "duplex",
+
+  "postconditions": {
+    "required": [
+      {
+        "id": "SHEETS_CREATED",
+        "check": "sheet_count >= permitSkeleton.length",
+        "severity": "blocker",
+        "message": "All required sheets must be created"
+      },
+      {
+        "id": "UNIT_A_PLAN_PLACED",
+        "check": "viewport_exists('Unit A Floor Plan')",
+        "severity": "blocker",
+        "message": "Unit A floor plan must be placed on sheet"
+      },
+      {
+        "id": "UNIT_B_PLAN_PLACED",
+        "check": "viewport_exists('Unit B Floor Plan')",
+        "severity": "blocker",
+        "message": "Unit B floor plan must be placed on sheet"
+      },
+      {
+        "id": "CLEANUP_COMPLETE",
+        "check": "leftover_count == 0",
+        "severity": "blocker",
+        "message": "All test artifacts must be cleaned up"
+      }
+    ],
+    "optional": [
+      {
+        "id": "ELEVATIONS_PLACED",
+        "check": "viewport_type('elevation') >= 1",
+        "severity": "warning",
+        "message": "Elevation views should be placed"
+      },
+      {
+        "id": "SCHEDULES_PLACED",
+        "check": "schedule_viewport_count >= 1",
+        "severity": "warning",
+        "message": "Schedule placement not supported in Revit 2026"
+      }
+    ]
+  },
+
+  "exports": {
+    "required": [
+      {
+        "id": "SHEET_LIST_CSV",
+        "filename": "sheet_list_{run_id}.csv",
+        "hash": true,
+        "columns": ["Sheet Number", "Sheet Name", "View Count"]
+      },
+      {
+        "id": "DOOR_SCHEDULE_CSV",
+        "filename": "door_schedule_{run_id}.csv",
+        "hash": true
+      }
+    ],
+    "optional": [
+      {
+        "id": "WINDOW_SCHEDULE_CSV",
+        "filename": "window_schedule_{run_id}.csv"
+      }
+    ]
+  },
+
+  "evidence": {
+    "collect": [
+      "workflow_report_{run_id}.json",
+      "workflow_report_{run_id}.ndjson",
+      "sheet_list_{run_id}.csv",
+      "door_schedule_{run_id}.csv"
+    ],
+    "screenshot": false
+  }
+}

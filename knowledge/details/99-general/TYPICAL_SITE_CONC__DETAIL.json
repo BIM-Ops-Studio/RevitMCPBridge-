@@ -1,0 +1,104 @@
+﻿{
+    "scale":  12,
+    "name":  "TYPICAL SITE CONC. DETAIL",
+    "id":  1745547,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  6.1152,
+                                                              "maxX":  8.7819,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  6.1152,
+                                                              "maxX":  8.7819,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.7819,
+                                                              "maxX":  11.1986,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  2.4792,
+                                             "style":  "Dash-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.7819
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.3027
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.0208,
+                                             "style":  "Line-4",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.8027
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.7819
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.3652
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.8027
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  {
+                                       "position":  {
+                                                        "y":  0.0,
+                                                        "x":  6.1056
+                                                    },
+                                       "leaderEnd":  {
+                                                         "y":  0.0,
+                                                         "x":  8.3923
+                                                     },
+                                       "hasLeader":  true,
+                                       "text":  "NEW MIN 3000PSI 6\" CONC.\\rDRIVEWAY, BROOM FINISH\\rW/ CJ @ 5\u0027 O.C. BOTH \\rDIRECTIONS.\\r"
+                                   }
+                 },
+    "metadata":  {
+                     "lineCount":  2,
+                     "extractedAt":  "2025-12-28 00:20:35",
+                     "regionCount":  3,
+                     "componentCount":  5,
+                     "textCount":  1
+                 }
+}

@@ -1,0 +1,26 @@
+﻿{
+    "scale":  48,
+    "name":  "Elevation 1 - b1 - Callout 1",
+    "id":  1742893,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:19:12",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  0
+                 }
+}

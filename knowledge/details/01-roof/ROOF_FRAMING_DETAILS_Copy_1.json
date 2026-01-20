@@ -1,0 +1,26 @@
+﻿{
+    "scale":  4,
+    "name":  "ROOF FRAMING DETAILS Copy 1",
+    "id":  1741405,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:17:57",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  0
+                 }
+}

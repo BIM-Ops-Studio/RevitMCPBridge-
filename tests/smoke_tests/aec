@@ -1,0 +1,298 @@
+#!/usr/bin/env python3
+"""
+AEC CLI - Beta Runner for Permit/CD Automation
+
+Single command interface for the complete workflow:
+  1. Resolve template pack (Core + Sector + Firm)
+  2. Run preflight validation
+  3. Execute Spine workflow
+  4. Collect evidence package
+
+Usage:
+    aec run --sector multifamily [--firm arky]
+    aec preflight --sector multifamily
+    aec list                          # List available sectors
+    aec validate --pack resolved.json # Validate pack only
+
+Examples:
+    aec run --sector sfh              # Run single-family workflow
+    aec run --sector multifamily -f arky --skip-preflight
+    aec preflight -t commercial_ti    # Preflight only
+"""
+
+import sys
+import json
+import shutil
+import argparse
+from pathlib import Path
+from datetime import datetime
+from zipfile import ZipFile
+
+
+# Add template_packs to path
+BASE_DIR = Path(__file__).parent
+sys.path.insert(0, str(BASE_DIR / "template_packs"))
+
+
+def cmd_list(args):
+    """List available sector modules."""
+    from pack_resolver import list_available_modules
+    packs_dir = BASE_DIR / "template_packs"
+
+    modules = list_available_modules(packs_dir)
+
+    print("\n" + "=" * 60)
+    print("AVAILABLE SECTOR MODULES")
+    print("=" * 60)
+    print(f"\n{'Sector':<20} {'Type':<20} {'Version':<10}")
+    print("-" * 50)
+    for mod in modules:
+        print(f"{mod['name']:<20} {mod['project_type']:<20} {mod['version']:<10}")
+    print(f"\n{'=' * 60}")
+    print(f"Total: {len(modules)} sectors")
+
+    # List firms
+    firms_dir = packs_dir / "_firms"
+    if firms_dir.exists():
+        firms = [f.stem for f in firms_dir.glob("*.json")]
+        if firms:
+            print(f"\nFirm Overrides: {', '.join(firms)}")
+
+    return 0
+
+
+def cmd_preflight(args):
+    """Run preflight validation only."""
+    from pack_resolver import resolve_pack
+    from preflight_validator import PreflightValidator
+
+    packs_dir = BASE_DIR / "template_packs"
+    core_path = packs_dir / "_core" / "standards.json"
+    sector_path = packs_dir / args.sector / "standards.json"
+
+    if not sector_path.exists():
+        print(f"ERROR: Sector '{args.sector}' not found")
+        print("Use 'aec list' to see available sectors")
+        return 1
+
+    # Load firm overrides
+    firm_overrides = None
+    if args.firm:
+        firm_path = packs_dir / "_firms" / f"{args.firm.lower()}.json"
+        if firm_path.exists():
+            with open(firm_path) as f:
+                firm_overrides = json.load(f)
+
+    # Resolve pack
+    print(f"Resolving: {args.sector}" + (f" + {args.firm}" if args.firm else ""))
+    resolved = resolve_pack(core_path, sector_path, firm_overrides)
+
+    # Run preflight
+    validator = PreflightValidator(resolved)
+    summary = validator.run_all_checks()
+
+    # Save report if requested
+    if args.output:
+        output_path = Path(args.output)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_path, 'w') as f:
+            json.dump(summary, f, indent=2)
+        print(f"\nReport saved: {output_path}")
+
+    return 0 if summary["overall"] != "RED" else 1
+
+
+def cmd_run(args):
+    """Run the complete workflow: preflight -> spine -> collect."""
+    from pack_resolver import resolve_pack
+    from pack_adapter import adapt_pack_for_spine
+    from preflight_validator import PreflightValidator
+
+    packs_dir = BASE_DIR / "template_packs"
+    core_path = packs_dir / "_core" / "standards.json"
+    sector_path = packs_dir / args.sector / "standards.json"
+
+    if not sector_path.exists():
+        print(f"ERROR: Sector '{args.sector}' not found")
+        print("Use 'aec list' to see available sectors")
+        return 1
+
+    # Generate run ID
+    run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    print("\n" + "=" * 70)
+    print(f"AEC RUN - {args.sector.upper()}")
+    print("=" * 70)
+    print(f"Run ID: {run_id}")
+    print(f"Sector: {args.sector}")
+    if args.firm:
+        print(f"Firm: {args.firm}")
+
+    # Load firm overrides
+    firm_overrides = None
+    if args.firm:
+        firm_path = packs_dir / "_firms" / f"{args.firm.lower()}.json"
+        if firm_path.exists():
+            with open(firm_path) as f:
+                firm_overrides = json.load(f)
+            print(f"Firm overrides loaded: {args.firm}")
+        else:
+            print(f"Warning: Firm '{args.firm}' not found, skipping overrides")
+
+    # Step 1: Resolve pack
+    print("\n[1/4] Resolving template pack...")
+    resolved = resolve_pack(core_path, sector_path, firm_overrides)
+    print(f"  Pack: {resolved.get('identity', {}).get('name', 'Unknown')}")
+
+    # Step 2: Preflight (unless skipped)
+    if not args.skip_preflight:
+        print("\n[2/4] Running preflight validation...")
+        validator = PreflightValidator(resolved)
+        summary = validator.run_all_checks()
+
+        if summary["overall"] == "RED":
+            print("\n" + "!" * 70)
+            print("PREFLIGHT FAILED - Cannot proceed")
+            print("!" * 70)
+            for blocker in summary.get("blockers", []):
+                print(f"  ✗ {blocker['message']}")
+                if blocker.get("remediation"):
+                    print(f"    → {blocker['remediation']}")
+            return 1
+
+        if not args.force and summary["overall"] == "YELLOW":
+            print("\n⚠ Preflight has warnings. Use --force to proceed anyway.")
+            return 1
+    else:
+        print("\n[2/4] Preflight SKIPPED (--skip-preflight)")
+
+    # Step 3: Run Spine
+    print("\n[3/4] Running Spine workflow...")
+
+    # Adapt pack for Spine
+    spine_standards = adapt_pack_for_spine(resolved)
+
+    # Import and run spine
+    sys.path.insert(0, str(BASE_DIR))
+    from spine_v02_adaptive import run_spine_v02_with_standards
+
+    report = run_spine_v02_with_standards(spine_standards)
+
+    # Step 4: Collect evidence
+    print("\n[4/4] Collecting evidence package...")
+    evidence_dir = BASE_DIR / "evidence" / run_id
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+
+    # Collect files
+    collected = []
+
+    # Workflow reports (in reports/ directory)
+    reports_dir = BASE_DIR / "reports"
+    if reports_dir.exists():
+        for pattern in ["*.json", "*.ndjson"]:
+            for f in reports_dir.glob(pattern):
+                if report.run_id in f.name:
+                    dest = evidence_dir / f.name
+                    shutil.copy(f, dest)
+                    collected.append(f.name)
+
+    # CSV exports (in smoke_tests root)
+    for pattern in ["sheet_list_*.csv", "door_schedule_*.csv"]:
+        for f in BASE_DIR.glob(pattern):
+            if report.run_id in f.name:
+                dest = evidence_dir / f.name
+                shutil.copy(f, dest)
+                collected.append(f.name)
+
+    # Save resolved pack
+    pack_file = evidence_dir / "resolved_pack.json"
+    with open(pack_file, 'w') as f:
+        json.dump(resolved, f, indent=2)
+    collected.append("resolved_pack.json")
+
+    # Create zip
+    zip_path = BASE_DIR / "evidence" / f"evidence_{run_id}.zip"
+    with ZipFile(zip_path, 'w') as zf:
+        for f in evidence_dir.iterdir():
+            zf.write(f, f.name)
+
+    print(f"  Collected {len(collected)} files")
+    print(f"  Evidence: {zip_path}")
+
+    # Final summary
+    print("\n" + "=" * 70)
+    print("AEC RUN COMPLETE")
+    print("=" * 70)
+    print(f"  Status: {report.status.value.upper()}")
+    print(f"  Evidence: {zip_path}")
+    print("=" * 70)
+
+    return 0 if report.status.value in ("pass", "warn") else 1
+
+
+def cmd_validate(args):
+    """Validate a pack file."""
+    from preflight_validator import PreflightValidator
+    from pack_adapter import load_and_adapt
+
+    pack_path = Path(args.pack)
+    if not pack_path.is_absolute():
+        pack_path = BASE_DIR / "template_packs" / args.pack
+
+    if not pack_path.exists():
+        print(f"ERROR: Pack not found: {pack_path}")
+        return 1
+
+    # Load and adapt if needed
+    pack = load_and_adapt(str(pack_path))
+
+    validator = PreflightValidator(pack)
+    summary = validator.run_all_checks()
+
+    return 0 if summary["overall"] != "RED" else 1
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog="aec",
+        description="AEC CLI - Permit/CD Automation Beta Runner"
+    )
+    subparsers = parser.add_subparsers(dest="command", help="Commands")
+
+    # list command
+    list_parser = subparsers.add_parser("list", help="List available sectors")
+
+    # preflight command
+    pf_parser = subparsers.add_parser("preflight", help="Run preflight validation only")
+    pf_parser.add_argument("--sector", "-t", required=True, help="Sector module")
+    pf_parser.add_argument("--firm", "-f", help="Firm overrides")
+    pf_parser.add_argument("--output", "-o", help="Output report path")
+
+    # run command
+    run_parser = subparsers.add_parser("run", help="Run complete workflow")
+    run_parser.add_argument("--sector", "-t", required=True, help="Sector module")
+    run_parser.add_argument("--firm", "-f", help="Firm overrides")
+    run_parser.add_argument("--skip-preflight", action="store_true", help="Skip preflight checks")
+    run_parser.add_argument("--force", action="store_true", help="Proceed with warnings")
+
+    # validate command
+    val_parser = subparsers.add_parser("validate", help="Validate a pack file")
+    val_parser.add_argument("--pack", "-p", required=True, help="Pack file path")
+
+    args = parser.parse_args()
+
+    if args.command == "list":
+        return cmd_list(args)
+    elif args.command == "preflight":
+        return cmd_preflight(args)
+    elif args.command == "run":
+        return cmd_run(args)
+    elif args.command == "validate":
+        return cmd_validate(args)
+    else:
+        parser.print_help()
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

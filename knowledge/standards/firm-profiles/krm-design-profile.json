@@ -1,0 +1,56 @@
+{
+  "firmId": "krm-design",
+  "firmName": "KRM Design",
+  "description": "South Florida residential and commercial architecture",
+  "sourceProject": null,
+  "extractedAt": null,
+  "status": "skeleton",
+
+  "detection": {
+    "pathPatterns": ["KRM", "KRM Design"],
+    "titleBlockFamilies": [],
+    "projectInfoPatterns": {
+      "author": "KRM"
+    }
+  },
+
+  "sheetNumbering": {
+    "pattern": "A#.#",
+    "examples": ["A1.0", "A1.1", "A2.0"],
+    "disciplines": {
+      "A": "Architectural"
+    },
+    "categories": {},
+    "notes": "Alphanumeric with decimal subdivisions"
+  },
+
+  "textTypes": {
+    "primary": {
+      "notes": {"font": "Arial", "size": "3/32\""},
+      "headers": {"font": "Arial", "size": "3/16\""}
+    }
+  },
+
+  "dimensionTypes": {
+    "default": null
+  },
+
+  "viewTemplates": {},
+
+  "familyNaming": {
+    "prefixes": {}
+  },
+
+  "titleBlocks": [],
+
+  "projectTypes": [
+    "residential",
+    "commercial"
+  ],
+
+  "extractionNeeded": [
+    "Open a KRM Design project in Revit",
+    "Extract styles using MCP methods",
+    "Update this profile"
+  ]
+}

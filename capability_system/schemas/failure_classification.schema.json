@@ -1,0 +1,172 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://revitmcpbridge/schemas/failure_classification.schema.json",
+  "title": "Failure Classification",
+  "description": "Schema for classifying task failures to determine appropriate response",
+  "type": "object",
+  "required": ["failureId", "timestamp", "classification", "originalTask"],
+  "properties": {
+    "failureId": {
+      "type": "string",
+      "description": "Unique failure ID"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "classification": {
+      "type": "object",
+      "required": ["type", "confidence"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "MISSING_CAPABILITY",
+            "BAD_PARAMETERS",
+            "CONTEXT_MISMATCH",
+            "REVIT_CONSTRAINT",
+            "TOOL_BUG",
+            "UNKNOWN"
+          ],
+          "description": "Primary failure classification"
+        },
+        "subType": {
+          "type": "string",
+          "description": "More specific failure type"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Confidence in classification (0-1)"
+        },
+        "reasoning": {
+          "type": "string",
+          "description": "Why this classification was chosen"
+        }
+      }
+    },
+    "originalTask": {
+      "type": "object",
+      "properties": {
+        "userIntent": {"type": "string"},
+        "attemptedMethod": {"type": "string"},
+        "parameters": {"type": "object"},
+        "context": {"type": "object"}
+      }
+    },
+    "errorDetails": {
+      "type": "object",
+      "properties": {
+        "errorMessage": {"type": "string"},
+        "errorType": {"type": "string"},
+        "stackTrace": {"type": "string"},
+        "revitErrorCode": {"type": "string"}
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "description": "Detailed analysis based on classification type",
+      "properties": {
+        "missingCapability": {
+          "type": "object",
+          "description": "For MISSING_CAPABILITY type",
+          "properties": {
+            "requiredCapability": {"type": "string"},
+            "closestExistingMethod": {"type": "string"},
+            "gapDescription": {"type": "string"},
+            "proposedSpecPath": {"type": "string"}
+          }
+        },
+        "badParameters": {
+          "type": "object",
+          "description": "For BAD_PARAMETERS type",
+          "properties": {
+            "invalidParams": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "provided": {},
+                  "expected": {"type": "string"},
+                  "suggestion": {"type": "string"}
+                }
+              }
+            },
+            "missingParams": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        },
+        "contextMismatch": {
+          "type": "object",
+          "description": "For CONTEXT_MISMATCH type",
+          "properties": {
+            "requiredContext": {"type": "string"},
+            "actualContext": {"type": "string"},
+            "suggestion": {"type": "string"}
+          }
+        },
+        "revitConstraint": {
+          "type": "object",
+          "description": "For REVIT_CONSTRAINT type",
+          "properties": {
+            "constraintType": {"type": "string"},
+            "violatedRule": {"type": "string"},
+            "workaround": {"type": "string"}
+          }
+        },
+        "toolBug": {
+          "type": "object",
+          "description": "For TOOL_BUG type",
+          "properties": {
+            "bugDescription": {"type": "string"},
+            "reproducible": {"type": "boolean"},
+            "severity": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+            "affectedMethod": {"type": "string"}
+          }
+        }
+      }
+    },
+    "recommendedAction": {
+      "type": "object",
+      "required": ["action"],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "PROPOSE_NEW_TOOL",
+            "FIX_PARAMETERS",
+            "CHANGE_CONTEXT",
+            "USE_WORKAROUND",
+            "REPORT_BUG",
+            "RETRY",
+            "ESCALATE"
+          ]
+        },
+        "details": {"type": "string"},
+        "autoExecutable": {"type": "boolean"},
+        "toolSpec": {
+          "type": "object",
+          "description": "Proposed tool spec if action is PROPOSE_NEW_TOOL"
+        }
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in_progress", "resolved", "wont_fix"]
+        },
+        "resolvedAt": {"type": "string", "format": "date-time"},
+        "resolvedBy": {"type": "string"},
+        "resolution": {"type": "string"},
+        "linkedSpecId": {"type": "string"},
+        "linkedTestId": {"type": "string"}
+      }
+    }
+  }
+}

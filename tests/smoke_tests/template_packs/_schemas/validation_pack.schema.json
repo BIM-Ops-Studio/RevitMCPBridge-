@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "validation-pack-v1",
+  "title": "Template Pack Validation Schema v1.0",
+  "description": "Preflight rules, postconditions, and evidence exports for template validation",
+  "type": "object",
+  "required": ["$schema", "identity", "preflight", "postconditions", "evidence"],
+  "properties": {
+    "$schema": {
+      "const": "validation-pack-v1"
+    },
+
+    "identity": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "forStandardsPack": {"type": "string", "description": "Associated standards pack name"}
+      }
+    },
+
+    "preflight": {
+      "type": "object",
+      "description": "Pre-execution validation rules",
+      "properties": {
+        "template": {
+          "type": "array",
+          "description": "Template/seed file requirements",
+          "items": {"$ref": "#/definitions/preflightRule"}
+        },
+        "project": {
+          "type": "array",
+          "description": "Target project requirements",
+          "items": {"$ref": "#/definitions/preflightRule"}
+        },
+        "environment": {
+          "type": "array",
+          "description": "Environment/system requirements",
+          "items": {"$ref": "#/definitions/preflightRule"}
+        }
+      }
+    },
+
+    "postconditions": {
+      "type": "object",
+      "description": "Post-execution validation",
+      "properties": {
+        "required": {
+          "type": "array",
+          "description": "Must pass for workflow success",
+          "items": {"$ref": "#/definitions/postcondition"}
+        },
+        "optional": {
+          "type": "array",
+          "description": "Warn if fail, don't block",
+          "items": {"$ref": "#/definitions/postcondition"}
+        }
+      }
+    },
+
+    "evidence": {
+      "type": "object",
+      "description": "Required exports/artifacts for verification",
+      "properties": {
+        "exports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {"enum": ["csv", "pdf", "json", "screenshot"]},
+              "name": {"type": "string"},
+              "description": {"type": "string"},
+              "required": {"type": "boolean"}
+            }
+          }
+        },
+        "checksums": {
+          "type": "boolean",
+          "description": "Generate SHA256 for exports"
+        },
+        "screenshots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "view": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+
+    "qualityGates": {
+      "type": "object",
+      "description": "Thresholds for pass/warn/fail",
+      "properties": {
+        "minSheets": {"type": "integer"},
+        "minViews": {"type": "integer"},
+        "maxWarnings": {"type": "integer"},
+        "maxLeftovers": {"type": "integer"},
+        "cleanupRequired": {"type": "boolean"}
+      }
+    },
+
+    "readinessScore": {
+      "type": "object",
+      "description": "Scoring system for preflight readiness",
+      "properties": {
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "weight": {"type": "number"},
+              "checks": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "thresholds": {
+          "type": "object",
+          "properties": {
+            "green": {"type": "number", "description": "Score >= this = ready"},
+            "yellow": {"type": "number", "description": "Score >= this = proceed with warnings"},
+            "red": {"type": "number", "description": "Score < yellow = blocked"}
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "preflightRule": {
+      "type": "object",
+      "required": ["id", "check", "severity"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "check": {
+          "type": "object",
+          "properties": {
+            "type": {"enum": ["exists", "count", "matches", "contains", "api_call"]},
+            "target": {"type": "string"},
+            "operator": {"enum": ["==", "!=", ">=", "<=", ">", "<", "in", "not_in"]},
+            "value": {},
+            "method": {"type": "string", "description": "MCP method to call"},
+            "params": {"type": "object"}
+          }
+        },
+        "severity": {"enum": ["blocker", "error", "warning", "info"]},
+        "message": {"type": "string"},
+        "remediation": {"type": "string", "description": "How to fix if check fails"}
+      }
+    },
+    "postcondition": {
+      "type": "object",
+      "required": ["id", "check"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "check": {
+          "type": "object",
+          "properties": {
+            "type": {"enum": ["count", "exists", "matches", "hash_matches"]},
+            "target": {"type": "string"},
+            "operator": {"enum": ["==", "!=", ">=", "<=", ">", "<"]},
+            "expected": {}
+          }
+        },
+        "evidenceRequired": {"type": "boolean"}
+      }
+    }
+  }
+}

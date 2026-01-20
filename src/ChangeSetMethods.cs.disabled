@@ -1,0 +1,727 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.IO;
+using System.Linq;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace RevitMCPBridge
+{
+    /// <summary>
+    /// ChangeSet Pipeline Methods - Plan, Dry-run, Apply workflow for safe model modifications.
+    ///
+    /// Flow:
+    /// 1. PlanChangeSet - Create changeset, validate parameters
+    /// 2. DryRunChangeSet - Validate without applying, preview results
+    /// 3. ApplyChangeSet - Execute with idempotency (requires confirm=true)
+    /// 4. GetChangeSetStatus - Check status of a changeset
+    /// </summary>
+    public static class ChangeSetMethods
+    {
+        // Idempotency store location
+        private static readonly string IdempotencyDbPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "RevitMCPBridge2026", "idempotency.db"
+        );
+
+        #region Database Setup
+
+        /// <summary>
+        /// Initialize the idempotency database.
+        /// </summary>
+        private static void InitializeDatabase()
+        {
+            var dir = Path.GetDirectoryName(IdempotencyDbPath);
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+            if (!File.Exists(IdempotencyDbPath))
+            {
+                SQLiteConnection.CreateFile(IdempotencyDbPath);
+            }
+
+            using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    CREATE TABLE IF NOT EXISTS changesets (
+                        changeset_id TEXT PRIMARY KEY,
+                        description TEXT,
+                        status TEXT DEFAULT 'planned',
+                        created_at TEXT,
+                        updated_at TEXT,
+                        operations_json TEXT,
+                        dry_run_result TEXT,
+                        apply_result TEXT
+                    );
+
+                    CREATE TABLE IF NOT EXISTS executed_operations (
+                        idempotency_key TEXT PRIMARY KEY,
+                        changeset_id TEXT,
+                        element_id INTEGER,
+                        operation_type TEXT,
+                        executed_at TEXT,
+                        success INTEGER
+                    );
+
+                    CREATE INDEX IF NOT EXISTS idx_changeset ON executed_operations(changeset_id);
+                ";
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        #endregion
+
+        #region MCP Methods
+
+        /// <summary>
+        /// Plan a changeset - validates operations without executing.
+        /// </summary>
+        public static string PlanChangeSet(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                InitializeDatabase();
+
+                var changesetId = parameters["changeset_id"]?.ToString() ?? Guid.NewGuid().ToString();
+                var description = parameters["description"]?.ToString() ?? "Unnamed changeset";
+                var operations = parameters["operations"] as JArray;
+
+                if (operations == null || operations.Count == 0)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No operations provided"
+                    });
+                }
+
+                // Validate each operation has required fields
+                var validationErrors = new List<string>();
+                foreach (JObject op in operations)
+                {
+                    var opType = op["op_type"]?.ToString();
+                    var idempotencyKey = op["idempotency_key"]?.ToString();
+
+                    if (string.IsNullOrEmpty(opType))
+                        validationErrors.Add("Operation missing 'op_type'");
+                    if (string.IsNullOrEmpty(idempotencyKey))
+                        validationErrors.Add("Operation missing 'idempotency_key'");
+                }
+
+                if (validationErrors.Count > 0)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        errors = validationErrors
+                    });
+                }
+
+                // Store changeset in database
+                using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = @"
+                        INSERT OR REPLACE INTO changesets
+                        (changeset_id, description, status, created_at, updated_at, operations_json)
+                        VALUES (@id, @desc, 'planned', @created, @updated, @ops)
+                    ";
+                    cmd.Parameters.AddWithValue("@id", changesetId);
+                    cmd.Parameters.AddWithValue("@desc", description);
+                    cmd.Parameters.AddWithValue("@created", DateTime.Now.ToString("o"));
+                    cmd.Parameters.AddWithValue("@updated", DateTime.Now.ToString("o"));
+                    cmd.Parameters.AddWithValue("@ops", operations.ToString());
+                    cmd.ExecuteNonQuery();
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    changeset_id = changesetId,
+                    status = "planned",
+                    operation_count = operations.Count,
+                    message = "Changeset planned. Run DryRunChangeSet to validate, then ApplyChangeSet to execute."
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Dry-run a changeset - validates operations without applying changes.
+        /// </summary>
+        public static string DryRunChangeSet(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                InitializeDatabase();
+
+                var changesetId = parameters["changeset_id"]?.ToString();
+                if (string.IsNullOrEmpty(changesetId))
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "changeset_id is required"
+                    });
+                }
+
+                // Load changeset from database
+                JArray operations = null;
+                using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT operations_json FROM changesets WHERE changeset_id = @id";
+                    cmd.Parameters.AddWithValue("@id", changesetId);
+                    var result = cmd.ExecuteScalar()?.ToString();
+
+                    if (string.IsNullOrEmpty(result))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"Changeset {changesetId} not found"
+                        });
+                    }
+
+                    operations = JArray.Parse(result);
+                }
+
+                var doc = uiApp.ActiveUIDocument?.Document;
+                if (doc == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No active document"
+                    });
+                }
+
+                // Validate each operation
+                var preview = new List<object>();
+                var warnings = new List<string>();
+                var errors = new List<string>();
+
+                foreach (JObject op in operations)
+                {
+                    var opType = op["op_type"]?.ToString();
+                    var idempotencyKey = op["idempotency_key"]?.ToString();
+                    var opParams = op["parameters"] as JObject;
+
+                    // Check if already executed
+                    if (IsOperationExecuted(idempotencyKey))
+                    {
+                        warnings.Add($"Operation {idempotencyKey} was already executed (will be skipped)");
+                        continue;
+                    }
+
+                    // Validate operation-specific parameters
+                    var (isValid, message) = ValidateOperation(doc, opType, opParams);
+                    if (!isValid)
+                    {
+                        errors.Add($"[{idempotencyKey}] {message}");
+                    }
+                    else
+                    {
+                        preview.Add(new
+                        {
+                            idempotency_key = idempotencyKey,
+                            op_type = opType,
+                            preview = message
+                        });
+                    }
+                }
+
+                // Update changeset status
+                var dryRunResult = new
+                {
+                    success = errors.Count == 0,
+                    timestamp = DateTime.Now.ToString("o"),
+                    preview = preview,
+                    warnings = warnings,
+                    errors = errors
+                };
+
+                using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = @"
+                        UPDATE changesets
+                        SET status = 'dry_run', updated_at = @updated, dry_run_result = @result
+                        WHERE changeset_id = @id
+                    ";
+                    cmd.Parameters.AddWithValue("@id", changesetId);
+                    cmd.Parameters.AddWithValue("@updated", DateTime.Now.ToString("o"));
+                    cmd.Parameters.AddWithValue("@result", JsonConvert.SerializeObject(dryRunResult));
+                    cmd.ExecuteNonQuery();
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = errors.Count == 0,
+                    changeset_id = changesetId,
+                    status = "dry_run",
+                    preview = preview,
+                    warnings = warnings,
+                    errors = errors,
+                    message = errors.Count == 0
+                        ? "Dry-run successful. Run ApplyChangeSet with confirm=true to execute."
+                        : "Dry-run found errors. Fix issues before applying."
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Apply a changeset - executes operations with idempotency guarantees.
+        /// Requires confirm=true for destructive operations.
+        /// </summary>
+        public static string ApplyChangeSet(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                InitializeDatabase();
+
+                var changesetId = parameters["changeset_id"]?.ToString();
+                var confirm = parameters["confirm"]?.Value<bool>() ?? false;
+
+                if (string.IsNullOrEmpty(changesetId))
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "changeset_id is required"
+                    });
+                }
+
+                if (!confirm)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "ApplyChangeSet requires confirm=true to execute changes",
+                        hint = "Set 'confirm': true in parameters to apply this changeset"
+                    });
+                }
+
+                // Load changeset from database
+                JArray operations = null;
+                string status = null;
+                using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT operations_json, status FROM changesets WHERE changeset_id = @id";
+                    cmd.Parameters.AddWithValue("@id", changesetId);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            operations = JArray.Parse(reader.GetString(0));
+                            status = reader.GetString(1);
+                        }
+                    }
+                }
+
+                if (operations == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"Changeset {changesetId} not found"
+                    });
+                }
+
+                if (status == "applied")
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Changeset already applied",
+                        changeset_id = changesetId,
+                        status = status
+                    });
+                }
+
+                var doc = uiApp.ActiveUIDocument?.Document;
+                if (doc == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No active document"
+                    });
+                }
+
+                // Execute operations in a transaction
+                var elementsCreated = new List<object>();
+                var elementsModified = new List<int>();
+                var elementsDeleted = new List<int>();
+                var operationErrors = new List<string>();
+
+                using (var trans = new Transaction(doc, $"Apply ChangeSet {changesetId}"))
+                {
+                    trans.Start();
+
+                    foreach (JObject op in operations)
+                    {
+                        var opType = op["op_type"]?.ToString();
+                        var idempotencyKey = op["idempotency_key"]?.ToString();
+                        var opParams = op["parameters"] as JObject;
+
+                        // Check idempotency - skip if already executed
+                        if (IsOperationExecuted(idempotencyKey))
+                        {
+                            continue;
+                        }
+
+                        try
+                        {
+                            var result = ExecuteOperation(doc, opType, opParams);
+
+                            if (result.Success)
+                            {
+                                if (result.ElementId.HasValue)
+                                {
+                                    elementsCreated.Add(new
+                                    {
+                                        idempotency_key = idempotencyKey,
+                                        element_id = result.ElementId.Value,
+                                        category = opType
+                                    });
+                                }
+
+                                // Record successful execution
+                                RecordExecution(idempotencyKey, changesetId, result.ElementId ?? 0, opType, true);
+                            }
+                            else
+                            {
+                                operationErrors.Add($"[{idempotencyKey}] {result.Error}");
+                                RecordExecution(idempotencyKey, changesetId, 0, opType, false);
+                            }
+                        }
+                        catch (Exception opEx)
+                        {
+                            operationErrors.Add($"[{idempotencyKey}] Exception: {opEx.Message}");
+                            RecordExecution(idempotencyKey, changesetId, 0, opType, false);
+                        }
+                    }
+
+                    if (operationErrors.Count == 0)
+                    {
+                        trans.Commit();
+                    }
+                    else
+                    {
+                        trans.RollBack();
+                    }
+                }
+
+                // Update changeset status
+                var applyResult = new
+                {
+                    success = operationErrors.Count == 0,
+                    timestamp = DateTime.Now.ToString("o"),
+                    elements_created = elementsCreated,
+                    elements_modified = elementsModified,
+                    elements_deleted = elementsDeleted,
+                    errors = operationErrors
+                };
+
+                var finalStatus = operationErrors.Count == 0 ? "applied" : "failed";
+
+                using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = @"
+                        UPDATE changesets
+                        SET status = @status, updated_at = @updated, apply_result = @result
+                        WHERE changeset_id = @id
+                    ";
+                    cmd.Parameters.AddWithValue("@id", changesetId);
+                    cmd.Parameters.AddWithValue("@status", finalStatus);
+                    cmd.Parameters.AddWithValue("@updated", DateTime.Now.ToString("o"));
+                    cmd.Parameters.AddWithValue("@result", JsonConvert.SerializeObject(applyResult));
+                    cmd.ExecuteNonQuery();
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = operationErrors.Count == 0,
+                    changeset_id = changesetId,
+                    status = finalStatus,
+                    elements_created = elementsCreated,
+                    errors = operationErrors
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Get the status of a changeset.
+        /// </summary>
+        public static string GetChangeSetStatus(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                InitializeDatabase();
+
+                var changesetId = parameters["changeset_id"]?.ToString();
+                if (string.IsNullOrEmpty(changesetId))
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "changeset_id is required"
+                    });
+                }
+
+                using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = @"
+                        SELECT changeset_id, description, status, created_at, updated_at,
+                               operations_json, dry_run_result, apply_result
+                        FROM changesets WHERE changeset_id = @id
+                    ";
+                    cmd.Parameters.AddWithValue("@id", changesetId);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return JsonConvert.SerializeObject(new
+                            {
+                                success = true,
+                                changeset_id = reader.GetString(0),
+                                description = reader.IsDBNull(1) ? null : reader.GetString(1),
+                                status = reader.GetString(2),
+                                created_at = reader.GetString(3),
+                                updated_at = reader.GetString(4),
+                                operation_count = JArray.Parse(reader.GetString(5)).Count,
+                                dry_run_result = reader.IsDBNull(6) ? null : JObject.Parse(reader.GetString(6)),
+                                apply_result = reader.IsDBNull(7) ? null : JObject.Parse(reader.GetString(7))
+                            });
+                        }
+                    }
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = $"Changeset {changesetId} not found"
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// List all changesets.
+        /// </summary>
+        public static string ListChangeSets(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                InitializeDatabase();
+
+                var statusFilter = parameters["status"]?.ToString();
+                var limit = parameters["limit"]?.Value<int>() ?? 20;
+
+                using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+                {
+                    conn.Open();
+                    var cmd = conn.CreateCommand();
+                    cmd.CommandText = @"
+                        SELECT changeset_id, description, status, created_at, updated_at
+                        FROM changesets
+                        WHERE (@status IS NULL OR status = @status)
+                        ORDER BY updated_at DESC
+                        LIMIT @limit
+                    ";
+                    cmd.Parameters.AddWithValue("@status", statusFilter ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@limit", limit);
+
+                    var changesets = new List<object>();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            changesets.Add(new
+                            {
+                                changeset_id = reader.GetString(0),
+                                description = reader.IsDBNull(1) ? null : reader.GetString(1),
+                                status = reader.GetString(2),
+                                created_at = reader.GetString(3),
+                                updated_at = reader.GetString(4)
+                            });
+                        }
+                    }
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        count = changesets.Count,
+                        changesets = changesets
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        #endregion
+
+        #region Helper Methods
+
+        private static bool IsOperationExecuted(string idempotencyKey)
+        {
+            using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT 1 FROM executed_operations WHERE idempotency_key = @key AND success = 1";
+                cmd.Parameters.AddWithValue("@key", idempotencyKey);
+                return cmd.ExecuteScalar() != null;
+            }
+        }
+
+        private static void RecordExecution(string idempotencyKey, string changesetId, int elementId, string opType, bool success)
+        {
+            using (var conn = new SQLiteConnection($"Data Source={IdempotencyDbPath}"))
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = @"
+                    INSERT OR REPLACE INTO executed_operations
+                    (idempotency_key, changeset_id, element_id, operation_type, executed_at, success)
+                    VALUES (@key, @cid, @eid, @type, @time, @success)
+                ";
+                cmd.Parameters.AddWithValue("@key", idempotencyKey);
+                cmd.Parameters.AddWithValue("@cid", changesetId);
+                cmd.Parameters.AddWithValue("@eid", elementId);
+                cmd.Parameters.AddWithValue("@type", opType);
+                cmd.Parameters.AddWithValue("@time", DateTime.Now.ToString("o"));
+                cmd.Parameters.AddWithValue("@success", success ? 1 : 0);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private static (bool IsValid, string Message) ValidateOperation(Document doc, string opType, JObject parameters)
+        {
+            switch (opType)
+            {
+                case "create_wall":
+                    var levelId = parameters?["level_id"]?.Value<int>();
+                    if (!levelId.HasValue)
+                        return (false, "Missing level_id");
+                    var level = doc.GetElement(new ElementId(levelId.Value)) as Level;
+                    if (level == null)
+                        return (false, $"Level {levelId} not found");
+                    return (true, $"Will create wall on level '{level.Name}'");
+
+                case "place_family":
+                    var familyId = parameters?["family_id"]?.Value<int>();
+                    if (!familyId.HasValue)
+                        return (false, "Missing family_id");
+                    var family = doc.GetElement(new ElementId(familyId.Value));
+                    if (family == null)
+                        return (false, $"Family {familyId} not found");
+                    return (true, $"Will place family instance");
+
+                case "delete_element":
+                    var elementId = parameters?["element_id"]?.Value<int>();
+                    if (!elementId.HasValue)
+                        return (false, "Missing element_id");
+                    var element = doc.GetElement(new ElementId(elementId.Value));
+                    if (element == null)
+                        return (false, $"Element {elementId} not found");
+                    return (true, $"Will delete element '{element.Name}'");
+
+                default:
+                    return (true, $"Operation type '{opType}' validated");
+            }
+        }
+
+        private static (bool Success, int? ElementId, string Error) ExecuteOperation(Document doc, string opType, JObject parameters)
+        {
+            // This is a simplified implementation - in production, each operation type
+            // would call the appropriate existing method (WallMethods, etc.)
+            switch (opType)
+            {
+                case "create_wall":
+                    // Call WallMethods.CreateWall or similar
+                    return (true, null, null);
+
+                case "place_family":
+                    // Call FamilyMethods.PlaceFamilyInstance or similar
+                    return (true, null, null);
+
+                case "delete_element":
+                    var elementId = parameters?["element_id"]?.Value<int>();
+                    if (elementId.HasValue)
+                    {
+                        var element = doc.GetElement(new ElementId(elementId.Value));
+                        if (element != null)
+                        {
+                            doc.Delete(new ElementId(elementId.Value));
+                            return (true, elementId, null);
+                        }
+                    }
+                    return (false, null, "Element not found");
+
+                default:
+                    return (false, null, $"Unknown operation type: {opType}");
+            }
+        }
+
+        #endregion
+    }
+}

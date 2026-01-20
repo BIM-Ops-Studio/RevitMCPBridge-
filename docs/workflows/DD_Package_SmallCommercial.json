@@ -1,0 +1,284 @@
+{
+  "workflowType": "DD_Package",
+  "name": "Design Development Package - Small Commercial Interior",
+  "description": "Complete DD deliverable for small commercial interior projects (<5000 SF)",
+  "version": "1.0",
+  "projectTypes": ["SmallCommercial", "CommercialInterior", "TenantImprovement"],
+  "buildingCodes": ["IBC_2024", "FBC_2023"],
+  "codeVersions": {
+    "IBC": "2024 (Latest)",
+    "FBC": "8th Edition 2023 (Latest)",
+    "ADA": "2010 with 2023 Updates",
+    "NFPA": "101-2024"
+  },
+  "estimatedTime": "5-10 minutes",
+  "author": "Claude AI - Autonomous Architectural Agent",
+
+  "phases": [
+    {
+      "name": "Phase 1: Project Verification",
+      "description": "Verify project setup and prerequisites",
+      "tasks": [
+        {
+          "id": "verify_project_info",
+          "description": "Verify project information is complete",
+          "method": "getProjectInfo",
+          "validation": {
+            "required_fields": ["ProjectName", "ProjectNumber", "ProjectAddress"]
+          },
+          "autonomous_decision": "If missing, flag for user input"
+        },
+        {
+          "id": "verify_levels",
+          "description": "Check that all building levels are defined",
+          "method": "custom",
+          "autonomous_decision": "Count levels, verify against typical small commercial (1-3 levels)"
+        },
+        {
+          "id": "verify_view_templates",
+          "description": "Ensure DD view templates exist",
+          "method": "getViewTemplates",
+          "autonomous_decision": "If DD template missing, create from default or use generic"
+        },
+        {
+          "id": "verify_titleblocks",
+          "description": "Verify titleblock families loaded",
+          "method": "getTitleblockTypes",
+          "autonomous_decision": "If no titleblocks, flag error - cannot proceed"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 2: Floor Plans - Creation & Setup",
+      "description": "Create and configure floor plan views",
+      "tasks": [
+        {
+          "id": "create_floor_plans",
+          "description": "Create floor plan views for all levels",
+          "method": "createFloorPlan",
+          "autonomous_decision": "Create one plan per level, name systematically"
+        },
+        {
+          "id": "apply_dd_template",
+          "description": "Apply DD view template to floor plans",
+          "method": "applyViewTemplate",
+          "autonomous_decision": "Use DD template if available, otherwise configure manually"
+        },
+        {
+          "id": "set_view_scale",
+          "description": "Set appropriate scale for DD plans",
+          "method": "setViewScale",
+          "parameters": {
+            "scale": "1/8\" = 1'-0\""
+          },
+          "autonomous_decision": "Use 1/8\" for typical small commercial, adjust if needed"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 3: Room Documentation",
+      "description": "Tag and document all rooms",
+      "tasks": [
+        {
+          "id": "tag_all_rooms",
+          "description": "Tag all rooms in floor plans",
+          "method": "batchTagRooms",
+          "autonomous_decision": "Tag all rooms, apply occupancy classification per building code"
+        },
+        {
+          "id": "create_room_schedule",
+          "description": "Create room schedule with key information",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Rooms",
+            "scheduleName": "Room Schedule"
+          }
+        },
+        {
+          "id": "add_room_schedule_fields",
+          "description": "Add standard room schedule fields",
+          "method": "addScheduleField",
+          "fields": ["Number", "Name", "Area", "Level", "Occupancy", "Finish - Floor", "Finish - Wall", "Finish - Ceiling"],
+          "autonomous_decision": "Add all standard fields, skip any that don't exist in project"
+        },
+        {
+          "id": "calculate_areas",
+          "description": "Verify room area calculations",
+          "method": "custom",
+          "autonomous_decision": "Check for rooms with 0 area, flag errors"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 4: Door & Window Documentation",
+      "description": "Tag and schedule doors and windows",
+      "tasks": [
+        {
+          "id": "tag_all_doors",
+          "description": "Tag all doors in floor plans",
+          "method": "batchTagDoors",
+          "autonomous_decision": "Tag systematically, verify egress door widths per code"
+        },
+        {
+          "id": "create_door_schedule",
+          "description": "Create door schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Doors",
+            "scheduleName": "Door Schedule"
+          }
+        },
+        {
+          "id": "add_door_schedule_fields",
+          "description": "Add door schedule fields",
+          "method": "addScheduleField",
+          "fields": ["Mark", "Type", "Width", "Height", "Fire Rating", "Frame Material"],
+          "autonomous_decision": "Include all relevant door information for DD level"
+        },
+        {
+          "id": "verify_door_compliance",
+          "description": "Verify door widths meet code requirements",
+          "method": "custom",
+          "autonomous_decision": "Check egress doors ≥ 36\", ADA clearances, correct any violations automatically"
+        },
+        {
+          "id": "create_window_schedule",
+          "description": "Create window schedule if windows exist",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Windows",
+            "scheduleName": "Window Schedule"
+          },
+          "autonomous_decision": "Only create if project has windows"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 5: Code Compliance Check",
+      "description": "Autonomous code compliance verification",
+      "tasks": [
+        {
+          "id": "verify_egress_paths",
+          "description": "Check egress paths and travel distances",
+          "method": "custom",
+          "autonomous_decision": "Verify 2 means of egress for commercial, flag if missing"
+        },
+        {
+          "id": "verify_ada_compliance",
+          "description": "Check ADA accessibility requirements",
+          "method": "custom",
+          "autonomous_decision": "Verify door clearances, accessible routes, restroom compliance"
+        },
+        {
+          "id": "verify_corridor_widths",
+          "description": "Check corridor widths meet code",
+          "method": "custom",
+          "autonomous_decision": "Verify 44\" minimum per IBC, flag violations"
+        },
+        {
+          "id": "create_occupancy_schedule",
+          "description": "Create occupancy load calculation",
+          "method": "custom",
+          "autonomous_decision": "Calculate occupancy per FBC/IBC, create schedule if required"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 6: Sheet Creation",
+      "description": "Create and populate sheet set",
+      "tasks": [
+        {
+          "id": "create_cover_sheet",
+          "description": "Create cover sheet",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "A0.1",
+            "sheetName": "Cover Sheet & Project Information"
+          }
+        },
+        {
+          "id": "create_plan_sheets",
+          "description": "Create sheets for floor plans",
+          "method": "createSheet",
+          "autonomous_decision": "Create one sheet per level (A1.1, A1.2, etc.)"
+        },
+        {
+          "id": "place_plans_on_sheets",
+          "description": "Place floor plans on sheets",
+          "method": "placeViewOnSheet",
+          "autonomous_decision": "Center plans on sheets, use standard positioning"
+        },
+        {
+          "id": "create_schedule_sheet",
+          "description": "Create sheet for schedules",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "A9.1",
+            "sheetName": "Schedules"
+          }
+        },
+        {
+          "id": "place_schedules_on_sheet",
+          "description": "Place all schedules on schedule sheet",
+          "method": "placeViewOnSheet",
+          "autonomous_decision": "Arrange schedules systematically on sheet"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 7: Quality Control",
+      "description": "Final QC checks before completion",
+      "tasks": [
+        {
+          "id": "verify_all_rooms_tagged",
+          "description": "Confirm all rooms have tags",
+          "method": "custom",
+          "autonomous_decision": "Check for untagged rooms, auto-tag if found"
+        },
+        {
+          "id": "verify_all_doors_numbered",
+          "description": "Confirm all doors have numbers",
+          "method": "custom",
+          "autonomous_decision": "Check for unnumbered doors, flag errors"
+        },
+        {
+          "id": "verify_schedules_complete",
+          "description": "Verify all schedules are populated",
+          "method": "getScheduleData",
+          "autonomous_decision": "Check for empty schedules, flag if incomplete"
+        },
+        {
+          "id": "run_project_warnings_check",
+          "description": "Check for Revit warnings",
+          "method": "getProjectWarnings",
+          "autonomous_decision": "Review warnings, auto-fix common issues"
+        },
+        {
+          "id": "verify_sheet_completeness",
+          "description": "Verify all required sheets created",
+          "method": "getAllSheets",
+          "autonomous_decision": "Check sheet set is complete per DD standards"
+        }
+      ]
+    }
+  ],
+
+  "completion_criteria": {
+    "required_sheets": ["Cover", "Floor Plans", "Schedules"],
+    "required_schedules": ["Room Schedule", "Door Schedule"],
+    "min_quality_score": 95
+  },
+
+  "autonomous_behaviors": {
+    "error_handling": "Auto-correct common issues, flag critical errors for review",
+    "decision_making": "Make standard architectural decisions autonomously",
+    "code_compliance": "Apply building code requirements automatically",
+    "quality_standards": "Maintain professional DD deliverable quality"
+  }
+}

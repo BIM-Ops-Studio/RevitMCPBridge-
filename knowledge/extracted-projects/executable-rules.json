@@ -1,0 +1,412 @@
+{
+  "version": "2.0",
+  "generated_at": "2026-01-17",
+  "source": "4 extracted projects",
+  "total_rules": 12,
+  "rules": [
+    {
+      "rule_id": "LIFE_SAFETY_PLANS",
+      "name": "Life Safety Plans",
+      "category": "code_compliance",
+      "applies_to": ["multi-family", "healthcare", "commercial"],
+      "confidence": 0.85,
+      "validation_count": 3,
+      "trigger": {
+        "conditions": [
+          {"field": "project_type", "operator": "in", "value": ["multi-family", "healthcare"]},
+          {"field": "building_height", "operator": ">", "value": 3, "unit": "stories"},
+          {"field": "occupancy_type", "operator": "in", "value": ["assembly", "institutional", "high-rise"]}
+        ],
+        "logic": "OR"
+      },
+      "action": {
+        "type": "create_sheets",
+        "template": {
+          "sheet_series": "{firm_pattern}",
+          "naming_pattern": "LIFE SAFETY FLOOR PLAN - {level_name}",
+          "per_item": "unique_floor_or_group"
+        },
+        "required_elements": ["exit_paths", "fire_ratings", "egress_distances", "occupant_loads"]
+      },
+      "firm_patterns": {
+        "SOP": "ALS.{level}.1",
+        "ARKY": "A-0.1{level}",
+        "BD": "LS{level}02",
+        "Fantal": "LS-{level}",
+        "default": "LS-{level}"
+      },
+      "mcp_methods": ["createSheet", "duplicateView", "setViewTemplate"]
+    },
+    {
+      "rule_id": "UNIT_ENLARGED_PLANS",
+      "name": "Unit Enlarged Plans",
+      "category": "sheet_generation",
+      "applies_to": ["multi-family"],
+      "confidence": 0.95,
+      "validation_count": 2,
+      "trigger": {
+        "conditions": [
+          {"field": "project_type", "operator": "in", "value": ["multi-family", "apartment", "condo"]},
+          {"field": "unique_unit_types", "operator": ">", "value": 1}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "create_sheets",
+        "template": {
+          "sheet_series": "{firm_pattern}",
+          "naming_pattern": "UNIT {unit_letter} ENLARGED/FLOOR PLAN",
+          "per_item": "unique_unit_type"
+        },
+        "sub_sheets": [
+          {"suffix": ".2", "name": "FINISH PLAN AND RCP"},
+          {"suffix": ".3", "name": "INTERIOR ELEVATIONS"}
+        ],
+        "view_requirements": [
+          {"view_type": "FloorPlan", "scope": "unit_boundary", "scale": "1/4\" = 1'-0\""},
+          {"view_type": "CeilingPlan", "scope": "unit_boundary", "scale": "1/4\" = 1'-0\""}
+        ]
+      },
+      "firm_patterns": {
+        "SOP": "A9.{unit}.{n}",
+        "ARKY": "A-9.{unit}.{n}",
+        "default": "A9-{unit}.{n}"
+      },
+      "mcp_methods": ["createSheet", "createFloorPlan", "placeViewOnSheet"]
+    },
+    {
+      "rule_id": "TYPICAL_FLOOR_GROUPING",
+      "name": "Typical Floor Grouping",
+      "category": "sheet_organization",
+      "applies_to": ["multi-family"],
+      "confidence": 0.90,
+      "validation_count": 2,
+      "trigger": {
+        "conditions": [
+          {"field": "identical_floor_count", "operator": ">=", "value": 2}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "group_floors",
+        "template": {
+          "naming_pattern": "{start_floor} THRU {end_floor} FLOOR PLAN",
+          "single_sheet": true
+        },
+        "detection": {
+          "similarity_threshold": 0.95,
+          "compare_elements": ["walls", "doors", "windows", "rooms"]
+        }
+      },
+      "mcp_methods": ["getFloorPlansByLevel", "compareViewContent", "createSheet"]
+    },
+    {
+      "rule_id": "RENOVATION_DEMO_PLANS",
+      "name": "Demolition Plans for Renovation",
+      "category": "renovation",
+      "applies_to": ["renovation"],
+      "confidence": 0.95,
+      "validation_count": 1,
+      "trigger": {
+        "conditions": [
+          {"field": "project_subtype", "operator": "==", "value": "renovation"}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "create_sheets",
+        "template": {
+          "naming_pattern": "{level_name} - DEMOLITION PLAN",
+          "per_item": "level",
+          "per_discipline": true
+        },
+        "disciplines": ["A", "E", "M", "P"],
+        "phase_filter": "Existing"
+      },
+      "firm_patterns": {
+        "BD": "{discipline}D{level}0{n}",
+        "default": "{discipline}-{level}-DEMO"
+      },
+      "mcp_methods": ["createFloorPlan", "createSheet", "setPhaseFilter"]
+    },
+    {
+      "rule_id": "RENOVATION_PHASING",
+      "name": "Phased Construction Plans",
+      "category": "renovation",
+      "applies_to": ["renovation"],
+      "confidence": 0.90,
+      "validation_count": 1,
+      "trigger": {
+        "conditions": [
+          {"field": "project_subtype", "operator": "==", "value": "renovation"},
+          {"field": "construction_phases", "operator": ">=", "value": 2}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "create_sheets",
+        "template": {
+          "naming_pattern": "PARTIAL {level_name} PLAN - {discipline} - PHASE {phase_roman}",
+          "per_item": ["level", "discipline", "phase"]
+        },
+        "phase_naming": {
+          "1": {"digit": "1", "roman": "I"},
+          "2": {"digit": "2", "roman": "II"}
+        }
+      },
+      "firm_patterns": {
+        "BD": "{discipline}{phase}{level}{n}",
+        "default": "{discipline}-{level}-PH{phase}"
+      },
+      "mcp_methods": ["createFloorPlan", "createSheet", "duplicateView"]
+    },
+    {
+      "rule_id": "HEALTHCARE_ICRA",
+      "name": "ICRA Plan (Healthcare Renovation)",
+      "category": "healthcare",
+      "applies_to": ["healthcare"],
+      "confidence": 0.95,
+      "validation_count": 1,
+      "trigger": {
+        "conditions": [
+          {"field": "project_type", "operator": "==", "value": "healthcare"},
+          {"field": "project_subtype", "operator": "==", "value": "renovation"}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "create_sheets",
+        "template": {
+          "sheet_number": "MICRA",
+          "naming_pattern": "PARTIAL {level_name} PLAN - ICRA"
+        },
+        "required_elements": [
+          "containment_barriers",
+          "negative_pressure_zones",
+          "patient_protection_path",
+          "construction_traffic_route"
+        ]
+      },
+      "mcp_methods": ["createFloorPlan", "createSheet", "addFilledRegion"]
+    },
+    {
+      "rule_id": "HEALTHCARE_UL_DETAILS",
+      "name": "UL Fire Rating Details",
+      "category": "healthcare",
+      "applies_to": ["healthcare"],
+      "confidence": 0.90,
+      "validation_count": 1,
+      "trigger": {
+        "conditions": [
+          {"field": "project_type", "operator": "==", "value": "healthcare"},
+          {"field": "fire_rated_assembly_count", "operator": ">=", "value": 5}
+        ],
+        "logic": "OR"
+      },
+      "action": {
+        "type": "create_sheets",
+        "template": {
+          "sheet_series": "A70{n}",
+          "naming_pattern": "UL DETAILS"
+        },
+        "typical_assemblies": ["1-hour wall", "2-hour wall", "smoke barrier", "fire door"]
+      },
+      "mcp_methods": ["createSheet", "createDraftingView", "importCAD"]
+    },
+    {
+      "rule_id": "HEALTHCARE_MEDICAL_GAS",
+      "name": "Medical Gas Plans",
+      "category": "healthcare",
+      "applies_to": ["healthcare"],
+      "confidence": 0.85,
+      "validation_count": 1,
+      "trigger": {
+        "conditions": [
+          {"field": "project_type", "operator": "==", "value": "healthcare"},
+          {"field": "has_medical_gas", "operator": "==", "value": true}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "create_sheets",
+        "template": {
+          "sheet_series": "P{level}01",
+          "naming_pattern": "PARTIAL {level_name} PLAN - MEDICAL GAS",
+          "discipline": "Plumbing"
+        }
+      },
+      "mcp_methods": ["createFloorPlan", "createSheet"]
+    },
+    {
+      "rule_id": "SECTION_ORGANIZATION",
+      "name": "Building vs Wall Sections",
+      "category": "view_organization",
+      "applies_to": ["multi-family", "single-family", "commercial"],
+      "confidence": 0.75,
+      "validation_count": 3,
+      "trigger": {
+        "conditions": [
+          {"field": "project_phase", "operator": ">=", "value": "DD"}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "organize_sections",
+        "rules": {
+          "building_sections": {
+            "criteria": "cuts_through_entire_building",
+            "typical_count": "2-4"
+          },
+          "wall_sections": {
+            "criteria": "details_specific_assembly",
+            "per_item": "wall_type_or_condition"
+          }
+        }
+      },
+      "firm_patterns": {
+        "SOP": {"building": "A4.0.{n}", "wall": "A5.0.{n}"},
+        "ARKY": {"building": "A-4.{n}", "wall": "A-5.{n}"},
+        "Fantal": {"building": "A7.{n}", "wall": "A8.{n}"},
+        "BD": {"building": "A40{n}", "wall": "A50{n}"}
+      },
+      "mcp_methods": ["createSection", "createSheet", "placeViewOnSheet"]
+    },
+    {
+      "rule_id": "DETAIL_ORGANIZATION",
+      "name": "Detail Organization by Type",
+      "category": "sheet_organization",
+      "applies_to": ["all"],
+      "confidence": 0.80,
+      "validation_count": 2,
+      "trigger": {
+        "conditions": [
+          {"field": "project_phase", "operator": ">=", "value": "CD"}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "organize_details",
+        "categories": {
+          "partition": {"keywords": ["partition", "wall type", "framing"]},
+          "ceiling": {"keywords": ["ceiling", "soffit", "bulkhead"]},
+          "millwork": {"keywords": ["millwork", "casework", "cabinet"]},
+          "door": {"keywords": ["door", "frame", "hardware"]}
+        }
+      },
+      "mcp_methods": ["getDraftingViews", "moveViewToSheet", "createSheet"]
+    },
+    {
+      "rule_id": "FLOOR_PLAN_PER_LEVEL",
+      "name": "Floor Plan Per Level",
+      "category": "sheet_generation",
+      "applies_to": ["single-family"],
+      "confidence": 0.90,
+      "validation_count": 1,
+      "trigger": {
+        "conditions": [
+          {"field": "project_type", "operator": "==", "value": "single-family"},
+          {"field": "level_count", "operator": ">", "value": 1}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "create_sheets",
+        "template": {
+          "naming_pattern": "PROPOSED {level_name} FLOOR PLAN",
+          "per_item": "level"
+        }
+      },
+      "mcp_methods": ["createFloorPlan", "createSheet", "placeViewOnSheet"]
+    },
+    {
+      "rule_id": "ELEVATION_GROUPING",
+      "name": "Elevation Grouping (Pairs)",
+      "category": "sheet_organization",
+      "applies_to": ["single-family"],
+      "confidence": 0.90,
+      "validation_count": 1,
+      "trigger": {
+        "conditions": [
+          {"field": "project_type", "operator": "==", "value": "single-family"}
+        ],
+        "logic": "AND"
+      },
+      "action": {
+        "type": "group_views",
+        "template": {
+          "views_per_sheet": 2,
+          "grouping": "opposite_pairs",
+          "naming_pattern": "PROPOSED BUILDING ELEVATIONS - {direction1} & {direction2}"
+        },
+        "pairs": [
+          ["NORTH", "SOUTH"],
+          ["EAST", "WEST"]
+        ]
+      },
+      "mcp_methods": ["createElevation", "createSheet", "placeViewOnSheet"]
+    }
+  ],
+  "firm_numbering_patterns": {
+    "SOP": {
+      "separator": ".",
+      "format": "Discipline.Category.Sheet",
+      "example": "A1.1.1",
+      "detected_from": "512 CLEMATIS titleblock"
+    },
+    "ARKY": {
+      "separator": "-",
+      "format": "Discipline-Category.Sheet",
+      "example": "A-2.1",
+      "detected_from": "GOULDS TOWER-1 titleblock"
+    },
+    "Fantal": {
+      "separator": ".",
+      "format": "Discipline.Sheet",
+      "example": "A2.1",
+      "detected_from": "SOUTH GOLF COVE titleblock"
+    },
+    "BD": {
+      "separator": "",
+      "format": "DisciplineSheet",
+      "example": "A100",
+      "detected_from": "BETHESDA HOSPITAL titleblock"
+    }
+  },
+  "project_type_detection": {
+    "multi-family": {
+      "indicators": ["unit", "apartment", "condo", "residential units"],
+      "room_patterns": ["UNIT A", "UNIT B", "TYPICAL UNIT"]
+    },
+    "single-family": {
+      "indicators": ["residence", "house", "single family"],
+      "room_patterns": ["MASTER BEDROOM", "GREAT ROOM", "GARAGE"]
+    },
+    "healthcare": {
+      "indicators": ["hospital", "clinic", "medical", "patient"],
+      "room_patterns": ["NURSE STATION", "PATIENT ROOM", "CLEAN WORKROOM", "SOILED"]
+    },
+    "renovation": {
+      "indicators": ["renovation", "refresh", "remodel", "existing"],
+      "sheet_patterns": ["DEMO", "EXISTING", "PHASE"]
+    }
+  },
+  "mcp_methods_required": [
+    "getProjectInfo",
+    "getRooms",
+    "getViews",
+    "getAllSheets",
+    "getLoadedFamilies",
+    "getLevels",
+    "getPhases",
+    "createFloorPlan",
+    "createCeilingPlan",
+    "createSection",
+    "createElevation",
+    "createSheet",
+    "createDraftingView",
+    "placeViewOnSheet",
+    "duplicateView",
+    "setViewTemplate",
+    "setPhaseFilter"
+  ]
+}

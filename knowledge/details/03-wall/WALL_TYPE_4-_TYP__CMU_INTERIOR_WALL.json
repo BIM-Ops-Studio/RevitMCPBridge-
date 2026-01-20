@@ -1,0 +1,257 @@
+﻿{
+    "scale":  8,
+    "name":  "WALL TYPE 4- TYP. CMU INTERIOR WALL",
+    "id":  1740375,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  2.1042,
+                                             "style":  "4",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.3857
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  7.2815
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.3333,
+                                             "style":  "4",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6148
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  7.2815
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.1303
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.1303
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CEILING_ACT_TEGULAR EDGE-STRETCH",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.762
+                                                               },
+                                                  "type":  "3/4 STRETCH"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.1303
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.1303
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_CHANNEL",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.6005
+                                                               },
+                                                  "type":  "01.5\" x 1.375\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_CHANNEL",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.6058
+                                                               },
+                                                  "type":  "01.5\" x 1.375\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD_SIDE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1 5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CEILING_ACT_SUSPENSION EDGE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.7282
+                                                               },
+                                                  "type":  "15/16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-WOOD_TRIM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.7203
+                                                               },
+                                                  "type":  "HALF ROUND - 3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Rigid Insulation-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\" 2"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  6.9776
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "INTERIOR\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.1092
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "INTERIOR\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4391
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.9291
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BOTTOM OF DECK\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4391
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.5771
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1 5/8\" METAL FURRING CHANNEL @ 24\" O.C. W/FI-FOIL OR SIMILAR R5 MIN. THERMAL INSULATION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4779
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  7.8085
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "EXPOSED CMU WITH BLOCK FILLER \u0026 PAINT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4779
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.8599
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CEILING, REFER TO REFLECTED CEILING PLANS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4779
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.3002
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CMU OR CONCRETE WALL PER STRUCTURAL DRAWINGS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4779
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.7672
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BASE; REFER TO FINISH PLAN\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4779
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.6143
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SET TRACK IN CONT CAULKING. FASTEN TO SLAB WITH 3/16\"X1\" TAPCONS OR 7/64\"X3/4\"  DRIVE PINS @ 12\" O.C.\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  2,
+                     "extractedAt":  "2025-12-28 00:17:11",
+                     "regionCount":  0,
+                     "componentCount":  13,
+                     "textCount":  9
+                 }
+}

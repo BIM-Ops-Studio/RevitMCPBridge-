@@ -1,0 +1,193 @@
+{
+  "$schema": "standards-pack-v2",
+  "_extends": "_core",
+  "_moduleType": "sector",
+
+  "identity": {
+    "name": "Module_Commercial_TI_v1",
+    "version": "1.0.0",
+    "description": "Commercial tenant improvement sector module",
+    "projectType": "Commercial_TI"
+  },
+
+  "titleBlocks": {
+    "required": [
+      {"familyName": "ARCH D 24x36", "size": "24x36", "isDefault": true}
+    ],
+    "preferredPatterns": ["24x36", "ARCH D"]
+  },
+
+  "sheets": {
+    "numberingFormat": "standard",
+    "numberingSuffix": "-{run_id:4}",
+    "sets": {
+      "permitSkeleton": [
+        {"number": "T0.01", "name": "COVER SHEET & CODE ANALYSIS"},
+        {"number": "T0.02", "name": "GENERAL NOTES & LEGENDS"},
+        {"number": "T1.01", "name": "DEMOLITION PLAN", "viewType": "FloorPlan", "phase": "Demolition"},
+        {"number": "T1.02", "name": "CONSTRUCTION FLOOR PLAN", "viewType": "FloorPlan", "level": 1},
+        {"number": "T1.03", "name": "FURNITURE PLAN", "viewType": "FloorPlan", "template": "furniturePlan", "optional": true},
+        {"number": "T2.01", "name": "REFLECTED CEILING PLAN", "viewType": "CeilingPlan", "level": 1},
+        {"number": "T3.01", "name": "INTERIOR ELEVATIONS", "viewType": "InteriorElevation"},
+        {"number": "T4.01", "name": "DETAILS & SECTIONS", "viewType": "Detail"},
+        {"number": "T5.01", "name": "DOOR SCHEDULE", "viewType": "Schedule", "category": "Doors"},
+        {"number": "T5.02", "name": "FINISH SCHEDULE", "viewType": "Schedule", "category": "Rooms"},
+        {"number": "T5.03", "name": "LIGHTING FIXTURE SCHEDULE", "viewType": "Schedule", "category": "Lighting", "optional": true}
+      ],
+      "fullCD": [
+        {"number": "T1.11", "name": "ENLARGED PLAN - RECEPTION", "viewType": "FloorPlan", "template": "enlargedPlan"},
+        {"number": "T1.12", "name": "ENLARGED PLAN - BREAK ROOM", "viewType": "FloorPlan", "template": "enlargedPlan"},
+        {"number": "T1.13", "name": "ENLARGED PLAN - RESTROOMS", "viewType": "FloorPlan", "template": "enlargedPlan"},
+        {"number": "T3.02", "name": "INTERIOR ELEVATIONS - RECEPTION", "viewType": "InteriorElevation"},
+        {"number": "T3.03", "name": "INTERIOR ELEVATIONS - BREAK ROOM", "viewType": "InteriorElevation"},
+        {"number": "T4.02", "name": "MILLWORK DETAILS", "viewType": "Detail"},
+        {"number": "T5.04", "name": "EQUIPMENT SCHEDULE", "viewType": "Schedule", "category": "Equipment"},
+        {"number": "T6.01", "name": "SIGNAGE & WAYFINDING", "viewType": "FloorPlan", "template": "signage"}
+      ]
+    },
+    "coverSheet": {
+      "projectDataBlock": true,
+      "teamBlock": true,
+      "codeSummaryBlock": true,
+      "keyPlan": true,
+      "buildingLocation": true,
+      "tenantInfo": true
+    }
+  },
+
+  "views": {
+    "templates": {
+      "floorPlan": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "cropEnabled": true,
+        "discipline": "Architectural"
+      },
+      "demolitionPlan": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "phaseFilter": "Show Demo + Existing",
+        "colorScheme": "Demo Highlighting"
+      },
+      "furniturePlan": {
+        "scale": 48,
+        "detailLevel": "Coarse",
+        "visualStyle": "Hidden Line",
+        "filters": ["Show Furniture Only"]
+      },
+      "reflectedCeiling": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "cropEnabled": true
+      },
+      "enlargedPlan": {
+        "scale": 24,
+        "detailLevel": "Fine",
+        "visualStyle": "Hidden Line"
+      },
+      "interiorElevation": {
+        "scale": 24,
+        "detailLevel": "Fine"
+      }
+    }
+  },
+
+  "schedules": {
+    "definitions": {
+      "doorSchedule": {
+        "category": "Doors",
+        "fields": ["Mark", "Type Mark", "Width", "Height", "Material", "Frame", "Hardware Group", "Fire Rating", "Comments"],
+        "sorting": ["Mark"],
+        "filters": ["New Construction Only"]
+      },
+      "finishSchedule": {
+        "category": "Rooms",
+        "fields": ["Number", "Name", "Area", "Floor Finish", "Base", "Wall Finish", "Ceiling Type", "Ceiling Height", "Light Fixture Type"],
+        "sorting": ["Number"]
+      },
+      "lightingSchedule": {
+        "category": "Lighting Fixtures",
+        "fields": ["Type Mark", "Manufacturer", "Model", "Lamp Type", "Wattage", "Count", "Circuit"],
+        "sorting": ["Type Mark"]
+      }
+    }
+  },
+
+  "filters": {
+    "preflight": [
+      {
+        "id": "DEMO_WALLS_EXIST",
+        "name": "Demolition Walls Marked",
+        "category": "Walls",
+        "condition": "Phase == 'Demolition'",
+        "severity": "info",
+        "message": "Demo walls present - ensure demo plan is included"
+      },
+      {
+        "id": "NEW_WALLS_EXIST",
+        "name": "New Walls Present",
+        "category": "Walls",
+        "condition": "Phase == 'New Construction'",
+        "severity": "warning",
+        "message": "No new construction walls found"
+      }
+    ],
+    "codeCompliance": [
+      {
+        "id": "ADA_RESTROOM",
+        "name": "ADA Restroom Compliance",
+        "category": "Rooms",
+        "condition": "Room Type == 'Restroom'",
+        "severity": "warning",
+        "message": "Verify ADA compliance for restroom layout"
+      },
+      {
+        "id": "EXIT_SIGNAGE",
+        "name": "Exit Sign Locations",
+        "category": "Equipment",
+        "condition": "Type contains 'Exit'",
+        "severity": "info",
+        "message": "Verify exit sign placement per code"
+      }
+    ]
+  },
+
+  "levelMapping": {
+    "patterns": {
+      "level1": ["Level 1", "L1", "Floor 1", "Suite Level", "1"]
+    },
+    "dynamicLevels": false,
+    "maxLevels": 1
+  },
+
+  "cropStrategy": {
+    "method": "model_extents",
+    "marginFeet": 3.0,
+    "enabled": true
+  },
+
+  "sectorSpecific": {
+    "tenantImprovement": {
+      "baseBuildingLink": true,
+      "demoPlanRequired": true,
+      "landlordApproval": true
+    },
+    "ceilingPlan": {
+      "required": true,
+      "showGrid": true,
+      "showLighting": true,
+      "showDiffusers": true
+    },
+    "finishes": {
+      "finishScheduleRequired": true,
+      "materialBoardReference": true
+    },
+    "furniture": {
+      "furniturePlanOptional": true,
+      "systemsFurniture": false
+    }
+  }
+}

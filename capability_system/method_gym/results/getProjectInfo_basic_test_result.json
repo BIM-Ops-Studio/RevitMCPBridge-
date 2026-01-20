@@ -1,0 +1,93 @@
+{
+  "testId": "getProjectInfo_basic_test",
+  "methodName": "getProjectInfo",
+  "triggerType": "regression",
+  "createdAt": "2025-12-26T14:20:30Z",
+  "taskRequest": {
+    "method": "getProjectInfo",
+    "params": {},
+    "userIntent": "Get project information from the current Revit model"
+  },
+  "expectedOutcome": {
+    "success": true,
+    "assertions": [
+      {
+        "type": "noError"
+      }
+    ]
+  },
+  "execution": {
+    "status": "failed",
+    "startedAt": "2025-12-26T14:14:43.3789262-08:00",
+    "completedAt": "2025-12-26T14:14:43.9805278-08:00",
+    "durationMs": 601.6061
+  },
+  "initialState": {
+    "timestamp": "2025-12-26T14:14:43.3787088-08:00",
+    "projectName": "512_CLEMATIS-2.0006",
+    "elementCounts": {
+      "Walls": 2907,
+      "Doors": 649,
+      "Windows": 280,
+      "Rooms": 1172,
+      "Views": 1832,
+      "Sheets": 360
+    },
+    "activeViewId": 3938458
+  },
+  "actualResult": {
+    "success": false,
+    "error": "Method 'getProjectInfo' not found in registry. Use getBatchMethods to list available methods."
+  },
+  "assertionResults": [
+    {
+      "assertion": {
+        "type": "successEquals"
+      },
+      "passed": false,
+      "expected": true,
+      "actual": false,
+      "message": "Expected success=True, got False"
+    },
+    {
+      "assertion": {
+        "type": "noError"
+      },
+      "passed": false,
+      "actual": "Method 'getProjectInfo' not found in registry. Use getBatchMethods to list available methods.",
+      "message": "Error occurred: Method 'getProjectInfo' not found in registry. Use getBatchMethods to list available methods."
+    }
+  ],
+  "evidence": {
+    "createdElementIds": [],
+    "modifiedElementIds": [],
+    "stateChange": {
+      "before": {
+        "timestamp": "2025-12-26T14:14:43.3787088-08:00",
+        "projectName": "512_CLEMATIS-2.0006",
+        "elementCounts": {
+          "Walls": 2907,
+          "Doors": 649,
+          "Windows": 280,
+          "Rooms": 1172,
+          "Views": 1832,
+          "Sheets": 360
+        },
+        "activeViewId": 3938458
+      },
+      "after": {
+        "timestamp": "2025-12-26T14:14:43.9801742-08:00",
+        "projectName": "512_CLEMATIS-2.0006",
+        "elementCounts": {
+          "Walls": 2907,
+          "Doors": 649,
+          "Windows": 280,
+          "Rooms": 1172,
+          "Views": 1832,
+          "Sheets": 360
+        },
+        "activeViewId": 3938458
+      }
+    }
+  }
+}

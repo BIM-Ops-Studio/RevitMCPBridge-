@@ -1,0 +1,410 @@
+﻿{
+    "scale":  12,
+    "name":  "DOORS_JAMB LOCATION (WD)",
+    "id":  1741323,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  1.9792,
+                                             "style":  "1_CENTER (x1)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  5.3738
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  5.3738
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.9063,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.7437
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  5.8374
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.125,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  5.8738
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  5.8738
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.4531,
+                                             "style":  "1_CENTER (x1)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.8738
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  4.8738
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.6985,
+                                             "style":  "1_DASH A (x1)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  5.8738
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.7958
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.1001
+                                                               },
+                                                  "type":  "012 - 1\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.728
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_CHANNEL",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.0092
+                                                               },
+                                                  "type":  "03.625\" x 1.375\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.603
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.2414
+                                                               },
+                                                  "type":  "012 - 1\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.9416
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.3843
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.0666
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.3947
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.2697
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.3322
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.3322
+                                                               },
+                                                  "type":  "3 5/8\" x 1 1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.3322
+                                                               },
+                                                  "type":  "012 - 1\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-WOOD_TRIM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.5613
+                                                               },
+                                                  "type":  "SQUARE 3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-FRAMING-WOOD-Section-Stretch",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.7905
+                                                               },
+                                                  "type":  ".25\"X"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-WOOD_TRIM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.5613
+                                                               },
+                                                  "type":  "SQUARE 3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-FRAMING-WOOD-Section-Stretch",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.8583
+                                                               },
+                                                  "type":  ".25\"X"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-WOOD_TRIM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.8166
+                                                               },
+                                                  "type":  "SQUARE 3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-WOOD_TRIM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.8166
+                                                               },
+                                                  "type":  "SQUARE 3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "08-DOOR_FRAME_WOOD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.8113
+                                                               },
+                                                  "type":  "4.875\" WIDE"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "08-DOOR_FRAME_WOOD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.8583
+                                                               },
+                                                  "type":  "4.875\" WIDE"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "08-DOOR-PANEL-WOOD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.6812
+                                                               },
+                                                  "type":  "DOOR-PANEL-WOOD (2\")"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.9118
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CENTERLINE OF T-STAT AT 46\" AFF\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.4118
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CENTERLINE OF SWITCH AT 46\" AFF\\r\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9576
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.1192
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "LOCATION OF FLOOR FINISH TRANSITION AT DOOR AS SHOWN (TYP)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  6.0412
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.7419
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DOOR FRAME (SEE DETAIL THIS SHEET)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  6.0412
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.2782
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "METAL STUD WALL ASSEMBLY, SEE TYPICAL WALL CONSTRUCTION DETAILS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  6.0412
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.7125
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DOOR AS SCHEDULED\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  5,
+                     "extractedAt":  "2025-12-28 00:17:46",
+                     "regionCount":  0,
+                     "componentCount":  29,
+                     "textCount":  6
+                 }
+}

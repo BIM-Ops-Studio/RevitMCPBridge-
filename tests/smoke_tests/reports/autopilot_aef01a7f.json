@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "workflow": "spine_autopilot",
+  "version": "0.4",
+  "run_id": "aef01a7f",
+  "timestamp": "2025-12-18T08:47:37.167984+00:00",
+  "config": {
+    "sector": "multifamily",
+    "firm": "ARKY",
+    "max_iterations": 1
+  },
+  "autopilot": {
+    "iterations": 1,
+    "decision": "complete",
+    "stop_reason": "All targets achieved",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "tasks": {
+          "planned": 19,
+          "executed": 19,
+          "succeeded": 19,
+          "skipped": 0
+        },
+        "gate_decision": "skipped",
+        "scores": {
+          "pack_coverage_pct": 100.0,
+          "quality_pct": 100.0,
+          "confidence_pct": 100
+        },
+        "delta": {
+          "created": {
+            "sheet": 19
+          },
+          "modified": {},
+          "resolved_gaps": 1,
+          "remaining_gaps": 0,
+          "severity_change": {
+            "blockers": 0,
+            "warnings": -1
+          }
+        },
+        "decision": "complete",
+        "stop_reason": "All targets achieved"
+      }
+    ]
+  },
+  "baseline_scores": {
+    "pack_coverage_pct": 66.7,
+    "quality_pct": 100.0,
+    "confidence_pct": 87.5,
+    "ready_for_permit": false
+  },
+  "iteration_scores": [
+    {
+      "pack_coverage_pct": 100.0,
+      "quality_pct": 100.0,
+      "confidence_pct": 100
+    }
+  ],
+  "final_scores": {
+    "pack_coverage_pct": 100.0,
+    "quality_pct": 100.0,
+    "confidence_pct": 100
+  },
+  "summary": {
+    "total_tasks_executed": 19,
+    "total_tasks_succeeded": 19,
+    "gaps_resolved": 1
+  }
+}

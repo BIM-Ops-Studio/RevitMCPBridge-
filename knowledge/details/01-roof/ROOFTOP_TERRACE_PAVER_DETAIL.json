@@ -1,0 +1,321 @@
+﻿{
+    "scale":  8,
+    "name":  "ROOFTOP TERRACE PAVER DETAIL",
+    "id":  2221151,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  0.0,
+                                                              "maxX":  5.0,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  0.0,
+                                                              "maxX":  5.0,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  0.0,
+                                                              "maxX":  5.0,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  0.0,
+                                                              "maxX":  5.0,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  0.0,
+                                                              "maxX":  5.0,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  0.0,
+                                                              "maxX":  5.0,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  2.3375,
+                                                              "maxX":  2.6708,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  0.4938,
+                                                              "maxX":  2.4937,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  2.5146,
+                                                              "maxX":  4.5146,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  4.3583,
+                                                              "maxX":  4.6917,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  0.3167,
+                                                              "maxX":  0.6500,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  -0.0469,
+                                                              "maxX":  0.4729,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  4.5354,
+                                                              "maxX":  5.0120,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.089
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  4.9223
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.0
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "NOTES:\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.0
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "1. SLOPE ROOF MIN 1/4 IN/FT FOR DRAINAGE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.0
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "2. PEDESTALS: 1/2 IN TO 24 IN+ ADJUSTABLE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.0
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "3. PAVER GAP: 1/8 IN MAX\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.0
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "4. PERIMETER CONTAINMENT REQUIRED\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.0
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "5. REF: FP-19 (TPO), FP-20 (PAVERS)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.5
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.78
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "20MM PORCELAIN PAVERS (R11 SLIP RATING)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.5
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.5933
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "ADJUSTABLE PEDESTALS (BISON OR EQ.)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.5
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.8007
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DRAINAGE MAT / PROTECTION COURSE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.5
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.8932
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TPO MEMBRANE 60 MIL\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.5
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.8113
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "COVER BOARD (DENSDECK)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.5
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.78
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "POLYISO INSULATION R-20 (4 IN)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.5
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.8419
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "VAPOR RETARDER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.5
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.5184
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "STRUCTURAL DECK, REFER STRUCTURAL DRAWINGS\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:24:16",
+                     "regionCount":  13,
+                     "componentCount":  15,
+                     "textCount":  14
+                 }
+}

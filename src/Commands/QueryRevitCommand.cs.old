@@ -1,0 +1,158 @@
+using System;
+using System.Windows.Forms;
+using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Serilog;
+using Newtonsoft.Json;
+
+namespace RevitMCPBridge.Commands
+{
+    [Transaction(TransactionMode.ReadOnly)]
+    [Regeneration(RegenerationOption.Manual)]
+    public class QueryRevitCommand : IExternalCommand
+    {
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+            try
+            {
+                var server = RevitMCPBridgeApp.GetServer();
+                
+                if (server == null || !server.IsRunning)
+                {
+                    Autodesk.Revit.UI.TaskDialog.Show("MCP Bridge", "Server is not running. Please start the server first.");
+                    return Result.Cancelled;
+                }
+                
+                // Create query dialog
+                var dialog = new QueryDialog();
+                if (dialog.ShowDialog() != DialogResult.OK)
+                    return Result.Cancelled;
+                
+                var query = dialog.QueryText;
+                
+                // Process the query (this is a simplified example)
+                var result = ProcessQuery(commandData.Application.ActiveUIDocument.Document, query);
+                
+                // Show results
+                var resultsDialog = new Autodesk.Revit.UI.TaskDialog("Query Results");
+                resultsDialog.MainContent = result;
+                resultsDialog.ExpandedContent = "Query executed successfully via MCP Bridge.";
+                resultsDialog.Show();
+                
+                Log.Information($"Query executed: {query}");
+                
+                return Result.Succeeded;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Failed to execute query");
+                message = ex.Message;
+                return Result.Failed;
+            }
+        }
+        
+        private string ProcessQuery(Document doc, string query)
+        {
+            try
+            {
+                // This is a simplified query processor
+                // In a real implementation, this would parse and execute complex queries
+                
+                if (query.ToLower().Contains("count"))
+                {
+                    if (query.ToLower().Contains("wall"))
+                    {
+                        var walls = new FilteredElementCollector(doc)
+                            .OfClass(typeof(Wall))
+                            .WhereElementIsNotElementType()
+                            .ToElements();
+                        return $"Wall Count: {walls.Count}";
+                    }
+                    else if (query.ToLower().Contains("door"))
+                    {
+                        var doors = new FilteredElementCollector(doc)
+                            .OfCategory(BuiltInCategory.OST_Doors)
+                            .WhereElementIsNotElementType()
+                            .ToElements();
+                        return $"Door Count: {doors.Count}";
+                    }
+                    else if (query.ToLower().Contains("window"))
+                    {
+                        var windows = new FilteredElementCollector(doc)
+                            .OfCategory(BuiltInCategory.OST_Windows)
+                            .WhereElementIsNotElementType()
+                            .ToElements();
+                        return $"Window Count: {windows.Count}";
+                    }
+                }
+                
+                return "Query processed. Use keywords like 'count walls', 'count doors', etc.";
+            }
+            catch (Exception ex)
+            {
+                return $"Error processing query: {ex.Message}";
+            }
+        }
+    }
+    
+    // Simple query dialog
+    public class QueryDialog : System.Windows.Forms.Form
+    {
+        private System.Windows.Forms.TextBox queryTextBox;
+        private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.Button cancelButton;
+        
+        public string QueryText => queryTextBox.Text;
+        
+        public QueryDialog()
+        {
+            InitializeComponent();
+        }
+        
+        private void InitializeComponent()
+        {
+            this.Text = "Query Revit Model";
+            this.Size = new System.Drawing.Size(500, 200);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            
+            var label = new System.Windows.Forms.Label
+            {
+                Text = "Enter query (e.g., 'count walls', 'count doors'):",
+                Location = new System.Drawing.Point(10, 10),
+                Size = new System.Drawing.Size(460, 20)
+            };
+            
+            queryTextBox = new System.Windows.Forms.TextBox
+            {
+                Location = new System.Drawing.Point(10, 40),
+                Size = new System.Drawing.Size(460, 60),
+                Multiline = true
+            };
+            
+            okButton = new System.Windows.Forms.Button
+            {
+                Text = "Execute",
+                DialogResult = DialogResult.OK,
+                Location = new System.Drawing.Point(310, 110),
+                Size = new System.Drawing.Size(75, 23)
+            };
+            
+            cancelButton = new System.Windows.Forms.Button
+            {
+                Text = "Cancel",
+                DialogResult = DialogResult.Cancel,
+                Location = new System.Drawing.Point(395, 110),
+                Size = new System.Drawing.Size(75, 23)
+            };
+            
+            this.Controls.Add(label);
+            this.Controls.Add(queryTextBox);
+            this.Controls.Add(okButton);
+            this.Controls.Add(cancelButton);
+            
+            this.AcceptButton = okButton;
+            this.CancelButton = cancelButton;
+        }
+    }
+}

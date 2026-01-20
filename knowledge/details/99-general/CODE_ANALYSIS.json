@@ -1,0 +1,243 @@
+﻿{
+    "scale":  1,
+    "name":  "CODE ANALYSIS",
+    "id":  2200478,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.42,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.02
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.42,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.57
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.38,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.17
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.17
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CODE ANALYSIS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "APPLICABLE CODES\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "BUILDING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "OCCUPANCY\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CONSTRUCTION\\rTYPE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "WORK\\rDESCRIPTION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "FLORIDA BUILDING CODE 2023 (8th EDITION)\\rFLORIDA RESIDENTIAL CODE 2023 (8th EDITION)\\rFLORIDA FIRE PREVENTION CODE 2023 (8th EDITION)\\rNFPA 1 AND 101 - 2024 EDITION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "NEW SINGLE-FAMILY RESIDENTIAL BUILDING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "RESIDENTIAL - GROUP R-3\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CONCRETE MASONRY BLOCK CONSTRUCTION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "NEW CONSTRUCTION SINGLE-FAMILY RESIDENCE\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  10,
+                     "extractedAt":  "2025-12-28 00:24:04",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  11
+                 }
+}

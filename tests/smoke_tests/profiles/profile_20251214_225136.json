@@ -1,0 +1,132 @@
+{
+  "$schema": "project-profile-v1",
+  "projectName": "Unknown",
+  "profiledAt": "2025-12-15T06:51:36.700880+00:00",
+  "profileVersion": "1.0.0",
+  "environment": {
+    "revitVersion": "2026.2",
+    "mcpBridgeVersion": "1.0.0"
+  },
+  "levels": {
+    "detected": [
+      {
+        "id": 30,
+        "name": "L1",
+        "elevation": 0.0,
+        "mappedRole": "level1"
+      },
+      {
+        "id": 9946,
+        "name": "L2",
+        "elevation": 12.0,
+        "mappedRole": "level2"
+      }
+    ],
+    "count": 2,
+    "hasRoof": false
+  },
+  "titleBlocks": {
+    "available": [
+      {
+        "id": 373131,
+        "name": "B 11 x 17 Horizontal",
+        "isAutodesk": true
+      },
+      {
+        "id": 389710,
+        "name": "A 8.5 x 11 Vertical",
+        "isAutodesk": true
+      },
+      {
+        "id": 390098,
+        "name": "C 17 x 22 Horizontal",
+        "isAutodesk": true
+      },
+      {
+        "id": 390494,
+        "name": "D 22 x 34 Horizontal",
+        "isAutodesk": true
+      },
+      {
+        "id": 390898,
+        "name": "E 34 x 44 Horizontal",
+        "isAutodesk": true
+      },
+      {
+        "id": 395304,
+        "name": "E1 30 x 42 Horizontal w Grid",
+        "isAutodesk": false
+      },
+      {
+        "id": 951211,
+        "name": "E1 30 x 42 Cover",
+        "isAutodesk": false
+      },
+      {
+        "id": 952584,
+        "name": "E1 30 x 42 Horizontal",
+        "isAutodesk": false
+      },
+      {
+        "id": 1246190,
+        "name": "ARKY - Title Block",
+        "isAutodesk": false
+      }
+    ],
+    "selected": {
+      "id": 1246190,
+      "name": "ARKY - Title Block",
+      "reason": "Matched pattern 'ARKY' from standards pack"
+    }
+  },
+  "modelExtents": {
+    "min": {
+      "x": -25.18,
+      "y": -22.95,
+      "z": 0.0
+    },
+    "max": {
+      "x": 30.64,
+      "y": 26.81,
+      "z": 16.5
+    },
+    "sizeFeet": {
+      "width": 55.82,
+      "depth": 49.76,
+      "height": 16.5
+    },
+    "calculatedFrom": "walls"
+  },
+  "existingViews": {
+    "floorPlans": [],
+    "elevations": [],
+    "sections": [],
+    "schedules": []
+  },
+  "existingSheets": {
+    "count": 0,
+    "numberingPattern": null,
+    "lastNumber": null
+  },
+  "capabilityMatrix": {
+    "can_place_floorplan": true,
+    "can_place_elevation": "not_tested",
+    "can_place_schedule": false,
+    "can_place_legend": false,
+    "can_export_csv": true
+  },
+  "missingPrerequisites": [
+    "No elevation views exist - will need to create or skip",
+    "No schedules exist - will create during workflow"
+  ],
+  "recommendations": {
+    "standardsPack": "ARKY_SFH_v1",
+    "sheetSet": "permitSkeleton",
+    "notes": [
+      "2-level model suitable for SFH workflow",
+      "Custom title block 'ARKY - Title Block' available",
+      "Model extents suggest 56' x 50' building footprint",
+      "No elevation views exist - will need to create or skip"
+    ]
+  }
+}

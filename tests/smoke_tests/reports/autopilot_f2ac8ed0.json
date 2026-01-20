@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "workflow": "spine_autopilot",
+  "version": "0.4",
+  "run_id": "f2ac8ed0",
+  "timestamp": "2025-12-15T18:31:53.635191+00:00",
+  "config": {
+    "sector": "multifamily",
+    "firm": null,
+    "max_iterations": 0
+  },
+  "autopilot": {
+    "iterations": 0,
+    "decision": "stopped",
+    "stop_reason": "Gate denied by user",
+    "iteration_details": []
+  },
+  "baseline_scores": {
+    "pack_coverage_pct": 66.7,
+    "quality_pct": 100.0,
+    "confidence_pct": 87.5,
+    "ready_for_permit": false
+  },
+  "iteration_scores": [],
+  "final_scores": {
+    "pack_coverage_pct": 66.7,
+    "quality_pct": 100.0,
+    "confidence_pct": 87.5,
+    "ready_for_permit": false
+  },
+  "summary": {
+    "total_tasks_executed": 0,
+    "total_tasks_succeeded": 0,
+    "gaps_resolved": 0
+  }
+}

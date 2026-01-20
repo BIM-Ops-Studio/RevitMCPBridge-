@@ -1,0 +1,87 @@
+﻿{
+    "scale":  12,
+    "name":  "BB-2 THREE COURSE BOND BEAM",
+    "id":  1741508,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.2084
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1- #7 REBAR CONTINUOUS AT TOP. PLACE REBARS\\rON EACH FACE. (PROVIDE 1/2\" NEW CONCRETE COVER) \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.2227
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1- #7 REBAR CONTINUOUS AT BOTTOM. PLACE\\rREBARS ON EACH FACE.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.1485
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1- #5 REBAR CONTINUOUS AT BOTTOM.\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:18:13",
+                     "regionCount":  0,
+                     "componentCount":  3,
+                     "textCount":  3
+                 }
+}

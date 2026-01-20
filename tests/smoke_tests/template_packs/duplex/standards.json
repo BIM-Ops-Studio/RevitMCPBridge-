@@ -1,0 +1,150 @@
+{
+  "$schema": "standards-pack-v2",
+  "_extends": "_core",
+  "_moduleType": "sector",
+
+  "identity": {
+    "name": "Module_Duplex_v1",
+    "version": "1.0.0",
+    "description": "Duplex/townhouse sector module (2-4 attached units)",
+    "projectType": "Duplex"
+  },
+
+  "titleBlocks": {
+    "required": [
+      {"familyName": "ARCH D 24x36", "size": "24x36", "isDefault": true}
+    ],
+    "preferredPatterns": ["24x36", "ARCH D"]
+  },
+
+  "sheets": {
+    "numberingFormat": "standard",
+    "numberingSuffix": "-{run_id:4}",
+    "sets": {
+      "permitSkeleton": [
+        {"number": "A0.01", "name": "COVER SHEET"},
+        {"number": "A0.02", "name": "CODE ANALYSIS & SITE DATA"},
+        {"number": "A1.01", "name": "FIRST FLOOR PLAN - UNIT A", "viewType": "FloorPlan", "level": 1, "unit": "A"},
+        {"number": "A1.02", "name": "FIRST FLOOR PLAN - UNIT B", "viewType": "FloorPlan", "level": 1, "unit": "B"},
+        {"number": "A1.03", "name": "SECOND FLOOR PLAN - UNIT A", "viewType": "FloorPlan", "level": 2, "unit": "A", "optional": true},
+        {"number": "A1.04", "name": "SECOND FLOOR PLAN - UNIT B", "viewType": "FloorPlan", "level": 2, "unit": "B", "optional": true},
+        {"number": "A2.01", "name": "BUILDING ELEVATIONS", "viewType": "Elevation"},
+        {"number": "A5.01", "name": "DOOR SCHEDULE - UNIT A", "viewType": "Schedule", "category": "Doors", "unit": "A"},
+        {"number": "A5.02", "name": "DOOR SCHEDULE - UNIT B", "viewType": "Schedule", "category": "Doors", "unit": "B"}
+      ],
+      "fullCD": [
+        {"number": "A0.01", "name": "COVER SHEET"},
+        {"number": "A0.02", "name": "CODE ANALYSIS & SITE DATA"},
+        {"number": "A0.03", "name": "GENERAL NOTES & ABBREVIATIONS"},
+        {"number": "A1.01", "name": "FIRST FLOOR PLAN - UNIT A", "viewType": "FloorPlan", "level": 1, "unit": "A"},
+        {"number": "A1.02", "name": "FIRST FLOOR PLAN - UNIT B", "viewType": "FloorPlan", "level": 1, "unit": "B"},
+        {"number": "A1.03", "name": "SECOND FLOOR PLAN - UNIT A", "viewType": "FloorPlan", "level": 2, "unit": "A"},
+        {"number": "A1.04", "name": "SECOND FLOOR PLAN - UNIT B", "viewType": "FloorPlan", "level": 2, "unit": "B"},
+        {"number": "A1.05", "name": "ROOF PLAN", "viewType": "FloorPlan", "levelRole": "roof"},
+        {"number": "A2.01", "name": "EXTERIOR ELEVATIONS - FRONT & REAR", "viewType": "Elevation"},
+        {"number": "A2.02", "name": "EXTERIOR ELEVATIONS - LEFT & RIGHT", "viewType": "Elevation"},
+        {"number": "A3.01", "name": "BUILDING SECTIONS", "viewType": "Section"},
+        {"number": "A4.01", "name": "WALL SECTIONS", "viewType": "Section"},
+        {"number": "A5.01", "name": "DOOR SCHEDULE - UNIT A", "viewType": "Schedule", "category": "Doors", "unit": "A"},
+        {"number": "A5.02", "name": "DOOR SCHEDULE - UNIT B", "viewType": "Schedule", "category": "Doors", "unit": "B"},
+        {"number": "A5.03", "name": "WINDOW SCHEDULE", "viewType": "Schedule", "category": "Windows"},
+        {"number": "A5.04", "name": "ROOM FINISH SCHEDULE", "viewType": "Schedule", "category": "Rooms"}
+      ]
+    }
+  },
+
+  "views": {
+    "templates": {
+      "floorPlan": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "cropEnabled": true,
+        "discipline": "Architectural"
+      },
+      "elevation": {
+        "scale": 48,
+        "detailLevel": "Medium"
+      },
+      "section": {
+        "scale": 24,
+        "detailLevel": "Fine"
+      }
+    }
+  },
+
+  "schedules": {
+    "definitions": {
+      "doorSchedule": {
+        "category": "Doors",
+        "fields": ["Mark", "Type Mark", "Level", "Width", "Height", "Comments"],
+        "sorting": ["Level", "Mark"],
+        "perUnit": true
+      },
+      "windowSchedule": {
+        "category": "Windows",
+        "fields": ["Mark", "Type Mark", "Level", "Width", "Height", "Sill Height"],
+        "sorting": ["Level", "Mark"]
+      },
+      "roomSchedule": {
+        "category": "Rooms",
+        "fields": ["Number", "Name", "Area", "Floor Finish", "Wall Finish", "Ceiling Finish"],
+        "sorting": ["Number"]
+      }
+    }
+  },
+
+  "filters": {
+    "preflight": [
+      {
+        "id": "DEMISING_WALL_EXISTS",
+        "name": "Demising Wall Present",
+        "category": "Walls",
+        "condition": "Type Name contains 'Demising' OR Type Name contains 'Party'",
+        "severity": "warning",
+        "message": "No demising wall found between units"
+      },
+      {
+        "id": "UNIT_ROOMS_EXIST",
+        "name": "Rooms in Both Units",
+        "category": "Rooms",
+        "condition": "Room count >= 2",
+        "severity": "warning",
+        "message": "Verify rooms exist in both units"
+      }
+    ]
+  },
+
+  "levelMapping": {
+    "patterns": {
+      "level1": ["Level 1", "L1", "First Floor", "Ground", "1st Floor"],
+      "level2": ["Level 2", "L2", "Second Floor", "2nd Floor"],
+      "roof": ["Roof", "T.O. Roof", "Roof Level"]
+    },
+    "dynamicLevels": false,
+    "maxLevels": 3
+  },
+
+  "cropStrategy": {
+    "method": "model_extents",
+    "marginFeet": 5.0,
+    "enabled": true
+  },
+
+  "sectorSpecific": {
+    "unitPlanning": {
+      "unitCount": 2,
+      "unitLabels": ["A", "B"],
+      "perUnitSchedules": true,
+      "perUnitFloorPlans": true
+    },
+    "demising": {
+      "demisingWallRequired": true,
+      "fireRating": "1-hour"
+    },
+    "metering": {
+      "separateMeters": true,
+      "meterLocations": "exterior"
+    }
+  }
+}

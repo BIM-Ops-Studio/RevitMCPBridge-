@@ -1,0 +1,33 @@
+# Legal documents - NEVER commit
+legal/
+
+# Build outputs
+bin/
+obj/
+
+# Large data folders (backup separately)
+data/
+archive/
+logs/
+*.rvt
+*.rfa
+*.dwg
+*.dxf
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Secrets and config
+*.secret
+*.env
+appsettings.local.json
+
+# Backup files
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

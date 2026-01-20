@@ -1,0 +1,224 @@
+﻿{
+    "scale":  4,
+    "name":  "SF-J2_JAMB DETAIL",
+    "id":  1863212,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  5.2812,
+                                                              "maxX":  5.8228,
+                                                              "minY":  111.4721,
+                                                              "maxY":  111.4721
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  4.1702,
+                                                              "maxX":  6.7217,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  5.4478,
+                                                              "maxX":  5.9322,
+                                                              "minY":  0,
+                                                              "maxY":  0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-FRAMING-WOOD-Section-Stretch",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.3228
+                                                               },
+                                                  "type":  ".25\"X"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "07-SEALANT-BACKER ROD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.3228
+                                                               },
+                                                  "type":  "1/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "07-SEALANT-BACKER ROD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.3228
+                                                               },
+                                                  "type":  "1/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Caulking-Section-RAKE-",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.3173
+                                                               },
+                                                  "type":  "1/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "04-CMU-PLAN",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.677
+                                                               },
+                                                  "type":  "07 5/8\" x 16\" L"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FASTENERS_SCREW",
+                                                  "location":  {
+                                                                   "y":  -1.4205,
+                                                                   "x":  5.2418
+                                                               },
+                                                  "type":  "FLAT - 2\" Length"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.4542
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "NOTE:\\rMANUFACTURER TO USE THE REQUIRED MULLION TYPE PER NOA TO COMPLY WITH SPECIFIED WIND LOADS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  5.2695
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. SEALANT MIN. 1/4\" DOW CORNING SILICONE IN RAKED STUCCO JOINT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  5.3358
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLASTIC SHIM AS REQ\u0027D\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  5.3385
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. SEALANT AND BACKER ROD\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  5.61
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "R.O. FLASHING TO EXTEND 6\" ON EXTERIOR SIDE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  5.5425
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CMU/CONCRETE WALL\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  5.3174
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. GALV. CORNER BEAD\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  5.3328
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. SEALANT AND BACKER ROD\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  5.0712
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. ALUM DOOR STOP\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  -0.0208,
+                                                            "x":  5.9974
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  -0.0208,
+                                                             "x":  4.6619
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "IMPACT RESISTANT ALUMINUM \u0026 GLASS STOREFRONT DOOR - SEE DOOR SCHEDULE\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  387,
+                     "extractedAt":  "2025-12-28 00:21:10",
+                     "regionCount":  3,
+                     "componentCount":  9,
+                     "textCount":  10
+                 }
+}

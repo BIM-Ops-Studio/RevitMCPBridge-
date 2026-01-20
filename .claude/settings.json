@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "agent": "revit-developer",
+  "permissions": {
+    "allow": [
+      "Bash(powershell.exe:*)",
+      "Bash(dotnet:*)",
+      "Bash(MSBuild.exe:*)",
+      "Read(/mnt/d/RevitMCPBridge2026/*)",
+      "Write(/mnt/d/RevitMCPBridge2026/*)",
+      "Edit(/mnt/d/RevitMCPBridge2026/*)"
+    ],
+    "additionalDirectories": [
+      "/mnt/d/_CLAUDE-TOOLS",
+      "/mnt/d/revit-mcp-server"
+    ]
+  },
+  "mcpServers": {
+    "claude-memory": {
+      "type": "stdio",
+      "command": "python3",
+      "args": ["/mnt/d/_CLAUDE-TOOLS/claude-memory-server/src/server.py"],
+      "env": {
+        "PYTHONPATH": "/mnt/d/_CLAUDE-TOOLS/claude-memory-server/src"
+      }
+    },
+    "floor-plan-vision": {
+      "type": "stdio",
+      "command": "python3",
+      "args": ["-m", "floor_plan_vision.server"],
+      "cwd": "/mnt/d/RevitMCPBridge2026/floor-plan-vision-mcp/src",
+      "env": {
+        "PYTHONPATH": "/mnt/d/RevitMCPBridge2026/floor-plan-vision-mcp/src"
+      }
+    },
+    "revit-bridge": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "revit_mcp_server.server"],
+      "cwd": "/mnt/d/revit-mcp-server",
+      "env": {
+        "PYTHONPATH": "/mnt/d/revit-mcp-server",
+        "REVIT_PIPE_NAME": "\\\\.\\pipe\\RevitMCPBridge2026"
+      }
+    }
+  }
+}

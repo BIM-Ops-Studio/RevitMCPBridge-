@@ -1,0 +1,78 @@
+{
+  "firmId": "neudesign",
+  "firmName": "neUdesign Projects",
+  "description": "National modular and multi-family architecture",
+  "sourceProject": "ND Template_2019",
+  "extractedAt": "legacy",
+  "status": "legacy",
+
+  "detection": {
+    "pathPatterns": ["neUdesign", "ND_", "neudesign"],
+    "titleBlockFamilies": ["ND Title Block"],
+    "projectInfoPatterns": {
+      "author": "neUdesign"
+    }
+  },
+
+  "sheetNumbering": {
+    "pattern": "A###",
+    "examples": ["A001", "A101", "A201"],
+    "disciplines": {
+      "A": "Architectural",
+      "S": "Structural",
+      "M": "MEP"
+    },
+    "categories": {
+      "A001": "General",
+      "A100": "Plans",
+      "A200": "Elevations",
+      "A300": "Sections",
+      "A400": "Details",
+      "A500": "Unit Plans"
+    }
+  },
+
+  "textTypes": {
+    "primary": {
+      "notes": {"font": "Arial", "size": "3/32\""},
+      "headers": {"font": "Arial", "size": "3/16\""}
+    }
+  },
+
+  "dimensionTypes": {
+    "default": null
+  },
+
+  "viewTemplates": {
+    "floorPlan": null,
+    "unitPlan": null
+  },
+
+  "familyNaming": {
+    "prefixes": {}
+  },
+
+  "titleBlocks": [
+    {
+      "name": "ND Title Block",
+      "size": "24x36",
+      "use": "Standard"
+    }
+  ],
+
+  "projectTypes": [
+    "modular",
+    "multi-family",
+    "prefab"
+  ],
+
+  "specializations": {
+    "modular": {
+      "unitTypes": true,
+      "moduleStacking": true,
+      "transportLimits": true
+    }
+  },
+
+  "notes": "Legacy profile from 2019 template - modular/prefab focus"
+}

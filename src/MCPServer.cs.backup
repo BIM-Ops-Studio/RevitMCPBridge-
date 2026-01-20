@@ -1,0 +1,2986 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.IO;
+using System.IO.Pipes;
+using System.Threading;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Serilog;
+using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+
+namespace RevitMCPBridge
+{
+    public class MCPServer
+    {
+        private NamedPipeServerStream _pipeServer;
+        private CancellationTokenSource _cancellationTokenSource;
+        private Task _serverTask;
+        private bool _isRunning;
+        private readonly string _pipeName = "RevitMCPBridge2026";
+
+        public bool IsRunning => _isRunning;
+        public string PipeName => _pipeName;
+
+        public event EventHandler<string> MessageReceived;
+        public event EventHandler<string> ErrorOccurred;
+
+        /// <summary>
+        /// Execute an action in Revit's main thread context using ExternalEvent
+        /// </summary>
+        private async Task<string> ExecuteInRevitContext(Func<UIApplication, string> action)
+        {
+            try
+            {
+                var handler = RevitMCPBridgeApp.GetRequestHandler();
+                var externalEvent = RevitMCPBridgeApp.GetExternalEvent();
+
+                if (handler == null || externalEvent == null)
+                {
+                    Log.Error("Request handler or external event not initialized");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "MCP Bridge not properly initialized"
+                    });
+                }
+
+                // Queue the request and get the task
+                var resultTask = handler.QueueRequest(action);
+
+                // Raise the external event to trigger execution
+                externalEvent.Raise();
+
+                // Wait for the result with timeout
+                var completedTask = await Task.WhenAny(resultTask, Task.Delay(30000));
+
+                if (completedTask == resultTask)
+                {
+                    return await resultTask;
+                }
+                else
+                {
+                    Log.Error("Request timed out after 30 seconds");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Request timed out"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error executing in Revit context");
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
+            }
+        }
+        
+        public void Start()
+        {
+            if (_isRunning)
+            {
+                Log.Warning("MCP Server is already running");
+                return;
+            }
+            
+            try
+            {
+                _cancellationTokenSource = new CancellationTokenSource();
+                _serverTask = Task.Run(() => RunServer(_cancellationTokenSource.Token));
+                _isRunning = true;
+                Log.Information($"MCP Server started on pipe: {_pipeName}");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Failed to start MCP Server");
+                throw;
+            }
+        }
+        
+        public void Stop()
+        {
+            if (!_isRunning)
+            {
+                Log.Warning("MCP Server is not running");
+                return;
+            }
+            
+            try
+            {
+                _cancellationTokenSource?.Cancel();
+                _pipeServer?.Close();
+                _serverTask?.Wait(5000);
+                _isRunning = false;
+                Log.Information("MCP Server stopped");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error stopping MCP Server");
+            }
+            finally
+            {
+                _cancellationTokenSource?.Dispose();
+                _pipeServer?.Dispose();
+            }
+        }
+        
+        private async void RunServer(CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                try
+                {
+                    _pipeServer = new NamedPipeServerStream(_pipeName, PipeDirection.InOut, 254,
+                        PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
+                    
+                    Log.Debug("Waiting for client connection...");
+                    await _pipeServer.WaitForConnectionAsync(cancellationToken);
+                    Log.Information("Client connected to MCP Server");
+                    
+                    using (var reader = new StreamReader(_pipeServer))
+                    using (var writer = new StreamWriter(_pipeServer) { AutoFlush = true })
+                    {
+                        while (_pipeServer.IsConnected && !cancellationToken.IsCancellationRequested)
+                        {
+                            try
+                            {
+                                var message = await reader.ReadLineAsync();
+                                if (string.IsNullOrEmpty(message))
+                                    continue;
+                                
+                                Log.Debug($"Received message: {message}");
+                                MessageReceived?.Invoke(this, message);
+                                
+                                var response = await ProcessMessage(message);
+                                await writer.WriteLineAsync(response);
+                                Log.Debug($"Sent response: {response}");
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Error(ex, "Error processing message");
+                                var errorResponse = JsonConvert.SerializeObject(new
+                                {
+                                    success = false,
+                                    error = ex.Message
+                                });
+                                await writer.WriteLineAsync(errorResponse);
+                            }
+                        }
+                    }
+                    
+                    Log.Information("Client disconnected");
+                }
+                catch (OperationCanceledException)
+                {
+                    Log.Information("Server operation cancelled");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Server error");
+                    ErrorOccurred?.Invoke(this, ex.Message);
+                    await Task.Delay(1000, cancellationToken);
+                }
+                finally
+                {
+                    _pipeServer?.Dispose();
+                }
+            }
+        }
+        
+        private async Task<string> ProcessMessage(string message)
+        {
+            try
+            {
+                var request = JObject.Parse(message);
+                var method = request["method"]?.ToString();
+                var parameters = request["params"] as JObject;
+                
+                Log.Information($"Processing method: {method}");
+                
+                switch (method)
+                {
+                    case "ping":
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = true,
+                            result = "pong",
+                            timestamp = DateTime.Now,
+                            testMessage = "DLL_LOADED_SUCCESSFULLY_2025_11_12_v2"
+                        });
+                        
+                    case "getProjectInfo":
+                        return await GetProjectInfo();
+                        
+                    case "getElements":
+                        return await GetElements(parameters);
+                        
+                    case "getElementProperties":
+                        return await GetElementProperties(parameters);
+                        
+                    case "executeCommand":
+                        return await ExecuteCommand(parameters);
+                        
+                    case "getViews":
+                        return await GetViews();
+
+                    case "exportViewImage":
+                        return await ExportViewImage(parameters);
+
+                    case "getCategories":
+                        return await GetCategories();
+
+                    case "getParameters":
+                        return await GetParameters(parameters);
+
+                    case "setParameter":
+                        return await SetParameter(parameters);
+
+                    case "getTextElements":
+                        return await GetTextElements(parameters);
+
+                    case "createTextNote":
+                        return await CreateTextNote(parameters);
+
+                    case "modifyTextNote":
+                        return await ModifyTextNote(parameters);
+
+                    case "deleteTextNote":
+                        return await DeleteTextNote(parameters);
+
+                    case "testSimple":
+                        return JsonConvert.SerializeObject(new { success = true, result = "SIMPLE_TEST_WORKS" });
+
+                    case "changeTextNoteType":
+                        return await ChangeTextNoteType(parameters);
+
+                    // Annotation Batch Manager
+                    case "findTextNotesByContent":
+                        return await FindTextNotesByContent(parameters);
+
+                    case "batchUpdateTextNotes":
+                        return await BatchUpdateTextNotes(parameters);
+
+                    case "findAndReplaceText":
+                        return await FindAndReplaceText(parameters);
+
+                    case "getTextStatistics":
+                        return await GetTextStatistics(parameters);
+
+                    // Legend/Table Automation
+                    case "getLegends":
+                        return await GetLegends(parameters);
+
+                    case "createLegend":
+                        return await CreateLegend(parameters);
+
+                    case "getSchedules":
+                        return await GetSchedules(parameters);
+
+                    case "getScheduleData":
+                        return await GetScheduleData(parameters);
+
+                    case "updateScheduleCell":
+                        return await UpdateScheduleCell(parameters);
+
+                    // Pre-Issue QC Dashboard
+                    case "getAllSheets":
+                        return await GetAllSheets(parameters);
+
+                    case "getUnplacedViews":
+                        return await GetUnplacedViews(parameters);
+
+                    case "getEmptySheets":
+                        return await GetEmptySheets(parameters);
+
+                    case "validateTextSizes":
+                        return await ValidateTextSizes(parameters);
+
+                    case "getProjectWarnings":
+                        return await GetProjectWarnings(parameters);
+
+                    case "runQCChecks":
+                        return await RunQCChecks(parameters);
+
+                    // Tagging Methods (8 total)
+                    case "tagDoor":
+                        return await ExecuteInRevitContext(uiApp => TaggingMethods.TagDoor(uiApp, parameters));
+
+                    case "tagRoom":
+                        return await ExecuteInRevitContext(uiApp => TaggingMethods.TagRoom(uiApp, parameters));
+
+                    case "tagWall":
+                        return await ExecuteInRevitContext(uiApp => TaggingMethods.TagWall(uiApp, parameters));
+
+                    case "tagElement":
+                        return await ExecuteInRevitContext(uiApp => TaggingMethods.TagElement(uiApp, parameters));
+
+                    case "batchTagDoors":
+                        return await ExecuteInRevitContext(uiApp => TaggingMethods.BatchTagDoors(uiApp, parameters));
+
+                    case "batchTagRooms":
+                        return await ExecuteInRevitContext(uiApp => TaggingMethods.BatchTagRooms(uiApp, parameters));
+
+                    case "getTagsInView":
+                        return await ExecuteInRevitContext(uiApp => TaggingMethods.GetTagsInView(uiApp, parameters));
+
+                    case "deleteTag":
+                        return await ExecuteInRevitContext(uiApp => TaggingMethods.DeleteTag(uiApp, parameters));
+
+                    // Dimensioning Methods (6 total)
+                    case "createLinearDimension":
+                        return await ExecuteInRevitContext(uiApp => DimensioningMethods.CreateLinearDimension(uiApp, parameters));
+
+                    case "createAlignedDimension":
+                        return await ExecuteInRevitContext(uiApp => DimensioningMethods.CreateAlignedDimension(uiApp, parameters));
+
+                    case "batchDimensionWalls":
+                        return await ExecuteInRevitContext(uiApp => DimensioningMethods.BatchDimensionWalls(uiApp, parameters));
+
+                    case "batchDimensionDoors":
+                        return await ExecuteInRevitContext(uiApp => DimensioningMethods.BatchDimensionDoors(uiApp, parameters));
+
+                    case "getDimensionsInView":
+                        return await ExecuteInRevitContext(uiApp => DimensioningMethods.GetDimensionsInView(uiApp, parameters));
+
+                    case "deleteDimension":
+                        return await ExecuteInRevitContext(uiApp => DimensioningMethods.DeleteDimension(uiApp, parameters));
+
+                    case "createDimensionString":
+                        return await ExecuteInRevitContext(uiApp => DimensioningMethods.CreateDimensionString(uiApp, parameters));
+
+                    case "batchDimensionGrids":
+                        return await ExecuteInRevitContext(uiApp => DimensioningMethods.BatchDimensionGrids(uiApp, parameters));
+
+                    // Wall Methods
+                    case "createWallByPoints":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.CreateWallByPoints(uiApp, parameters));
+
+                    case "createWallsFromPolyline":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.CreateWallsFromPolyline(uiApp, parameters));
+
+                    case "getWallInfo":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.GetWallInfo(uiApp, parameters));
+
+                    case "modifyWallProperties":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.ModifyWallProperties(uiApp, parameters));
+
+                    case "splitWall":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.SplitWall(uiApp, parameters));
+
+                    case "joinWalls":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.JoinWalls(uiApp, parameters));
+
+                    case "unjoinWalls":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.UnjoinWalls(uiApp, parameters));
+
+                    case "getWallsInView":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.GetWallsInView(uiApp, parameters));
+
+                    case "getWallTypes":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.GetWallTypes(uiApp, parameters));
+
+                    case "flipWall":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.FlipWall(uiApp, parameters));
+
+                    case "deleteWall":
+                        return await ExecuteInRevitContext(uiApp => WallMethods.DeleteWall(uiApp, parameters));
+
+                    // Room Methods
+                    case "createRoom":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.CreateRoom(uiApp, parameters));
+
+                    case "getRoomInfo":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.GetRoomInfo(uiApp, parameters));
+
+                    case "modifyRoomProperties":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.ModifyRoomProperties(uiApp, parameters));
+
+                    case "placeRoomTag":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.PlaceRoomTag(uiApp, parameters));
+
+                    case "getRooms":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.GetRooms(uiApp, parameters));
+
+                    case "getRoomBoundaryWalls":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.GetRoomBoundaryWalls(uiApp, parameters));
+
+                    case "updateRoomAreaFromFilledRegion":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.UpdateRoomAreaFromFilledRegion(uiApp, parameters));
+
+                    case "createOffsetRoomBoundaries":
+                        return await ExecuteInRevitContext(uiApp => RoomBoundarySolution.CreateOffsetRoomBoundaries(uiApp, parameters));
+
+                    case "createRoomBoundaryFilledRegion":
+                        return await ExecuteInRevitContext(uiApp => AutomatedFilledRegion.CreateRoomBoundaryFilledRegion(uiApp, parameters));
+
+                    case "createFilledRegionsForAllOffices":
+                        return await ExecuteInRevitContext(uiApp => AutomatedFilledRegion.CreateFilledRegionsForAllOffices(uiApp, parameters));
+
+                    case "getViewSnapshot":
+                        return await ExecuteInRevitContext(uiApp => ViewAnalysisMethods.GetViewSnapshot(uiApp, parameters));
+
+                    case "createRoomSeparationLine":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.CreateRoomSeparationLine(uiApp, parameters));
+
+                    case "deleteRoom":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.DeleteRoom(uiApp, parameters));
+
+                    case "getRoomAtPoint":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.GetRoomAtPoint(uiApp, parameters));
+
+                    case "renumberRooms":
+                        return await ExecuteInRevitContext(uiApp => RoomMethods.RenumberRooms(uiApp, parameters));
+
+                    // Schedule Methods
+                    case "createSchedule":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.CreateSchedule(uiApp, parameters));
+
+                    case "addScheduleField":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.AddScheduleField(uiApp, parameters));
+
+                    case "addScheduleFilter":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.AddScheduleFilter(uiApp, parameters));
+
+                    case "addScheduleSorting":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.AddScheduleSorting(uiApp, parameters));
+
+                    case "formatScheduleAppearance":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.FormatScheduleAppearance(uiApp, parameters));
+
+                    case "exportScheduleToCSV":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.ExportScheduleToCSV(uiApp, parameters));
+
+                    case "getAllSchedules":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.GetAllSchedules(uiApp, parameters));
+
+                    case "getScheduleFields":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.GetScheduleFields(uiApp, parameters));
+
+                    case "getAvailableSchedulableFields":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.GetAvailableSchedulableFields(uiApp, parameters));
+
+                    case "deleteSchedule":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.DeleteSchedule(uiApp, parameters));
+
+                    case "createKeySchedule":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.CreateKeySchedule(uiApp, parameters));
+
+                    case "createMaterialTakeoff":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.CreateMaterialTakeoff(uiApp, parameters));
+
+                    case "createSheetList":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.CreateSheetList(uiApp, parameters));
+
+                    case "removeScheduleField":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.RemoveScheduleField(uiApp, parameters));
+
+                    case "reorderScheduleFields":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.ReorderScheduleFields(uiApp, parameters));
+
+                    case "modifyScheduleField":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.ModifyScheduleField(uiApp, parameters));
+
+                    case "removeScheduleFilter":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.RemoveScheduleFilter(uiApp, parameters));
+
+                    case "getScheduleFilters":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.GetScheduleFilters(uiApp, parameters));
+
+                    case "modifyScheduleFilter":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.ModifyScheduleFilter(uiApp, parameters));
+
+                    case "addScheduleGrouping":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.AddScheduleGrouping(uiApp, parameters));
+
+                    case "getScheduleSortGrouping":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.GetScheduleSortGrouping(uiApp, parameters));
+
+                    case "removeScheduleSorting":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.RemoveScheduleSorting(uiApp, parameters));
+
+                    case "setConditionalFormatting":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.SetConditionalFormatting(uiApp, parameters));
+
+                    case "setColumnWidth":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.SetColumnWidth(uiApp, parameters));
+
+                    case "setFieldAlignment":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.SetFieldAlignment(uiApp, parameters));
+
+                    case "getScheduleCellValue":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.GetScheduleCellValue(uiApp, parameters));
+
+                    case "getScheduleTotals":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.GetScheduleTotals(uiApp, parameters));
+
+                    case "modifyScheduleProperties":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.ModifyScheduleProperties(uiApp, parameters));
+
+                    case "duplicateSchedule":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.DuplicateSchedule(uiApp, parameters));
+
+                    case "addCalculatedField":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.AddCalculatedField(uiApp, parameters));
+
+                    case "modifyCalculatedField":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.ModifyCalculatedField(uiApp, parameters));
+
+                    case "getScheduleInfo":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.GetScheduleInfo(uiApp, parameters));
+
+                    case "refreshSchedule":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.ScheduleMethods.RefreshSchedule(uiApp, parameters));
+
+                    // Workset Methods
+                    case "createWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.CreateWorkset(uiApp, parameters));
+
+                    case "getAllWorksets":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetAllWorksets(uiApp, parameters));
+
+                    case "getWorksetInfo":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetWorksetInfo(uiApp, parameters));
+
+                    case "renameWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.RenameWorkset(uiApp, parameters));
+
+                    case "deleteWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.DeleteWorkset(uiApp, parameters));
+
+                    case "setElementWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.SetElementWorkset(uiApp, parameters));
+
+                    case "getElementWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetElementWorkset(uiApp, parameters));
+
+                    case "getElementsInWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetElementsInWorkset(uiApp, parameters));
+
+                    case "moveElementsToWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.MoveElementsToWorkset(uiApp, parameters));
+
+                    case "setWorksetVisibility":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.SetWorksetVisibility(uiApp, parameters));
+
+                    case "getWorksetVisibilityInView":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetWorksetVisibilityInView(uiApp, parameters));
+
+                    case "setGlobalWorksetVisibility":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.SetGlobalWorksetVisibility(uiApp, parameters));
+
+                    case "isWorksetEditable":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.IsWorksetEditable(uiApp, parameters));
+
+                    case "isElementBorrowed":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.IsElementBorrowed(uiApp, parameters));
+
+                    case "relinquishOwnership":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.RelinquishOwnership(uiApp, parameters));
+
+                    case "getCheckoutStatus":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetCheckoutStatus(uiApp, parameters));
+
+                    case "enableWorksharing":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.EnableWorksharing(uiApp, parameters));
+
+                    case "isWorkshared":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.IsWorkshared(uiApp, parameters));
+
+                    case "getWorksharingOptions":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetWorksharingOptions(uiApp, parameters));
+
+                    case "synchronizeWithCentral":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.SynchronizeWithCentral(uiApp, parameters));
+
+                    case "reloadLatest":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.ReloadLatest(uiApp, parameters));
+
+                    case "getSyncHistory":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetSyncHistory(uiApp, parameters));
+
+                    case "getWorksetsByCategory":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetWorksetsByCategory(uiApp, parameters));
+
+                    case "createWorksetNamingScheme":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.CreateWorksetNamingScheme(uiApp, parameters));
+
+                    case "getActiveWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.GetActiveWorkset(uiApp, parameters));
+
+                    case "setActiveWorkset":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.WorksetMethods.SetActiveWorkset(uiApp, parameters));
+
+                    // Phase Methods
+                    case "createPhase":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.CreatePhase(uiApp, parameters));
+
+                    case "getAllPhases":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetAllPhases(uiApp, parameters));
+
+                    case "getPhaseInfo":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetPhaseInfo(uiApp, parameters));
+
+                    case "renamePhase":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.RenamePhase(uiApp, parameters));
+
+                    case "deletePhase":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.DeletePhase(uiApp, parameters));
+
+                    case "reorderPhases":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.ReorderPhases(uiApp, parameters));
+
+                    case "setElementPhaseCreated":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.SetElementPhaseCreated(uiApp, parameters));
+
+                    case "setElementPhaseDemolished":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.SetElementPhaseDemolished(uiApp, parameters));
+
+                    case "getElementPhasing":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetElementPhasing(uiApp, parameters));
+
+                    case "getElementsInPhase":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetElementsInPhase(uiApp, parameters));
+
+                    case "setBulkElementPhasing":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.SetBulkElementPhasing(uiApp, parameters));
+
+                    case "createPhaseFilter":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.CreatePhaseFilter(uiApp, parameters));
+
+                    case "getPhaseFilters":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetPhaseFilters(uiApp, parameters));
+
+                    case "getPhaseFilterInfo":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetPhaseFilterInfo(uiApp, parameters));
+
+                    case "modifyPhaseFilter":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.ModifyPhaseFilter(uiApp, parameters));
+
+                    case "deletePhaseFilter":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.DeletePhaseFilter(uiApp, parameters));
+
+                    case "setViewPhase":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.SetViewPhase(uiApp, parameters));
+
+                    case "setViewPhaseFilter":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.SetViewPhaseFilter(uiApp, parameters));
+
+                    case "getViewPhaseSettings":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetViewPhaseSettings(uiApp, parameters));
+
+                    case "analyzePhasing":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.AnalyzePhasing(uiApp, parameters));
+
+                    case "findPhasingConflicts":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.FindPhasingConflicts(uiApp, parameters));
+
+                    case "getPhaseTransitionReport":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetPhaseTransitionReport(uiApp, parameters));
+
+                    case "getCurrentPhase":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.GetCurrentPhase(uiApp, parameters));
+
+                    case "copyElementsToPhase":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.PhaseMethods.CopyElementsToPhase(uiApp, parameters));
+
+                    // Door/Window Methods
+                    case "placeDoor":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.PlaceDoor(uiApp, parameters));
+
+                    case "placeWindow":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.PlaceWindow(uiApp, parameters));
+
+                    case "getDoorWindowInfo":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.GetDoorWindowInfo(uiApp, parameters));
+
+                    case "modifyDoorWindowProperties":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.ModifyDoorWindowProperties(uiApp, parameters));
+
+                    case "flipDoorWindow":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.FlipDoorWindow(uiApp, parameters));
+
+                    case "getDoorsInView":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.GetDoorsInView(uiApp, parameters));
+
+                    case "getWindowsInView":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.GetWindowsInView(uiApp, parameters));
+
+                    case "getDoorTypes":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.GetDoorTypes(uiApp, parameters));
+
+                    case "getWindowTypes":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.GetWindowTypes(uiApp, parameters));
+
+                    case "deleteDoorWindow":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.DeleteDoorWindow(uiApp, parameters));
+
+                    case "getDoorSchedule":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.GetDoorSchedule(uiApp, parameters));
+
+                    case "getWindowSchedule":
+                        return await ExecuteInRevitContext(uiApp => DoorWindowMethods.GetWindowSchedule(uiApp, parameters));
+
+                    // Text/Tag Methods
+                    case "placeTextNote":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.PlaceTextNote(uiApp, parameters));
+
+                    case "modifyTextNote2":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.ModifyTextNote(uiApp, parameters));
+
+                    case "placeWallTag":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.PlaceWallTag(uiApp, parameters));
+
+                    case "placeDoorTag":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.PlaceDoorTag(uiApp, parameters));
+
+                    case "placeLeaderNote":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.PlaceLeaderNote(uiApp, parameters));
+
+                    case "getTextNotesInView":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.GetTextNotesInView(uiApp, parameters));
+
+                    case "getTagsInView2":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.GetTagsInView(uiApp, parameters));
+
+                    case "getTextNoteTypes":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.GetTextNoteTypes(uiApp, parameters));
+
+                    case "deleteTextNote2":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.DeleteTextNote(uiApp, parameters));
+
+                    case "deleteTag2":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.DeleteTag(uiApp, parameters));
+
+                    case "tagAllByCategory":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.TagAllByCategory(uiApp, parameters));
+
+                    case "modifyTag":
+                        return await ExecuteInRevitContext(uiApp => TextTagMethods.ModifyTag(uiApp, parameters));
+
+                    // View Methods
+                    case "createFloorPlan":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.CreateFloorPlan(uiApp, parameters));
+
+                    case "createCeilingPlan":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.CreateCeilingPlan(uiApp, parameters));
+
+                    case "createSection":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.CreateSection(uiApp, parameters));
+
+                    case "createElevation":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.CreateElevation(uiApp, parameters));
+
+                    case "duplicateView":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.DuplicateView(uiApp, parameters));
+
+                    case "applyViewTemplate":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.ApplyViewTemplate(uiApp, parameters));
+
+                    case "getAllViews":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.GetAllViews(uiApp, parameters));
+
+                    case "getViewTemplates":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.GetViewTemplates(uiApp, parameters));
+
+                    case "setViewCropBox":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.SetViewCropBox(uiApp, parameters));
+
+                    case "renameView":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.RenameView(uiApp, parameters));
+
+                    case "deleteView":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.DeleteView(uiApp, parameters));
+
+                    case "setViewScale":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.SetViewScale(uiApp, parameters));
+
+                    case "getActiveView":
+                        return await ExecuteInRevitContext(uiApp => ViewMethods.GetActiveView(uiApp, parameters));
+
+                    case "getFilledRegions":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.DetailMethods.GetFilledRegionsInView(uiApp, parameters));
+
+                    // Sheet Methods
+                    case "createSheet":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.CreateSheet(uiApp, parameters));
+
+                    case "placeViewOnSheet":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.PlaceViewOnSheet(uiApp, parameters));
+
+                    case "getAllSheets2":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.GetAllSheets(uiApp, parameters));
+
+                    case "getViewportsOnSheet":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.GetViewportsOnSheet(uiApp, parameters));
+
+                    case "modifySheetProperties":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.ModifySheetProperties(uiApp, parameters));
+
+                    case "moveViewport":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.MoveViewport(uiApp, parameters));
+
+                    case "deleteSheet":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.DeleteSheet(uiApp, parameters));
+
+                    case "removeViewport":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.RemoveViewport(uiApp, parameters));
+
+                    case "getTitleblockTypes":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.GetTitleblockTypes(uiApp, parameters));
+
+                    case "duplicateSheet":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.DuplicateSheet(uiApp, parameters));
+
+                    case "setViewportType":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.SetViewportType(uiApp, parameters));
+
+                    case "renumberSheets":
+                        return await ExecuteInRevitContext(uiApp => SheetMethods.RenumberSheets(uiApp, parameters));
+
+                    default:
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"Unknown method: {method}"
+                        });
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error processing message");
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
+            }
+        }
+        
+        private Task<string> GetProjectInfo()
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    if (uiApp?.ActiveUIDocument?.Document == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No active document"
+                        });
+                    }
+
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var projectInfo = doc.ProjectInformation;
+
+                    var info = new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            name = projectInfo.Name,
+                            number = projectInfo.Number,
+                            author = projectInfo.Author,
+                            status = projectInfo.Status,
+                            address = projectInfo.Address,
+                            clientName = projectInfo.ClientName,
+                            buildingName = projectInfo.BuildingName,
+                            organizationName = projectInfo.OrganizationName,
+                            organizationDescription = projectInfo.OrganizationDescription,
+                            isPinned = projectInfo.Pinned,
+                            isWorkshared = doc.IsWorkshared,
+                            title = doc.Title,
+                            pathname = doc.PathName
+                        }
+                    };
+
+                    return JsonConvert.SerializeObject(info);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error in GetProjectInfo");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+        
+        private Task<string> GetElements(JObject parameters)
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    var uiApp = RevitMCPBridgeApp.GetUIApplication();
+                    if (uiApp?.ActiveUIDocument?.Document == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No active document"
+                        });
+                    }
+                    
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var categoryName = parameters?["category"]?.ToString();
+                    var viewId = parameters?["viewId"]?.ToString();
+                    
+                    FilteredElementCollector collector;
+                    
+                    if (!string.IsNullOrEmpty(viewId) && int.TryParse(viewId, out int id))
+                    {
+                        var view = doc.GetElement(new ElementId(id)) as View;
+                        if (view != null)
+                            collector = new FilteredElementCollector(doc, view.Id);
+                        else
+                            collector = new FilteredElementCollector(doc);
+                    }
+                    else
+                    {
+                        collector = new FilteredElementCollector(doc);
+                    }
+                    
+                    // Apply category filter if specified
+                    if (!string.IsNullOrEmpty(categoryName))
+                    {
+                        var category = doc.Settings.Categories.get_Item(categoryName);
+                        if (category != null)
+                        {
+                            collector.OfCategoryId(category.Id);
+                        }
+                    }
+                    
+                    // Get elements
+                    var elements = collector.WhereElementIsNotElementType().ToElements();
+                    var elementList = new System.Collections.Generic.List<object>();
+                    
+                    foreach (var element in elements)
+                    {
+                        if (element.Category == null) continue;
+                        
+                        elementList.Add(new
+                        {
+                            id = element.Id.Value,
+                            name = element.Name,
+                            category = element.Category.Name,
+                            typename = element.GetType().Name,
+                            level = GetElementLevel(element)
+                        });
+                        
+                        // Limit results for performance
+                        if (elementList.Count >= 1000)
+                            break;
+                    }
+                    
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            count = elementList.Count,
+                            elements = elementList
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+        
+        private Task<string> GetElementProperties(JObject parameters)
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    var elementId = parameters?["elementId"]?.ToString();
+                    if (string.IsNullOrEmpty(elementId))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "elementId parameter is required"
+                        });
+                    }
+                    
+                    var uiApp = RevitMCPBridgeApp.GetUIApplication();
+                    if (uiApp?.ActiveUIDocument?.Document == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No active document"
+                        });
+                    }
+                    
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var element = doc.GetElement(new ElementId(int.Parse(elementId)));
+                    
+                    if (element == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"Element with ID {elementId} not found"
+                        });
+                    }
+                    
+                    var properties = new System.Collections.Generic.Dictionary<string, object>();
+                    
+                    // Basic properties
+                    properties["Id"] = element.Id.Value;
+                    properties["Name"] = element.Name;
+                    properties["Category"] = element.Category?.Name;
+                    properties["TypeName"] = element.GetType().Name;
+                    
+                    // Parameters
+                    var parameters_dict = new System.Collections.Generic.Dictionary<string, object>();
+                    foreach (Parameter param in element.Parameters)
+                    {
+                        if (param.Definition == null) continue;
+                        
+                        var paramName = param.Definition.Name;
+                        var paramValue = GetParameterValue(param);
+                        
+                        parameters_dict[paramName] = new
+                        {
+                            value = paramValue,
+                            storageType = param.StorageType.ToString(),
+                            isReadOnly = param.IsReadOnly,
+                            hasValue = param.HasValue
+                        };
+                    }
+                    
+                    properties["Parameters"] = parameters_dict;
+                    
+                    // Geometry info
+                    var bbox = element.get_BoundingBox(null);
+                    if (bbox != null)
+                    {
+                        properties["BoundingBox"] = new
+                        {
+                            min = new { x = bbox.Min.X, y = bbox.Min.Y, z = bbox.Min.Z },
+                            max = new { x = bbox.Max.X, y = bbox.Max.Y, z = bbox.Max.Z }
+                        };
+                    }
+                    
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = properties
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+        
+        private object GetParameterValue(Parameter param)
+        {
+            if (!param.HasValue)
+                return null;
+                
+            switch (param.StorageType)
+            {
+                case StorageType.Double:
+                    return param.AsDouble();
+                case StorageType.Integer:
+                    return param.AsInteger();
+                case StorageType.String:
+                    return param.AsString();
+                case StorageType.ElementId:
+                    return param.AsElementId()?.Value;
+                default:
+                    return param.AsValueString();
+            }
+        }
+        
+        private Task<string> ExecuteCommand(JObject parameters)
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    var command = parameters?["command"]?.ToString();
+                    var args = parameters?["args"] as JObject;
+                    
+                    if (string.IsNullOrEmpty(command))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "command parameter is required"
+                        });
+                    }
+                    
+                    // Here we would execute various Revit commands
+                    // This is a placeholder for command execution logic
+                    
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = $"Command '{command}' executed successfully"
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+        
+        private Task<string> GetViews()
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    var uiApp = RevitMCPBridgeApp.GetUIApplication();
+                    if (uiApp?.ActiveUIDocument?.Document == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No active document"
+                        });
+                    }
+                    
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var collector = new FilteredElementCollector(doc)
+                        .OfClass(typeof(View))
+                        .Cast<View>()
+                        .Where(v => !v.IsTemplate);
+                    
+                    var views = new System.Collections.Generic.List<object>();
+                    
+                    foreach (var view in collector)
+                    {
+                        views.Add(new
+                        {
+                            id = view.Id.Value,
+                            name = view.Name,
+                            viewType = view.ViewType.ToString(),
+                            level = (view as ViewPlan)?.GenLevel?.Name,
+                            isActive = view.Id == doc.ActiveView?.Id
+                        });
+                    }
+                    
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            count = views.Count,
+                            activeView = doc.ActiveView?.Name,
+                            views = views
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+
+        private Task<string> ExportViewImage(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    if (uiApp?.ActiveUIDocument?.Document == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No active document"
+                        });
+                    }
+
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var viewIdStr = parameters?["viewId"]?.ToString();
+                    var resolution = parameters?["resolution"]?.ToObject<int>() ?? 96;
+                    var outputPath = parameters?["outputPath"]?.ToString();
+
+                    // Get the view
+                    View view;
+                    if (!string.IsNullOrEmpty(viewIdStr) && int.TryParse(viewIdStr, out int viewId))
+                    {
+                        view = doc.GetElement(new ElementId(viewId)) as View;
+                    }
+                    else
+                    {
+                        view = doc.ActiveView;
+                    }
+
+                    if (view == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "View not found"
+                        });
+                    }
+
+                    // Generate output path if not provided
+                    if (string.IsNullOrEmpty(outputPath))
+                    {
+                        var tempPath = Path.GetTempPath();
+                        var fileName = $"revit_view_{view.Id.Value}_{DateTime.Now:yyyyMMddHHmmss}.png";
+                        outputPath = Path.Combine(tempPath, fileName);
+                    }
+
+                    // Create image export options
+                    var imageOptions = new ImageExportOptions
+                    {
+                        ZoomType = ZoomFitType.FitToPage,
+                        PixelSize = 1920,  // Width in pixels
+                        FilePath = outputPath,
+                        FitDirection = FitDirectionType.Horizontal,
+                        HLRandWFViewsFileType = ImageFileType.PNG,
+                        ShadowViewsFileType = ImageFileType.PNG,
+                        ImageResolution = resolution >= 150 ? ImageResolution.DPI_150 : ImageResolution.DPI_72,
+                        ExportRange = ExportRange.SetOfViews
+                    };
+
+                    // Set the view to export
+                    imageOptions.SetViewsAndSheets(new List<ElementId> { view.Id });
+
+                    // Export the image
+                    doc.ExportImage(imageOptions);
+
+                    // The actual file path may have a suffix added by Revit
+                    var actualPath = outputPath;
+                    var directory = Path.GetDirectoryName(outputPath);
+                    var fileNameWithoutExt = Path.GetFileNameWithoutExtension(outputPath);
+                    var possibleFiles = Directory.GetFiles(directory, fileNameWithoutExt + "*.png");
+
+                    if (possibleFiles.Length > 0)
+                    {
+                        actualPath = possibleFiles[0];
+                    }
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            viewId = view.Id.Value,
+                            viewName = view.Name,
+                            outputPath = actualPath,
+                            fileExists = File.Exists(actualPath),
+                            resolution = resolution
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error exporting view image");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+
+        private Task<string> GetCategories()
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    var uiApp = RevitMCPBridgeApp.GetUIApplication();
+                    if (uiApp?.ActiveUIDocument?.Document == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No active document"
+                        });
+                    }
+                    
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var categories = new System.Collections.Generic.List<object>();
+                    
+                    foreach (Category category in doc.Settings.Categories)
+                    {
+                        if (category.CategoryType == CategoryType.Model)
+                        {
+                            categories.Add(new
+                            {
+                                id = category.Id.Value,
+                                name = category.Name,
+                                parent = category.Parent?.Name,
+                                material = category.Material?.Name,
+                                lineColor = category.LineColor?.ToString()
+                            });
+                        }
+                    }
+                    
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            count = categories.Count,
+                            categories = categories
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+        
+        private Task<string> GetParameters(JObject parameters)
+        {
+            return Task.Run(() =>
+            {
+                try
+                {
+                    var elementId = parameters?["elementId"]?.ToString();
+                    if (string.IsNullOrEmpty(elementId))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "elementId parameter is required"
+                        });
+                    }
+                    
+                    var uiApp = RevitMCPBridgeApp.GetUIApplication();
+                    if (uiApp?.ActiveUIDocument?.Document == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No active document"
+                        });
+                    }
+                    
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var element = doc.GetElement(new ElementId(int.Parse(elementId)));
+                    
+                    if (element == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"Element with ID {elementId} not found"
+                        });
+                    }
+                    
+                    var parameterList = new System.Collections.Generic.List<object>();
+                    
+                    foreach (Parameter param in element.Parameters)
+                    {
+                        if (param.Definition == null) continue;
+
+                        parameterList.Add(new
+                        {
+                            name = param.Definition.Name,
+                            value = GetParameterValue(param),
+                            storageType = param.StorageType.ToString(),
+                            isReadOnly = param.IsReadOnly,
+                            hasValue = param.HasValue,
+                            id = param.Id.Value,
+                            isShared = param.IsShared,
+                            guid = param.IsShared ? param.GUID.ToString() : null
+                        });
+                    }
+                    
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            elementId = element.Id.Value,
+                            elementName = element.Name,
+                            parameterCount = parameterList.Count,
+                            parameters = parameterList
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+        
+        private Task<string> SetParameter(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var elementId = parameters?["elementId"]?.ToString();
+                    var parameterName = parameters?["parameterName"]?.ToString();
+                    var value = parameters?["value"];
+
+                    if (string.IsNullOrEmpty(elementId) || string.IsNullOrEmpty(parameterName))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "elementId and parameterName parameters are required"
+                        });
+                    }
+
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var element = doc.GetElement(new ElementId(int.Parse(elementId)));
+
+                    if (element == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"Element with ID {elementId} not found"
+                        });
+                    }
+
+                    var param = element.LookupParameter(parameterName);
+                    if (param == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"Parameter '{parameterName}' not found"
+                        });
+                    }
+
+                    if (param.IsReadOnly)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"Parameter '{parameterName}' is read-only"
+                        });
+                    }
+
+                    // Set parameter value within a transaction
+                    using (var trans = new Transaction(doc, "MCP Set Parameter"))
+                    {
+                        trans.Start();
+
+                        try
+                        {
+                            switch (param.StorageType)
+                            {
+                                case StorageType.Double:
+                                    param.Set(Convert.ToDouble(value));
+                                    break;
+                                case StorageType.Integer:
+                                    param.Set(Convert.ToInt32(value));
+                                    break;
+                                case StorageType.String:
+                                    param.Set(value.ToString());
+                                    break;
+                                case StorageType.ElementId:
+                                    param.Set(new ElementId(Convert.ToInt32(value)));
+                                    break;
+                            }
+
+                            trans.Commit();
+
+                            return JsonConvert.SerializeObject(new
+                            {
+                                success = true,
+                                result = new
+                                {
+                                    elementId = element.Id.Value,
+                                    parameterName = parameterName,
+                                    newValue = GetParameterValue(param)
+                                }
+                            });
+                        }
+                        catch
+                        {
+                            trans.RollBack();
+                            throw;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+        
+        private string GetElementLevel(Element element)
+        {
+            try
+            {
+                // Try to get level from element
+                if (element is FamilyInstance fi)
+                {
+                    // Try to get level from Host
+                    if (fi.Host != null && fi.Host is Level level)
+                        return level.Name;
+
+                    // Try to get level from parameter
+                    var levelParam = fi.get_Parameter(BuiltInParameter.INSTANCE_REFERENCE_LEVEL_PARAM);
+                    if (levelParam != null && levelParam.HasValue)
+                    {
+                        var levelId = levelParam.AsElementId();
+                        if (levelId != ElementId.InvalidElementId)
+                        {
+                            var levelElement = element.Document.GetElement(levelId) as Level;
+                            if (levelElement != null)
+                                return levelElement.Name;
+                        }
+                    }
+                }
+
+                // Try to get level for walls, floors, etc.
+                if (element.LevelId != ElementId.InvalidElementId)
+                {
+                    var level = element.Document.GetElement(element.LevelId) as Level;
+                    if (level != null)
+                        return level.Name;
+                }
+
+                return "N/A";
+            }
+            catch
+            {
+                return "N/A";
+            }
+        }
+
+        /// <summary>
+        /// Get text elements from the document
+        /// </summary>
+        private Task<string> GetTextElements(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var viewIdStr = parameters?["viewId"]?.ToString();
+                    var searchText = parameters?["searchText"]?.ToString();
+                    var includeTextNotes = parameters?["includeTextNotes"]?.ToObject<bool?>() ?? true;
+
+                    // Build filter based on parameters
+                    FilteredElementCollector collector;
+
+                    if (!string.IsNullOrEmpty(viewIdStr))
+                    {
+                        var viewId = new ElementId(int.Parse(viewIdStr));
+                        collector = new FilteredElementCollector(doc, viewId);
+                    }
+                    else
+                    {
+                        collector = new FilteredElementCollector(doc);
+                    }
+
+                    var textElements = new List<object>();
+
+                    if (includeTextNotes)
+                    {
+                        var textNotes = collector
+                            .OfClass(typeof(TextNote))
+                            .Cast<TextNote>();
+
+                        foreach (var textNote in textNotes)
+                        {
+                            try
+                            {
+                                var text = textNote.Text;
+
+                                // Apply search filter if specified
+                                if (!string.IsNullOrEmpty(searchText) && !text.Contains(searchText))
+                                    continue;
+
+                                var ownerViewId = textNote.OwnerViewId;
+                                var ownerView = doc.GetElement(ownerViewId) as View;
+                                var position = textNote.Coord;
+
+                                textElements.Add(new
+                                {
+                                    id = textNote.Id.Value,
+                                    type = "TextNote",
+                                    text = text ?? "",
+                                    viewId = ownerViewId.Value,
+                                    viewName = ownerView?.Name ?? "Unknown",
+                                    position = new
+                                    {
+                                        x = position.X,
+                                        y = position.Y,
+                                        z = position.Z
+                                    },
+                                    width = textNote.Width
+                                });
+                            }
+                            catch (Exception ex)
+                            {
+                                // Skip text notes that cause errors
+                                Log.Warning(ex, $"Error processing text note {textNote.Id}");
+                                continue;
+                            }
+                        }
+                    }
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            count = textElements.Count,
+                            textElements = textElements
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting text elements");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Create a new TextNote in a view
+        /// </summary>
+        private Task<string> CreateTextNote(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var viewIdStr = parameters?["viewId"]?.ToString();
+                    var text = parameters?["text"]?.ToString();
+                    var x = parameters?["x"]?.ToObject<double?>() ?? 0;
+                    var y = parameters?["y"]?.ToObject<double?>() ?? 0;
+                    var z = parameters?["z"]?.ToObject<double?>() ?? 0;
+
+                    if (string.IsNullOrEmpty(viewIdStr) || string.IsNullOrEmpty(text))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "viewId and text parameters are required"
+                        });
+                    }
+
+                    var viewId = new ElementId(int.Parse(viewIdStr));
+                    var view = doc.GetElement(viewId) as View;
+
+                    if (view == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"View with ID {viewIdStr} not found or is not a valid view"
+                        });
+                    }
+
+                    using (var trans = new Transaction(doc, "MCP Create Text Note"))
+                    {
+                        trans.Start();
+
+                        try
+                        {
+                            // Get first available TextNoteType
+                            var textNoteType = new FilteredElementCollector(doc)
+                                .OfClass(typeof(TextNoteType))
+                                .FirstOrDefault();
+
+                            if (textNoteType == null)
+                            {
+                                trans.RollBack();
+                                return JsonConvert.SerializeObject(new
+                                {
+                                    success = false,
+                                    error = "No TextNoteType found in document"
+                                });
+                            }
+
+                            var position = new XYZ(x, y, z);
+                            var textNote = TextNote.Create(doc, viewId, position, text, textNoteType.Id);
+
+                            trans.Commit();
+
+                            return JsonConvert.SerializeObject(new
+                            {
+                                success = true,
+                                result = new
+                                {
+                                    id = textNote.Id.Value,
+                                    text = textNote.Text,
+                                    viewId = viewId.Value,
+                                    viewName = view.Name,
+                                    position = new { x = position.X, y = position.Y, z = position.Z }
+                                }
+                            });
+                        }
+                        catch (Exception)
+                        {
+                            trans.RollBack();
+                            throw;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error creating text note");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Modify an existing TextNote's content
+        /// </summary>
+        private Task<string> ModifyTextNote(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var elementIdStr = parameters?["elementId"]?.ToString();
+                    var newText = parameters?["text"]?.ToString();
+
+                    if (string.IsNullOrEmpty(elementIdStr) || string.IsNullOrEmpty(newText))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "elementId and text parameters are required"
+                        });
+                    }
+
+                    var elementId = new ElementId(int.Parse(elementIdStr));
+                    var textNote = doc.GetElement(elementId) as TextNote;
+
+                    if (textNote == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"TextNote with ID {elementIdStr} not found"
+                        });
+                    }
+
+                    var oldText = textNote.Text;
+
+                    using (var trans = new Transaction(doc, "MCP Modify Text Note"))
+                    {
+                        trans.Start();
+
+                        try
+                        {
+                            textNote.Text = newText;
+                            trans.Commit();
+
+                            return JsonConvert.SerializeObject(new
+                            {
+                                success = true,
+                                result = new
+                                {
+                                    id = textNote.Id.Value,
+                                    oldText = oldText,
+                                    newText = textNote.Text,
+                                    viewId = textNote.OwnerViewId.Value
+                                }
+                            });
+                        }
+                        catch (Exception)
+                        {
+                            trans.RollBack();
+                            throw;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error modifying text note");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Delete a TextNote element
+        /// </summary>
+        private Task<string> DeleteTextNote(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var elementIdStr = parameters?["elementId"]?.ToString();
+
+                    if (string.IsNullOrEmpty(elementIdStr))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "elementId parameter is required"
+                        });
+                    }
+
+                    var elementId = new ElementId(int.Parse(elementIdStr));
+                    var textNote = doc.GetElement(elementId) as TextNote;
+
+                    if (textNote == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"TextNote with ID {elementIdStr} not found"
+                        });
+                    }
+
+                    var deletedText = textNote.Text;
+                    var deletedViewId = textNote.OwnerViewId.Value;
+
+                    using (var trans = new Transaction(doc, "MCP Delete Text Note"))
+                    {
+                        trans.Start();
+
+                        try
+                        {
+                            doc.Delete(elementId);
+                            trans.Commit();
+
+                            return JsonConvert.SerializeObject(new
+                            {
+                                success = true,
+                                result = new
+                                {
+                                    deletedId = elementId.Value,
+                                    deletedText = deletedText,
+                                    viewId = deletedViewId
+                                }
+                            });
+                        }
+                        catch (Exception)
+                        {
+                            trans.RollBack();
+                            throw;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error deleting text note");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Change the TextNoteType of an existing TextNote by searching for a type with specific size
+        /// </summary>
+        private Task<string> ChangeTextNoteType(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var elementIdStr = parameters?["elementId"]?.ToString();
+                    var targetSizeInches = parameters?["textSizeInches"]?.ToObject<double?>() ?? 0.09375; // Default 3/32"
+
+                    if (string.IsNullOrEmpty(elementIdStr))
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "elementId parameter is required"
+                        });
+                    }
+
+                    var elementId = new ElementId(int.Parse(elementIdStr));
+                    var textNote = doc.GetElement(elementId) as TextNote;
+
+                    if (textNote == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = $"TextNote with ID {elementIdStr} not found"
+                        });
+                    }
+
+                    // Find TextNoteType with closest matching size
+                    var targetSizeFeet = targetSizeInches / 12.0;
+                    var allTextTypes = new FilteredElementCollector(doc)
+                        .OfClass(typeof(TextNoteType))
+                        .Cast<TextNoteType>()
+                        .ToList();
+
+                    TextNoteType closestType = null;
+                    double closestDiff = double.MaxValue;
+
+                    foreach (var textType in allTextTypes)
+                    {
+                        var sizeParam = textType.get_Parameter(BuiltInParameter.TEXT_SIZE);
+                        if (sizeParam != null)
+                        {
+                            var size = sizeParam.AsDouble();
+                            var diff = Math.Abs(size - targetSizeFeet);
+                            if (diff < closestDiff)
+                            {
+                                closestDiff = diff;
+                                closestType = textType;
+                            }
+                        }
+                    }
+
+                    if (closestType == null)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No suitable TextNoteType found"
+                        });
+                    }
+
+                    var oldTypeName = doc.GetElement(textNote.GetTypeId())?.Name ?? "Unknown";
+
+                    using (var trans = new Transaction(doc, "MCP Change Text Note Type"))
+                    {
+                        trans.Start();
+                        textNote.ChangeTypeId(closestType.Id);
+                        trans.Commit();
+                    }
+
+                    var newSize = closestType.get_Parameter(BuiltInParameter.TEXT_SIZE)?.AsDouble() ?? 0;
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            id = elementId.Value,
+                            oldType = oldTypeName,
+                            newType = closestType.Name,
+                            newSizeInches = newSize * 12,
+                            newSizeFeet = newSize
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error changing text note type");
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = ex.Message
+                    });
+                }
+            });
+        }
+
+        #region Annotation Batch Manager
+
+        /// <summary>
+        /// Find text notes containing specific text pattern
+        /// </summary>
+        private Task<string> FindTextNotesByContent(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var searchPattern = parameters?["searchPattern"]?.ToString();
+                    var viewIdStr = parameters?["viewId"]?.ToString();
+                    var caseSensitive = parameters?["caseSensitive"]?.ToObject<bool?>() ?? false;
+                    var useRegex = parameters?["useRegex"]?.ToObject<bool?>() ?? false;
+
+                    if (string.IsNullOrEmpty(searchPattern))
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "searchPattern is required" });
+                    }
+
+                    // Collect text notes
+                    FilteredElementCollector collector = string.IsNullOrEmpty(viewIdStr)
+                        ? new FilteredElementCollector(doc)
+                        : new FilteredElementCollector(doc, new ElementId(int.Parse(viewIdStr)));
+
+                    var textNotes = collector
+                        .OfClass(typeof(TextNote))
+                        .Cast<TextNote>()
+                        .ToList();
+
+                    // Search through text notes
+                    var matches = new List<object>();
+                    foreach (var note in textNotes)
+                    {
+                        var text = note.Text;
+                        bool isMatch = false;
+
+                        if (useRegex)
+                        {
+                            var regex = new System.Text.RegularExpressions.Regex(
+                                searchPattern,
+                                caseSensitive ? System.Text.RegularExpressions.RegexOptions.None : System.Text.RegularExpressions.RegexOptions.IgnoreCase
+                            );
+                            isMatch = regex.IsMatch(text);
+                        }
+                        else
+                        {
+                            isMatch = caseSensitive
+                                ? text.Contains(searchPattern)
+                                : text.IndexOf(searchPattern, StringComparison.OrdinalIgnoreCase) >= 0;
+                        }
+
+                        if (isMatch)
+                        {
+                            var view = doc.GetElement(note.OwnerViewId) as View;
+                            matches.Add(new
+                            {
+                                id = note.Id.Value,
+                                text = text,
+                                viewId = note.OwnerViewId.Value,
+                                viewName = view?.Name ?? "Unknown",
+                                typeId = note.GetTypeId().Value,
+                                typeName = doc.GetElement(note.GetTypeId())?.Name ?? "Unknown"
+                            });
+                        }
+                    }
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalFound = matches.Count,
+                            searchPattern = searchPattern,
+                            caseSensitive = caseSensitive,
+                            useRegex = useRegex,
+                            matches = matches
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error finding text notes by content");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Batch update multiple text notes at once
+        /// </summary>
+        private Task<string> BatchUpdateTextNotes(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var elementIds = parameters?["elementIds"]?.ToObject<List<string>>();
+                    var newText = parameters?["text"]?.ToString();
+                    var textTypeId = parameters?["textTypeId"]?.ToString();
+
+                    if (elementIds == null || elementIds.Count == 0)
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "elementIds array is required" });
+                    }
+
+                    var results = new List<object>();
+                    using (var trans = new Transaction(doc, "MCP Batch Update Text Notes"))
+                    {
+                        trans.Start();
+
+                        foreach (var idStr in elementIds)
+                        {
+                            try
+                            {
+                                var elementId = new ElementId(int.Parse(idStr));
+                                var textNote = doc.GetElement(elementId) as TextNote;
+
+                                if (textNote == null)
+                                {
+                                    results.Add(new { id = idStr, success = false, error = "Not a text note" });
+                                    continue;
+                                }
+
+                                var oldText = textNote.Text;
+                                var oldTypeId = textNote.GetTypeId().Value;
+
+                                // Update text if provided
+                                if (!string.IsNullOrEmpty(newText))
+                                {
+                                    textNote.Text = newText;
+                                }
+
+                                // Update type if provided
+                                if (!string.IsNullOrEmpty(textTypeId))
+                                {
+                                    textNote.ChangeTypeId(new ElementId(int.Parse(textTypeId)));
+                                }
+
+                                results.Add(new
+                                {
+                                    id = idStr,
+                                    success = true,
+                                    oldText = oldText,
+                                    newText = textNote.Text,
+                                    oldTypeId = oldTypeId,
+                                    newTypeId = textNote.GetTypeId().Value
+                                });
+                            }
+                            catch (Exception ex)
+                            {
+                                results.Add(new { id = idStr, success = false, error = ex.Message });
+                            }
+                        }
+
+                        trans.Commit();
+                    }
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalProcessed = results.Count,
+                            results = results
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error in batch update text notes");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Find and replace text across multiple text notes
+        /// </summary>
+        private Task<string> FindAndReplaceText(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var findText = parameters?["findText"]?.ToString();
+                    var replaceText = parameters?["replaceText"]?.ToString();
+                    var viewIdStr = parameters?["viewId"]?.ToString();
+                    var caseSensitive = parameters?["caseSensitive"]?.ToObject<bool?>() ?? false;
+                    var useRegex = parameters?["useRegex"]?.ToObject<bool?>() ?? false;
+
+                    if (string.IsNullOrEmpty(findText))
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "findText is required" });
+                    }
+
+                    // Collect text notes
+                    FilteredElementCollector collector = string.IsNullOrEmpty(viewIdStr)
+                        ? new FilteredElementCollector(doc)
+                        : new FilteredElementCollector(doc, new ElementId(int.Parse(viewIdStr)));
+
+                    var textNotes = collector
+                        .OfClass(typeof(TextNote))
+                        .Cast<TextNote>()
+                        .ToList();
+
+                    var replacements = new List<object>();
+                    using (var trans = new Transaction(doc, "MCP Find and Replace Text"))
+                    {
+                        trans.Start();
+
+                        foreach (var note in textNotes)
+                        {
+                            var oldText = note.Text;
+                            string newText;
+
+                            if (useRegex)
+                            {
+                                var regex = new System.Text.RegularExpressions.Regex(
+                                    findText,
+                                    caseSensitive ? System.Text.RegularExpressions.RegexOptions.None : System.Text.RegularExpressions.RegexOptions.IgnoreCase
+                                );
+                                newText = regex.Replace(oldText, replaceText ?? "");
+                            }
+                            else
+                            {
+                                newText = caseSensitive
+                                    ? oldText.Replace(findText, replaceText ?? "")
+                                    : System.Text.RegularExpressions.Regex.Replace(
+                                        oldText,
+                                        System.Text.RegularExpressions.Regex.Escape(findText),
+                                        replaceText ?? "",
+                                        System.Text.RegularExpressions.RegexOptions.IgnoreCase
+                                    );
+                            }
+
+                            if (oldText != newText)
+                            {
+                                note.Text = newText;
+                                var view = doc.GetElement(note.OwnerViewId) as View;
+                                replacements.Add(new
+                                {
+                                    id = note.Id.Value,
+                                    viewName = view?.Name ?? "Unknown",
+                                    oldText = oldText,
+                                    newText = newText
+                                });
+                            }
+                        }
+
+                        trans.Commit();
+                    }
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalReplaced = replacements.Count,
+                            findText = findText,
+                            replaceText = replaceText,
+                            replacements = replacements
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error in find and replace text");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Get statistics about text notes in the project
+        /// </summary>
+        private Task<string> GetTextStatistics(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var viewIdStr = parameters?["viewId"]?.ToString();
+
+                    FilteredElementCollector collector = string.IsNullOrEmpty(viewIdStr)
+                        ? new FilteredElementCollector(doc)
+                        : new FilteredElementCollector(doc, new ElementId(int.Parse(viewIdStr)));
+
+                    var textNotes = collector
+                        .OfClass(typeof(TextNote))
+                        .Cast<TextNote>()
+                        .ToList();
+
+                    // Group by type
+                    var byType = textNotes
+                        .GroupBy(n => n.GetTypeId())
+                        .Select(g => new
+                        {
+                            typeId = g.Key.Value,
+                            typeName = doc.GetElement(g.Key)?.Name ?? "Unknown",
+                            count = g.Count()
+                        })
+                        .OrderByDescending(x => x.count)
+                        .ToList();
+
+                    // Group by view
+                    var byView = textNotes
+                        .GroupBy(n => n.OwnerViewId)
+                        .Select(g =>
+                        {
+                            var view = doc.GetElement(g.Key) as View;
+                            return new
+                            {
+                                viewId = g.Key.Value,
+                                viewName = view?.Name ?? "Unknown",
+                                count = g.Count()
+                            };
+                        })
+                        .OrderByDescending(x => x.count)
+                        .ToList();
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalTextNotes = textNotes.Count,
+                            uniqueTypes = byType.Count,
+                            uniqueViews = byView.Count,
+                            byType = byType,
+                            byView = byView
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting text statistics");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        #endregion
+
+        #region Legend/Table Automation
+
+        /// <summary>
+        /// Get all legend views in the project
+        /// </summary>
+        private Task<string> GetLegends(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+
+                    var legends = new FilteredElementCollector(doc)
+                        .OfClass(typeof(View))
+                        .Cast<View>()
+                        .Where(v => v.ViewType == ViewType.Legend)
+                        .Select(v => new
+                        {
+                            id = v.Id.Value,
+                            name = v.Name,
+                            isTemplate = v.IsTemplate,
+                            scale = v.Scale
+                        })
+                        .ToList();
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalLegends = legends.Count,
+                            legends = legends
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting legends");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Create a new legend view
+        /// </summary>
+        private Task<string> CreateLegend(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var legendName = parameters?["name"]?.ToString();
+
+                    if (string.IsNullOrEmpty(legendName))
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "name is required" });
+                    }
+
+                    // Legend creation requires more complex setup - not yet implemented
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Legend creation not yet implemented - use existing legends or create manually"
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error creating legend");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Get all schedules in the project
+        /// </summary>
+        private Task<string> GetSchedules(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+
+                    var schedules = new FilteredElementCollector(doc)
+                        .OfClass(typeof(ViewSchedule))
+                        .Cast<ViewSchedule>()
+                        .Where(s => !s.IsTemplate)
+                        .Select(s => new
+                        {
+                            id = s.Id.Value,
+                            name = s.Name,
+                            isAssemblyView = s.IsAssemblyView,
+                            definition = new
+                            {
+                                categoryId = s.Definition.CategoryId.Value,
+                                fieldCount = s.Definition.GetFieldCount(),
+                                filterCount = s.Definition.GetFilterCount(),
+                                sortGroupFieldCount = s.Definition.GetSortGroupFieldCount()
+                            }
+                        })
+                        .ToList();
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalSchedules = schedules.Count,
+                            schedules = schedules
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting schedules");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Get schedule data (rows and columns)
+        /// </summary>
+        private Task<string> GetScheduleData(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var scheduleIdStr = parameters?["scheduleId"]?.ToString();
+
+                    if (string.IsNullOrEmpty(scheduleIdStr))
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "scheduleId is required" });
+                    }
+
+                    var scheduleId = new ElementId(int.Parse(scheduleIdStr));
+                    var schedule = doc.GetElement(scheduleId) as ViewSchedule;
+
+                    if (schedule == null)
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "Schedule not found" });
+                    }
+
+                    var tableData = schedule.GetTableData();
+                    var sectionData = tableData.GetSectionData(SectionType.Body);
+
+                    var rows = new List<List<string>>();
+                    for (int r = 0; r < sectionData.NumberOfRows; r++)
+                    {
+                        var row = new List<string>();
+                        for (int c = 0; c < sectionData.NumberOfColumns; c++)
+                        {
+                            var cellText = schedule.GetCellText(SectionType.Body, r, c);
+                            row.Add(cellText);
+                        }
+                        rows.Add(row);
+                    }
+
+                    // Get column headers
+                    var headers = new List<string>();
+                    var headerSection = tableData.GetSectionData(SectionType.Header);
+                    if (headerSection != null && headerSection.NumberOfRows > 0)
+                    {
+                        for (int c = 0; c < headerSection.NumberOfColumns; c++)
+                        {
+                            var headerText = schedule.GetCellText(SectionType.Header, headerSection.NumberOfRows - 1, c);
+                            headers.Add(headerText);
+                        }
+                    }
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            scheduleId = scheduleId.Value,
+                            scheduleName = schedule.Name,
+                            rowCount = sectionData.NumberOfRows,
+                            columnCount = sectionData.NumberOfColumns,
+                            headers = headers,
+                            data = rows
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting schedule data");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Update schedule cell value
+        /// </summary>
+        private Task<string> UpdateScheduleCell(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var scheduleIdStr = parameters?["scheduleId"]?.ToString();
+                    var row = parameters?["row"]?.ToObject<int?>() ?? -1;
+                    var col = parameters?["column"]?.ToObject<int?>() ?? -1;
+                    var value = parameters?["value"]?.ToString() ?? "";
+
+                    if (string.IsNullOrEmpty(scheduleIdStr))
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "scheduleId is required" });
+                    }
+
+                    if (row < 0 || col < 0)
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "row and column are required" });
+                    }
+
+                    var scheduleId = new ElementId(int.Parse(scheduleIdStr));
+                    var schedule = doc.GetElement(scheduleId) as ViewSchedule;
+
+                    if (schedule == null)
+                    {
+                        return JsonConvert.SerializeObject(new { success = false, error = "Schedule not found" });
+                    }
+
+                    // Schedule cells are typically read-only (calculated from model data)
+                    // Only certain override cells can be edited
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Schedule cell editing not supported - schedule data is derived from model elements"
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error updating schedule cell");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        #endregion
+
+        #region Pre-Issue QC Dashboard
+
+        /// <summary>
+        /// Get all sheets in the project with details
+        /// </summary>
+        private Task<string> GetAllSheets(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+
+                    var sheets = new FilteredElementCollector(doc)
+                        .OfClass(typeof(ViewSheet))
+                        .Cast<ViewSheet>()
+                        .Select(sheet => new
+                        {
+                            id = sheet.Id.Value,
+                            sheetNumber = sheet.SheetNumber,
+                            sheetName = sheet.Name,
+                            viewCount = sheet.GetAllPlacedViews().Count,
+                            placedViews = sheet.GetAllPlacedViews().Select(vid => vid.Value).ToList()
+                        })
+                        .ToList();
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalSheets = sheets.Count,
+                            sheets = sheets
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting all sheets");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Find views that are not placed on any sheet
+        /// </summary>
+        private Task<string> GetUnplacedViews(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+
+                    // Get all views
+                    var allViews = new FilteredElementCollector(doc)
+                        .OfClass(typeof(View))
+                        .Cast<View>()
+                        .Where(v => !v.IsTemplate && v.CanBePrinted)
+                        .ToList();
+
+                    // Get all views that are placed on sheets
+                    var placedViewIds = new HashSet<long>();
+                    var sheets = new FilteredElementCollector(doc)
+                        .OfClass(typeof(ViewSheet))
+                        .Cast<ViewSheet>();
+
+                    foreach (var sheet in sheets)
+                    {
+                        foreach (var viewId in sheet.GetAllPlacedViews())
+                        {
+                            placedViewIds.Add((long)viewId.Value);
+                        }
+                    }
+
+                    // Find unplaced views
+                    var unplacedViews = allViews
+                        .Where(v => !placedViewIds.Contains((long)v.Id.Value))
+                        .Select(v => new
+                        {
+                            id = v.Id.Value,
+                            name = v.Name,
+                            viewType = v.ViewType.ToString(),
+                            scale = v.Scale
+                        })
+                        .ToList();
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalViews = allViews.Count,
+                            placedViews = placedViewIds.Count,
+                            unplacedViews = unplacedViews.Count,
+                            views = unplacedViews
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting unplaced views");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Check for sheets without views
+        /// </summary>
+        private Task<string> GetEmptySheets(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+
+                    var emptySheets = new FilteredElementCollector(doc)
+                        .OfClass(typeof(ViewSheet))
+                        .Cast<ViewSheet>()
+                        .Where(sheet => sheet.GetAllPlacedViews().Count == 0)
+                        .Select(sheet => new
+                        {
+                            id = sheet.Id.Value,
+                            sheetNumber = sheet.SheetNumber,
+                            sheetName = sheet.Name
+                        })
+                        .ToList();
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalEmptySheets = emptySheets.Count,
+                            sheets = emptySheets
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting empty sheets");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Validate text note sizes against standards
+        /// </summary>
+        private Task<string> ValidateTextSizes(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var allowedSizesParam = parameters?["allowedSizes"]?.ToObject<List<double>>();
+
+                    // Default allowed sizes in inches: 1/16", 3/32", 1/8", 3/16", 1/4"
+                    var allowedSizesInches = allowedSizesParam ?? new List<double> { 0.0625, 0.09375, 0.125, 0.1875, 0.25 };
+                    var allowedSizesFeet = allowedSizesInches.Select(s => s / 12.0).ToList();
+
+                    var textNotes = new FilteredElementCollector(doc)
+                        .OfClass(typeof(TextNote))
+                        .Cast<TextNote>()
+                        .ToList();
+
+                    var nonStandardNotes = new List<object>();
+                    foreach (var note in textNotes)
+                    {
+                        var typeId = note.GetTypeId();
+                        var textType = doc.GetElement(typeId) as TextNoteType;
+
+                        if (textType != null)
+                        {
+                            var sizeParam = textType.get_Parameter(BuiltInParameter.TEXT_SIZE);
+                            if (sizeParam != null)
+                            {
+                                var sizeFeet = sizeParam.AsDouble();
+                                var sizeInches = sizeFeet * 12.0;
+
+                                // Check if size is in allowed list (with small tolerance)
+                                bool isStandard = allowedSizesFeet.Any(allowed => Math.Abs(allowed - sizeFeet) < 0.0001);
+
+                                if (!isStandard)
+                                {
+                                    var view = doc.GetElement(note.OwnerViewId) as View;
+                                    nonStandardNotes.Add(new
+                                    {
+                                        id = note.Id.Value,
+                                        text = note.Text.Length > 50 ? note.Text.Substring(0, 50) + "..." : note.Text,
+                                        viewName = view?.Name ?? "Unknown",
+                                        typeName = textType.Name,
+                                        sizeInches = Math.Round(sizeInches, 5)
+                                    });
+                                }
+                            }
+                        }
+                    }
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalTextNotes = textNotes.Count,
+                            nonStandardCount = nonStandardNotes.Count,
+                            allowedSizes = allowedSizesInches,
+                            nonStandardNotes = nonStandardNotes
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error validating text sizes");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Get project warnings
+        /// </summary>
+        private Task<string> GetProjectWarnings(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+                    var maxWarnings = parameters?["maxWarnings"]?.ToObject<int?>() ?? 100;
+
+                    var warnings = doc.GetWarnings();
+
+                    var warningList = warnings
+                        .Take(maxWarnings)
+                        .Select(w => new
+                        {
+                            severity = w.GetSeverity().ToString(),
+                            description = w.GetDescriptionText(),
+                            elementIds = w.GetFailingElements().Select(id => id.Value).ToList()
+                        })
+                        .ToList();
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            totalWarnings = warnings.Count,
+                            returnedWarnings = warningList.Count,
+                            warnings = warningList
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error getting project warnings");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        /// <summary>
+        /// Run comprehensive QC checks
+        /// </summary>
+        private Task<string> RunQCChecks(JObject parameters)
+        {
+            return ExecuteInRevitContext(uiApp =>
+            {
+                try
+                {
+                    var doc = uiApp.ActiveUIDocument.Document;
+
+                    // Get all data
+                    var sheets = new FilteredElementCollector(doc)
+                        .OfClass(typeof(ViewSheet))
+                        .Cast<ViewSheet>()
+                        .ToList();
+
+                    var allViews = new FilteredElementCollector(doc)
+                        .OfClass(typeof(View))
+                        .Cast<View>()
+                        .Where(v => !v.IsTemplate && v.CanBePrinted)
+                        .ToList();
+
+                    var placedViewIds = new HashSet<long>();
+                    foreach (var sheet in sheets)
+                    {
+                        foreach (var viewId in sheet.GetAllPlacedViews())
+                        {
+                            placedViewIds.Add((long)viewId.Value);
+                        }
+                    }
+
+                    var emptySheets = sheets.Where(s => s.GetAllPlacedViews().Count == 0).Count();
+                    var unplacedViews = allViews.Where(v => !placedViewIds.Contains((long)v.Id.Value)).Count();
+                    var warnings = doc.GetWarnings().Count;
+
+                    var textNotes = new FilteredElementCollector(doc)
+                        .OfClass(typeof(TextNote))
+                        .Count();
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        result = new
+                        {
+                            summary = new
+                            {
+                                totalSheets = sheets.Count,
+                                emptySheets = emptySheets,
+                                totalViews = allViews.Count,
+                                placedViews = placedViewIds.Count,
+                                unplacedViews = unplacedViews,
+                                totalWarnings = warnings,
+                                totalTextNotes = textNotes
+                            },
+                            checks = new
+                            {
+                                hasEmptySheets = emptySheets > 0,
+                                hasUnplacedViews = unplacedViews > 0,
+                                hasWarnings = warnings > 0
+                            }
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex, "Error running QC checks");
+                    return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                }
+            });
+        }
+
+        #endregion
+    }
+}

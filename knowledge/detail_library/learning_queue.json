@@ -1,0 +1,242 @@
+[
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/00-ARROW_SLOPE.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/00-BREAK LINE.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/00-BREAK LINE1.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/00-BREAK LINE2.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/00-CLEARANCES.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/00-CLEARANCES_DOORS.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/01-Break Line-Medium.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/01-Break Line-Small.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/01-break line.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/01-Self-Tapping Screw.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/01.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/02.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/03-Concrete.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/03-Slab with Optional Haunch-Section.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/03.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/04-CMU-2 Core-Section.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/04-CMU-2 Core-Section1.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/04-CMU-BOND-BEAM1.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/04-CMU-PLAN.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Detail Items/04-CMU-PLAN_STRETCH.rfa",
+    "priority": 1,
+    "reason": "Detail Items - core for CD production",
+    "category": "Detail Items"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Division Profiles/Angled Step.0002.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Division Profiles/Angled Step.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Division Profiles/Notch.0002.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Division Profiles/Notch.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Division Profiles/Tapered Notch.0002.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Division Profiles/Tapered Notch.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Profiles/C-Channel-Profile.0002.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Profiles/C-Channel-Profile.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Profiles/C-Channel-Profile1.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Profiles/CGI-SS3500-Head.0002.rfa",
+    "priority": 2,
+    "reason": "Profiles - needed for system families",
+    "category": "Profiles"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Area Tags/TAG-AREA-GROSS-ROOF.0002.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Area Tags/TAG-AREA-GROSS-ROOF.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Area Tags/TAG-AREA-GROSS.0002.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Area Tags/TAG-AREA-GROSS.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Area Tags/TAG-AREA.0002.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Area Tags/TAG-AREA.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Callout Heads/CALLOUT 3_8_ DIA.0002.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Callout Heads/CALLOUT 3_8_ DIA.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Callout Heads/CALLOUT 3_8_ DIA1.0002.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  },
+  {
+    "path": "/mnt/d/Revit Detail Libraries/Master Library/Families/Callout Heads/CALLOUT 3_8_ DIA1.rfa",
+    "priority": 3,
+    "reason": "Annotations - documentation standards",
+    "category": "Annotations"
+  }
+]

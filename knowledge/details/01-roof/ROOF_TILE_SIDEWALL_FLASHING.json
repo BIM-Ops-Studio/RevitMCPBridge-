@@ -1,0 +1,489 @@
+﻿{
+    "scale":  8,
+    "name":  "ROOF TILE SIDEWALL FLASHING",
+    "id":  1740001,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.4874,
+                                                              "maxX":  10.6268,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.4266,
+                                                              "maxX":  10.6268,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.4276,
+                                                              "maxX":  8.5099,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.4357,
+                                                              "maxX":  8.4774,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.1349,
+                                                              "maxX":  8.4266,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.4396,
+                                                              "maxX":  8.5073,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.4266,
+                                                              "maxX":  8.5516,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.4266,
+                                                              "maxX":  10.5516,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.4647,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4544
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.9190
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6450,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4544
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4544
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2339,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4733
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4733
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0957,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5403
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4733
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0524,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4970
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5338
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0418,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5338
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5505
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0683,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5505
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5027
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2709,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5027
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5169
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0812,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5169
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4357
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2005,
+                                             "style":  "03-Line-Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4357
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4357
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.1871,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.6268
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4396
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6648,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4396
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4396
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.9375,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4266
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4266
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4266
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4318
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1318,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4318
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4318
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0729,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4318
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5047
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0552,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5047
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5047
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5099
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5047
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3560,
+                                             "style":  "Pen 01",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5516
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4266
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3560,
+                                             "style":  "Pen 01",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5516
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4266
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0833,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.4876
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4876
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2708,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.2167
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.4876
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.875,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.4266
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5516
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.2912
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.2912
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.3483
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8045
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.4683
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "STUCCO FINISH\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8045
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.5085
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONTINUOUS SEALANT \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8045
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.5095
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONTINUOUS METAL COUNTER FLASING \u0026 CLEAT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8045
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.467
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONCRETE ROOF TILE \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8045
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.8234
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONTINUOUS METAL FLASHING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8045
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.8502
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLYWOOD ROOF SHEATHING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8045
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.318
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PEEL \u0026 STICK MEMBRANE UNDERLAYMENT\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  23,
+                     "extractedAt":  "2025-12-28 00:16:50",
+                     "regionCount":  8,
+                     "componentCount":  11,
+                     "textCount":  7
+                 }
+}

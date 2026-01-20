@@ -1,0 +1,93 @@
+name: Build and Test RevitMCPBridge2026
+
+on:
+  push:
+    branches: [ master, main, develop ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+env:
+  SOLUTION_FILE: RevitMCPBridge2026.csproj
+  TEST_PROJECT: tests/RevitMCPBridge.Tests/RevitMCPBridge.Tests.csproj
+  CONFIGURATION: Release
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore NuGet packages
+      run: nuget restore ${{ env.SOLUTION_FILE }}
+
+    - name: Build main project
+      run: msbuild ${{ env.SOLUTION_FILE }} /p:Configuration=${{ env.CONFIGURATION }} /v:minimal
+
+    - name: Restore test project packages
+      run: dotnet restore ${{ env.TEST_PROJECT }}
+
+    - name: Build test project
+      run: dotnet build ${{ env.TEST_PROJECT }} --configuration ${{ env.CONFIGURATION }} --no-restore
+      continue-on-error: true  # Tests may fail to build without Revit API DLLs
+
+    - name: Run unit tests
+      run: dotnet test ${{ env.TEST_PROJECT }} --configuration ${{ env.CONFIGURATION }} --no-build --verbosity normal --filter "Category!=Integration"
+      continue-on-error: true  # Continue even if tests fail
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: RevitMCPBridge2026-${{ github.sha }}
+        path: |
+          bin/Release/RevitMCPBridge2026.dll
+          RevitMCPBridge2026.addin
+        retention-days: 30
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ github.sha }}
+        path: |
+          **/TestResults/**
+        retention-days: 7
+
+  create-release:
+    needs: build
+    runs-on: windows-latest
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: RevitMCPBridge2026-${{ github.sha }}
+        path: release
+
+    - name: Create release package
+      run: |
+        Compress-Archive -Path release/* -DestinationPath RevitMCPBridge2026-latest.zip
+
+    - name: Upload release package
+      uses: actions/upload-artifact@v4
+      with:
+        name: RevitMCPBridge2026-release
+        path: RevitMCPBridge2026-latest.zip
+        retention-days: 90

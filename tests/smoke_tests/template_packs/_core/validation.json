@@ -1,0 +1,224 @@
+{
+  "$schema": "validation-pack-v1",
+
+  "identity": {
+    "name": "Core_Validation_v1",
+    "version": "1.0.0",
+    "forStandardsPack": "Core_Universal_v1"
+  },
+
+  "preflight": {
+    "template": [
+      {
+        "id": "TITLEBLOCK_EXISTS",
+        "name": "Title Block Available",
+        "description": "At least one non-Autodesk title block loaded",
+        "check": {
+          "type": "api_call",
+          "method": "getTitleblockTypes",
+          "params": {}
+        },
+        "severity": "blocker",
+        "message": "No suitable title block found",
+        "remediation": "Load a title block family into the project"
+      }
+    ],
+    "project": [
+      {
+        "id": "LEVELS_EXIST",
+        "name": "Levels Defined",
+        "description": "At least one level exists",
+        "check": {
+          "type": "api_call",
+          "method": "getLevels",
+          "params": {}
+        },
+        "severity": "blocker",
+        "message": "No levels found in project",
+        "remediation": "Create at least Level 1"
+      },
+      {
+        "id": "WALLS_EXIST",
+        "name": "Model Has Walls",
+        "description": "At least one wall exists for extents calculation",
+        "check": {
+          "type": "api_call",
+          "method": "getWalls",
+          "params": {}
+        },
+        "severity": "warning",
+        "message": "No walls found - crop regions will default to template size",
+        "remediation": "Model walls before running permit skeleton"
+      },
+      {
+        "id": "DOORS_EXIST",
+        "name": "Doors for Schedule",
+        "description": "At least one door exists for door schedule",
+        "check": {
+          "type": "count",
+          "target": "doors",
+          "operator": ">=",
+          "value": 1
+        },
+        "severity": "info",
+        "message": "No doors found - door schedule will be empty"
+      }
+    ],
+    "environment": [
+      {
+        "id": "MCP_CONNECTED",
+        "name": "MCP Bridge Connected",
+        "description": "RevitMCPBridge is responding",
+        "check": {
+          "type": "api_call",
+          "method": "ping",
+          "params": {}
+        },
+        "severity": "blocker",
+        "message": "Cannot connect to RevitMCPBridge",
+        "remediation": "Ensure Revit is running with MCP add-in loaded"
+      },
+      {
+        "id": "REVIT_VERSION",
+        "name": "Revit Version Compatible",
+        "description": "Revit version is 2024, 2025, or 2026",
+        "check": {
+          "type": "matches",
+          "target": "revitVersion",
+          "value": ["2024", "2025", "2026"]
+        },
+        "severity": "warning",
+        "message": "Revit version not in tested list"
+      }
+    ]
+  },
+
+  "postconditions": {
+    "required": [
+      {
+        "id": "SHEETS_CREATED",
+        "name": "Sheets Created",
+        "check": {
+          "type": "count",
+          "target": "sheets",
+          "operator": ">=",
+          "expected": 1
+        },
+        "evidenceRequired": true
+      },
+      {
+        "id": "FLOOR_PLANS_CREATED",
+        "name": "Floor Plans Created",
+        "check": {
+          "type": "count",
+          "target": "views.floorPlan",
+          "operator": ">=",
+          "expected": 1
+        },
+        "evidenceRequired": true
+      },
+      {
+        "id": "VIEWPORTS_PLACED",
+        "name": "Viewports Placed",
+        "check": {
+          "type": "count",
+          "target": "viewports",
+          "operator": ">=",
+          "expected": 1
+        },
+        "evidenceRequired": true
+      },
+      {
+        "id": "CLEANUP_COMPLETE",
+        "name": "Cleanup Successful",
+        "check": {
+          "type": "count",
+          "target": "leftovers",
+          "operator": "<=",
+          "expected": 0
+        },
+        "evidenceRequired": false
+      }
+    ],
+    "optional": [
+      {
+        "id": "ELEVATIONS_PLACED",
+        "name": "Elevations Placed",
+        "check": {
+          "type": "exists",
+          "target": "viewports.elevation"
+        },
+        "evidenceRequired": false
+      },
+      {
+        "id": "SCHEDULES_CREATED",
+        "name": "Schedules Created",
+        "check": {
+          "type": "count",
+          "target": "schedules",
+          "operator": ">=",
+          "expected": 1
+        },
+        "evidenceRequired": true
+      }
+    ]
+  },
+
+  "evidence": {
+    "exports": [
+      {
+        "type": "csv",
+        "name": "sheet_list",
+        "description": "List of all created sheets",
+        "required": true
+      },
+      {
+        "type": "csv",
+        "name": "door_schedule",
+        "description": "Door schedule export",
+        "required": true
+      },
+      {
+        "type": "json",
+        "name": "workflow_report",
+        "description": "Full workflow execution report",
+        "required": true
+      }
+    ],
+    "checksums": true,
+    "screenshots": []
+  },
+
+  "qualityGates": {
+    "minSheets": 1,
+    "minViews": 1,
+    "maxWarnings": 5,
+    "maxLeftovers": 0,
+    "cleanupRequired": true
+  },
+
+  "readinessScore": {
+    "categories": [
+      {
+        "name": "Model Completeness",
+        "weight": 0.4,
+        "checks": ["LEVELS_EXIST", "WALLS_EXIST", "DOORS_EXIST"]
+      },
+      {
+        "name": "Template Setup",
+        "weight": 0.3,
+        "checks": ["TITLEBLOCK_EXISTS"]
+      },
+      {
+        "name": "Environment",
+        "weight": 0.3,
+        "checks": ["MCP_CONNECTED", "REVIT_VERSION"]
+      }
+    ],
+    "thresholds": {
+      "green": 0.8,
+      "yellow": 0.5,
+      "red": 0.5
+    }
+  }
+}

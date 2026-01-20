@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "2HR SMK BAR WALL TOP CONC.rvt",
+    "activeView":  {
+                       "scale":  8,
+                       "name":  "2HR SMK BAR WALL TOP CONC",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\2HR SMK BAR WALL TOP CONC.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:10:02"
+}

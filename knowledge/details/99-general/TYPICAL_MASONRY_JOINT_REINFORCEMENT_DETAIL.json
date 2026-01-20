@@ -1,0 +1,52 @@
+﻿{
+    "scale":  48,
+    "name":  "TYPICAL MASONRY JOINT REINFORCEMENT DETAIL",
+    "id":  1742924,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  26.7391
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "PREFAB. 9 GAGE GALV. HORIZ.\\rCORNER JOINT REINF. @ 16\"\\r(DUR-O-WAL LADDER TYPE PREFAB CORNER,\\rOR SIMILAR) (EVERY OTHER COURSE)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  27.003
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CORNER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  36.464
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "9 GAGE GALV. HORIZ. JOINT\\rREINF. @ 16\" (DUR-O-WAL\\rLADDER TYPE, OR SIMILAR)\\r(EVERY OTHER COURSE)\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:19:20",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  3
+                 }
+}

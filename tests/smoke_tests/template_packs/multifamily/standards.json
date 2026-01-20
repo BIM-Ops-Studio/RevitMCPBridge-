@@ -1,0 +1,218 @@
+{
+  "$schema": "standards-pack-v2",
+  "_extends": "_core",
+  "_moduleType": "sector",
+
+  "identity": {
+    "name": "Module_Multifamily_v1",
+    "version": "1.0.0",
+    "description": "Multifamily residential sector module (3+ stories, multiple units)",
+    "projectType": "Multifamily"
+  },
+
+  "titleBlocks": {
+    "required": [
+      {"familyName": "E1 30x42", "size": "30x42", "isDefault": true},
+      {"familyName": "ARCH D 24x36", "size": "24x36", "isDefault": false}
+    ],
+    "preferredPatterns": ["E1 30 x 42", "30x42", "ARCH E"]
+  },
+
+  "sheets": {
+    "numberingFormat": "dot-category",
+    "numberingSuffix": "-{run_id:4}",
+    "sets": {
+      "permitSkeleton": [
+        {"number": "G0.01", "name": "COVER SHEET"},
+        {"number": "G0.02", "name": "CODE ANALYSIS & OCCUPANCY"},
+        {"number": "G0.03", "name": "LIFE SAFETY PLAN", "viewType": "FloorPlan", "template": "lifeSafety"},
+        {"number": "A1.0.1", "name": "OVERALL FLOOR PLAN - LEVEL 1", "viewType": "FloorPlan", "level": 1},
+        {"number": "A1.0.2", "name": "OVERALL FLOOR PLAN - LEVEL 2", "viewType": "FloorPlan", "level": 2},
+        {"number": "A1.0.3", "name": "OVERALL FLOOR PLAN - LEVEL 3", "viewType": "FloorPlan", "level": 3},
+        {"number": "A1.0.4", "name": "OVERALL FLOOR PLAN - LEVEL 4", "viewType": "FloorPlan", "level": 4, "optional": true},
+        {"number": "A1.0.5", "name": "OVERALL FLOOR PLAN - LEVEL 5", "viewType": "FloorPlan", "level": 5, "optional": true},
+        {"number": "A1.1.1", "name": "UNIT TYPE A - ENLARGED PLAN", "viewType": "FloorPlan", "template": "enlargedPlan", "unitType": "A", "optional": true},
+        {"number": "A1.1.2", "name": "UNIT TYPE B - ENLARGED PLAN", "viewType": "FloorPlan", "template": "enlargedPlan", "unitType": "B", "optional": true},
+        {"number": "A2.0.1", "name": "BUILDING ELEVATIONS - NORTH & SOUTH", "viewType": "Elevation", "directions": ["North", "South"]},
+        {"number": "A2.0.2", "name": "BUILDING ELEVATIONS - EAST & WEST", "viewType": "Elevation", "directions": ["East", "West"]},
+        {"number": "A3.0.1", "name": "BUILDING SECTIONS", "viewType": "Section"},
+        {"number": "A4.0.1", "name": "WALL SECTIONS & DETAILS", "viewType": "Section", "template": "wallSection"},
+        {"number": "A5.0.1", "name": "DOOR SCHEDULE", "viewType": "Schedule", "category": "Doors"},
+        {"number": "A5.0.2", "name": "WINDOW SCHEDULE", "viewType": "Schedule", "category": "Windows"},
+        {"number": "A5.0.3", "name": "ROOM FINISH SCHEDULE", "viewType": "Schedule", "category": "Rooms"},
+        {"number": "A6.0.1", "name": "INTERIOR ELEVATIONS - COMMON AREAS", "viewType": "InteriorElevation", "optional": true},
+        {"number": "A7.0.1", "name": "REFLECTED CEILING PLAN - LEVEL 1", "viewType": "CeilingPlan", "level": 1, "optional": true}
+      ],
+      "fullCD": [
+        {"number": "A1.2.1", "name": "FLOOR PLAN ENLARGED - PODIUM", "viewType": "FloorPlan", "level": 1, "template": "enlargedPlan"},
+        {"number": "A1.3.1", "name": "ROOF PLAN", "viewType": "FloorPlan", "level": "roof"},
+        {"number": "A4.1.1", "name": "STAIR DETAILS", "viewType": "Detail"},
+        {"number": "A4.2.1", "name": "ACCESSIBILITY DETAILS", "viewType": "Detail"},
+        {"number": "A8.0.1", "name": "EQUIPMENT SCHEDULE", "viewType": "Schedule", "category": "Equipment"}
+      ]
+    },
+    "coverSheet": {
+      "projectDataBlock": true,
+      "teamBlock": true,
+      "codeSummaryBlock": true,
+      "keyPlan": true,
+      "vicinityMap": true,
+      "unitMix": true,
+      "parkingCount": true
+    }
+  },
+
+  "views": {
+    "templates": {
+      "floorPlan": {
+        "scale": 96,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "cropEnabled": true
+      },
+      "enlargedPlan": {
+        "scale": 48,
+        "detailLevel": "Fine",
+        "visualStyle": "Hidden Line",
+        "cropEnabled": true
+      },
+      "lifeSafety": {
+        "scale": 96,
+        "detailLevel": "Coarse",
+        "visualStyle": "Hidden Line",
+        "cropEnabled": true,
+        "colorScheme": "Occupancy",
+        "filters": ["Egress Paths", "Fire Separations", "Exit Signs"]
+      },
+      "exteriorElevation": {
+        "scale": 96,
+        "detailLevel": "Medium"
+      },
+      "buildingSection": {
+        "scale": 48,
+        "detailLevel": "Medium"
+      },
+      "wallSection": {
+        "scale": 24,
+        "detailLevel": "Fine"
+      }
+    }
+  },
+
+  "schedules": {
+    "definitions": {
+      "unitSchedule": {
+        "category": "Rooms",
+        "fields": ["Unit Number", "Unit Type", "Level", "Bedrooms", "Bathrooms", "Area", "Accessible"],
+        "sorting": ["Level", "Unit Number"],
+        "grouping": ["Level"],
+        "filters": ["Unit rooms only"]
+      },
+      "parkingSchedule": {
+        "category": "Parking",
+        "fields": ["Space Number", "Type", "Level", "Accessible", "EV Ready"],
+        "sorting": ["Level", "Space Number"]
+      }
+    }
+  },
+
+  "filters": {
+    "preflight": [
+      {
+        "id": "UNIT_MIX_DEFINED",
+        "name": "Unit Types Defined",
+        "category": "Rooms",
+        "condition": "Unit Type != null",
+        "severity": "warning",
+        "message": "Unit types not defined for unit mix calculation"
+      },
+      {
+        "id": "ACCESSIBLE_UNITS",
+        "name": "Accessible Units Marked",
+        "category": "Rooms",
+        "condition": "Accessible == true",
+        "severity": "info",
+        "message": "Verify accessible unit count meets code requirements"
+      }
+    ],
+    "codeCompliance": [
+      {
+        "id": "EGRESS_DOORS",
+        "name": "Egress Door Rating",
+        "category": "Doors",
+        "condition": "Egress == true AND Fire Rating == null",
+        "severity": "error",
+        "message": "Egress door missing fire rating"
+      },
+      {
+        "id": "CORRIDOR_WIDTH",
+        "name": "Corridor Width",
+        "category": "Rooms",
+        "condition": "Room Type == 'Corridor' AND Width < 44",
+        "severity": "error",
+        "message": "Corridor width less than 44 inches"
+      }
+    ]
+  },
+
+  "levelMapping": {
+    "patterns": {
+      "level1": ["Level 1", "L1", "Ground", "Podium", "1", "01"],
+      "level2": ["Level 2", "L2", "2", "02"],
+      "level3": ["Level 3", "L3", "3", "03"],
+      "level4": ["Level 4", "L4", "4", "04"],
+      "level5": ["Level 5", "L5", "5", "05"],
+      "roof": ["Roof", "T.O. Roof", "Roof Deck", "Amenity Deck"]
+    },
+    "dynamicLevels": true,
+    "maxLevels": 10
+  },
+
+  "cropStrategy": {
+    "method": "model_extents",
+    "marginFeet": 10.0,
+    "enabled": true
+  },
+
+  "completeness": {
+    "permit": {
+      "description": "Multifamily permit - includes life safety",
+      "required_sheets": ["cover", "code", "life_safety", "floor_plans", "elevations"],
+      "required_schedules": ["door", "room"],
+      "min_tag_coverage": 0.95,
+      "allow_missing_dims": true,
+      "allow_missing_sections": false
+    },
+    "cd": {
+      "description": "Multifamily CD - full detail with unit types",
+      "required_sheets": ["cover", "code", "life_safety", "floor_plans", "enlarged_plans", "elevations", "sections", "details", "interior_elevations"],
+      "required_schedules": ["door", "window", "room", "finish", "unit", "parking"],
+      "min_tag_coverage": 0.98,
+      "allow_missing_dims": false,
+      "allow_missing_sections": false
+    }
+  },
+
+  "sectorSpecific": {
+    "unitPlanning": {
+      "enabled": true,
+      "unitTypes": ["Studio", "1BR", "2BR", "3BR"],
+      "perUnitSchedules": false,
+      "unitMixRequired": true
+    },
+    "lifeSafety": {
+      "egressPlanRequired": true,
+      "occupancySeparations": true,
+      "fireRatingSchedule": true
+    },
+    "accessibility": {
+      "accessibleUnitPercentage": 5,
+      "adaptableUnitPercentage": 100,
+      "commonAreaAccessibility": true
+    },
+    "amenities": {
+      "trackAmenitySpaces": true,
+      "amenityTypes": ["Gym", "Pool", "Lounge", "Rooftop", "Parking"]
+    }
+  }
+}

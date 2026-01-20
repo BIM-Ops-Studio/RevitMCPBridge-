@@ -1,0 +1,44 @@
+{
+  "$schema": "firm-override-v1",
+  "_firm": "ARKY",
+  "_description": "ARKY Architecture firm-specific overrides",
+
+  "identity": {
+    "firm": "ARKY",
+    "viewPrefix": "ZZ_"
+  },
+
+  "titleBlocks": {
+    "preferredPatterns": ["ARKY", "Custom", "24x36"],
+    "excludePatterns": ["Autodesk", "11 x 17", "8.5 x 11", "Sample"]
+  },
+
+  "sheets": {
+    "numberingSuffix": "-{run_id:4}"
+  },
+
+  "views": {
+    "templates": {
+      "floorPlan": {
+        "visualStyle": "Hidden Line",
+        "detailLevel": "Medium"
+      }
+    }
+  },
+
+  "cropStrategy": {
+    "marginFeet": 5.0
+  },
+
+  "naming": {
+    "viewPrefix": "ZZ_",
+    "schedulePattern": "{Category} Schedule"
+  },
+
+  "firmSpecific": {
+    "logoPath": "families/ARKY_Logo.rfa",
+    "primaryContact": "architecture@arky.com",
+    "officeLocation": "Florida",
+    "codeJurisdiction": "Florida Building Code"
+  }
+}

@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "ROOF_LIGHTNING PROTECTION.rvt",
+    "activeView":  {
+                       "scale":  6,
+                       "name":  "ROOF_LIGHTNING PROTECTION",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\ROOF_LIGHTNING PROTECTION.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:04:04"
+}

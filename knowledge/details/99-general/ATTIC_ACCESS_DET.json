@@ -1,0 +1,26 @@
+﻿{
+    "scale":  1,
+    "name":  "ATTIC ACCESS DET",
+    "id":  1742899,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:19:14",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  0
+                 }
+}

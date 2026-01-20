@@ -1,0 +1,70 @@
+{
+  "specVersion": "1.0",
+  "method": {
+    "name": "createescalator",
+    "intent": "Create an escalator element between two levels with configurable width and inclination",
+    "tier": 3,
+    "category": "Structural"
+  },
+  "inputs": {
+    "topLevelId": {
+      "description": "Top level ID",
+      "type": "ElementId",
+      "required": true
+    },
+    "inclination": {
+      "description": "Angle of inclination in degrees",
+      "default": 30,
+      "type": "double",
+      "required": false
+    },
+    "width": {
+      "description": "Escalator width in inches",
+      "default": 48,
+      "type": "double",
+      "required": false
+    },
+    "baseLevelId": {
+      "description": "Bottom level ID",
+      "type": "ElementId",
+      "required": true
+    },
+    "startPoint": {
+      "description": "Starting point coordinates",
+      "type": "XYZ",
+      "required": true
+    }
+  },
+  "preconditions": [
+    "Active document exists",
+    "Escalator family loaded",
+    "Both levels exist"
+  ],
+  "algorithm": [
+    "Get base and top levels by ID",
+    "Calculate rise from level elevations",
+    "Calculate run based on inclination angle",
+    "Create escalator path curve from startPoint",
+    "Place escalator family instance",
+    "Set width and other parameters"
+  ],
+  "validation": {
+    "successCriteria": "Method completes without error",
+    "evidence": [
+      "success",
+      "message"
+    ]
+  },
+  "failureModes": [],
+  "apiDependencies": [],
+  "revitVersions": [
+    "2026"
+  ],
+  "metadata": {
+    "proposedBy": "Claude",
+    "proposedAt": "2025-12-26T14:18:20.2588499-08:00",
+    "triggeringTask": null,
+    "approvedBy": "User",
+    "approvedAt": "2025-12-26T14:18:36.3867847-08:00"
+  }
+}

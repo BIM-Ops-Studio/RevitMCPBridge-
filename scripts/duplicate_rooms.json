@@ -1,0 +1,167 @@
+[
+  {
+    "number": "E.01",
+    "roomId": 5645466,
+    "name": "A/C E.01",
+    "area": 15.014295789958425,
+    "perimeter": 15.49999999999961,
+    "volume": 0.0,
+    "level": "Level 2",
+    "levelId": 1215080,
+    "department": null
+  },
+  {
+    "number": "E.01",
+    "roomId": 6609563,
+    "name": "ELEVATOR E.01",
+    "area": 64.35004340277882,
+    "perimeter": 32.14583333333361,
+    "volume": 0.0,
+    "level": "Level 1",
+    "levelId": 1214920,
+    "department": null
+  },
+  {
+    "number": "J.05",
+    "roomId": 6772724,
+    "name": "LIVING J.05",
+    "area": 199.64605569517113,
+    "perimeter": 56.75454444814716,
+    "volume": 0.0,
+    "level": "Level 3",
+    "levelId": 1215145,
+    "department": null
+  },
+  {
+    "number": "J.05",
+    "roomId": 6772733,
+    "name": "WALK-IN CLOSET J.05",
+    "area": 67.20534301380275,
+    "perimeter": 32.8270843747526,
+    "volume": 0.0,
+    "level": "Level 3",
+    "levelId": 1215145,
+    "department": null
+  },
+  {
+    "number": "M.04",
+    "roomId": 5631361,
+    "name": "UNIT M M.04",
+    "area": 108.5344579482607,
+    "perimeter": 57.32322707327491,
+    "volume": 0.0,
+    "level": "Level 3",
+    "levelId": 1215145,
+    "department": null
+  },
+  {
+    "number": "M.04",
+    "roomId": 6674336,
+    "name": "KITCHEN M.04",
+    "area": 64.88988366600344,
+    "perimeter": 39.3671832434633,
+    "volume": 0.0,
+    "level": "Level 3",
+    "levelId": 1215145,
+    "department": null
+  },
+  {
+    "number": "S01",
+    "roomId": 4490935,
+    "name": "STAIR #1 S01",
+    "area": 211.15038452021855,
+    "perimeter": 61.81474932673644,
+    "volume": 0.0,
+    "level": "Level 2",
+    "levelId": 1215080,
+    "department": null
+  },
+  {
+    "number": "S01",
+    "roomId": 4933122,
+    "name": "STAIR #1 S01",
+    "area": 210.99019401986948,
+    "perimeter": 61.79928210216144,
+    "volume": 0.0,
+    "level": "Level 1",
+    "levelId": 1214920,
+    "department": null
+  },
+  {
+    "number": "S01",
+    "roomId": 4933336,
+    "name": "STAIR #1 S01",
+    "area": 211.6897996677818,
+    "perimeter": 61.866832660068496,
+    "volume": 0.0,
+    "level": "Level 4",
+    "levelId": 1215174,
+    "department": null
+  },
+  {
+    "number": "S01",
+    "roomId": 4933406,
+    "name": "STAIR #1 S01",
+    "area": 211.15038452021986,
+    "perimeter": 61.814749326736504,
+    "volume": 0.0,
+    "level": "Level 3",
+    "levelId": 1215145,
+    "department": null
+  },
+  {
+    "number": "S01",
+    "roomId": 7652719,
+    "name": "STAIR#1 S01",
+    "area": 210.12712978375106,
+    "perimeter": 61.71594876882703,
+    "volume": 0.0,
+    "level": "Level 5",
+    "levelId": 1215222,
+    "department": null
+  },
+  {
+    "number": "S02",
+    "roomId": 1674443,
+    "name": "STAIR #2 S02",
+    "area": 259.2859978533578,
+    "perimeter": 69.54637178542691,
+    "volume": 0.0,
+    "level": "Level 3",
+    "levelId": 1215145,
+    "department": null
+  },
+  {
+    "number": "S02",
+    "roomId": 4490911,
+    "name": "STAIR #2 S02",
+    "area": 259.28599785335706,
+    "perimeter": 69.54637178542674,
+    "volume": 0.0,
+    "level": "Level 2",
+    "levelId": 1215080,
+    "department": null
+  },
+  {
+    "number": "S02",
+    "roomId": 4930602,
+    "name": "STAIR#2 S02",
+    "area": 259.2859978533576,
+    "perimeter": 69.54637178542689,
+    "volume": 0.0,
+    "level": "Level 5",
+    "levelId": 1215222,
+    "department": null
+  },
+  {
+    "number": "S02",
+    "roomId": 4933130,
+    "name": "STAIR #2 S02",
+    "area": 259.9095554625313,
+    "perimeter": 69.59845511876026,
+    "volume": 0.0,
+    "level": "Level 1",
+    "levelId": 1214920,
+    "department": null
+  }
+]

@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "ACOUSTICAL PUTTY PAD IN INTERIOR PARTITION DEMISING WALL.rvt",
+    "activeView":  {
+                       "scale":  8,
+                       "name":  "ACOUSTICAL PUTTY PAD IN INTERIOR PARTITION DEMISING WALL",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\ACOUSTICAL PUTTY PAD IN INTERIOR PARTITION DEMISING WALL.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:10:15"
+}

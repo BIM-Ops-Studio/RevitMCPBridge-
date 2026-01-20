@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-12-15T01:12:28.154516",
+  "results": [
+    {
+      "project_id": "512_clematis",
+      "timestamp": "2025-12-15T01:12:28.154108",
+      "success": true,
+      "error": null,
+      "state_summary": {
+        "levels": 15,
+        "sheets": 360,
+        "schedules": 315,
+        "completion": 21.7,
+        "tag_coverage": 100.0
+      },
+      "gap_summary": {
+        "blockers": 0,
+        "required_tasks": 20,
+        "recommended": 0
+      },
+      "duration_seconds": 58.874836921691895
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0
+  }
+}

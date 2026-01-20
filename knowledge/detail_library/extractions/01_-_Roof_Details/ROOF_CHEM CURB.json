@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "ROOF_CHEM CURB.rvt",
+    "activeView":  {
+                       "scale":  4,
+                       "name":  "ROOF_CHEM CURB",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\ROOF_CHEM CURB.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:03:38"
+}

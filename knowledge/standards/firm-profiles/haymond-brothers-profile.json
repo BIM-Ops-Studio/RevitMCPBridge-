@@ -1,0 +1,68 @@
+{
+  "firmId": "haymond-brothers",
+  "firmName": "Haymond Brothers Construction",
+  "description": "Idaho residential construction - single-family and ADU",
+  "sourceProject": null,
+  "extractedAt": null,
+  "status": "skeleton",
+
+  "detection": {
+    "pathPatterns": ["Haymond", "HBC"],
+    "titleBlockFamilies": [],
+    "projectInfoPatterns": {
+      "clientName": "Haymond"
+    }
+  },
+
+  "sheetNumbering": {
+    "pattern": "A###",
+    "examples": ["A101", "A102", "A119"],
+    "disciplines": {
+      "A": "Architectural"
+    },
+    "categories": {
+      "A100": "Floor Plans",
+      "A200": "Elevations",
+      "A300": "Sections",
+      "A400": "Details"
+    },
+    "notes": "A101-A119 sequential pattern, 24x36 titleblocks"
+  },
+
+  "textTypes": {
+    "primary": {
+      "notes": {"font": "Arial", "size": "3/32\""}
+    }
+  },
+
+  "dimensionTypes": {
+    "default": null
+  },
+
+  "viewTemplates": {},
+
+  "familyNaming": {
+    "prefixes": {}
+  },
+
+  "titleBlocks": [
+    {
+      "name": null,
+      "size": "24x36",
+      "use": "Standard"
+    }
+  ],
+
+  "projectTypes": [
+    "single-family",
+    "adu"
+  ],
+
+  "region": "Idaho",
+
+  "extractionNeeded": [
+    "Open a Haymond Brothers project in Revit",
+    "Extract styles using MCP methods",
+    "Update this profile"
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "summary": {
+    "completion_percent": 1241.4,
+    "ready_for_permit": false,
+    "blocker_count": 0,
+    "required_count": 20,
+    "recommended_count": 0
+  },
+  "sheets": {
+    "coverage": 53.8,
+    "existing": 360,
+    "expected": 19,
+    "missing": 8
+  },
+  "views": {
+    "floor_plans": 0,
+    "missing_plans": 10,
+    "elevations": 0,
+    "sections": 0
+  },
+  "tags": {
+    "door_coverage": 100,
+    "window_coverage": 100,
+    "room_coverage": 100,
+    "overall_coverage": 100.0
+  },
+  "schedules": {
+    "existing": 315,
+    "required": 5,
+    "missing": 4,
+    "duplicate_marks": 0
+  },
+  "blockers": [],
+  "required_tasks": [
+    {
+      "type": "create_sheet",
+      "number": "G0.01",
+      "name": "COVER SHEET",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "number": "G0.02",
+      "name": "CODE ANALYSIS & OCCUPANCY",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "number": "G0.03",
+      "name": "LIFE SAFETY PLAN",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "number": "A1.0.1",
+      "name": "OVERALL FLOOR PLAN - LEVEL 1",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "number": "A1.0.2",
+      "name": "OVERALL FLOOR PLAN - LEVEL 2",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "number": "A1.0.3",
+      "name": "OVERALL FLOOR PLAN - LEVEL 3",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "0",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "Level 1",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "B.O. LEVEL 2",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "Level 2",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "B.O. LEVEL 3",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "Level 3",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "B.O. LEVEL 4",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "Level 4",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "B.O. LEVEL 5",
+      "priority": "required"
+    },
+    {
+      "type": "create_floor_plan",
+      "level": "Level 5",
+      "priority": "required"
+    },
+    {
+      "type": "create_schedule",
+      "category": "Doors",
+      "priority": "required"
+    },
+    {
+      "type": "create_schedule",
+      "category": "Windows",
+      "priority": "required"
+    },
+    {
+      "type": "create_schedule",
+      "category": "Rooms",
+      "priority": "required"
+    },
+    {
+      "type": "create_schedule",
+      "category": "Rooms",
+      "priority": "required"
+    }
+  ],
+  "recommended_tasks": []
+}

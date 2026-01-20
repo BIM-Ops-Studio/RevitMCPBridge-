@@ -1,0 +1,447 @@
+{
+  "workflowType": "QC_Audit",
+  "name": "Quality Control Audit - Project-Wide",
+  "description": "Comprehensive QC audit for project quality, coordination, and deliverable completeness",
+  "version": "1.0",
+  "projectTypes": ["All"],
+  "estimatedTime": "3-7 minutes",
+  "author": "Claude AI - Autonomous Architectural Agent",
+
+  "phases": [
+    {
+      "name": "Phase 1: Project Setup Analysis",
+      "description": "Verify basic project setup and configuration",
+      "tasks": [
+        {
+          "id": "verify_project_info_complete",
+          "description": "Check project information completeness",
+          "method": "getProjectInfo",
+          "autonomous_decision": "Verify all required project fields populated"
+        },
+        {
+          "id": "check_project_units",
+          "description": "Verify project units consistent",
+          "method": "custom",
+          "autonomous_decision": "Check units are appropriate for project type"
+        },
+        {
+          "id": "verify_levels_setup",
+          "description": "Check level definitions",
+          "method": "custom",
+          "autonomous_decision": "Verify levels named consistently, elevations correct"
+        },
+        {
+          "id": "create_qc_report_sheet",
+          "description": "Create QC audit report sheet",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "QC-0",
+            "sheetName": "Quality Control Audit Report"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 2: Revit Warnings Analysis",
+      "description": "Analyze and categorize all Revit warnings",
+      "tasks": [
+        {
+          "id": "get_all_warnings",
+          "description": "Retrieve all project warnings",
+          "method": "getProjectWarnings",
+          "autonomous_decision": "Get complete list of warnings"
+        },
+        {
+          "id": "categorize_warnings",
+          "description": "Categorize warnings by severity",
+          "method": "custom",
+          "autonomous_decision": "Group: Critical (fix now), Important (fix soon), Minor (cosmetic)"
+        },
+        {
+          "id": "identify_auto_fixable",
+          "description": "Identify warnings that can be auto-fixed",
+          "method": "custom",
+          "autonomous_decision": "Flag duplicate elements, overlapping lines, etc. for auto-correction"
+        },
+        {
+          "id": "count_warnings_by_type",
+          "description": "Count warnings by category",
+          "method": "custom",
+          "autonomous_decision": "Provide statistics: duplicate marks, overlaps, unenclosed rooms, etc."
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 3: View Management Audit",
+      "description": "Check view organization and placement",
+      "tasks": [
+        {
+          "id": "find_unplaced_views",
+          "description": "Find all views not placed on sheets",
+          "method": "custom",
+          "autonomous_decision": "Identify orphaned views, flag for review or deletion"
+        },
+        {
+          "id": "check_view_templates",
+          "description": "Verify view templates applied consistently",
+          "method": "getViewTemplates",
+          "autonomous_decision": "Check views have templates, identify inconsistencies"
+        },
+        {
+          "id": "verify_view_scales",
+          "description": "Check view scales are appropriate",
+          "method": "custom",
+          "autonomous_decision": "Verify scales consistent within sheet types (plans, elevations, etc.)"
+        },
+        {
+          "id": "check_view_naming",
+          "description": "Verify view naming consistency",
+          "method": "custom",
+          "autonomous_decision": "Check naming follows standards, no duplicate names"
+        },
+        {
+          "id": "identify_duplicate_views",
+          "description": "Find duplicate or redundant views",
+          "method": "custom",
+          "autonomous_decision": "Flag views with same crop region/content for cleanup"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 4: Sheet Set Audit",
+      "description": "Verify sheet organization and completeness",
+      "tasks": [
+        {
+          "id": "get_all_sheets",
+          "description": "Get complete sheet list",
+          "method": "getAllSheets",
+          "autonomous_decision": "Inventory all sheets"
+        },
+        {
+          "id": "verify_sheet_numbering",
+          "description": "Check sheet numbering sequence",
+          "method": "custom",
+          "autonomous_decision": "Verify systematic numbering, no gaps or duplicates"
+        },
+        {
+          "id": "check_sheet_titleblocks",
+          "description": "Verify titleblock information complete",
+          "method": "custom",
+          "autonomous_decision": "Check project name, number, date, drawn by, etc. all filled in"
+        },
+        {
+          "id": "verify_sheets_have_views",
+          "description": "Check all sheets have content",
+          "method": "custom",
+          "autonomous_decision": "Flag empty sheets"
+        },
+        {
+          "id": "check_revision_tracking",
+          "description": "Verify revision tracking consistent",
+          "method": "custom",
+          "autonomous_decision": "Check revision clouds, delta symbols if applicable"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 5: Element Tagging Audit",
+      "description": "Verify all elements properly tagged",
+      "tasks": [
+        {
+          "id": "check_room_tags",
+          "description": "Verify all rooms tagged",
+          "method": "custom",
+          "autonomous_decision": "Find untagged rooms, rooms with missing data"
+        },
+        {
+          "id": "check_door_tags",
+          "description": "Verify all doors tagged and numbered",
+          "method": "custom",
+          "autonomous_decision": "Find untagged doors, duplicate door numbers"
+        },
+        {
+          "id": "check_window_tags",
+          "description": "Verify all windows tagged",
+          "method": "custom",
+          "autonomous_decision": "Find untagged windows if applicable"
+        },
+        {
+          "id": "check_wall_tags",
+          "description": "Check wall type tags where required",
+          "method": "custom",
+          "autonomous_decision": "Verify walls tagged on details/sections"
+        },
+        {
+          "id": "verify_tag_consistency",
+          "description": "Check tag types consistent",
+          "method": "custom",
+          "autonomous_decision": "Verify same tag families used throughout"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 6: Schedule Completeness",
+      "description": "Verify all schedules complete and accurate",
+      "tasks": [
+        {
+          "id": "get_all_schedules",
+          "description": "Get all project schedules",
+          "method": "custom",
+          "autonomous_decision": "Inventory all schedules"
+        },
+        {
+          "id": "check_schedule_data",
+          "description": "Verify schedule data completeness",
+          "method": "getScheduleData",
+          "autonomous_decision": "Find empty cells, missing data in schedules"
+        },
+        {
+          "id": "verify_schedules_placed",
+          "description": "Check all schedules placed on sheets",
+          "method": "custom",
+          "autonomous_decision": "Flag unplaced schedules"
+        },
+        {
+          "id": "check_schedule_accuracy",
+          "description": "Verify schedule counts match model",
+          "method": "custom",
+          "autonomous_decision": "Cross-check door schedule vs actual door count, etc."
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 7: Dimension & Annotation Audit",
+      "description": "Check dimensions and annotations completeness",
+      "tasks": [
+        {
+          "id": "verify_plan_dimensions",
+          "description": "Check floor plans have complete dimensions",
+          "method": "custom",
+          "autonomous_decision": "Verify all walls, openings dimensioned"
+        },
+        {
+          "id": "check_elevation_dimensions",
+          "description": "Verify elevations have vertical dimensions",
+          "method": "custom",
+          "autonomous_decision": "Check floor-to-ceiling heights, key dimensions present"
+        },
+        {
+          "id": "verify_text_notes",
+          "description": "Check text notes for completeness",
+          "method": "custom",
+          "autonomous_decision": "Find placeholder text, empty notes"
+        },
+        {
+          "id": "check_keynotes",
+          "description": "Verify keynote consistency",
+          "method": "custom",
+          "autonomous_decision": "Check keynotes reference valid specifications"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 8: Model Coordination",
+      "description": "Check model coordination and consistency",
+      "tasks": [
+        {
+          "id": "check_duplicate_elements",
+          "description": "Find duplicate elements",
+          "method": "custom",
+          "autonomous_decision": "Identify overlapping walls, duplicate doors, etc."
+        },
+        {
+          "id": "verify_room_boundaries",
+          "description": "Check all rooms properly bounded",
+          "method": "custom",
+          "autonomous_decision": "Find rooms with 0 area, unbounded rooms"
+        },
+        {
+          "id": "check_element_alignment",
+          "description": "Verify elements on grid/aligned",
+          "method": "custom",
+          "autonomous_decision": "Find misaligned walls, off-grid elements"
+        },
+        {
+          "id": "verify_level_associations",
+          "description": "Check elements associated to correct levels",
+          "method": "custom",
+          "autonomous_decision": "Find floating elements, incorrect level associations"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 9: Family & Type Management",
+      "description": "Audit families and types for consistency",
+      "tasks": [
+        {
+          "id": "check_family_naming",
+          "description": "Verify family naming conventions",
+          "method": "custom",
+          "autonomous_decision": "Check families follow naming standards"
+        },
+        {
+          "id": "find_unused_families",
+          "description": "Identify unused families/types",
+          "method": "custom",
+          "autonomous_decision": "Flag families with 0 instances for potential purge"
+        },
+        {
+          "id": "verify_type_parameters",
+          "description": "Check type parameters populated",
+          "method": "custom",
+          "autonomous_decision": "Find families with missing parameter data"
+        },
+        {
+          "id": "check_family_versions",
+          "description": "Verify family versions current",
+          "method": "custom",
+          "autonomous_decision": "Flag outdated family versions if trackable"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 10: Deliverable Completeness",
+      "description": "Verify project ready for delivery",
+      "tasks": [
+        {
+          "id": "verify_required_views",
+          "description": "Check all required views present",
+          "method": "custom",
+          "autonomous_decision": "Verify plans, elevations, sections, details all created"
+        },
+        {
+          "id": "verify_required_schedules",
+          "description": "Check required schedules present",
+          "method": "custom",
+          "autonomous_decision": "Verify room, door, window schedules exist"
+        },
+        {
+          "id": "check_sheet_completeness",
+          "description": "Verify complete sheet set",
+          "method": "custom",
+          "autonomous_decision": "Check cover, plans, elevations, schedules, details all present"
+        },
+        {
+          "id": "verify_export_readiness",
+          "description": "Check project ready for PDF export",
+          "method": "custom",
+          "autonomous_decision": "Verify no missing fonts, images, etc."
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 11: QC Report Generation",
+      "description": "Generate comprehensive QC audit report",
+      "tasks": [
+        {
+          "id": "compile_all_issues",
+          "description": "Compile all QC issues found",
+          "method": "custom",
+          "autonomous_decision": "Categorize: Critical, Major, Minor, Recommendations"
+        },
+        {
+          "id": "generate_statistics",
+          "description": "Calculate QC statistics",
+          "method": "custom",
+          "autonomous_decision": "Total warnings, unplaced views, missing tags, etc."
+        },
+        {
+          "id": "create_auto_fix_list",
+          "description": "Generate auto-fixable items list",
+          "method": "custom",
+          "autonomous_decision": "List items that can be automatically corrected"
+        },
+        {
+          "id": "create_manual_fix_list",
+          "description": "Generate manual review items list",
+          "method": "custom",
+          "autonomous_decision": "List items requiring designer review/decision"
+        },
+        {
+          "id": "calculate_quality_score",
+          "description": "Calculate overall quality score",
+          "method": "custom",
+          "autonomous_decision": "Score 0-100 based on issues found vs project size"
+        },
+        {
+          "id": "create_issues_schedule",
+          "description": "Create QC issues schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Custom",
+            "scheduleName": "QC Audit Findings"
+          }
+        },
+        {
+          "id": "place_report_on_sheet",
+          "description": "Place QC report on sheet",
+          "method": "placeViewOnSheet",
+          "autonomous_decision": "Organize report for clear presentation"
+        }
+      ]
+    }
+  ],
+
+  "completion_criteria": {
+    "required_checks": [
+      "Revit Warnings Analyzed",
+      "View Management Audit Complete",
+      "Sheet Set Audit Complete",
+      "Element Tagging Verified",
+      "Schedule Completeness Verified",
+      "Model Coordination Checked"
+    ],
+    "required_outputs": [
+      "QC Audit Report Sheet",
+      "QC Audit Findings Schedule",
+      "Quality Score Calculation"
+    ],
+    "min_quality_score": 95
+  },
+
+  "autonomous_behaviors": {
+    "error_handling": "Document all issues, categorize by severity and fixability",
+    "decision_making": "Apply industry-standard QC practices autonomously",
+    "quality_standards": "Professional deliverable quality, client-ready documentation",
+    "reporting": "Clear categorization with actionable recommendations",
+    "auto_fix_identification": "Identify which issues can be auto-corrected vs manual review"
+  },
+
+  "issue_categories": {
+    "CRITICAL": "Issues that prevent project delivery or cause major problems",
+    "MAJOR": "Issues that should be corrected for professional quality",
+    "MINOR": "Best practice improvements or minor inconsistencies",
+    "AUTO_FIXABLE": "Issues that can be automatically corrected",
+    "MANUAL_REVIEW": "Issues requiring designer decision or review"
+  },
+
+  "quality_score_calculation": {
+    "description": "Overall quality score 0-100",
+    "deductions": {
+      "CRITICAL_ISSUE": 10,
+      "MAJOR_ISSUE": 3,
+      "MINOR_ISSUE": 1,
+      "REVIT_WARNING_CRITICAL": 5,
+      "REVIT_WARNING_NORMAL": 1,
+      "UNPLACED_VIEW": 2,
+      "MISSING_TAG": 1,
+      "INCOMPLETE_SCHEDULE": 3
+    },
+    "scoring": {
+      "95_100": "Excellent - Client delivery ready",
+      "85_94": "Good - Minor cleanup needed",
+      "75_84": "Fair - Several issues to address",
+      "below_75": "Needs Work - Significant QC required"
+    }
+  }
+}

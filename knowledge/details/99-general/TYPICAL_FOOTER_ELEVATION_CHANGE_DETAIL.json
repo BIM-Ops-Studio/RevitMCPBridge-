@@ -1,0 +1,699 @@
+﻿{
+    "scale":  48,
+    "name":  "TYPICAL FOOTER ELEVATION CHANGE DETAIL",
+    "id":  1743324,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  54.9368,
+                                                              "maxX":  83.8153,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  70.4760,
+                                                              "maxX":  80.4955,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  70.4760,
+                                                              "maxX":  80.4955,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  57.4767,
+                                                              "maxX":  66.5562,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  57.4767,
+                                                              "maxX":  66.5562,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  70.1560,
+                                                              "maxX":  82.1554,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  70.1560,
+                                                              "maxX":  82.1554,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  78.4156,
+                                                              "maxX":  78.7756,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  72.8359,
+                                                              "maxX":  73.1959,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  73.0359,
+                                                              "maxX":  73.2758,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  58.4966,
+                                                              "maxX":  58.8566,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  68.5761,
+                                                              "maxX":  68.7761,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  66.0762,
+                                                              "maxX":  66.5562,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  9.0726,
+                                             "style":  "Line-5",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  66.5482
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  57.4756
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.1667,
+                                             "style":  "Line-5",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  70.4878
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  66.5482
+                                                       }
+                                         },
+                                         {
+                                             "length":  10.0,
+                                             "style":  "Line-5",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  80.4878
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  70.4878
+                                                       }
+                                         },
+                                         {
+                                             "length":  18.0625,
+                                             "style":  "Line-5",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  56.6736
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  74.7361
+                                                       }
+                                         },
+                                         {
+                                             "length":  11.9583,
+                                             "style":  "Line-5",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1144
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  70.1561
+                                                       }
+                                         },
+                                         {
+                                             "length":  16.1991,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  72.8359
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  56.6367
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.3399,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  72.8359
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  72.8359
+                                                       }
+                                         },
+                                         {
+                                             "length":  9.3195,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  72.8359
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.3199,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  58.9566
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  56.6367
+                                                       }
+                                         },
+                                         {
+                                             "length":  10.6615,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  69.5360
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  58.9566
+                                                       }
+                                         },
+                                         {
+                                             "length":  12.6193,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  69.5360
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.2398,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  82.1554
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.7961,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  80.4555
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  82.1554
+                                                       }
+                                         },
+                                         {
+                                             "length":  3.3636,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  83.8153
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  80.4555
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.7719,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  83.8153
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.0397,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  82.1554
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.2398,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  56.6367
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  56.6367
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.7961,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  54.9368
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  56.6367
+                                                       }
+                                         },
+                                         {
+                                             "length":  3.3437,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  58.2766
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  54.9368
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.7532,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  56.6367
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  58.2766
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.0197,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  56.6367
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  56.6367
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.0170,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  81.6354
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  78.7156
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3200,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  81.9554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  81.6354
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.0333,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  76.0357
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  73.1159
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3400,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  76.3757
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  76.0357
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2206,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  73.5758
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  73.1959
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3400,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  73.9158
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  73.5758
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.4925,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  57.0167
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  58.5566
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3400,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  57.3567
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  57.0167
+                                                       }
+                                         },
+                                         {
+                                             "length":  6.3692,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  67.1962
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  68.6561
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3400,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  66.8562
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  67.1962
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.4728,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  62.0764
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  66.1162
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3400,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  62.4164
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  62.0764
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.2398,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  82.1554
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.7961,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  80.4555
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  82.1554
+                                                       }
+                                         },
+                                         {
+                                             "length":  3.3636,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  83.8153
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  80.4555
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.7719,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  83.8153
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.0397,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  82.1554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  82.1554
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.2398,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  56.6367
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  56.6367
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.0811,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  68.5061
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  66.5462
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.0870,
+                                             "style":  "PDF_Geometry",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  70.4860
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  68.5061
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  57.5768
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CONTINUOUS BOTTOM REBARS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  59.3367
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "(3)#5 Z- BAR MIN 30\" OVERLAP\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  62.6365
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "SLOPE AS NEED TO ACHIVE REQUIRED COMPACTION. SLOPE TO E DETERMINED BY\\r GEOTECHNICAL ENGINEER. WELL COMPACTED CLEAN FILL AS PER\\r RECOMMENDATION ON GEOTECHNICAL REPORT PREPARED BY SOIL ENGINEER.\\r FOOTING BOTTOMS SHOULD BE COMPACTED TO 98% OF THE ALL ASTM D 1557 \\rMAXIMUM DRY DENSITY.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  74.1359
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CONTINUOUS BOTTOM REBARS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  76.6158
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "4\" DROP DOWN\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  82.1955
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "TOP OF THE SLAB\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  41,
+                     "extractedAt":  "2025-12-28 00:19:44",
+                     "regionCount":  13,
+                     "componentCount":  13,
+                     "textCount":  6
+                 }
+}

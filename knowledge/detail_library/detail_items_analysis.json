@@ -1,0 +1,93 @@
+{
+  "total_count": 756,
+  "groups": {
+    "Other": {
+      "count": 492,
+      "examples": [
+        "00-ARROW_SLOPE.0001",
+        "00-ARROW_SLOPE.0002",
+        "00-ARROW_SLOPE",
+        "00-CLEARANCES.0001",
+        "00-CLEARANCES.0002"
+      ]
+    },
+    "Break Lines": {
+      "count": 29,
+      "examples": [
+        "00-BREAK LINE.0001",
+        "00-BREAK LINE.0002",
+        "00-BREAK LINE",
+        "00-BREAK LINE1.0001",
+        "00-BREAK LINE1.0002"
+      ]
+    },
+    "Section Marks": {
+      "count": 92,
+      "examples": [
+        "03-Slab with Optional Haunch-Section.0001",
+        "03-Slab with Optional Haunch-Section",
+        "05-AISC Tube Shapes-Section.0001",
+        "05-AISC Tube Shapes-Section.0002",
+        "05-AISC Tube Shapes-Section"
+      ]
+    },
+    "CMU/Masonry": {
+      "count": 43,
+      "examples": [
+        "04-CMU-2 Core-Section.0001",
+        "04-CMU-2 Core-Section.0002",
+        "04-CMU-2 Core-Section",
+        "04-CMU-2 Core-Section1.0001",
+        "04-CMU-2 Core-Section1"
+      ]
+    },
+    "Wood Framing": {
+      "count": 43,
+      "examples": [
+        "06-FRAMING-WOOD-Section-Stretch.0001",
+        "06-FRAMING-WOOD-Section-Stretch.0002",
+        "06-FRAMING-WOOD-Section-Stretch",
+        "06-FRAMING-WOOD-Section-Stretch1.0001",
+        "06-FRAMING-WOOD-Section-Stretch1.0002"
+      ]
+    },
+    "Flashing": {
+      "count": 8,
+      "examples": [
+        "07-FLASHING_Sht Mtl 2 Piece at STUCCO.0001",
+        "07-FLASHING_Sht Mtl 2 Piece at STUCCO",
+        "07-FLASHING_Sht Mtl.0001",
+        "07-FLASHING_Sht Mtl",
+        "09 - ALUCOBOND FLASHING.0001"
+      ]
+    },
+    "Insulation": {
+      "count": 10,
+      "examples": [
+        "07-INSULATION-RIGID.0001",
+        "07-INSULATION-RIGID.0002",
+        "07-INSULATION-RIGID",
+        "07-INSULATION-RIGID1.0001",
+        "07-INSULATION-RIGID1.0002"
+      ]
+    },
+    "Steel/Metal": {
+      "count": 36,
+      "examples": [
+        "09-Array-Metal Studs-Side.0001",
+        "09-Array-Metal Studs-Side",
+        "09-Double Metal Studs-Section.0001",
+        "09-Double Metal Studs-Section",
+        "09-Metal Angle.0001"
+      ]
+    },
+    "Reinforcement": {
+      "count": 3,
+      "examples": [
+        "Slab-Concrete-Reinforced.0001",
+        "Slab-Concrete-Reinforced.0002",
+        "Slab-Concrete-Reinforced"
+      ]
+    }
+  }
+}

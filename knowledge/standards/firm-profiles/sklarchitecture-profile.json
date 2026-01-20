@@ -1,0 +1,78 @@
+{
+  "firmId": "sklarchitecture",
+  "firmName": "SKLARchitecture",
+  "description": "National retail and commercial architecture",
+  "sourceProject": "SKLAR TEMPLATE",
+  "extractedAt": "legacy",
+  "status": "legacy",
+
+  "detection": {
+    "pathPatterns": ["SKLAR", "SKLARchitecture"],
+    "titleBlockFamilies": ["SKLAR Title Block"],
+    "projectInfoPatterns": {
+      "author": "SKLAR"
+    }
+  },
+
+  "sheetNumbering": {
+    "pattern": "A###",
+    "examples": ["A001", "A100", "A200"],
+    "disciplines": {
+      "G": "General",
+      "A": "Architectural",
+      "I": "Interior"
+    },
+    "categories": {
+      "A000": "Cover/General",
+      "A100": "Plans",
+      "A200": "Elevations",
+      "A300": "Sections",
+      "A400": "Details",
+      "A500": "Schedules"
+    }
+  },
+
+  "textTypes": {
+    "primary": {
+      "notes": {"font": "Arial", "size": "3/32\""},
+      "headers": {"font": "Arial", "size": "3/16\""}
+    }
+  },
+
+  "dimensionTypes": {
+    "default": "SKLAR 3/32\" Standard",
+    "small": "SKLAR 5/64\""
+  },
+
+  "viewTemplates": {
+    "floorPlan": "SKLAR Floor Plan",
+    "rcp": "SKLAR RCP"
+  },
+
+  "familyNaming": {
+    "prefixes": {}
+  },
+
+  "titleBlocks": [
+    {
+      "name": "SKLAR Title Block",
+      "size": "24x36",
+      "use": "Standard"
+    }
+  ],
+
+  "projectTypes": [
+    "retail",
+    "commercial",
+    "tenant-improvement"
+  ],
+
+  "specializations": {
+    "retail": {
+      "storefronts": true,
+      "tenantBuildout": true
+    }
+  },
+
+  "notes": "Legacy profile from SKLAR TEMPLATE - retail focus"
+}

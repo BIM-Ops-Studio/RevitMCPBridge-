@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "PARAPET TERRACE WALL COPING.rvt",
+    "activeView":  {
+                       "scale":  4,
+                       "name":  "PARAPET TERRACE WALL COPING",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\PARAPET TERRACE WALL COPING.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:00:32"
+}

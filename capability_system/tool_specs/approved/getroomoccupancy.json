@@ -1,0 +1,31 @@
+{
+  "specVersion": "1.0",
+  "method": {
+    "name": "getroomoccupancy",
+    "intent": "Get the occupancy count and capacity for a room based on its area and use type",
+    "tier": 2,
+    "category": "Room"
+  },
+  "inputs": {},
+  "preconditions": [],
+  "algorithm": [],
+  "validation": {
+    "successCriteria": "Method completes without error",
+    "evidence": [
+      "success",
+      "message"
+    ]
+  },
+  "failureModes": [],
+  "apiDependencies": [],
+  "revitVersions": [
+    "2026"
+  ],
+  "metadata": {
+    "proposedBy": "Claude",
+    "proposedAt": "2025-12-27T17:45:14.5785921-08:00",
+    "triggeringTask": null,
+    "approvedBy": "User",
+    "approvedAt": "2025-12-27T17:45:19.1899653-08:00"
+  }
+}

@@ -1,0 +1,165 @@
+﻿{
+    "scale":  12,
+    "name":  "TYP. BOND BEAM \u0026 LINTEL DETAIL BY THE GARAGE - BB-3 \u0026 L-1",
+    "id":  1741539,
+    "elements":  {
+                     "filledRegions":  {
+                                           "pattern":  null,
+                                           "typeName":  null,
+                                           "bounds":  {
+                                                          "minX":  1.9665,
+                                                          "maxX":  2.2686,
+                                                          "minY":  0.0,
+                                                          "maxY":  0.0
+                                                      }
+                                       },
+                     "detailLines":  [
+                                         {
+                                             "length":  0.1719,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1.9665
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1.9665
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3021,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  2.2686
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1.9665
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1719,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  2.2686
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  2.2686
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "04-CMU-2 Core-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "4\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beams-Single-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.7999
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.1239
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.3415
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1.8936
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.1239
+                                                               },
+                                                  "type":  "#_5"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.2084
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1- #7 REBAR CONTINUOUS AT TOP. PLACE REBARS\\rON EACH FACE. (PROVIDE 1/2\" NEW CONCRETE COVER) \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.138
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1- #7 REBAR CONTINUOUS. PLACE REBARS ON EACH\\rFACE AS PER MANUFACTURER\u0027S SPEC\u0027S 1/2\" CLEAR\\rCOVER WITH NEW CONCRETE. ALL SOLID GROUT FILL.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  2.7837
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.1375
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PRESTRESSED LINTEL W/ #7 REBAR CONTINUOUS AS PER\\rREBARS ON EACH FACE.\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  3,
+                     "extractedAt":  "2025-12-28 00:18:22",
+                     "regionCount":  1,
+                     "componentCount":  8,
+                     "textCount":  3
+                 }
+}

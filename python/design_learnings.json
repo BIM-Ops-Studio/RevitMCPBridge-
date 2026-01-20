@@ -1,0 +1,54 @@
+{
+  "selections": [
+    {
+      "selected_scheme_id": "OFF-DOUB-01",
+      "rejected_scheme_ids": [
+        "OFF-CLUS-02",
+        "OFF-U_SH-03"
+      ],
+      "building_type": "office",
+      "selection_reason": "Best overall efficiency",
+      "selected_features": [
+        "strategy_double_loaded"
+      ],
+      "timestamp": "2026-01-07T22:14:42.617210",
+      "context": {
+        "efficiency": 0.346,
+        "adjacency_score": 0.643,
+        "strategy": "DOUBLE_LOADED"
+      }
+    }
+  ],
+  "corrections": [
+    {
+      "room_name": "Reception",
+      "building_type": "office",
+      "original_position": [
+        43.0,
+        0
+      ],
+      "corrected_position": [
+        5,
+        0
+      ],
+      "original_dimensions": [
+        15.0,
+        10.0
+      ],
+      "corrected_dimensions": [
+        15.0,
+        10.0
+      ],
+      "correction_type": "position",
+      "reason": "Moved closer to entry",
+      "context": {
+        "original_zone": "PUBLIC",
+        "had_exterior": true
+      },
+      "timestamp": "2026-01-07T22:14:42.621031"
+    }
+  ],
+  "adjacency_overrides": [],
+  "dimension_preferences": [],
+  "saved_at": "2026-01-07T22:14:42.621066"
+}

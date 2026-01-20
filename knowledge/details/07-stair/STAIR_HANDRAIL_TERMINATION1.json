@@ -1,0 +1,264 @@
+﻿{
+    "scale":  4,
+    "name":  "STAIR_HANDRAIL TERMINATION1",
+    "id":  2139249,
+    "elements":  {
+                     "filledRegions":  {
+                                           "pattern":  null,
+                                           "typeName":  null,
+                                           "bounds":  {
+                                                          "minX":  499.7533,
+                                                          "maxX":  502.1480,
+                                                          "minY":  0.0,
+                                                          "maxY":  0.0
+                                                      }
+                                       },
+                     "detailLines":  [
+                                         {
+                                             "length":  0.2945,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  500.3384
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  500.1509
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4790,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  500.3384
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  500.0474
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0417,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  501.4842
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  501.4842
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2917,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  501.7759
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  501.4842
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0417,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  501.7759
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  501.7759
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2917,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  501.4842
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  501.7759
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.8658,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  500.3384
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  502.2042
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.8658,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  502.2042
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  500.3384
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1458,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  501.6092
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  501.6092
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1458,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  501.6509
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  501.6509
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.3531,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  502.1660
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  499.8129
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.3531,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  502.1480
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  499.7949
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.8658,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  502.2042
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  500.3384
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  499.8158
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  502.0855
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  500.9485
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  500.0523
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLUG END OF HANDRAIL (TYP)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  500.9485
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  500.2835
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1-1/2\" ROUND PAINTED STEEL RAIL SEE\\rSTAIR SECTION FOR FINISH\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  500.9485
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  500.3903
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SKIM COAT STUCCO FINISH ON MASONRY\\rWALLS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  500.9485
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  501.6339
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "wall bracket\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  500.9485
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  500.7095
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SKIM COAT STUCCO FINISH ON MASONRY\\rWALLS \\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  13,
+                     "extractedAt":  "2025-12-28 00:23:05",
+                     "regionCount":  1,
+                     "componentCount":  3,
+                     "textCount":  5
+                 }
+}

@@ -1,0 +1,159 @@
+﻿{
+    "scale":  4,
+    "name":  "INTERIOR DOOR AND JAMB DETAIL",
+    "id":  1850278,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section2",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  53.0136
+                                                               },
+                                                  "type":  "2x4"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section2",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  52.8886
+                                                               },
+                                                  "type":  "2x4"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line3",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  52.4837
+                                                               },
+                                                  "type":  "Break Line"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  51.8396
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  52.988
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CAULKING (TYP @ ALL\\rCASING CORNERS.)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  51.8402
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  52.9377
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "2\"X4\" WOOD STUD 16\"\\rO.C. W/ 1/2\" GWB\\r(BOTH SIDES)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  51.8411
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  52.6608
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "INSULATION\\rAS REQUIRED\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  51.8886
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  52.8049
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1/2\" GYPSUM BRD. (USE TYPE \"X\" WHERE\\rREQUIRED, SEE WALL\\rTYPES)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  53.4925
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  53.1513
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SHIM AS\\rREQUIRED\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  53.4926
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  53.8572
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "NEW DOOR\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  53.4931
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  53.1212
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "WOOD DOOR\\rCASING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  53.4931
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  53.2302
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "WOOD DOOR JAMB\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  53.4982
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  53.074
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "2\"X 4\" WOOD\\rNAILER\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  253,
+                     "extractedAt":  "2025-12-28 00:20:43",
+                     "regionCount":  0,
+                     "componentCount":  3,
+                     "textCount":  9
+                 }
+}

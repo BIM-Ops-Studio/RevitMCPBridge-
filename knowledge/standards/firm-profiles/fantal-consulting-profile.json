@@ -1,0 +1,143 @@
+{
+  "firmId": "fantal-consulting",
+  "firmName": "Fantal Consulting",
+  "description": "Florida residential new construction specialist",
+  "sourceProject": "AP Builder Residence (FC231106)",
+  "extractedAt": "2024-12-19",
+
+  "detection": {
+    "pathPatterns": ["FANTAL CONSULTING", "FANTAL"],
+    "titleBlockFamilies": ["TITLEBLOCK_36x24", "COVER SHEET", "COVER SHEET W RENDERING"],
+    "projectNumberPrefix": "FC",
+    "projectInfoPatterns": {
+      "clientName": "Fantal"
+    }
+  },
+
+  "sheetNumbering": {
+    "pattern": "A#.#",
+    "examples": ["A0.1", "A1.1", "A2.1", "A5.1"],
+    "disciplines": {
+      "A": "Architectural"
+    },
+    "categories": {
+      "A0": "Cover Sheet",
+      "A1": "Notes, Symbols, Abbreviations",
+      "A2": "Floor Plans, RCP, Roof Plan",
+      "A3": "Elevations",
+      "A4": "Sections",
+      "A5": "Schedules",
+      "A6": "Interior Elevations",
+      "A7": "Enlarged Plans & Details",
+      "A8": "Typical Details"
+    }
+  },
+
+  "textTypes": {
+    "primary": {
+      "notes": {"size": "3/32\""},
+      "roomNames": {"size": "3/16\""},
+      "titles": {"size": "1/4\""},
+      "sheetTitles": {"size": "3/8\""}
+    }
+  },
+
+  "keynotes": {
+    "symbol": "Hexagon (FC_Keynote_Hexagon)",
+    "numberFormat": "two-digit",
+    "prefixes": {
+      "sitePlan": "SP-",
+      "floorPlan": "FP-"
+    },
+    "rules": [
+      "NO 'NEW' prefix - new construction assumed",
+      "Include contractor responsibility (SHALL language)",
+      "Include MEP/structural coordination",
+      "Reference related drawings and schedules",
+      "Use standard abbreviations (UNO, O.C., TYP.)"
+    ],
+    "standardKeynotes": {
+      "01": "PLUMBING FIXTURES",
+      "02": "FLOOR FINISH",
+      "03": "SHOWER ENCLOSURE",
+      "04": "HVAC EQUIPMENT",
+      "05": "KITCHEN CABINETS",
+      "06": "INTERIOR PARTITION",
+      "07": "KITCHEN APPLIANCES",
+      "08": "WATER HEATER",
+      "09": "INTERIOR DOOR",
+      "10": "WINDOW",
+      "11": "CLOSET ORGANIZATION SYSTEM",
+      "12": "LAUNDRY EQUIPMENT CONNECTIONS",
+      "13": "GARAGE DOOR",
+      "14": "ELECTRICAL OUTLET",
+      "15": "CEILING FAN WITH LIGHT",
+      "16": "BATHTUB"
+    }
+  },
+
+  "viewNaming": {
+    "prefix": "PROPOSED",
+    "floorPlanFormat": "PROPOSED {LEVEL} FLOOR PLAN",
+    "elevationFormat": "PROPOSED BUILDING ELEVATIONS - {DIRECTION}",
+    "examples": [
+      "PROPOSED GROUND FLOOR PLAN",
+      "PROPOSED SECOND FLOOR PLAN",
+      "PROPOSED BUILDING ELEVATIONS - NORTH & EAST",
+      "PROPOSED ROOF PLAN"
+    ]
+  },
+
+  "roomNaming": {
+    "convention": "UPPERCASE with numbers",
+    "masterBedroom": "MASTER BEDROOM #1",
+    "walkInCloset": "W.I.C.",
+    "garage": "3-CAR GARAGE",
+    "standardRooms": [
+      "GREAT ROOM",
+      "KITCHEN",
+      "DINING",
+      "FAMILY ROOM",
+      "HALL",
+      "OFFICE",
+      "LAUNDRY ROOM",
+      "MUD ROOM"
+    ]
+  },
+
+  "floridaRequirements": {
+    "impactRatedWindows": true,
+    "impactRatedDoors": true,
+    "windRatedGarageDoors": true,
+    "codeReference": "FBC (Florida Building Code)"
+  },
+
+  "leaderStyle": {
+    "type": "Straight with single bend",
+    "preferredAngles": [30, 45, 60],
+    "arrowDirection": "TO element"
+  },
+
+  "projectTypes": ["single-family"],
+
+  "titleBlocks": [
+    {
+      "name": "TITLEBLOCK_36x24",
+      "size": "36x24",
+      "use": "Standard"
+    }
+  ],
+
+  "corrections": [
+    {
+      "date": "2024-12-19",
+      "issue": "Used 'NEW' prefix on keynotes",
+      "correct": "No 'NEW' prefix needed - this is new construction"
+    },
+    {
+      "date": "2024-12-19",
+      "issue": "Placed keynotes at approximate locations",
+      "correct": "Point keynotes at specific elements with leaders"
+    }
+  ]
+}

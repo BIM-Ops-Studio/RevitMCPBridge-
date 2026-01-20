@@ -1,0 +1,135 @@
+﻿{
+    "scale":  8,
+    "name":  "STAIR - INNER RAILING1",
+    "id":  2140307,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  {
+                                         "length":  1.9167,
+                                         "style":  "\u003cThin Lines\u003e",
+                                         "end":  {
+                                                     "y":  0.0,
+                                                     "x":  12.4955
+                                                 },
+                                         "start":  {
+                                                       "y":  0.0,
+                                                       "x":  10.5788
+                                                   }
+                                     },
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Pipe-End 1_1-2 inch",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.7329
+                                                               },
+                                                  "type":  "Railing-Pipe-End 1_1-2 inch"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  12.4955
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.5788
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Guardrail-Square Metal-End",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.8361
+                                                               },
+                                                  "type":  "Railing-Guardrail-Square Metal-End"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.8222
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Railing-Post-Square Metal 1_1-2 inch Front Elevation",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.7339
+                                                               },
+                                                  "type":  "Railing-Post-Square Metal 1_1-2 inch Front Elevation"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.6057
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.8387
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "STEEL toprail beyond\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.6057
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.8588
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "STEEL post, typ\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.6057
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.066
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1 1/2\" dia STEEL handrail, continuous at landings\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.6057
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.1787
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "LANDING.\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  1,
+                     "extractedAt":  "2025-12-28 00:23:43",
+                     "regionCount":  0,
+                     "componentCount":  6,
+                     "textCount":  4
+                 }
+}

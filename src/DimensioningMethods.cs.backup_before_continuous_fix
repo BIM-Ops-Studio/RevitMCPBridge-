@@ -1,0 +1,1149 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Serilog;
+
+namespace RevitMCPBridge
+{
+    public static class DimensioningMethods
+    {
+        /// <summary>
+        /// Create a linear dimension between two reference points
+        /// </summary>
+        public static string CreateLinearDimension(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                // Parse parameters
+                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
+                var view = doc.GetElement(viewId) as View;
+
+                if (view == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "View not found"
+                    });
+                }
+
+                // Parse reference element IDs
+                var elementId1 = new ElementId(int.Parse(parameters["elementId1"].ToString()));
+                var elementId2 = new ElementId(int.Parse(parameters["elementId2"].ToString()));
+
+                var element1 = doc.GetElement(elementId1);
+                var element2 = doc.GetElement(elementId2);
+
+                if (element1 == null || element2 == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "One or both elements not found"
+                    });
+                }
+
+                // Parse dimension line location (optional)
+                XYZ dimLineLocation = null;
+                if (parameters["dimLineLocation"] != null)
+                {
+                    var locArray = parameters["dimLineLocation"].ToObject<double[]>();
+                    dimLineLocation = new XYZ(locArray[0], locArray[1], locArray[2]);
+                }
+
+                using (var trans = new Transaction(doc, "Create Linear Dimension"))
+                {
+                    trans.Start();
+
+                    // Create reference array
+                    var refArray = new ReferenceArray();
+                    refArray.Append(new Reference(element1));
+                    refArray.Append(new Reference(element2));
+
+                    // Create dimension line
+                    Line dimLine;
+                    if (dimLineLocation != null)
+                    {
+                        // Get element locations
+                        var loc1 = GetElementLocation(element1);
+                        var loc2 = GetElementLocation(element2);
+
+                        if (loc1 != null && loc2 != null)
+                        {
+                            dimLine = Line.CreateBound(
+                                new XYZ(loc1.X, loc1.Y, dimLineLocation.Z),
+                                new XYZ(loc2.X, loc2.Y, dimLineLocation.Z)
+                            );
+                        }
+                        else
+                        {
+                            trans.RollBack();
+                            return JsonConvert.SerializeObject(new
+                            {
+                                success = false,
+                                error = "Could not determine element locations"
+                            });
+                        }
+                    }
+                    else
+                    {
+                        // Use default location
+                        var loc1 = GetElementLocation(element1);
+                        var loc2 = GetElementLocation(element2);
+
+                        if (loc1 == null || loc2 == null)
+                        {
+                            trans.RollBack();
+                            return JsonConvert.SerializeObject(new
+                            {
+                                success = false,
+                                error = "Could not determine element locations"
+                            });
+                        }
+
+                        dimLine = Line.CreateBound(loc1, loc2);
+                    }
+
+                    // Create the dimension
+                    var dimension = doc.Create.NewDimension(view, dimLine, refArray);
+
+                    trans.Commit();
+
+                    Log.Information($"Created linear dimension in view {viewId.Value}");
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        dimensionId = dimension.Id.Value,
+                        viewId = viewId.Value
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error creating linear dimension");
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Create an aligned dimension (follows element geometry)
+        /// </summary>
+        public static string CreateAlignedDimension(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                // Parse parameters
+                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
+                var view = doc.GetElement(viewId) as View;
+
+                if (view == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "View not found"
+                    });
+                }
+
+                // Parse reference points
+                var point1Array = parameters["point1"].ToObject<double[]>();
+                var point2Array = parameters["point2"].ToObject<double[]>();
+                var offsetArray = parameters["offset"].ToObject<double[]>();
+
+                var point1 = new XYZ(point1Array[0], point1Array[1], point1Array[2]);
+                var point2 = new XYZ(point2Array[0], point2Array[1], point2Array[2]);
+                var offset = new XYZ(offsetArray[0], offsetArray[1], offsetArray[2]);
+
+                using (var trans = new Transaction(doc, "Create Aligned Dimension"))
+                {
+                    trans.Start();
+
+                    // Create line for dimension
+                    var dimLine = Line.CreateBound(point1, point2);
+
+                    // Offset the line
+                    var transform = Transform.CreateTranslation(offset);
+                    var offsetLine = dimLine.CreateTransformed(transform) as Line;
+
+                    // Create reference array (using the original points)
+                    var refArray = new ReferenceArray();
+
+                    // For aligned dimensions, we typically need references from elements
+                    // This is a simplified version - you may need to pass element references
+
+                    trans.RollBack(); // Placeholder - needs proper references
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Aligned dimension requires element references - use batch methods instead"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error creating aligned dimension");
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Batch dimension all walls in a view
+        /// </summary>
+        public static string BatchDimensionWalls(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                // Parse parameters
+                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
+                var view = doc.GetElement(viewId) as View;
+
+                if (view == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "View not found"
+                    });
+                }
+
+                double offset = parameters["offset"]?.ToObject<double>() ?? 5.0; // Default 5 feet offset
+
+                // NEW: Wall filtering parameters for tier control
+                string wallType = parameters["wallType"]?.ToString()?.ToLower() ?? "all";
+                double? minWidth = parameters["minWidth"]?.ToObject<double?>();
+                double? maxWidth = parameters["maxWidth"]?.ToObject<double?>();
+
+                // Get all walls in view
+                var allWalls = new FilteredElementCollector(doc, view.Id)
+                    .OfCategory(BuiltInCategory.OST_Walls)
+                    .WhereElementIsNotElementType()
+                    .Cast<Wall>()
+                    .ToList();
+
+                // Filter walls based on type and dimensions
+                var walls = allWalls.Where(w =>
+                {
+                    try
+                    {
+                        // Filter by wall type (structural vs partition)
+                        if (wallType != "all")
+                        {
+                            var wallTypeObj = doc.GetElement(w.GetTypeId()) as WallType;
+                            if (wallTypeObj != null)
+                            {
+                                var function = wallTypeObj.Function;
+
+                                if (wallType == "structural")
+                                {
+                                    // Include exterior walls only (Revit 2026 doesn't have separate Structural function)
+                                    // Structural walls are typically exterior or thick interior walls
+                                    if (function != WallFunction.Exterior)
+                                    {
+                                        // Check if interior wall is thick enough to be structural
+                                        if (function == WallFunction.Interior)
+                                        {
+                                            var widthParam = w.get_Parameter(BuiltInParameter.WALL_ATTR_WIDTH_PARAM);
+                                            if (widthParam != null)
+                                            {
+                                                double width = widthParam.AsDouble();
+                                                // Structural interior walls typically > 6 inches (0.5 feet)
+                                                if (width <= 0.5)
+                                                {
+                                                    return false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                }
+                                else if (wallType == "partition")
+                                {
+                                    // Include interior partition walls
+                                    if (function != WallFunction.Interior)
+                                    {
+                                        return false;
+                                    }
+
+                                    // Additional check: partitions are typically thin
+                                    var widthParam = w.get_Parameter(BuiltInParameter.WALL_ATTR_WIDTH_PARAM);
+                                    if (widthParam != null)
+                                    {
+                                        double width = widthParam.AsDouble();
+                                        // Partitions typically < 6 inches (0.5 feet)
+                                        if (width > 0.5 && !minWidth.HasValue)
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                }
+                                else if (wallType == "exterior")
+                                {
+                                    if (function != WallFunction.Exterior)
+                                    {
+                                        return false;
+                                    }
+                                }
+                                else if (wallType == "interior")
+                                {
+                                    if (function != WallFunction.Interior)
+                                    {
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+
+                        // Filter by wall width/thickness
+                        if (minWidth.HasValue || maxWidth.HasValue)
+                        {
+                            var widthParam = w.get_Parameter(BuiltInParameter.WALL_ATTR_WIDTH_PARAM);
+                            if (widthParam != null)
+                            {
+                                double width = widthParam.AsDouble();
+                                if (minWidth.HasValue && width < minWidth.Value) return false;
+                                if (maxWidth.HasValue && width > maxWidth.Value) return false;
+                            }
+                        }
+
+                        return true;
+                    }
+                    catch
+                    {
+                        return true; // If filtering fails, include the wall
+                    }
+                }).ToList();
+
+                var dimensionedCount = 0;
+                var dimensionIds = new List<long>();
+                var skippedWalls = new List<string>();
+
+                using (var trans = new Transaction(doc, "Batch Dimension Walls"))
+                {
+                    trans.Start();
+
+                    foreach (var wall in walls)
+                    {
+                        try
+                        {
+                            // Get wall location curve
+                            var locationCurve = wall.Location as LocationCurve;
+                            if (locationCurve == null)
+                            {
+                                skippedWalls.Add($"Wall {wall.Id.Value}: No location curve");
+                                continue;
+                            }
+
+                            var curve = locationCurve.Curve as Line;
+                            if (curve == null)
+                            {
+                                skippedWalls.Add($"Wall {wall.Id.Value}: Not a linear wall");
+                                continue;
+                            }
+
+                            // Get wall endpoints
+                            var startPoint = curve.GetEndPoint(0);
+                            var endPoint = curve.GetEndPoint(1);
+
+                            // Calculate offset direction (perpendicular to wall)
+                            var wallDirection = (endPoint - startPoint).Normalize();
+                            var offsetDirection = new XYZ(-wallDirection.Y, wallDirection.X, 0);
+                            var offsetVector = offsetDirection * offset;
+
+                            // Create dimension line (parallel to wall, offset)
+                            var dimLineStart = startPoint + offsetVector;
+                            var dimLineEnd = endPoint + offsetVector;
+                            var dimLine = Line.CreateBound(dimLineStart, dimLineEnd);
+
+                            // Create reference array with wall endpoints
+                            var refArray = new ReferenceArray();
+
+                            // Get references to wall faces at endpoints
+                            var options = new Options { ComputeReferences = true, View = view };
+                            var geomElem = wall.get_Geometry(options);
+
+                            if (geomElem != null)
+                            {
+                                // Try to get face references
+                                List<Reference> faceRefs = new List<Reference>();
+                                foreach (GeometryObject geomObj in geomElem)
+                                {
+                                    if (geomObj is Solid solid)
+                                    {
+                                        foreach (Face face in solid.Faces)
+                                        {
+                                            if (face is PlanarFace planarFace)
+                                            {
+                                                // Check if face is perpendicular to wall direction
+                                                var faceNormal = planarFace.FaceNormal;
+                                                var dot = Math.Abs(faceNormal.DotProduct(wallDirection));
+
+                                                if (dot > 0.9) // Nearly perpendicular
+                                                {
+                                                    faceRefs.Add(face.Reference);
+                                                    if (faceRefs.Count >= 2) break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (faceRefs.Count >= 2) break;
+                                }
+
+                                if (faceRefs.Count >= 2)
+                                {
+                                    refArray.Append(faceRefs[0]);
+                                    refArray.Append(faceRefs[1]);
+
+                                    // Create the dimension
+                                    var dimension = doc.Create.NewDimension(view, dimLine, refArray);
+
+                                    if (dimension != null)
+                                    {
+                                        dimensionIds.Add(dimension.Id.Value);
+                                        dimensionedCount++;
+                                    }
+                                }
+                                else
+                                {
+                                    skippedWalls.Add($"Wall {wall.Id.Value}: Could not find face references");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            skippedWalls.Add($"Wall {wall.Id.Value}: {ex.Message}");
+                            Log.Warning($"Failed to dimension wall {wall.Id.Value}: {ex.Message}");
+                        }
+                    }
+
+                    trans.Commit();
+                }
+
+                Log.Information($"Dimensioned {dimensionedCount} of {walls.Count()} walls in view {viewId.Value}");
+
+                // Build message with filtering info
+                string filterInfo = wallType != "all" ? $" ({wallType} walls only)" : "";
+                if (minWidth.HasValue || maxWidth.HasValue)
+                {
+                    string widthInfo = "";
+                    if (minWidth.HasValue && maxWidth.HasValue)
+                        widthInfo = $", width {minWidth.Value}'-{maxWidth.Value}'";
+                    else if (minWidth.HasValue)
+                        widthInfo = $", min width {minWidth.Value}'";
+                    else
+                        widthInfo = $", max width {maxWidth.Value}'";
+                    filterInfo += widthInfo;
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    totalWalls = allWalls.Count(),
+                    filteredWalls = walls.Count(),
+                    dimensionedCount = dimensionedCount,
+                    dimensionIds = dimensionIds,
+                    skippedWalls = skippedWalls,
+                    viewId = viewId.Value,
+                    wallType = wallType,
+                    offset = offset,
+                    message = $"Successfully dimensioned {dimensionedCount} of {walls.Count()} walls{filterInfo} at {offset}' offset"
+                });
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error batch dimensioning walls");
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Batch dimension all door openings in a view
+        /// </summary>
+        public static string BatchDimensionDoors(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                // Parse parameters
+                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
+                var view = doc.GetElement(viewId) as View;
+
+                if (view == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "View not found"
+                    });
+                }
+
+                double offset = parameters["offset"]?.ToObject<double>() ?? 3.0; // Default 3 feet offset
+
+                // Get all doors in view
+                var doors = new FilteredElementCollector(doc, view.Id)
+                    .OfCategory(BuiltInCategory.OST_Doors)
+                    .WhereElementIsNotElementType()
+                    .Cast<FamilyInstance>()
+                    .ToList();
+
+                var dimensionedCount = 0;
+                var dimensionIds = new List<long>();
+                var skippedDoors = new List<string>();
+
+                using (var trans = new Transaction(doc, "Batch Dimension Doors"))
+                {
+                    trans.Start();
+
+                    foreach (var door in doors)
+                    {
+                        try
+                        {
+                            // Get door location and orientation
+                            var doorLocation = door.Location as LocationPoint;
+                            if (doorLocation == null)
+                            {
+                                skippedDoors.Add($"Door {door.Id.Value}: No location point");
+                                continue;
+                            }
+
+                            var doorPoint = doorLocation.Point;
+                            var doorRotation = doorLocation.Rotation;
+
+                            // Get door width from parameter
+                            var widthParam = door.Symbol.get_Parameter(BuiltInParameter.DOOR_WIDTH);
+                            if (widthParam == null)
+                            {
+                                skippedDoors.Add($"Door {door.Id.Value}: No width parameter");
+                                continue;
+                            }
+
+                            double doorWidth = widthParam.AsDouble();
+
+                            // Get wall the door is hosted in
+                            var hostWall = door.Host as Wall;
+                            if (hostWall == null)
+                            {
+                                skippedDoors.Add($"Door {door.Id.Value}: Not hosted in a wall");
+                                continue;
+                            }
+
+                            // Get wall location curve to determine door orientation
+                            var wallLocationCurve = hostWall.Location as LocationCurve;
+                            if (wallLocationCurve == null)
+                            {
+                                skippedDoors.Add($"Door {door.Id.Value}: Host wall has no location curve");
+                                continue;
+                            }
+
+                            var wallCurve = wallLocationCurve.Curve;
+                            var wallDirection = (wallCurve.GetEndPoint(1) - wallCurve.GetEndPoint(0)).Normalize();
+
+                            // Door direction is perpendicular to wall
+                            var doorDirection = new XYZ(-wallDirection.Y, wallDirection.X, 0);
+
+                            // Calculate door jamb points (left and right sides of opening)
+                            var halfWidth = doorWidth / 2.0;
+                            var leftJamb = doorPoint - (doorDirection * halfWidth);
+                            var rightJamb = doorPoint + (doorDirection * halfWidth);
+
+                            // Create offset for dimension line (perpendicular to door, towards room)
+                            var offsetDirection = wallDirection;
+                            var offsetVector = offsetDirection * offset;
+
+                            // Create dimension line
+                            var dimLineStart = leftJamb + offsetVector;
+                            var dimLineEnd = rightJamb + offsetVector;
+                            var dimLine = Line.CreateBound(dimLineStart, dimLineEnd);
+
+                            // Get geometry references for door opening
+                            var options = new Options { ComputeReferences = true, View = view };
+
+                            // Try to get references from wall opening
+                            var wallGeom = hostWall.get_Geometry(options);
+
+                            if (wallGeom != null)
+                            {
+                                List<Reference> jambRefs = new List<Reference>();
+
+                                // Look for edges near the door jambs
+                                foreach (GeometryObject geomObj in wallGeom)
+                                {
+                                    if (geomObj is Solid solid)
+                                    {
+                                        foreach (Edge edge in solid.Edges)
+                                        {
+                                            var curve = edge.AsCurve();
+                                            if (curve != null)
+                                            {
+                                                var mid = curve.Evaluate(0.5, true);
+
+                                                // Check if edge is near left or right jamb
+                                                if (mid.DistanceTo(leftJamb) < 0.5) // Within 6 inches
+                                                {
+                                                    jambRefs.Add(edge.Reference);
+                                                }
+                                                else if (mid.DistanceTo(rightJamb) < 0.5)
+                                                {
+                                                    jambRefs.Add(edge.Reference);
+                                                }
+
+                                                if (jambRefs.Count >= 2) break;
+                                            }
+                                        }
+                                    }
+                                    if (jambRefs.Count >= 2) break;
+                                }
+
+                                if (jambRefs.Count >= 2)
+                                {
+                                    var refArray = new ReferenceArray();
+                                    refArray.Append(jambRefs[0]);
+                                    refArray.Append(jambRefs[1]);
+
+                                    // Create the dimension
+                                    var dimension = doc.Create.NewDimension(view, dimLine, refArray);
+
+                                    if (dimension != null)
+                                    {
+                                        dimensionIds.Add(dimension.Id.Value);
+                                        dimensionedCount++;
+                                    }
+                                }
+                                else
+                                {
+                                    // Fallback: Create dimension using model curves if needed
+                                    skippedDoors.Add($"Door {door.Id.Value}: Could not find jamb references (width: {doorWidth})");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            skippedDoors.Add($"Door {door.Id.Value}: {ex.Message}");
+                            Log.Warning($"Failed to dimension door {door.Id.Value}: {ex.Message}");
+                        }
+                    }
+
+                    trans.Commit();
+                }
+
+                Log.Information($"Dimensioned {dimensionedCount} of {doors.Count} doors in view {viewId.Value}");
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    totalDoors = doors.Count,
+                    dimensionedCount = dimensionedCount,
+                    dimensionIds = dimensionIds,
+                    skippedDoors = skippedDoors,
+                    viewId = viewId.Value,
+                    message = $"Successfully dimensioned {dimensionedCount} door openings"
+                });
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error batch dimensioning doors");
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Get all dimensions in a view
+        /// </summary>
+        public static string GetDimensionsInView(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                // Parse parameters
+                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
+                var view = doc.GetElement(viewId) as View;
+
+                if (view == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "View not found"
+                    });
+                }
+
+                // Get all dimensions in view
+                var dimensions = new FilteredElementCollector(doc, view.Id)
+                    .OfClass(typeof(Dimension))
+                    .Cast<Dimension>()
+                    .ToList();
+
+                var dimensionList = new List<object>();
+
+                foreach (var dim in dimensions)
+                {
+                    try
+                    {
+                        dimensionList.Add(new
+                        {
+                            dimensionId = dim.Id.Value,
+                            value = dim.Value,
+                            valueString = dim.ValueString,
+                            dimensionType = dim.DimensionType?.Name,
+                            curve = dim.Curve != null ? "Has curve" : "No curve",
+                            numberOfSegments = dim.Segments?.Size ?? 0
+                        });
+                    }
+                    catch
+                    {
+                        // Skip dimensions that can't be processed
+                    }
+                }
+
+                Log.Information($"Found {dimensionList.Count} dimensions in view {viewId.Value}");
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    viewId = viewId.Value,
+                    dimensionCount = dimensionList.Count,
+                    dimensions = dimensionList
+                });
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error getting dimensions in view");
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Delete a dimension by ID
+        /// </summary>
+        public static string DeleteDimension(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                // Parse parameters
+                var dimensionId = new ElementId(int.Parse(parameters["dimensionId"].ToString()));
+
+                var dimension = doc.GetElement(dimensionId);
+
+                if (dimension == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Dimension not found"
+                    });
+                }
+
+                using (var trans = new Transaction(doc, "Delete Dimension"))
+                {
+                    trans.Start();
+                    doc.Delete(dimensionId);
+                    trans.Commit();
+                }
+
+                Log.Information($"Deleted dimension {dimensionId.Value}");
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    deletedDimensionId = dimensionId.Value
+                });
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error deleting dimension");
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Helper method to get element location
+        /// </summary>
+        private static XYZ GetElementLocation(Element element)
+        {
+            if (element.Location is LocationPoint locPoint)
+            {
+                return locPoint.Point;
+            }
+            else if (element.Location is LocationCurve locCurve)
+            {
+                return locCurve.Curve.Evaluate(0.5, true);
+            }
+            else
+            {
+                // Use bounding box center as fallback
+                var bbox = element.get_BoundingBox(null);
+                if (bbox != null)
+                {
+                    return (bbox.Min + bbox.Max) / 2;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// PHASE 1B: Get window center reference for dimensioning
+        /// </summary>
+        private static Reference GetWindowCenterReference(Document doc, Element window, View view)
+        {
+            try
+            {
+                // Try to get location point first (most accurate for windows)
+                if (window.Location is LocationPoint locPoint)
+                {
+                    return new Reference(window);
+                }
+
+                // Fallback: Use bounding box center
+                var bbox = window.get_BoundingBox(view);
+                if (bbox == null)
+                {
+                    bbox = window.get_BoundingBox(null);
+                }
+
+                if (bbox != null)
+                {
+                    // Calculate center point
+                    XYZ center = (bbox.Min + bbox.Max) / 2;
+
+                    // For windows, we can use the element's own reference
+                    // The Revit API will snap to the center for family instances
+                    return new Reference(window);
+                }
+
+                Log.Warning($"Could not calculate center for window {window.Id}");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Error getting window center reference: {ex.Message}");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// PHASE 1B: Get door center reference for dimensioning
+        /// </summary>
+        private static Reference GetDoorCenterReference(Document doc, Element door, View view)
+        {
+            try
+            {
+                // Try to get location point first (most accurate for doors)
+                if (door.Location is LocationPoint locPoint)
+                {
+                    return new Reference(door);
+                }
+
+                // Fallback: Use bounding box center
+                var bbox = door.get_BoundingBox(view);
+                if (bbox == null)
+                {
+                    bbox = door.get_BoundingBox(null);
+                }
+
+                if (bbox != null)
+                {
+                    // Calculate center point
+                    XYZ center = (bbox.Min + bbox.Max) / 2;
+
+                    // For doors, we can use the element's own reference
+                    // The Revit API will snap to the center for family instances
+                    return new Reference(door);
+                }
+
+                Log.Warning($"Could not calculate center for door {door.Id}");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Error getting door center reference: {ex.Message}");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// PHASE 1B: Calculate dimension line for custom dimension string
+        /// </summary>
+        private static Line CalculateDimensionLine(
+            Document doc,
+            View view,
+            ReferenceArray references,
+            double offset,
+            string direction)
+        {
+            try
+            {
+                if (references.Size < 2)
+                {
+                    throw new ArgumentException("Need at least 2 references to create dimension line");
+                }
+
+                // Get points from first and last references
+                var firstRef = references.get_Item(0);
+                var lastRef = references.get_Item(references.Size - 1);
+
+                // Get the elements
+                var firstElem = doc.GetElement(firstRef);
+                var lastElem = doc.GetElement(lastRef);
+
+                // Get center points
+                var firstPoint = GetElementLocation(firstElem);
+                var lastPoint = GetElementLocation(lastElem);
+
+                if (firstPoint == null || lastPoint == null)
+                {
+                    throw new InvalidOperationException("Could not get element locations");
+                }
+
+                // Calculate dimension line based on direction
+                XYZ p1, p2;
+
+                if (direction.ToLower() == "horizontal")
+                {
+                    // Offset in Y direction (perpendicular to X axis)
+                    p1 = new XYZ(firstPoint.X, firstPoint.Y + offset, firstPoint.Z);
+                    p2 = new XYZ(lastPoint.X, lastPoint.Y + offset, lastPoint.Z);
+                }
+                else if (direction.ToLower() == "vertical")
+                {
+                    // Offset in X direction (perpendicular to Y axis)
+                    p1 = new XYZ(firstPoint.X + offset, firstPoint.Y, firstPoint.Z);
+                    p2 = new XYZ(lastPoint.X + offset, lastPoint.Y, lastPoint.Z);
+                }
+                else
+                {
+                    throw new ArgumentException($"Invalid direction: {direction}. Use 'horizontal' or 'vertical'");
+                }
+
+                return Line.CreateBound(p1, p2);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Error calculating dimension line: {ex.Message}");
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// PHASE 1B: Create custom dimension string with specified reference points
+        /// Enables Tier 2 dimensioning with window/door centers
+        /// </summary>
+        public static string CreateDimensionString(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                // Parse parameters
+                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
+                var view = doc.GetElement(viewId) as View;
+
+                if (view == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "View not found"
+                    });
+                }
+
+                // Parse reference points array
+                var refPointsArray = parameters["referencePoints"] as JArray;
+                if (refPointsArray == null || refPointsArray.Count < 2)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Need at least 2 reference points to create dimension"
+                    });
+                }
+
+                double offset = parameters["offset"]?.ToObject<double>() ?? 5.0;
+                string direction = parameters["direction"]?.ToString()?.ToLower() ?? "horizontal";
+
+                // Build reference array
+                var references = new ReferenceArray();
+                var refTypeCounts = new Dictionary<string, int>();
+
+                using (Transaction trans = new Transaction(doc, "Create Custom Dimension String"))
+                {
+                    trans.Start();
+
+                    foreach (JObject refPoint in refPointsArray)
+                    {
+                        string refType = refPoint["type"]?.ToString()?.ToLower();
+                        int elementId = int.Parse(refPoint["elementId"].ToString());
+
+                        var element = doc.GetElement(new ElementId(elementId));
+                        if (element == null)
+                        {
+                            Log.Warning($"Element {elementId} not found, skipping");
+                            continue;
+                        }
+
+                        Reference reference = null;
+
+                        switch (refType)
+                        {
+                            case "wall_face":
+                                // Get wall face reference
+                                var wall = element as Wall;
+                                if (wall != null)
+                                {
+                                    string side = refPoint["side"]?.ToString()?.ToLower() ?? "exterior";
+                                    var faces = wall.GetMaterialIds(side == "exterior");
+                                    if (faces.Count > 0)
+                                    {
+                                        // Get the appropriate face
+                                        var faceRef = wall.get_Geometry(new Options())
+                                            .OfType<Solid>()
+                                            .Where(s => s != null && s.Faces.Size > 0)
+                                            .SelectMany(s => s.Faces.Cast<PlanarFace>())
+                                            .FirstOrDefault();
+
+                                        if (faceRef != null)
+                                        {
+                                            reference = faceRef.Reference;
+                                        }
+                                    }
+
+                                    // Fallback: use wall reference directly
+                                    if (reference == null)
+                                    {
+                                        reference = new Reference(wall);
+                                    }
+                                }
+                                break;
+
+                            case "window_center":
+                                reference = GetWindowCenterReference(doc, element, view);
+                                break;
+
+                            case "door_center":
+                                reference = GetDoorCenterReference(doc, element, view);
+                                break;
+
+                            default:
+                                Log.Warning($"Unknown reference type: {refType}");
+                                continue;
+                        }
+
+                        if (reference != null)
+                        {
+                            references.Append(reference);
+
+                            // Track reference type counts
+                            if (!refTypeCounts.ContainsKey(refType))
+                            {
+                                refTypeCounts[refType] = 0;
+                            }
+                            refTypeCounts[refType]++;
+                        }
+                    }
+
+                    // Check if we have enough references
+                    if (references.Size < 2)
+                    {
+                        trans.RollBack();
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "Could not create enough valid references. Need at least 2."
+                        });
+                    }
+
+                    // Calculate dimension line
+                    Line dimLine = CalculateDimensionLine(doc, view, references, offset, direction);
+
+                    // Create dimension
+                    Dimension dimension = doc.Create.NewDimension(view, dimLine, references);
+
+                    if (dimension == null)
+                    {
+                        trans.RollBack();
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "Failed to create dimension"
+                        });
+                    }
+
+                    trans.Commit();
+
+                    // Build success message
+                    var refTypesList = string.Join(", ", refTypeCounts.Select(kvp => $"{kvp.Value} {kvp.Key}"));
+
+                    Log.Information($"Created custom dimension string with {references.Size} references: {refTypesList}");
+
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = true,
+                        dimensionId = dimension.Id.Value,
+                        referenceCount = references.Size,
+                        referenceTypes = refTypeCounts,
+                        offset = offset,
+                        direction = direction,
+                        message = $"Created dimension string with {references.Size} reference points ({refTypesList})"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Error creating custom dimension string: {ex.Message}");
+                Log.Error($"Stack trace: {ex.StackTrace}");
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+    }
+}

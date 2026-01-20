@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-01-17",
+  "description": "Index of all firm profiles for the universal template system",
+
+  "profiles": {
+    "arky": {
+      "file": "arky-profile.json",
+      "firmName": "ARKY",
+      "status": "complete",
+      "extractedFrom": "GOULDS TOWER-1",
+      "projectTypes": ["multi-family", "single-family", "mixed-use"],
+      "region": "South Florida"
+    },
+    "fantal-consulting": {
+      "file": "fantal-consulting-profile.json",
+      "firmName": "Fantal Consulting",
+      "status": "complete",
+      "extractedFrom": "AP Builder Residence (FC231106)",
+      "projectTypes": ["single-family", "restaurant"],
+      "region": "Florida"
+    },
+    "bruce-davis-architect": {
+      "file": "bruce-davis-architect-profile.json",
+      "firmName": "Bruce Davis Architect",
+      "status": "pending",
+      "extractedFrom": null,
+      "projectTypes": ["healthcare", "institutional"],
+      "region": "Multi-state"
+    },
+    "krm-design": {
+      "file": "krm-design-profile.json",
+      "firmName": "KRM Design",
+      "status": "pending",
+      "extractedFrom": null,
+      "projectTypes": ["residential", "commercial"],
+      "region": "South Florida"
+    },
+    "haymond-brothers": {
+      "file": "haymond-brothers-profile.json",
+      "firmName": "Haymond Brothers Construction",
+      "status": "pending",
+      "extractedFrom": null,
+      "projectTypes": ["single-family", "adu"],
+      "region": "Idaho"
+    },
+    "glidden-spina": {
+      "file": "glidden-spina-profile.json",
+      "firmName": "Glidden Spina + Partners",
+      "status": "legacy",
+      "extractedFrom": "GSP_BASIC_2018 template",
+      "projectTypes": ["commercial", "mixed-use"],
+      "region": "National"
+    },
+    "sklarchitecture": {
+      "file": "sklarchitecture-profile.json",
+      "firmName": "SKLARchitecture",
+      "status": "legacy",
+      "extractedFrom": "SKLAR TEMPLATE",
+      "projectTypes": ["retail", "commercial"],
+      "region": "National"
+    },
+    "neudesign": {
+      "file": "neudesign-profile.json",
+      "firmName": "neUdesign Projects",
+      "status": "legacy",
+      "extractedFrom": "ND Template_2019",
+      "projectTypes": ["modular", "multi-family"],
+      "region": "National"
+    }
+  },
+
+  "detectionPriority": [
+    "arky",
+    "fantal-consulting",
+    "bruce-davis-architect",
+    "krm-design",
+    "haymond-brothers",
+    "glidden-spina",
+    "sklarchitecture",
+    "neudesign"
+  ],
+
+  "defaultProfile": "arky"
+}

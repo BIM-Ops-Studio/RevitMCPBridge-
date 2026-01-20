@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "1HR PARTITION HEAD DETAIL.rvt",
+    "activeView":  {
+                       "scale":  8,
+                       "name":  "1HR PARTITION HEAD DETAIL",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\1HR PARTITION HEAD DETAIL.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:09:09"
+}

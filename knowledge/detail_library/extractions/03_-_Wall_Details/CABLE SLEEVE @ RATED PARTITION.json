@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "CABLE SLEEVE @ RATED PARTITION.rvt",
+    "activeView":  {
+                       "scale":  8,
+                       "name":  "CABLE SLEEVE @ RATED PARTITION",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\03 - Wall Details\\CABLE SLEEVE @ RATED PARTITION.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:10:41"
+}

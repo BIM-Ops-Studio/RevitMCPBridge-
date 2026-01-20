@@ -1,0 +1,369 @@
+﻿{
+    "scale":  16,
+    "name":  "TYPICAL FOOTING SECTION",
+    "id":  1742934,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1803.3883,
+                                                              "maxX":  1808.5393,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1802.9804,
+                                                              "maxX":  1811.6747,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.6426,
+                                                              "maxX":  1809.0715,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1807.8570,
+                                                              "maxX":  1809.8570,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.4956,
+                                                              "maxX":  1808.5393,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  2.5,
+                                             "style":  "Line-6",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1811.6747
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1809.1747
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.6189,
+                                             "style":  "Dash-6",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1808.8806
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1808.8806
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.8464,
+                                             "style":  "Dash-6",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1808.8228
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1808.8228
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.1458,
+                                             "style":  "Dash-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1808.5107
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1803.3648
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5688,
+                                             "style":  "Dash-6",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1809.5166
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1808.9478
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1963,
+                                             "style":  "Dash-6",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1808.9478
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1808.8228
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.0182,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1808.5107
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1803.4924
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.9420,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1808.5107
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1808.5107
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6849,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1807.8258
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1808.5107
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.0362,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1807.8258
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1807.8258
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.6042,
+                                             "style":  "Dash-6",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  1809.6554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  1808.0512
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1809.607
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.107
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1803.5758
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.8622
+                                                               },
+                                                  "type":  "Break Line"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1807.4396
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "4\" THK. CONC. SLAB \\rW/ 6\" X 6\" X #10 WWM ON\\r6 MIL. POLYETHYLENE\\rVAPOR BARRIER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.8422
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DOUBLE WIRE MESH AT\\rPERIMETER, 3\u0027 MIN.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.167
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.9148
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "MACHINE COMPACT AND TERMITE TREATED CLEAN FILL\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.167
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.1407
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "12\"X24\" CONC. SPREAD\\rWALL FTG. W/ (2) #5 CONT.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.167
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.8285
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "6 MIL VAPOR BARRIER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.167
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1807.8289
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "6 MIL POLYETHYLENE VAPOR BARRIER OVER SELECT WELL-GRADED TERMITE TREATED FILL COMPACTED TO 95% MAXIMUM DENSITY\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1810.3105
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "FIN. GRADE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.2532
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.8822
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "REINF. MASONRY STL. BEYOUND \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.2532
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1809.4309
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FINAL GRADING MUST BE MIN 12\"\\rFROM THE BOTTOM OF THE FOOTER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.2532
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1810.3881
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "WELL COMPACTED CLEAN FILL AS PER RECOMMENDATION ON GEATECHNICAL REPORT PREPARED BY SOIL ENGINEER. ALL FOOTING BOTTOMS SHOULD BE COMPACTED TO 95% OF\\rTHE ASTM D 1557 MAXIMUM DRY DENSITY. IF ANY\\rORGANIC/SOFT SOILS ARE FOUND AT THE BOTTOM OF THE FOOTING EXCAVATION, THEY SHOULD BE REMOVED ENTIRELY AND REPLACED WITH COMPACTED GRANULAR FILL PRIOR TO\\rPLACEMENT OF THE REINFORCING STEEL.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.2532
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1809.1257
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "8\" MASONRY WALL #5 @ 48\" O.C. AT EA.\\rWALL SECTION, AT EA. SIDE OF ALL OPENINGS\\rAS SHOWN ON PLAN. PROVIDE DUROWALL \\r#9 LADDER TYP. HOR. REINF. 16\" O.C. LAP\\r6\" AT SPLICES AND CORNERS. (TYP.)\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  11,
+                     "extractedAt":  "2025-12-28 00:19:23",
+                     "regionCount":  5,
+                     "componentCount":  10,
+                     "textCount":  11
+                 }
+}

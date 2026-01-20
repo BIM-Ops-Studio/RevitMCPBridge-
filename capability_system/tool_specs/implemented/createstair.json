@@ -1,0 +1,87 @@
+{
+  "specVersion": "1.0",
+  "method": {
+    "name": "createstair",
+    "intent": "Create a staircase between two levels with configurable riser and tread dimensions",
+    "tier": 2,
+    "category": "structural"
+  },
+  "inputs": {
+    "baseLevelId": {
+      "type": "ElementId",
+      "required": true,
+      "description": "Base level element ID"
+    },
+    "topLevelId": {
+      "type": "ElementId",
+      "required": true,
+      "description": "Top level element ID"
+    },
+    "riserHeight": {
+      "type": "double",
+      "required": false,
+      "default": 7.0,
+      "description": "Riser height in inches"
+    },
+    "treadDepth": {
+      "type": "double",
+      "required": false,
+      "default": 11.0,
+      "description": "Tread depth in inches"
+    },
+    "width": {
+      "type": "double",
+      "required": false,
+      "default": 36.0,
+      "description": "Stair width in inches"
+    }
+  },
+  "preconditions": [
+    "Active document exists",
+    "Both levels exist in model",
+    "Stair family loaded"
+  ],
+  "algorithm": [
+    "Get base and top levels by ID",
+    "Calculate number of risers based on height difference",
+    "Create stair path curve",
+    "Create Stair element using StairsEditScope",
+    "Set stair parameters (width, riser, tread)",
+    "Commit transaction"
+  ],
+  "validation": {
+    "successCriteria": "Method completes without error",
+    "evidence": [
+      "success",
+      "message"
+    ]
+  },
+  "failureModes": [
+    {
+      "type": "INVALID_LEVEL",
+      "condition": "Level not found",
+      "recovery": "Return available levels"
+    },
+    {
+      "type": "CONSTRAINT_VIOLATION",
+      "condition": "Riser height outside code limits",
+      "recovery": "Suggest valid range"
+    }
+  ],
+  "apiDependencies": [
+    "StairsEditScope",
+    "Stairs.Create",
+    "Level"
+  ],
+  "revitVersions": [
+    "2026"
+  ],
+  "metadata": {
+    "proposedBy": "Claude",
+    "proposedAt": "2025-12-26T13:56:33.5784437-08:00",
+    "triggeringTask": null,
+    "approvedBy": "User",
+    "approvedAt": "2025-12-26T13:57:08.7247659-08:00",
+    "approvalNotes": "Approved for implementation - needed for stair automation"
+  }
+}

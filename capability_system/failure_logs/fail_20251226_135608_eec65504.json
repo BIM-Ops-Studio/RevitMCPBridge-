@@ -1,0 +1,40 @@
+{
+  "failureId": "fail_20251226_135608_eec65504",
+  "timestamp": "2025-12-26T13:56:08.8479144-08:00",
+  "classification": {
+    "type": "MISSING_CAPABILITY",
+    "subType": null,
+    "confidence": 0.9,
+    "reasoning": "No existing method matches the requested task"
+  },
+  "originalTask": {
+    "userIntent": "Create a staircase with custom riser height",
+    "attemptedMethod": "createStair",
+    "parameters": null,
+    "context": {
+      "projectName": "512_CLEMATIS-2.0006",
+      "projectPath": "D:\\001 - PROJECTS\\01 - CLIENT PROJECTS\\01 - ARKY\\512_CLEMATIS-2.0006.rvt",
+      "activeViewId": 3938458,
+      "activeViewName": "WALL SECTIONS",
+      "activeViewType": "DrawingSheet",
+      "revitVersion": "2026",
+      "timestamp": "2025-12-26T13:56:08.8500629-08:00"
+    }
+  },
+  "errorDetails": {
+    "errorMessage": "Method not found: createStair",
+    "errorType": "MethodNotFound"
+  },
+  "analysis": {
+    "missingCapability": {
+      "requiredCapability": "Create a staircase with custom riser height",
+      "closestExistingMethod": "getElements",
+      "gapDescription": "Need method to: Create a staircase with custom riser height"
+    }
+  },
+  "recommendedAction": {
+    "action": "PROPOSE_NEW_TOOL",
+    "details": "Generate a tool specification for the missing capability",
+    "autoExecutable": true
+  }
+}

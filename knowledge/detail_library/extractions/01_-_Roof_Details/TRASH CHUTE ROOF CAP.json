@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "TRASH CHUTE ROOF CAP.rvt",
+    "activeView":  {
+                       "scale":  12,
+                       "name":  "TRASH CHUTE ROOF CAP",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\TRASH CHUTE ROOF CAP.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:05:23"
+}

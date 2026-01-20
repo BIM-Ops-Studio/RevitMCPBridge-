@@ -1,0 +1,210 @@
+﻿{
+    "scale":  8,
+    "name":  "MILLWOK SUPPORT DETAIL",
+    "id":  1388299,
+    "elements":  {
+                     "filledRegions":  {
+                                           "pattern":  null,
+                                           "typeName":  null,
+                                           "bounds":  {
+                                                          "minX":  6.6356,
+                                                          "maxX":  7.0106,
+                                                          "minY":  0.0,
+                                                          "maxY":  0.0
+                                                      }
+                                       },
+                     "detailLines":  [
+                                         {
+                                             "length":  0.0366,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  6.6275
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.6275
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0679,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  6.6954
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.6275
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0366,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  6.6275
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.6275
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0679,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  6.6954
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.6275
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Interior Metal Runner Channels-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.9689
+                                                               },
+                                                  "type":  "4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Wallboard-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Wallboard-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.6385
+                                                               },
+                                                  "type":  "2x6"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Interior Metal Runner Channels-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.9689
+                                                               },
+                                                  "type":  "4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.6385
+                                                               },
+                                                  "type":  "2x6"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.8022
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.8022
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.7814
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.8126
+                                                               },
+                                                  "type":  "Break Line"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  4.8274
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  6.6999
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "2\"X6\" PT WOOD BLOCKING\\rBETWEEN STUDS SCREWED\\rW/ TYPE \"S\" TOP \u0026 BOTTOM \\r\u0026 @ 6\" O.C. TO STUD TO \\rENTIRE LENGTH OF WALL\\rUNITS.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  7.043
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "TOP OF WALL UNITS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  7.043
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "BOTTOM OF \\rWALL UNITS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  7.7771
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  6.8443
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "EXISTING STUD WALL TO BE \\rRETROFITTED AS REQUIRE  FOR MILLWORK SUPPORT\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  4,
+                     "extractedAt":  "2025-12-28 00:15:21",
+                     "regionCount":  1,
+                     "componentCount":  11,
+                     "textCount":  4
+                 }
+}

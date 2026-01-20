@@ -1,0 +1,661 @@
+﻿{
+    "scale":  16,
+    "name":  "WALL SECTION GABLE ROOF (MONO-FT)",
+    "id":  1738145,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.5393,
+                                                              "maxX":  1809.1747,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1801.5601,
+                                                              "maxX":  1809.1747,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.7992,
+                                                              "maxX":  1808.8813,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1801.5601,
+                                                              "maxX":  1811.6747,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.6426,
+                                                              "maxX":  1809.0715,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.3726,
+                                                              "maxX":  1808.4351,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1801.5003,
+                                                              "maxX":  1811.1321,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1801.4872,
+                                                              "maxX":  1810.9872,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.4768
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.4768
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.4768
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.4768
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.4768
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.2684
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1806.2684
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1804.2684
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1802.2684
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Plaster-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1810.9411
+                                                               },
+                                                  "type":  "2x8"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1811.2046
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Plywood-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Sheathing-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Plywood-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Sheathing-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.7059
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1809.008
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.7059
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1809.008
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.9247
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.0653
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Plywood-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1801.8518
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1801.8518
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Plaster-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Plaster-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.8622
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.8622
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Underlayment",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1811.2713
+                                                               },
+                                                  "type":  "Single Layer"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1803.3206
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1802.2896
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PRE-ENGINEERED WD.\\rTRUSSES AT 24\" O.C.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0138
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "12\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.9154
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BATT INSUL. (R-19)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1807.4378
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1/2\" GYP. BD. ON 1\"X3\" WD.\\rFURR. STRIPS @24\" O.C.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.3943
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "WD. BASE BD.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1807.0897
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "4\" THK. CONC. SLAB \\rW/ 6\" X 6\" X #10 WWM ON\\r6 MIL. POLYETHYLENE\\rVAPOR BARRIER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.8422
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DOUBLE WIRE MESH AT\\rPERIMETER, 3\u0027 MIN.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.7397
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "WELL COMPACT FILL TO\\r95% PROCTOR MAX. DENSITY\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1807.6322
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "16\"X12\" CONC. MONOLITHIC\\rWALL FTG. W/ (2) #5 CONT.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.5002
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FINISH FLOOR MATERIAL\\rBY OTHERS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.507
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1\"X4\" P.T. WD. FIRESTOP\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.5032
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "R-4.1 INSUL. BETW. STRIPS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.4394
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1/2\"  GYP. BD. APPLIED TO\\r1\"X3\" P.T. FURR. STRIPS @ 24\" O.C.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.7239
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "4\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1810.3105
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "FIN. GRADE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.7485
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FIBERGLASS SHINGLES ON 30# FELT TIN TAGGED 6\"\\rO.C. BETWEEN LAPS IN FIELD OVER 5/8\" CDX PLYWOOD\\rON PRE-ENGINEERED WD. TRUSSES AT 24\" O.C.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.8471
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SIMPSON GALV. MTL.\\rSTRIPS \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1811.2834
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "3\"X3\" 26 GA. MTL. EAVE DRIP\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1811.2597
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1\"X3\" WD. BLOCKING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1811.0273
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "2\"X12\" P.T. WD. FACIA\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1809.9863
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "3/4\" EXT. GRADE PLYWD.  COV. W/ MTL. RIB LATH \u0026\\rSTUCCO W/ 4\"X22\" SOFFIT SCREEN @ 48\" O.C. VENT\\r\u0026 INSECT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "(2) #5 X 60\" LONG BENT CORNERS (30\" EA. WAY) \\rTO ASSURE BEAM CONTINUITY\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.9969
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "8\"X12\" CONC. TIE BM. W/ (4)-#5 \u0026 #3 48\" O.C. \\rNOTE: 1ST (4)-#3 TO BE @ 12\" O.C. @ CORNERS \\r\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.8822
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "REINF. MASONRY STL. BEYOUND \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1809.2371
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "EXT. 3/4\" STUCCO\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  38,
+                     "extractedAt":  "2025-12-28 00:15:38",
+                     "regionCount":  8,
+                     "componentCount":  40,
+                     "textCount":  25
+                 }
+}

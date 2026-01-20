@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "PIT SECTION W_CRYSTALLINE WATERPROOFING1.rvt",
+    "activeView":  {
+                       "scale":  24,
+                       "name":  "PIT SECTION W/CRYSTALLINE WATERPROOFING1",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\PIT SECTION W_CRYSTALLINE WATERPROOFING1.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:01:05"
+}

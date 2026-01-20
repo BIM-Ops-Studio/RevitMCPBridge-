@@ -1,0 +1,281 @@
+﻿{
+    "scale":  8,
+    "name":  "STAIR_HANDRAIL TERMINATION",
+    "id":  2138926,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.2945,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  502.9229
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  502.7354
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4581,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  502.9229
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  502.6313
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0833,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.0688
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.0688
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2917,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.3604
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.0688
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0833,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.3604
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.3604
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2917,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.0688
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.3604
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0417,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.0688
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.0688
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2917,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.3604
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.0688
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0417,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.3604
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.3604
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2917,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.0688
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.3604
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.8658,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  502.9229
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.7887
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.8658,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.7887
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  502.9229
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2318,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.1938
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.1938
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2318,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.2354
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  504.2354
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.3531,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.7506
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  502.3975
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.3531,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.7326
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  502.3795
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.8658,
+                                             "style":  "2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  504.7887
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  502.9229
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  502.3975
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  504.6648
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  504.2452
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  502.6563
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLUG END OF HANDRAIL (TYP)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  504.2452
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  502.6769
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1-1/4\" ROUND PAINTED STEEL RAIL SEE\\rSTAIR SECTION FOR FINISH\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  504.2452
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  502.9708
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SKIM COAT STUCCO FINISH ON MASONRY\\rWALLS (EXPOSED BLK IN STAIR 2)\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  17,
+                     "extractedAt":  "2025-12-28 00:22:29",
+                     "regionCount":  0,
+                     "componentCount":  2,
+                     "textCount":  3
+                 }
+}

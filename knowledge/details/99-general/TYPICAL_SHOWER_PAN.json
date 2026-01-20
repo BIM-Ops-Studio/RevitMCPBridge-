@@ -1,0 +1,600 @@
+﻿{
+    "scale":  8,
+    "name":  "TYPICAL SHOWER PAN",
+    "id":  1864154,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.1690,
+                                                              "maxX":  9.1983,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.1690,
+                                                              "maxX":  9.1983,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.1690,
+                                                              "maxX":  9.2209,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.2373,
+                                                              "maxX":  11.7933,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.2209,
+                                                              "maxX":  9.2385,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.9588,
+                                                              "maxX":  9.9804,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.2921,
+                                                              "maxX":  10.3137,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.9582,
+                                                              "maxX":  10.9798,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  11.2913,
+                                                              "maxX":  11.3129,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  11.6245,
+                                                              "maxX":  11.6461,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.6252,
+                                                              "maxX":  10.6468,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.6257,
+                                                              "maxX":  9.6473,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.1485,
+                                                              "maxX":  15.0044,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.3004,
+                                                              "maxX":  15.0486,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  14.8552,
+                                                              "maxX":  14.8728,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  14.1133,
+                                                              "maxX":  14.1349,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  13.7800,
+                                                              "maxX":  13.8016,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  13.1139,
+                                                              "maxX":  13.1355,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.7808,
+                                                              "maxX":  12.8024,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.4476,
+                                                              "maxX":  12.4692,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  13.4469,
+                                                              "maxX":  13.4685,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  14.4464,
+                                                              "maxX":  14.4680,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  15.4211,
+                                                              "maxX":  15.6514,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  15.5527,
+                                                              "maxX":  15.5889,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.1485,
+                                                              "maxX":  15.8773,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  15.0528,
+                                                              "maxX":  15.8667,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  15.1053,
+                                                              "maxX":  15.1375,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.0845,
+                                                              "maxX":  11.9404,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.2116,
+                                                              "maxX":  11.9404,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.9890,
+                                             "style":  "unmapped41",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6323
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.6433
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.6413,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.1606
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  11.8003
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7826,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.1606
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.1606
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.875,
+                                             "style":  "Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.0893
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.0893
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2194,
+                                             "style":  "Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  12.1439
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  11.9245
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7917,
+                                             "style":  "Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.7976
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.7976
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.8877,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  15.1824
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  12.2966
+                                                       }
+                                         },
+                                         {
+                                             "length":  6.2459,
+                                             "style":  "\u003cHidden\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  15.3479
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.1020
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.6234,
+                                             "style":  "\u003cHidden\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  15.3479
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  15.3555
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5073,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  15.6897
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  15.1824
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line6",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.7009
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line6",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.7915
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Wallboard-Section2",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Dimension Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.0893
+                                                               },
+                                                  "type":  "2 x 4"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line6",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  12.1032
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "KERDI-Floor Drain with Waterproofing-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  12.0468
+                                                               },
+                                                  "type":  "KERDI-Floor Drain with Waterproofing-Section"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line6",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  15.6294
+                                                               },
+                                                  "type":  "Break Line"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  7.5201
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.1449
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1/2\" CEMENT BACKER BOARD, OR MOISTURE RESISTANT GYPSUM BOARD. TYP.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  7.5201
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.93
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "INFILL EXISTING SLAB DEPRESSION WITH LATEX MODIFIED MORTAR SLOPED AT 1/4\":1\u0027 MIN. \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  10.3977
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.0426
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "KERDI SHOWER LINER AND SHOWER DRAIN SYSTEM, INSTALLED MER MANUF. INSTRUCTIONS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  10.3977
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.1909
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TILE, PER OWNER SELECTION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  10.3977
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.5984
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SLOPE TO DRAIN\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  10.3977
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.1658
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONTINUOUS KERDI SHOWER WATERPROOFING MEMBRANE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.9395
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "NOTE:  PROVIDE COMPLETE SCHLUTER SHOWER SYSTEM, INCLUDING KERDI-DRAIN, WATERPROOFING MEMBRANE, TRANSITION STRIPS. INSTALL PER MANUFACTURERS REQUIREMENTS TO PROVIDE A COMPLETE SEALED WATERPROOFING SYSTEM AT SHOWER FLOOR, WALLS AND CEILING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  13.5679
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  15.117
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "GLASS SHOWER DOOR SYSTEM PER OWNER SELECTION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  13.7193
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  13.2126
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SLOPE TO DRAIN\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  10,
+                     "extractedAt":  "2025-12-28 00:21:45",
+                     "regionCount":  29,
+                     "componentCount":  36,
+                     "textCount":  9
+                 }
+}

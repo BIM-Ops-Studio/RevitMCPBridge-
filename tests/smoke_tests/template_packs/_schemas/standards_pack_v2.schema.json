@@ -1,0 +1,438 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "standards-pack-v2",
+  "title": "Template Pack Standards Schema v2.0",
+  "description": "Comprehensive standards pack for RevitMCPBridge template system",
+  "type": "object",
+  "required": ["$schema", "identity", "sheets", "views", "schedules"],
+  "properties": {
+    "$schema": {
+      "const": "standards-pack-v2"
+    },
+
+    "identity": {
+      "type": "object",
+      "description": "Template identity and governance",
+      "required": ["name", "version", "revitVersions", "discipline"],
+      "properties": {
+        "name": {"type": "string", "description": "Pack name (e.g., ARKY_MF_Template_v1.2)"},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "description": {"type": "string"},
+        "firm": {"type": "string"},
+        "projectType": {"enum": ["Core", "Residential_SFH", "Residential_Duplex", "Multifamily", "Commercial_TI", "Healthcare", "Industrial", "Airport"]},
+        "revitVersions": {"type": "array", "items": {"type": "string"}, "description": "Compatible Revit versions"},
+        "discipline": {"enum": ["ARCH", "ARCH_STR", "ARCH_STR_MEP", "ALL"]},
+        "unitSystem": {"enum": ["Imperial", "Metric"]},
+        "roundingRules": {
+          "type": "object",
+          "properties": {
+            "lengths": {"type": "string", "description": "e.g., 1/8 inch"},
+            "areas": {"type": "string", "description": "e.g., 1 SF"},
+            "angles": {"type": "string", "description": "e.g., 0.1 degrees"}
+          }
+        },
+        "coordinateStrategy": {
+          "type": "object",
+          "properties": {
+            "internalOrigin": {"type": "string"},
+            "projectBasePoint": {"type": "string"},
+            "surveyPoint": {"type": "string"}
+          }
+        },
+        "phases": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "e.g., ['Existing', 'New Construction', 'Demolition']"
+        },
+        "worksharing": {
+          "type": "object",
+          "properties": {
+            "enabled": {"type": "boolean"},
+            "worksetNaming": {"type": "string", "description": "Naming convention"}
+          }
+        }
+      }
+    },
+
+    "titleBlocks": {
+      "type": "object",
+      "description": "Title blocks and sheet framework",
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "familyName": {"type": "string"},
+              "size": {"type": "string", "description": "e.g., 24x36, 30x42"},
+              "isDefault": {"type": "boolean"}
+            }
+          }
+        },
+        "preferredPatterns": {"type": "array", "items": {"type": "string"}},
+        "excludePatterns": {"type": "array", "items": {"type": "string"}},
+        "sharedParameters": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Required shared params on title blocks"
+        },
+        "revisionSystem": {
+          "type": "object",
+          "properties": {
+            "numberingScheme": {"enum": ["numeric", "alpha", "alphanumeric"]},
+            "cloudTagging": {"type": "string"}
+          }
+        }
+      }
+    },
+
+    "sheets": {
+      "type": "object",
+      "description": "Sheet numbering and sheet sets",
+      "properties": {
+        "numberingFormat": {
+          "enum": ["standard", "dot-category", "dash-suffix"],
+          "description": "A101, A1.0.1, or A101-xxxx"
+        },
+        "numberingSuffix": {"type": "string", "description": "Run ID suffix pattern"},
+        "sets": {
+          "type": "object",
+          "description": "Sheet sets by purpose",
+          "properties": {
+            "permitSkeleton": {"$ref": "#/definitions/sheetSet"},
+            "fullCD": {"$ref": "#/definitions/sheetSet"},
+            "bidSet": {"$ref": "#/definitions/sheetSet"},
+            "asBuilts": {"$ref": "#/definitions/sheetSet"}
+          }
+        },
+        "coverSheet": {
+          "type": "object",
+          "properties": {
+            "projectDataBlock": {"type": "boolean"},
+            "teamBlock": {"type": "boolean"},
+            "codeSummaryBlock": {"type": "boolean"},
+            "keyPlan": {"type": "boolean"},
+            "vicinityMap": {"type": "boolean"}
+          }
+        }
+      }
+    },
+
+    "views": {
+      "type": "object",
+      "description": "View system and view templates",
+      "properties": {
+        "prefix": {"type": "string", "description": "e.g., ZZ_ for automation-generated"},
+        "namingPattern": {"type": "string", "description": "e.g., {Discipline}-{ViewType}-{Level}"},
+        "templates": {
+          "type": "object",
+          "properties": {
+            "floorPlan": {"$ref": "#/definitions/viewTemplate"},
+            "reflectedCeiling": {"$ref": "#/definitions/viewTemplate"},
+            "lifeSafety": {"$ref": "#/definitions/viewTemplate"},
+            "egress": {"$ref": "#/definitions/viewTemplate"},
+            "enlargedPlan": {"$ref": "#/definitions/viewTemplate"},
+            "exteriorElevation": {"$ref": "#/definitions/viewTemplate"},
+            "interiorElevation": {"$ref": "#/definitions/viewTemplate"},
+            "buildingSection": {"$ref": "#/definitions/viewTemplate"},
+            "wallSection": {"$ref": "#/definitions/viewTemplate"},
+            "detail": {"$ref": "#/definitions/viewTemplate"},
+            "coordination3D": {"$ref": "#/definitions/viewTemplate"},
+            "presentation3D": {"$ref": "#/definitions/viewTemplate"}
+          }
+        }
+      }
+    },
+
+    "annotations": {
+      "type": "object",
+      "description": "Annotation standards",
+      "properties": {
+        "textTypes": {
+          "type": "object",
+          "properties": {
+            "notes": {"type": "string"},
+            "titles": {"type": "string"},
+            "keynotes": {"type": "string"},
+            "small": {"type": "string"},
+            "large": {"type": "string"}
+          }
+        },
+        "dimensionStyles": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "e.g., ['Overall', 'Internal', 'EQ', 'Spot']"
+        },
+        "tagFamilies": {
+          "type": "object",
+          "properties": {
+            "door": {"type": "string"},
+            "window": {"type": "string"},
+            "room": {"type": "string"},
+            "area": {"type": "string"},
+            "equipment": {"type": "string"}
+          }
+        },
+        "keynoteStrategy": {"enum": ["keynoteFile", "elementKeynotes", "userKeynotes"]},
+        "lineStyles": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "symbolFamilies": {
+          "type": "object",
+          "properties": {
+            "sectionMarker": {"type": "string"},
+            "elevationMarker": {"type": "string"},
+            "northArrow": {"type": "string"},
+            "detailCallout": {"type": "string"},
+            "revisionCloud": {"type": "string"},
+            "egressArrow": {"type": "string"}
+          }
+        }
+      }
+    },
+
+    "families": {
+      "type": "object",
+      "description": "Required families library",
+      "properties": {
+        "required": {
+          "type": "object",
+          "description": "Required families by category",
+          "properties": {
+            "doors": {"type": "array", "items": {"type": "string"}},
+            "windows": {"type": "array", "items": {"type": "string"}},
+            "plumbingFixtures": {"type": "array", "items": {"type": "string"}},
+            "casework": {"type": "array", "items": {"type": "string"}},
+            "furniture": {"type": "array", "items": {"type": "string"}},
+            "annotations": {"type": "array", "items": {"type": "string"}},
+            "detailComponents": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "namingConvention": {
+          "type": "object",
+          "properties": {
+            "pattern": {"type": "string", "description": "e.g., {Size}_{Material}_{Rating}"},
+            "requiredParams": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "e.g., ['Mark', 'Type Mark', 'Width', 'Height', 'Fire Rating']"
+            }
+          }
+        }
+      }
+    },
+
+    "schedules": {
+      "type": "object",
+      "description": "Schedule definitions",
+      "properties": {
+        "definitions": {
+          "type": "object",
+          "additionalProperties": {"$ref": "#/definitions/scheduleDefinition"}
+        }
+      }
+    },
+
+    "filters": {
+      "type": "object",
+      "description": "Filters and rule sets for QA",
+      "properties": {
+        "preflight": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/filterRule"}
+        },
+        "codeCompliance": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/filterRule"}
+        }
+      }
+    },
+
+    "browserOrganization": {
+      "type": "object",
+      "properties": {
+        "scheme": {"enum": ["byDiscipline", "byPhase", "bySheetSet", "byViewType"]},
+        "namingConvention": {"type": "string"}
+      }
+    },
+
+    "worksets": {
+      "type": "object",
+      "properties": {
+        "standard": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "defaultFor": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "defaultActive": {"type": "string"}
+      }
+    },
+
+    "coordination": {
+      "type": "object",
+      "properties": {
+        "linkPositioning": {"type": "string"},
+        "copyMonitor": {"type": "array", "items": {"type": "string"}},
+        "auditRules": {
+          "type": "object",
+          "properties": {
+            "purgePolicy": {"type": "string"},
+            "warningThreshold": {"type": "integer"}
+          }
+        }
+      }
+    },
+
+    "exports": {
+      "type": "object",
+      "properties": {
+        "pdf": {
+          "type": "object",
+          "properties": {
+            "dpi": {"type": "integer"},
+            "vectorRaster": {"enum": ["vector", "raster", "hybrid"]},
+            "colorMode": {"enum": ["color", "grayscale", "mono"]}
+          }
+        },
+        "dwg": {
+          "type": "object",
+          "properties": {
+            "layerMapping": {"type": "string"}
+          }
+        },
+        "ifc": {
+          "type": "object",
+          "properties": {
+            "exportSetup": {"type": "string"}
+          }
+        },
+        "folderStructure": {"type": "string"},
+        "namingPattern": {"type": "string"}
+      }
+    },
+
+    "sectorModules": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Additional sector-specific modules to merge"
+    },
+
+    "levelMapping": {
+      "type": "object",
+      "description": "Level name pattern matching",
+      "properties": {
+        "patterns": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "dynamicLevels": {"type": "boolean"},
+        "maxLevels": {"type": "integer"}
+      }
+    },
+
+    "cropStrategy": {
+      "type": "object",
+      "properties": {
+        "method": {"enum": ["model_extents", "scope_box", "manual"]},
+        "marginFeet": {"type": "number"},
+        "enabled": {"type": "boolean"}
+      }
+    },
+
+    "capabilities": {
+      "type": "object",
+      "description": "Known capabilities and fallbacks",
+      "properties": {
+        "fallbacks": {
+          "type": "object",
+          "properties": {
+            "scheduleViewport": {"enum": ["export_csv", "skip_with_warning", "fail"]},
+            "legendViewport": {"enum": ["export_csv", "skip_with_warning", "fail"]},
+            "missingElevation": {"enum": ["create_4_cardinal", "skip_with_warning", "fail"]}
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "sheetSet": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["number", "name"],
+        "properties": {
+          "number": {"type": "string"},
+          "name": {"type": "string"},
+          "viewType": {"type": "string"},
+          "level": {"type": ["integer", "string"]},
+          "unit": {"type": "string"},
+          "category": {"type": "string"},
+          "required": {"type": "boolean", "default": true},
+          "optional": {"type": "boolean", "default": false}
+        }
+      }
+    },
+    "viewTemplate": {
+      "type": "object",
+      "properties": {
+        "scale": {"type": "integer", "description": "Denominator (48 = 1/4 inch)"},
+        "detailLevel": {"enum": ["Coarse", "Medium", "Fine"]},
+        "visualStyle": {"enum": ["Wireframe", "Hidden Line", "Shaded", "Consistent Colors", "Realistic"]},
+        "discipline": {"enum": ["Architectural", "Structural", "Mechanical", "Electrical", "Coordination"]},
+        "phaseFilter": {"type": "string"},
+        "viewRange": {
+          "type": "object",
+          "properties": {
+            "cutPlane": {"type": "number"},
+            "topClip": {"type": "number"},
+            "bottomClip": {"type": "number"}
+          }
+        },
+        "cropEnabled": {"type": "boolean"},
+        "annotationCrop": {"type": "boolean"},
+        "colorScheme": {"type": "string"},
+        "filters": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "scheduleDefinition": {
+      "type": "object",
+      "properties": {
+        "category": {"type": "string"},
+        "fields": {"type": "array", "items": {"type": "string"}},
+        "sorting": {"type": "array", "items": {"type": "string"}},
+        "grouping": {"type": "array", "items": {"type": "string"}},
+        "filters": {"type": "array", "items": {"type": "string"}},
+        "formatting": {
+          "type": "object",
+          "properties": {
+            "units": {"type": "string"},
+            "rounding": {"type": "string"},
+            "alignment": {"enum": ["left", "center", "right"]}
+          }
+        },
+        "conditionalFormatting": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "filterRule": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "category": {"type": "string"},
+        "condition": {"type": "string"},
+        "severity": {"enum": ["error", "warning", "info"]},
+        "message": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "firmId": "glidden-spina",
+  "firmName": "Glidden Spina + Partners",
+  "description": "National commercial and mixed-use architecture",
+  "sourceProject": "GSP_BASIC_2018 template",
+  "extractedAt": "legacy",
+  "status": "legacy",
+
+  "detection": {
+    "pathPatterns": ["GSP", "Glidden Spina", "Glidden-Spina"],
+    "titleBlockFamilies": ["GSP Title Block"],
+    "projectInfoPatterns": {
+      "author": "Glidden Spina"
+    }
+  },
+
+  "sheetNumbering": {
+    "pattern": "A###",
+    "examples": ["A001", "A101", "A201", "A301"],
+    "disciplines": {
+      "G": "General",
+      "A": "Architectural",
+      "S": "Structural",
+      "M": "Mechanical",
+      "E": "Electrical",
+      "P": "Plumbing"
+    },
+    "categories": {
+      "A001": "Cover Sheet",
+      "A100": "Floor Plans",
+      "A200": "RCP / Ceiling Plans",
+      "A300": "Elevations",
+      "A400": "Sections",
+      "A500": "Details",
+      "A600": "Enlarged Plans",
+      "A700": "Schedules"
+    }
+  },
+
+  "textTypes": {
+    "primary": {
+      "notes": {"font": "Arial", "size": "3/32\"", "styleName": "3/32\" Arial"},
+      "headers": {"font": "Arial", "size": "3/16\"", "styleName": "3/16\" Arial"},
+      "titles": {"font": "Arial", "size": "1/4\"", "styleName": "1/4\" Arial"}
+    }
+  },
+
+  "dimensionTypes": {
+    "default": "GSP 3/32\" STANDARD",
+    "casework": "GSP 3/32\" CASEWORK",
+    "small": "GSP 5/64\" (1/8\")"
+  },
+
+  "viewTemplates": {
+    "floorPlan": "GSP Architectural Plan",
+    "rcp": "GSP Reflected Ceiling Plan",
+    "elevation": "GSP Architectural Elevation",
+    "section": "GSP Architectural Section"
+  },
+
+  "familyNaming": {
+    "prefixes": {
+      "casework": "CA-",
+      "doors": "DR-",
+      "plumbingFixtures": "PF-",
+      "furniture": "FN-",
+      "genericModels": "GM-",
+      "lightingFixtures": "LF-",
+      "mechanicalEquipment": "ME-",
+      "specialtyEquipment": "SE-",
+      "tags": "TAG-",
+      "symbols": "SYM-"
+    },
+    "detailItems": {
+      "convention": "CSI Division prefix",
+      "examples": [
+        "04-CMU Section",
+        "05-Steel Stud Section",
+        "06-Wood Framing",
+        "07-Insulation",
+        "08-Door Frame",
+        "09-Finish Detail"
+      ]
+    }
+  },
+
+  "titleBlocks": [
+    {
+      "name": "GSP Title Block 24x36",
+      "size": "24x36",
+      "use": "Standard"
+    }
+  ],
+
+  "projectTypes": [
+    "commercial",
+    "mixed-use",
+    "office",
+    "retail"
+  ],
+
+  "annotationSymbols": {
+    "elevationMark": "ELEVATION_MARK_EXT GSP",
+    "sectionHead": "SECTION HEAD-GSP",
+    "calloutHead": "CALLOUT 3/8\" DIA"
+  },
+
+  "notes": "Legacy profile from 2018 template - may need updating for current standards"
+}

@@ -1,0 +1,3182 @@
+﻿{
+    "scale":  2,
+    "name":  "sinlgleply drain detail Copy 1 Copy 1 Copy 1 Copy 1 Copy 2 Copy 1",
+    "id":  2113699,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.8144,
+                                                              "maxX":  9.8215,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.8069,
+                                                              "maxX":  9.8140,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.8128,
+                                                              "maxX":  9.8797,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.9959,
+                                                              "maxX":  10.0627,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.9480,
+                                                              "maxX":  10.2401,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.8013,
+                                                              "maxX":  10.2534,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.6763,
+                                                              "maxX":  9.7986,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.6763,
+                                                              "maxX":  9.7986,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.6531,
+                                                              "maxX":  9.6753,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.6521,
+                                                              "maxX":  9.6754,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.2469,
+                                             "style":  "INSULATION",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9480
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.1949
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0457,
+                                             "style":  "INSULATION",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9480
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9480
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2469,
+                                             "style":  "INSULATION",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.1949
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9480
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0079,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6541
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0079,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6527
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6492
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0298,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6721
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6511
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1239,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7918
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6721
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1530,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9448
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7918
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1533,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7914
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9448
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1240,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6717
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7914
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0319,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6492
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6717
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1641,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8139
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6554
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1447,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8139
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8139
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1426,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8108
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8108
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1609,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6554
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8108
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0192,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6541
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6727
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0462,
+                                             "style":  "Line-2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8017
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8017
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1504,
+                                             "style":  "BLOCKING",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9448
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8017
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1431,
+                                             "style":  "Line-2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8017
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9448
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1504,
+                                             "style":  "BLOCKING",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9448
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8017
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0462,
+                                             "style":  "Line-2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9448
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9448
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1431,
+                                             "style":  "Line-2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9448
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8017
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0169,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8144
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8144
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0053,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9073
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9125
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0163,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9073
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0154,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9125
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0143,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9028
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9171
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0039,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9132
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9171
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0065,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9067
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9132
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0039,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9028
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9067
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0312,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9080
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9080
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0040,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9119
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9080
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0312,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9119
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9119
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0056,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9100
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9109
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0053,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9080
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9098
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0052,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9125
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9073
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9119
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9100
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0062,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8083
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8144
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7509
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7529
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0029,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7530
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7509
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7572
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7595
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0051,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7595
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7572
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0053,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7555
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7575
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0046,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7576
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7555
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0051,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7536
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7556
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0046,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7557
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7536
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7619
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7592
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7615
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7596
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7588
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7615
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7639
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7621
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7612
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7639
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7643
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7616
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7663
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7645
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7636
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7663
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7667
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7640
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7688
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7669
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7661
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7688
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7692
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7665
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7712
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7693
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7685
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7712
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7716
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7689
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7736
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7717
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7709
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7736
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7740
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7713
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7760
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7742
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7733
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7760
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7764
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7737
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7784
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7766
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7758
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7784
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7788
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7762
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7809
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7790
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7782
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7809
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7813
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7786
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7833
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7814
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7806
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7833
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7837
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7810
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7857
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7839
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7830
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7857
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7861
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7834
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7881
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7863
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7854
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7881
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7885
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7859
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7906
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7887
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7879
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7906
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7910
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7883
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7930
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7911
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7903
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7930
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7934
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7907
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7954
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7935
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7927
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7954
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7958
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7931
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7978
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7960
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7951
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7978
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0056,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7981
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7955
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8003
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7984
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7976
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8003
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0058,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8006
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7981
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8027
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8008
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0057,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8003
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8027
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8031
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8003
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0070,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8052
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8032
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0065,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8024
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8052
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0060,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8055
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8028
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8075
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8057
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8048
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8075
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0061,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8079
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8052
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8099
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8081
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0063,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8072
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8099
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8105
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8077
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0039,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8105
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8144
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0155,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8144
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8144
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8730
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8712
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0029,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8749
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8730
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8704
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8765
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0055,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0053,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8708
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8757
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0047,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8750
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8708
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0051,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8708
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8755
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0047,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8750
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8708
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0069,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8757
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0059,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8712
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0068,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8756
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0061,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8711
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0067,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8769
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0066,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8710
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8769
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0064,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8696
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0305,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8753
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8753
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0074,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8801
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8753
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0141,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8660
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8801
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0074,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8708
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8660
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0328,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8708
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8708
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1439,
+                                             "style":  "SUBSTRATE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7986
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7986
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1267,
+                                             "style":  "SUBSTRATE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6763
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7986
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1109,
+                                             "style":  "SUBSTRATE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6763
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6763
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2847,
+                                             "style":  "SUBSTRATE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7981
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7981
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1261,
+                                             "style":  "SUBSTRATE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6763
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7981
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3938,
+                                             "style":  "SUBSTRATE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8013
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.1951
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0763,
+                                             "style":  "SUBSTRATE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8013
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8013
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3938,
+                                             "style":  "SUBSTRATE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.1951
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8013
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3333,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8052
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8052
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1322,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6775
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8052
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0092,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8069
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8140
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0611,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8069
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8069
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0092,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8140
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8069
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0611,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8140
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8140
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0834,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8140
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8140
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0212,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8215
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8140
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1124,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8215
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8215
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0611,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8144
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8144
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0092,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8215
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8144
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0611,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8215
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8215
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0092,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8144
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8215
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0092,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8128
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8186
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0611,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8739
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8128
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0092,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8797
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8739
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0611,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8186
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8797
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1262,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9448
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8186
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0222,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9656
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9448
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0913,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.0570
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9656
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0611,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9959
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.0570
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0092,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.0016
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9959
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0611,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.0627
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.0016
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0092,
+                                             "style":  "MEMBRANE",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.0570
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.0627
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1221,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7926
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6746
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4348,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.2274
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7926
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0555,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8085
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7529
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0571,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8102
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.7530
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9028
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9028
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0027,
+                                             "style":  "FASTENERS",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9171
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9171
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1211,
+                                             "style":  "Vapor Barrier",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.7967
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6798
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0032,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8108
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8139
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0032,
+                                             "style":  "METAL",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.9448
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.9448
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1264,
+                                             "style":  "Vapor Barrier",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8016
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.6795
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3302,
+                                             "style":  "Vapor Barrier",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.8016
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.8016
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line5",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.7374
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line5",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.2086
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line5",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.7374
+                                                               },
+                                                  "type":  "Break Line"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.3743
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.66
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FTR #101 SEALANT (TOOLED)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.3743
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.6659
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FTR #101 SEALANT (TOOLED)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.5544
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "EMERGENCY (SECONDARY) STORM WATER DRAINAGE IS DESIGNED AS\\rSECONDARY SCUPPER. SECONDARY SCUPPERS TO BE MINIMUM 2 INCHES ABOVE DECK.\\rMINIMUM SCUPPER OPENING TO BE 4 INCHES IN HEIGHT AND 13 INCHES IN WIDTH.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.8058
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FTR MEMBRANE FLASHING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.802
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FTR #201 OR #190 ADHESIVE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.8126
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "APPROVED FASTENER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.8215
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FTR MEMBRANE FLASHING STRIP HOT AIR WELD (TYPICAL)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.8826
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FIBERCLAD METAL SCUPPER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.956
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FTR MEMBRANE FLASHING STRIP HOT AIR WELD (TYPICAL)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.1818
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FTR OR FTR-FB MEMBRANE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.9568
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "INSULATION ATTAHCED PER SPECIFICATION REQUIREMENTS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.9788
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.8903
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "WOOD BLOCKING, SEE FASTENING DETAIL\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  10.0029
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.9388
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "GALVANIZED ANNULAR RING SHANK NAIL (3\" O.C.)\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  240,
+                     "extractedAt":  "2025-12-28 00:22:09",
+                     "regionCount":  10,
+                     "componentCount":  13,
+                     "textCount":  13
+                 }
+}

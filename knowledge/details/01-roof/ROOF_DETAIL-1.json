@@ -1,0 +1,178 @@
+﻿{
+    "scale":  8,
+    "name":  "ROOF DETAIL-1",
+    "id":  1738919,
+    "elements":  {
+                     "filledRegions":  {
+                                           "pattern":  null,
+                                           "typeName":  null,
+                                           "bounds":  {
+                                                          "minX":  6.2329,
+                                                          "maxX":  9.3478,
+                                                          "minY":  0.0,
+                                                          "maxY":  0.0
+                                                      }
+                                       },
+                     "detailLines":  [
+                                         {
+                                             "length":  0.2085,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.4597
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.4597
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2070,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.2538
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.4597
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0147,
+                                             "style":  "Line-2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.4728
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.4597
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0113,
+                                             "style":  "Line-2",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.2555
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.2538
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Plaster-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.4103
+                                                               },
+                                                  "type":  "1x6"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.3478
+                                                               },
+                                                  "type":  "1x6"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Plywood-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.8579
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.8579
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.6912
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.1708
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  10.1708
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Sheathing-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Underlayment",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.6362
+                                                               },
+                                                  "type":  "Single Layer"
+                                              }
+                                          ],
+                     "textNotes":  [
+
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  4,
+                     "extractedAt":  "2025-12-28 00:16:06",
+                     "regionCount":  1,
+                     "componentCount":  14,
+                     "textCount":  0
+                 }
+}

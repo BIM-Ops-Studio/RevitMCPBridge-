@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://revitmcpbridge/schemas/method_registry.schema.json",
+  "title": "Method Registry",
+  "description": "Registry of all MCP methods with tier metadata and validation status",
+  "type": "object",
+  "required": ["version", "generatedAt", "methods"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Registry schema version"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "stats": {
+      "type": "object",
+      "properties": {
+        "totalMethods": {"type": "integer"},
+        "tier1Count": {"type": "integer"},
+        "tier2Count": {"type": "integer"},
+        "tier3Count": {"type": "integer"},
+        "categoryCounts": {
+          "type": "object",
+          "additionalProperties": {"type": "integer"}
+        }
+      }
+    },
+    "methods": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "tier", "category", "status"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Method name"
+          },
+          "tier": {
+            "type": "integer",
+            "enum": [1, 2, 3],
+            "description": "1=Stable (pure public API), 2=Beta (complex/fragile), 3=Experimental"
+          },
+          "category": {
+            "type": "string",
+            "description": "Functional category"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "deprecated", "experimental", "disabled"],
+            "description": "Current status"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$",
+            "description": "Semantic version"
+          },
+          "description": {
+            "type": "string",
+            "description": "What the method does"
+          },
+          "sourceFile": {
+            "type": "string",
+            "description": "C# source file containing implementation"
+          },
+          "apiDependencies": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Revit API classes/methods used"
+          },
+          "revitVersions": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Tested Revit versions"
+          },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "type": {"type": "string"},
+                "required": {"type": "boolean"},
+                "description": {"type": "string"}
+              }
+            }
+          },
+          "testing": {
+            "type": "object",
+            "properties": {
+              "testCount": {"type": "integer"},
+              "passRate": {"type": "number"},
+              "lastTested": {"type": "string", "format": "date-time"},
+              "coveragePercent": {"type": "number"}
+            }
+          },
+          "usage": {
+            "type": "object",
+            "properties": {
+              "callCount": {"type": "integer"},
+              "successRate": {"type": "number"},
+              "avgResponseMs": {"type": "number"},
+              "lastCalled": {"type": "string", "format": "date-time"}
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "addedAt": {"type": "string", "format": "date-time"},
+              "addedBy": {"type": "string"},
+              "lastModified": {"type": "string", "format": "date-time"},
+              "specFile": {"type": "string"},
+              "notes": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,534 @@
+﻿{
+    "scale":  8,
+    "name":  "2-CASEWORK_KITCHEN ISLAND",
+    "id":  2152574,
+    "elements":  {
+                     "filledRegions":  {
+                                           "pattern":  null,
+                                           "typeName":  null,
+                                           "bounds":  {
+                                                          "minX":  2.7856,
+                                                          "maxX":  3.0161,
+                                                          "minY":  0.0,
+                                                          "maxY":  0.0
+                                                      }
+                                       },
+                     "detailLines":  [
+                                         {
+                                             "length":  4.3333,
+                                             "style":  "\u003cWide Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  2.6546
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.9879
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.0702,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  4.8937
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  2.8235
+                                                       }
+                                         },
+                                         {
+                                             "length":  3.4271,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  6.9041
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.9041
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-WOOD_TRIM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  4.8791
+                                                               },
+                                                  "type":  "SQUARE 3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-NAILER",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3.1515
+                                                               },
+                                                  "type":  "06-NAILER"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CASEWORK-PULLS",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.7506
+                                                               },
+                                                  "type":  "TOP"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CASEWORK-PULLS",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  2.7506
+                                                               },
+                                                  "type":  "SIDE"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CASEWORK-SHELVING-ADJ-HOLES",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3.0604
+                                                               },
+                                                  "type":  "09-CASEWORK-SHELVING-ADJ-HOLES"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "05-Structural Stud-Side",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3 5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/2\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-NAILER",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  4.9771
+                                                               },
+                                                  "type":  "06-NAILER"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-NAILER",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.0187
+                                                               },
+                                                  "type":  "06-NAILER"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CASEWORK-SHELVING-ADJ-HOLES",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  4.7687
+                                                               },
+                                                  "type":  "09-CASEWORK-SHELVING-ADJ-HOLES"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-Array-Metal Stud-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.3416
+                                                               },
+                                                  "type":  "3 5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-NAILER",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.0187
+                                                               },
+                                                  "type":  "06-NAILER"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-Array-Metal Stud-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  5.3416
+                                                               },
+                                                  "type":  "3 5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-PANEL-PLAM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1.0998
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.7594
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FINISHED ENDS AND SUPPORTS; PLASTIC LAMINATE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1.0998
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3.1201
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1 1/2\" PLASTIC LAMINATE COUNTERTOP OVER FRT PLYWOOD\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1.0998
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  4.0403
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "3 5/8\" MTL STUD FRAMING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1.0998
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.7732
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLASTIC LAMINATE OVER FRT PLYWOOD\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1.0998
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3.1523
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "3/4\" PLYWOOD ON 2X WOOD FRAMING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1.0998
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3.1076
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "interior of  cabinet AND SHELVES to be white melamine\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1.1057
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  2.7805
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLASTIC LAMINATE CABINET DOOR\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1.1298
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3.0293
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BASE TO MATCH LAMINATE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3.1176
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3.6715
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DRAWER\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  3,
+                     "extractedAt":  "2025-12-28 00:23:49",
+                     "regionCount":  1,
+                     "componentCount":  41,
+                     "textCount":  9
+                 }
+}

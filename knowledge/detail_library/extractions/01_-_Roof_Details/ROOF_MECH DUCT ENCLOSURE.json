@@ -1,0 +1,24 @@
+﻿{
+    "textNotes":  [
+
+                  ],
+    "file":  "ROOF_MECH DUCT ENCLOSURE.rvt",
+    "activeView":  {
+                       "scale":  8,
+                       "name":  "ROOF_MECH DUCT ENCLOSURE",
+                       "id":  2796,
+                       "type":  "DraftingView"
+                   },
+    "error":  null,
+    "elementsInView":  {
+                           "typeName":  null,
+                           "category":  "Unknown",
+                           "familyName":  null,
+                           "id":  null
+                       },
+    "filePath":  "D:\\Revit Detail Libraries\\Revit Details\\01 - Roof Details\\ROOF_MECH DUCT ENCLOSURE.rvt",
+    "views":  [
+
+              ],
+    "extractedAt":  "2025-12-28 03:04:11"
+}

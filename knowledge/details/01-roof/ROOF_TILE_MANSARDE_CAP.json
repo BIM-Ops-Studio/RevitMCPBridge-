@@ -1,0 +1,504 @@
+﻿{
+    "scale":  8,
+    "name":  "ROOF TILE MANSARDE CAP",
+    "id":  1739691,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  25.1472,
+                                                              "maxX":  25.2084,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  23.4010,
+                                                              "maxX":  24.8130,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  24.7808,
+                                                              "maxX":  25.2084,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  24.5987,
+                                                              "maxX":  25.1472,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  23.3499,
+                                                              "maxX":  24.7288,
+                                                              "minY":  14.4884,
+                                                              "maxY":  14.4884
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  24.3515,
+                                                              "maxX":  25.4317,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  24.4237,
+                                                              "maxX":  25.3154,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  23.0406,
+                                                              "maxX":  23.6853,
+                                                              "minY":  14.4884,
+                                                              "maxY":  14.4884
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  1.0776,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.5570
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  23.6262
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.0354,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.8138
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.8138
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3342,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.8130
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.1472
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5625,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.1472
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.5987
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3568,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.8130
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.1472
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.375,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.2545
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.2545
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1042,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.3282
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.2545
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1156,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.3273
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.2456
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.3715
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.3273
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1156,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.2898
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.3715
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3958,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.2898
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.2898
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.7898
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.2898
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.625,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.2337
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.2337
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0687,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.2704
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.2704
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2292,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.0412
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.2704
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.5862,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.7544
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  23.3843
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.4393,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.7544
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  25.1937
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.9947
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.9322
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1702,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.9634
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.9634
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0780,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.5475
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.4801
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2637,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.6650
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.5138
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.1260,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.3610
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.4237
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2975,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.4317
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.3515
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2569,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.5570
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  24.8138
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  25.0013
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  23.5286
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  22.0797
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  24.3192
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONCRETE TILE ROOF\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  22.0797
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  24.2744
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLYWOOD ROOF SHEATHING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  22.0797
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  23.8721
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PRE-ENGINEERED WOOD TRUSSES (SEE STRUCTURAL)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  22.0797
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  24.0049
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PEEL \u0026 STICK MEMBRANE UNDERLAYMENT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  25.7764
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  25.3136
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "ONE PIECE MTL. FLASHING ON CONTINUOUS MTL. CLEAT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  25.7764
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  25.2216
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TPO MEMBRANE \u0026 BONDING ADHESIVE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  25.7764
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  25.1624
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLYWOOD WALL SHEATHING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  25.7764
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  25.1792
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONCRETE TILE CAP SET IN ADHESIVE FOAM INSTALL PER MANUFACTURERS SPEC\u0027S\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  24,
+                     "extractedAt":  "2025-12-28 00:16:35",
+                     "regionCount":  8,
+                     "componentCount":  10,
+                     "textCount":  8
+                 }
+}

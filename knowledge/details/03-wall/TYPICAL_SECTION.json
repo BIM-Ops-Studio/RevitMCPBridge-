@@ -1,0 +1,364 @@
+﻿{
+    "scale":  16,
+    "name":  "TYPICAL SECTION",
+    "id":  1743100,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1803.3883,
+                                                              "maxX":  1808.5393,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1802.9804,
+                                                              "maxX":  1811.6747,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.6426,
+                                                              "maxX":  1809.0715,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1807.8570,
+                                                              "maxX":  1809.8570,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.4956,
+                                                              "maxX":  1808.5393,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1808.7992,
+                                                              "maxX":  1808.8813,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1803.4321,
+                                                              "maxX":  1811.1321,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  1803.3808,
+                                                              "maxX":  1810.9872,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1809.607
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Reinf Bar Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.107
+                                                               },
+                                                  "type":  "#_5"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1803.5758
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.8622
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.8622
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.5393
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Bond Beam - 001",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1808.5393
+                                                               },
+                                                  "type":  "8\" x 8\" x 16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1810.9411
+                                                               },
+                                                  "type":  "2x8"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1811.2046
+                                                               },
+                                                  "type":  "1x3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Plywood-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1803.7893
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Underlayment",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  1811.2713
+                                                               },
+                                                  "type":  "Single Layer"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1805.0807
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1804.0497
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PRE-ENGINEERED WD.\\rTRUSSES AT 24\" O.C.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1807.4396
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "4\" THK. CONC. SLAB \\rW/ 6\" X 6\" X #10 WWM ON\\r6 MIL. POLYETHYLENE\\rVAPOR BARRIER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.8422
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DOUBLE WIRE MESH AT\\rPERIMETER, 3\u0027 MIN.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.9148
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "MACHINE COMPACT AND TERMITE TREATED CLEAN FILL\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.1407
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "12\"X24\" CONC. SPREAD\\rWALL FTG. W/ (2) #5 CONT.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1806.635
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "6 MIL VAPOR BARRIER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1806.0346
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1807.8289
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "6 MIL POLYETHYLENE VAPOR BARRIER OVER SELECT WELL-GRADED TERMITE TREATED FILL COMPACTED TO 95% MAXIMUM DENSITY\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1810.3105
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "FIN. GRADE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.2532
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1809.4309
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FINAL GRADING MUST BE MIN 12\"\\rFROM THE BOTTOM OF THE FOOTER\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.2532
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1810.3061
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "WELL COMPACTED CLEAN FILL AS PER RECOMMENDATION ON GEATECHNICAL REPORT PREPARED BY SOIL ENGINEER. ALL FOOTING BOTTOMS SHOULD BE COMPACTED TO 95% OF\\rTHE ASTM D 1557 MAXIMUM DRY DENSITY. IF ANY\\rORGANIC/SOFT SOILS ARE FOUND AT THE BOTTOM OF THE FOOTING EXCAVATION, THEY SHOULD BE REMOVED ENTIRELY AND REPLACED WITH COMPACTED GRANULAR FILL PRIOR TO\\rPLACEMENT OF THE REINFORCING STEEL.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.9969
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BB-1 TWO COURSE BEAM (SEE DETAIL 2/S2)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.8822
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "REINF. MASONRY STL. BEYOUND \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  1811.7592
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  1808.8471
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SIMPSON GALV. MTL.\\rSTRIPS \\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  28,
+                     "extractedAt":  "2025-12-28 00:19:36",
+                     "regionCount":  8,
+                     "componentCount":  22,
+                     "textCount":  13
+                 }
+}

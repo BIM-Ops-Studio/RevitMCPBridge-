@@ -1,0 +1,170 @@
+{
+  "testId": "getLevels_basic_test",
+  "methodName": "getLevels",
+  "triggerType": "regression",
+  "createdAt": "2025-12-26T14:20:00Z",
+  "taskRequest": {
+    "method": "getLevels",
+    "params": {},
+    "userIntent": "Get all levels in the current project"
+  },
+  "expectedOutcome": {
+    "success": true,
+    "assertions": [
+      {
+        "type": "noError"
+      }
+    ]
+  },
+  "execution": {
+    "status": "passed",
+    "startedAt": "2025-12-26T14:14:41.9990565-08:00",
+    "completedAt": "2025-12-26T14:14:42.7783294-08:00",
+    "durationMs": 779.2783
+  },
+  "initialState": {
+    "timestamp": "2025-12-26T14:14:41.9964607-08:00",
+    "projectName": "512_CLEMATIS-2.0006",
+    "elementCounts": {
+      "Walls": 2907,
+      "Doors": 649,
+      "Windows": 280,
+      "Rooms": 1172,
+      "Views": 1832,
+      "Sheets": 360
+    },
+    "activeViewId": 3938458
+  },
+  "actualResult": {
+    "success": true,
+    "levelCount": 15,
+    "levels": [
+      {
+        "levelId": 8561601,
+        "name": "0",
+        "elevation": -0.0006573950775272674
+      },
+      {
+        "levelId": 1214920,
+        "name": "Level 1",
+        "elevation": 0.6660092715891395
+      },
+      {
+        "levelId": 1771308,
+        "name": "B.O. LEVEL 2",
+        "elevation": 14.66600927158914
+      },
+      {
+        "levelId": 1215080,
+        "name": "Level 2",
+        "elevation": 15.999342604922472
+      },
+      {
+        "levelId": 1771309,
+        "name": "B.O. LEVEL 3",
+        "elevation": 29.3326759382556
+      },
+      {
+        "levelId": 1215145,
+        "name": "Level 3",
+        "elevation": 29.83267593825581
+      },
+      {
+        "levelId": 1771310,
+        "name": "B.O. LEVEL 4",
+        "elevation": 39.16600927158893
+      },
+      {
+        "levelId": 1215174,
+        "name": "Level 4",
+        "elevation": 39.66600927158914
+      },
+      {
+        "levelId": 1771311,
+        "name": "B.O. LEVEL 5",
+        "elevation": 48.99934260492246
+      },
+      {
+        "levelId": 1215222,
+        "name": "Level 5",
+        "elevation": 49.49934260492246
+      },
+      {
+        "levelId": 1771312,
+        "name": "B.O. ROOF DECK",
+        "elevation": 58.832675938255804
+      },
+      {
+        "levelId": 1215250,
+        "name": "ROOF DECK",
+        "elevation": 59.332675938255804
+      },
+      {
+        "levelId": 8927327,
+        "name": "T.O. SLAB",
+        "elevation": 63.49958058728168
+      },
+      {
+        "levelId": 1771706,
+        "name": "T.O. PARAPET (OLD HIDE THIS LEVEL)",
+        "elevation": 65.332913920615
+      },
+      {
+        "levelId": 7717565,
+        "name": "T.O. BEAM",
+        "elevation": 67.33282155841835
+      }
+    ]
+  },
+  "assertionResults": [
+    {
+      "assertion": {
+        "type": "successEquals"
+      },
+      "passed": true,
+      "expected": true,
+      "actual": true,
+      "message": "Success check passed"
+    },
+    {
+      "assertion": {
+        "type": "noError"
+      },
+      "passed": true,
+      "actual": null,
+      "message": "No errors"
+    }
+  ],
+  "evidence": {
+    "createdElementIds": [],
+    "modifiedElementIds": [],
+    "stateChange": {
+      "before": {
+        "timestamp": "2025-12-26T14:14:41.9964607-08:00",
+        "projectName": "512_CLEMATIS-2.0006",
+        "elementCounts": {
+          "Walls": 2907,
+          "Doors": 649,
+          "Windows": 280,
+          "Rooms": 1172,
+          "Views": 1832,
+          "Sheets": 360
+        },
+        "activeViewId": 3938458
+      },
+      "after": {
+        "timestamp": "2025-12-26T14:14:42.7740272-08:00",
+        "projectName": "512_CLEMATIS-2.0006",
+        "elementCounts": {
+          "Walls": 2907,
+          "Doors": 649,
+          "Windows": 280,
+          "Rooms": 1172,
+          "Views": 1832,
+          "Sheets": 360
+        },
+        "activeViewId": 3938458
+      }
+    }
+  }
+}

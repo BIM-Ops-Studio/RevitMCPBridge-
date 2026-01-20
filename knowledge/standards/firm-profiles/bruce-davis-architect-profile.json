@@ -1,0 +1,96 @@
+{
+  "firmId": "bruce-davis-architect",
+  "firmName": "Bruce Davis Architect",
+  "description": "Multi-state healthcare and institutional architecture",
+  "sourceProject": null,
+  "extractedAt": null,
+  "status": "skeleton",
+
+  "detection": {
+    "pathPatterns": ["BD-Architect", "BDA", "Bruce Davis"],
+    "titleBlockFamilies": [],
+    "projectNumberPrefix": "BDA",
+    "projectInfoPatterns": {
+      "author": "Bruce Davis",
+      "organizationName": "BD Architect"
+    }
+  },
+
+  "sheetNumbering": {
+    "pattern": "A-#-#",
+    "examples": ["A-1-0", "A-1-1", "A-2-0", "A-5-4"],
+    "disciplines": {
+      "A": "Architectural",
+      "S": "Structural",
+      "M": "Mechanical",
+      "E": "Electrical",
+      "P": "Plumbing"
+    },
+    "categories": {
+      "A-0": "Cover Sheet",
+      "A-1": "Site Plan / Floor Plans",
+      "A-2": "Roof Plans / Details",
+      "A-3": "Elevations",
+      "A-4": "Building Sections",
+      "A-5": "Wall Sections / Details",
+      "A-6": "Interior Elevations",
+      "A-7": "Schedules",
+      "A-8": "Enlarged Plans",
+      "A-9": "Typical Details",
+      "A-10": "Partition Types"
+    },
+    "notes": "Two-tier numbering system for large projects"
+  },
+
+  "textTypes": {
+    "primary": {
+      "notes": {"font": "Arial", "size": "3/32\""},
+      "headers": {"font": "Arial", "size": "3/16\""},
+      "titles": {"font": "Arial", "size": "1/4\""},
+      "sheetTitles": {"font": "Arial", "size": "3/8\""}
+    }
+  },
+
+  "dimensionTypes": {
+    "default": null,
+    "casework": null
+  },
+
+  "viewTemplates": {
+    "floorPlan": null,
+    "enlargedPlan": null,
+    "rcp": null,
+    "elevation": null,
+    "section": null
+  },
+
+  "familyNaming": {
+    "prefixes": {},
+    "convention": "To be extracted"
+  },
+
+  "titleBlocks": [],
+
+  "projectTypes": [
+    "healthcare",
+    "institutional",
+    "commercial"
+  ],
+
+  "specializations": {
+    "healthcare": {
+      "fgiCompliance": true,
+      "lifeSafetyPlans": true,
+      "equipmentPlanning": true
+    }
+  },
+
+  "extractionNeeded": [
+    "Open a BDA project in Revit",
+    "Run getTextTypes to extract text styles",
+    "Run getDimensionTypes to extract dimension types",
+    "Run getViewTemplates to extract view templates",
+    "Analyze sheet numbering from getSheets",
+    "Update this profile with extracted data"
+  ]
+}

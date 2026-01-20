@@ -1,0 +1,144 @@
+{
+  "firmId": "arky",
+  "firmName": "ARKY",
+  "description": "South Florida residential and multi-family architecture",
+  "sourceProject": "GOULDS TOWER-1",
+  "extractedAt": "2026-01-17",
+
+  "detection": {
+    "pathPatterns": ["ARKY", "01 - ARKY"],
+    "titleBlockFamilies": ["ARKY - Title Block", "ARKY - Title Block-MIA"],
+    "projectInfoPatterns": {
+      "author": null,
+      "organizationName": null
+    }
+  },
+
+  "sheetNumbering": {
+    "pattern": "A-#.#",
+    "examples": ["A-0.0", "A-1.0", "A-2.1", "A-9.1"],
+    "disciplines": {
+      "A": "Architectural",
+      "LP": "Landscape",
+      "C": "Civil"
+    },
+    "categories": {
+      "A-0": "Cover and General",
+      "A-1": "Site Plan",
+      "A-2": "Floor Plans / RCP",
+      "A-3": "Elevations",
+      "A-4": "Sections",
+      "A-5": "Wall Sections",
+      "A-6": "Stairs / Details",
+      "A-7": "Schedules",
+      "A-8": "Window Details",
+      "A-9": "Enlarged Unit Plans",
+      "A-10": "Partition Types / Details"
+    }
+  },
+
+  "textTypes": {
+    "primary": {
+      "notes": {"font": "Arial", "size": "3/32\"", "styleName": "3/32\" Arial"},
+      "headers": {"font": "Arial", "size": "3/16\"", "styleName": "3/16\" Arial"},
+      "titles": {"font": "Arial", "size": "1/4\"", "styleName": "1/4\" Arial"},
+      "sheetTitles": {"font": "Arial", "size": "3/8\"", "styleName": "3/8\" Arial"}
+    },
+    "alternate": {
+      "notes": {"font": "Elevations BB", "size": "5/64\"", "styleName": "Elevations BB 5/64\""},
+      "casework": {"font": "Elevations BB", "size": "3/32\"", "styleName": "Elevations BB 3/32\""}
+    },
+    "architectural": {
+      "font": "ARchitxt",
+      "sizes": ["3/32\"", "5/64\""]
+    }
+  },
+
+  "dimensionTypes": {
+    "default": "Linear - 3/32\" ARchitxt",
+    "casework": "GSP 3/32\" CASEWORK",
+    "standard": "GSP 3/32\" STANDARD",
+    "small": "GSP 5/64\" (1/8\")"
+  },
+
+  "viewTemplates": {
+    "floorPlan": "Architectural Plan",
+    "enlargedPlan": "Enlarged Floor Plan",
+    "overallPlan": "Overall Floor Plan",
+    "rcp": "Architectural Reflected Ceiling Plan",
+    "elevation": "Architectural Elevation",
+    "section": "Architectural Section",
+    "buildingSection": "Building Sections",
+    "wallSection": "Wall Sections",
+    "presentation3D": "Architectural Presentation 3D",
+    "lifeSafety": "Overall Life Safety Plan"
+  },
+
+  "familyNaming": {
+    "prefixes": {
+      "casework": "CA-",
+      "doors": "DR-",
+      "plumbingFixtures": "PF-",
+      "furniture": "FN-",
+      "genericModels": "GM-",
+      "lightingFixtures": "LF-",
+      "mechanicalEquipment": "ME-",
+      "specialtyEquipment": "SE-",
+      "tags": "TAG-",
+      "symbols": "SYM-"
+    },
+    "detailItems": {
+      "convention": "CSI Division prefix",
+      "examples": [
+        "04-CMU-2 Core-Section",
+        "05-Structural Stud-Section",
+        "06-FRAMING-WOOD-Section",
+        "07-INSULATION-RIGID",
+        "08-DOOR_FRAME_WOOD",
+        "09-FRAMING_STUD"
+      ]
+    }
+  },
+
+  "annotationSymbols": {
+    "keynotes": "Keynote Tag",
+    "roomTags": ["TAG-ROOM", "TAG-ROOM - NAME AND AREA"],
+    "doorTags": ["TAG-DOOR", "Door Tag-ARC"],
+    "windowTags": ["Window Tag"],
+    "elevationMarks": ["ELEVATION_MARK_INT_GSP", "ELEVATION_MARK_EXT GSP"],
+    "sectionHeads": ["SECTION HEAD-GSP", "SECTION HEAD-GSP1"],
+    "calloutHeads": ["CALLOUT 3/8\" DIA", "Callout Head"]
+  },
+
+  "titleBlocks": [
+    {
+      "name": "ARKY - Title Block",
+      "size": "24x36",
+      "use": "Standard projects"
+    },
+    {
+      "name": "ARKY - Title Block-MIA",
+      "size": "24x36",
+      "use": "Miami-Dade projects"
+    },
+    {
+      "name": "THG 24X36",
+      "size": "24x36",
+      "use": "Alternate"
+    }
+  ],
+
+  "projectTypes": [
+    "single-family",
+    "multi-family",
+    "apartment",
+    "mixed-use"
+  ],
+
+  "statistics": {
+    "textTypeCount": 89,
+    "dimensionTypeCount": 63,
+    "viewTemplateCount": 33,
+    "loadedFamilyCount": 515
+  }
+}

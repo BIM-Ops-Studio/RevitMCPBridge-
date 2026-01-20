@@ -1,0 +1,160 @@
+﻿{
+    "scale":  32,
+    "name":  "TYPICAL CHAIN LINK FENCE",
+    "id":  1741991,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  {
+                                              "typeId":  null,
+                                              "family":  "01-Break Line-Medium",
+                                              "location":  {
+                                                               "y":  0.0,
+                                                               "x":  54.3108
+                                                           },
+                                              "type":  "Break Line"
+                                          },
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  32.3132
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  37.6577
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CORNER, END, OR PULL POST\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  32.3132
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  37.1901
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "POST FOOTING \\rCONCRETE FILLED\\r2500 PSI (MIN.)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  32.3132
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  37.6577
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TENSION\\rBANDS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  32.3132
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  37.6577
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TERMINAL\\rPOST TOP\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  42.7591
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "LINE POSTS TO BE EQUALLY SPACED\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  43.2652
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  47.6105
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TIE WIRES\\rOR CLIPS (TYP.)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  43.2652
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  41.6846
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TOP RAIL OR TENSION WIRE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  44.4297
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  47.416
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONCRETE\\rBASE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  48.9679
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  47.8795
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "8\" OR 12\" DIA.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  51.0506
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  48.4153
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CHAIN-LINK\\rFABRIC\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  51.0506
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  49.3365
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BOTTOM OF\\rCHAIN-LINK FABRIC\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  528,
+                     "extractedAt":  "2025-12-28 00:18:39",
+                     "regionCount":  0,
+                     "componentCount":  1,
+                     "textCount":  11
+                 }
+}

@@ -1,0 +1,199 @@
+﻿{
+    "scale":  16,
+    "name":  "TYPICAL SWALE DETAIL",
+    "id":  1742599,
+    "elements":  {
+                     "filledRegions":  {
+                                           "pattern":  null,
+                                           "typeName":  null,
+                                           "bounds":  {
+                                                          "minX":  20.0728,
+                                                          "maxX":  22.0928,
+                                                          "minY":  0.0,
+                                                          "maxY":  0.0
+                                                      }
+                                       },
+                     "detailLines":  [
+                                         {
+                                             "length":  2.4320,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  19.6008
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  17.1688
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5352,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  20.1048
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  19.6008
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.1126,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  21.1048
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  20.1048
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.1082,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  22.0968
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  21.1048
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5344,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  22.6008
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  22.0968
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.4375,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  25.0383
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  22.6008
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0090,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  23.6008
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  23.6008
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0111,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  18.6008
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.6008
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0138,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  22.0830
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  22.0968
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0109,
+                                             "style":  "Line-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  21.0939
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  21.1048
+                                                       }
+                                         },
+                                         {
+                                             "length":  6.0,
+                                             "style":  "DASH-1 - 1/16\"",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  24.1248
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  18.1248
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  19.8161
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "1:5\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  20.5367
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "2:1\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  21.3296
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "2:1\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  22.1873
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "1:5\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  11,
+                     "extractedAt":  "2025-12-28 00:18:53",
+                     "regionCount":  1,
+                     "componentCount":  1,
+                     "textCount":  4
+                 }
+}

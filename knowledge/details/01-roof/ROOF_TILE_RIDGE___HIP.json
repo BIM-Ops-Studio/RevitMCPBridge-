@@ -1,0 +1,280 @@
+﻿{
+    "scale":  8,
+    "name":  "ROOF TILE RIDGE / HIP",
+    "id":  1739834,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  13.2511,
+                                                              "maxX":  15.6494,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  13.9376,
+                                                              "maxX":  14.9630,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  14.1488,
+                                                              "maxX":  14.7514,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  13.1939,
+                                                              "maxX":  15.7066,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  14.6535,
+                                                              "maxX":  16.0669,
+                                                              "minY":  14.4884,
+                                                              "maxY":  14.4884
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.8337,
+                                                              "maxX":  14.2470,
+                                                              "minY":  14.4884,
+                                                              "maxY":  14.4884
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  14.2102
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  14.2317
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  14.6903
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  14.6688
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2300,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  13.3149
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  14.4503
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2991,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  14.4503
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  13.2511
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2991,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  13.2511
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  14.4503
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2991,
+                                             "style":  "Waterproofing Membrane",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  14.4503
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  15.6494
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2991,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  15.6494
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  14.4503
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2459,
+                                             "style":  "01-Line-Fine",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  14.4503
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  15.6004
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2991,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  13.2511
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  14.4503
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.2991,
+                                             "style":  "02-Line-Very Thin",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  14.4503
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  15.6494
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  15.5244
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  13.3149
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.333
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  14.3674
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "MORTAR\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.333
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  13.8763
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONCRETE TILE ROOF\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.333
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  13.774
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLYWOOD ROOF SHEATHING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.333
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  14.8191
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "ENGINEERED WOOD ROOF TRUSSES\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.333
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  13.5596
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PEEL \u0026 STICK MEMBRANE UNDERLAYMENT\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  10,
+                     "extractedAt":  "2025-12-28 00:16:43",
+                     "regionCount":  6,
+                     "componentCount":  8,
+                     "textCount":  5
+                 }
+}

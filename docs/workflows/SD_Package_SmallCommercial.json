@@ -1,0 +1,317 @@
+{
+  "workflowType": "SD_Package",
+  "name": "Schematic Design Package - Small Commercial Interior",
+  "description": "Conceptual design deliverable for client review and design approval",
+  "version": "1.0",
+  "projectTypes": ["SmallCommercial", "CommercialInterior", "TenantImprovement"],
+  "buildingCodes": ["IBC_2024", "FBC_2023"],
+  "codeVersions": {
+    "IBC": "2024 (Latest)",
+    "FBC": "8th Edition 2023 (Latest)",
+    "ADA": "2010 with 2023 Updates",
+    "NFPA": "101-2024"
+  },
+  "estimatedTime": "3-5 minutes",
+  "author": "Claude AI - Autonomous Architectural Agent",
+
+  "phases": [
+    {
+      "name": "Phase 1: Project Setup & Concept",
+      "description": "Initialize project and verify conceptual requirements",
+      "tasks": [
+        {
+          "id": "verify_project_info",
+          "description": "Verify basic project information",
+          "method": "getProjectInfo",
+          "validation": {
+            "required_fields": ["ProjectName", "ProjectNumber", "ProjectAddress"]
+          },
+          "autonomous_decision": "If missing, create placeholder values for SD phase"
+        },
+        {
+          "id": "verify_levels",
+          "description": "Check building levels are defined",
+          "method": "custom",
+          "autonomous_decision": "Verify levels exist, create typical levels if missing"
+        },
+        {
+          "id": "create_project_data_sheet",
+          "description": "Create project data sheet",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "A0.0",
+            "sheetName": "Project Data & Concept"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 2: Space Programming",
+      "description": "Define program and space requirements",
+      "tasks": [
+        {
+          "id": "create_conceptual_plans",
+          "description": "Create conceptual floor plans",
+          "method": "createFloorPlan",
+          "autonomous_decision": "One plan per level, simplified view for concept"
+        },
+        {
+          "id": "place_rooms_approximate",
+          "description": "Place room elements for programming",
+          "method": "custom",
+          "autonomous_decision": "Create rooms based on program, approximate sizes"
+        },
+        {
+          "id": "create_area_plan",
+          "description": "Create area plan for program verification",
+          "method": "createAreaPlan",
+          "autonomous_decision": "Use for gross area calculations"
+        },
+        {
+          "id": "create_program_schedule",
+          "description": "Create space program schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Rooms",
+            "scheduleName": "Space Program"
+          }
+        },
+        {
+          "id": "add_program_fields",
+          "description": "Add program schedule fields",
+          "method": "addScheduleField",
+          "fields": ["Number", "Name", "Area", "Occupancy Type", "Occupant Load"],
+          "autonomous_decision": "Focus on area and occupancy for SD phase"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 3: Conceptual Layouts",
+      "description": "Develop conceptual floor plan layouts",
+      "tasks": [
+        {
+          "id": "tag_key_rooms",
+          "description": "Tag major spaces only",
+          "method": "batchTagRooms",
+          "autonomous_decision": "Tag primary spaces, skip minor rooms for SD clarity"
+        },
+        {
+          "id": "add_circulation",
+          "description": "Show circulation paths",
+          "method": "custom",
+          "autonomous_decision": "Add simple circulation diagram, verify code widths"
+        },
+        {
+          "id": "preliminary_code_check",
+          "description": "Run preliminary code compliance",
+          "method": "custom",
+          "autonomous_decision": "Check egress requirements, corridor widths, occupancy loads"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 4: Conceptual Elevations",
+      "description": "Create simple elevation studies",
+      "tasks": [
+        {
+          "id": "create_key_elevations",
+          "description": "Create 2-4 key elevations",
+          "method": "createElevation",
+          "autonomous_decision": "Primary elevations only, simplified detail level"
+        },
+        {
+          "id": "show_ceiling_heights",
+          "description": "Indicate ceiling heights",
+          "method": "custom",
+          "autonomous_decision": "Add dimensions for key vertical dimensions"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 5: Concept Sections",
+      "description": "Create conceptual sections",
+      "tasks": [
+        {
+          "id": "create_building_section",
+          "description": "Create 1-2 building sections",
+          "method": "createSection",
+          "autonomous_decision": "Show vertical relationships, simplified details"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 6: Preliminary Schedules",
+      "description": "Create basic schedules for concept review",
+      "tasks": [
+        {
+          "id": "create_door_schedule_simple",
+          "description": "Create simplified door schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Doors",
+            "scheduleName": "Door Schedule - Preliminary"
+          }
+        },
+        {
+          "id": "add_door_fields_basic",
+          "description": "Add basic door information",
+          "method": "addScheduleField",
+          "fields": ["Mark", "Width", "Height", "Type"],
+          "autonomous_decision": "Basic info only for SD, full specs come in DD"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 7: Concept Sheets",
+      "description": "Organize SD presentation set",
+      "tasks": [
+        {
+          "id": "create_cover_sheet",
+          "description": "Create SD cover sheet",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "SD-0.1",
+            "sheetName": "Schematic Design Cover"
+          }
+        },
+        {
+          "id": "create_plan_sheet",
+          "description": "Create sheet for floor plans",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "SD-1.0",
+            "sheetName": "Conceptual Floor Plans"
+          }
+        },
+        {
+          "id": "create_elevation_sheet",
+          "description": "Create sheet for elevations",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "SD-2.0",
+            "sheetName": "Conceptual Elevations"
+          }
+        },
+        {
+          "id": "create_schedule_sheet",
+          "description": "Create sheet for program and schedules",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "SD-9.0",
+            "sheetName": "Space Program & Schedules"
+          }
+        },
+        {
+          "id": "place_views_on_sheets",
+          "description": "Place all views on sheets",
+          "method": "placeViewOnSheet",
+          "autonomous_decision": "Arrange views for clear concept presentation"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 8: Design Options Documentation",
+      "description": "Document design alternatives if applicable",
+      "tasks": [
+        {
+          "id": "check_design_options",
+          "description": "Check if design options exist",
+          "method": "custom",
+          "autonomous_decision": "If options exist, create comparison views"
+        },
+        {
+          "id": "create_options_comparison",
+          "description": "Create design options comparison if needed",
+          "method": "custom",
+          "autonomous_decision": "Show alternatives side-by-side for client review"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 9: Code Analysis Preliminary",
+      "description": "Preliminary code compliance summary",
+      "tasks": [
+        {
+          "id": "calculate_occupancy_loads",
+          "description": "Calculate preliminary occupancy loads",
+          "method": "custom",
+          "autonomous_decision": "Use BuildingCodeKnowledge to calculate per IBC Table 1004.5"
+        },
+        {
+          "id": "verify_egress_concept",
+          "description": "Verify egress requirements are met",
+          "method": "custom",
+          "autonomous_decision": "Check number of exits, travel distances per IBC"
+        },
+        {
+          "id": "create_code_summary",
+          "description": "Create code compliance summary",
+          "method": "custom",
+          "autonomous_decision": "Document key code requirements and compliance status"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 10: SD Quality Control",
+      "description": "Final QC for concept presentation",
+      "tasks": [
+        {
+          "id": "verify_all_views_placed",
+          "description": "Verify all views on sheets",
+          "method": "custom",
+          "autonomous_decision": "Check no orphaned views"
+        },
+        {
+          "id": "verify_sheet_completeness",
+          "description": "Verify SD sheet set complete",
+          "method": "getAllSheets",
+          "autonomous_decision": "Verify all required SD sheets present"
+        },
+        {
+          "id": "check_presentation_quality",
+          "description": "Verify presentation quality",
+          "method": "custom",
+          "autonomous_decision": "Check view scales, annotations visible, clean presentation"
+        },
+        {
+          "id": "verify_titleblock_info",
+          "description": "Verify titleblock information",
+          "method": "custom",
+          "autonomous_decision": "Check project name, date, SD phase designation"
+        }
+      ]
+    }
+  ],
+
+  "completion_criteria": {
+    "required_sheets": [
+      "Cover Sheet",
+      "Conceptual Floor Plans",
+      "Conceptual Elevations",
+      "Space Program & Schedules"
+    ],
+    "required_schedules": [
+      "Space Program",
+      "Door Schedule - Preliminary"
+    ],
+    "code_compliance": "Preliminary requirements verified",
+    "min_quality_score": 90
+  },
+
+  "autonomous_behaviors": {
+    "error_handling": "Flag issues for design development, don't block SD completion",
+    "decision_making": "Make conceptual design decisions, flag structural/critical items",
+    "code_compliance": "Verify major code requirements, detailed check in DD/CD",
+    "quality_standards": "Client presentation quality, not construction documentation",
+    "design_options": "Document alternatives when present for client decision"
+  }
+}

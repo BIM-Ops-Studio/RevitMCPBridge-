@@ -1,0 +1,57 @@
+{
+  "sector": "multifamily",
+  "scores": {
+    "pack_coverage": 100.0,
+    "quality_score": 75.0,
+    "confidence": 87.5
+  },
+  "checks": {
+    "total": 8,
+    "passed": 7,
+    "blockers": [],
+    "warnings": [
+      {
+        "check_id": "TAG_DOORS",
+        "description": "Doors Mark coverage: 85.4%",
+        "passed": false,
+        "check_type": "CheckType.EVIDENCE",
+        "details": "649 total, 554 with Mark",
+        "severity": "warning"
+      }
+    ]
+  },
+  "human_tasks": [
+    {
+      "type": "create_sheet",
+      "sheet_number": "G0.01",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "sheet_number": "G0.02",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "sheet_number": "G0.03",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "sheet_number": "A1.0.1",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "sheet_number": "A1.0.2",
+      "priority": "required"
+    },
+    {
+      "type": "create_sheet",
+      "sheet_number": "A1.0.3",
+      "priority": "required"
+    }
+  ],
+  "ready_for_permit": true,
+  "timestamp": "2025-12-15T01:23:13.278023"
+}

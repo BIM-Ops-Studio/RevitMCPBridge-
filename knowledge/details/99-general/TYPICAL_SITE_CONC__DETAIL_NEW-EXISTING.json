@@ -1,0 +1,200 @@
+﻿{
+    "scale":  12,
+    "name":  "TYPICAL SITE CONC. DETAIL NEW-EXISTING",
+    "id":  1742543,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  6.1152,
+                                                              "maxX":  8.7819,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.7819,
+                                                              "maxX":  11.7109,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  6.1152,
+                                                              "maxX":  8.7819,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.7819,
+                                                              "maxX":  11.7109,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.5,
+                                             "style":  "1_DASH A (x0.5)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.2819
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.7819
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0417,
+                                             "style":  "1_DASH A (x0.5)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.2819
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.2819
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5,
+                                             "style":  "1_DASH A (x0.5)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.7819
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  9.2819
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5,
+                                             "style":  "1_DASH A (x0.5)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.2819
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.7819
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0417,
+                                             "style":  "1_DASH A (x0.5)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.2819
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.2819
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5,
+                                             "style":  "1_DASH A (x0.5)",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.7819
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.2819
+                                                       }
+                                         },
+                                         {
+                                             "length":  5.0208,
+                                             "style":  "Dash-3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  11.3236
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.3027
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.3652
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.1986
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  6.1056
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.0899
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "NEW MIN 3000PSI 6\" CONC.\\rDRIVEWAY, BROOM FINISH\\rW/ CJ @ 5\u0027 O.C. BOTH \\rDIRECTIONS.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.7223
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.0356
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "#4 REBAR DOWELL @ 24\" O.C., 6\" MIN.\\rEMBED, EPOXY INTO EXTG. CONC.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.7223
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.3785
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "EXTG. CONC.\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  7,
+                     "extractedAt":  "2025-12-28 00:18:45",
+                     "regionCount":  4,
+                     "componentCount":  6,
+                     "textCount":  3
+                 }
+}

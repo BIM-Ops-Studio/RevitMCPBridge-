@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "workflow": "spine_autopilot",
+  "version": "0.4",
+  "run_id": "81da979e",
+  "timestamp": "2025-12-15T17:35:15.724934+00:00",
+  "config": {
+    "sector": "multifamily",
+    "firm": null,
+    "max_iterations": 1
+  },
+  "autopilot": {
+    "iterations": 1,
+    "decision": "stopped",
+    "stop_reason": "Max iterations (1) reached",
+    "iteration_details": [
+      {
+        "iteration": 1,
+        "tasks": {
+          "planned": 6,
+          "executed": 6,
+          "succeeded": 1,
+          "skipped": 0
+        },
+        "gate_decision": "skipped",
+        "scores": {
+          "pack_coverage_pct": 100.0,
+          "quality_pct": 75.0,
+          "confidence_pct": 40.0
+        },
+        "delta": {
+          "created": {
+            "sheet": 1
+          },
+          "modified": {},
+          "resolved_gaps": 0,
+          "remaining_gaps": 1,
+          "severity_change": {
+            "blockers": 0,
+            "warnings": 0
+          }
+        },
+        "decision": "stopped",
+        "stop_reason": "Max iterations (1) reached"
+      }
+    ]
+  },
+  "final_scores": {
+    "pack_coverage_pct": 100.0,
+    "quality_pct": 75.0,
+    "confidence_pct": 40.0
+  },
+  "summary": {
+    "total_tasks_executed": 6,
+    "total_tasks_succeeded": 1,
+    "gaps_resolved": 0
+  }
+}

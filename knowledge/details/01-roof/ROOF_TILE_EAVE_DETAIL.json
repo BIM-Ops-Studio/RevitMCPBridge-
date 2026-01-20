@@ -1,0 +1,570 @@
+﻿{
+    "scale":  8,
+    "name":  "ROOF TILE EAVE DETAIL",
+    "id":  1739455,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.7470,
+                                                              "maxX":  11.0920,
+                                                              "minY":  14.8943,
+                                                              "maxY":  14.8943
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.9250,
+                                                              "maxX":  10.9875,
+                                                              "minY":  0.1032,
+                                                              "maxY":  0.1032
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.4038,
+                                                              "maxX":  11.0842,
+                                                              "minY":  0.0092,
+                                                              "maxY":  0.0092
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.6122,
+                                                              "maxX":  9.9903,
+                                                              "minY":  14.4884,
+                                                              "maxY":  14.4884
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  7.2538,
+                                                              "maxX":  10.7375,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.7375,
+                                                              "maxX":  10.8625,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.3625,
+                                                              "maxX":  9.4250,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.9562,
+                                                              "maxX":  9.1384,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.9562,
+                                                              "maxX":  9.1384,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.8625,
+                                                              "maxX":  10.9250,
+                                                              "minY":  0.1032,
+                                                              "maxY":  0.1032
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.4250,
+                                                              "maxX":  10.8625,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  7.5054,
+                                                              "maxX":  8.8836,
+                                                              "minY":  14.4884,
+                                                              "maxY":  14.4884
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  9.2165,
+                                                              "maxX":  9.5079,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  8.7374,
+                                                              "maxX":  9.3625,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.3844,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.8625
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.7375
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3163,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.8625
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.7375
+                                                       }
+                                         },
+                                         {
+                                             "length":  4.0625,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  7.4920
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  11.0011
+                                                       }
+                                         },
+                                         {
+                                             "length":  3.2708,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0,
+                                                         "x":  7.5236
+                                                     },
+                                             "start":  {
+                                                           "y":  0,
+                                                           "x":  10.3489
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0504,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.3990
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.3489
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.7031,
+                                             "style":  "1",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  11.0063
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.3990
+                                                       }
+                                         },
+                                         {
+                                             "length":  3.3381,
+                                             "style":  "3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  7.8541
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  10.7375
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5000,
+                                             "style":  "3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5284
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.0284
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.2917,
+                                             "style":  "3",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  8.5284
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.5284
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0625,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  11.0136
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  11.0614
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.3373,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  11.0136
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  11.0136
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0417,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  11.0184
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  11.0184
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.1213,
+                                             "style":  "Pen 03",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  10.8971
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  11.0184
+                                                       }
+                                         },
+                                         {
+                                             "length":  1.0,
+                                             "style":  "Pen 01",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  7.8379
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  8.8379
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5833,
+                                             "style":  "Pen 01",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  7.8379
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  7.8379
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.0707
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.0879
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-FRAMING-WOOD-Section-Stretch1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  9.2148
+                                                               },
+                                                  "type":  "2X"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "06-SHEATHING-Plywood-Section1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3/4\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  8.2413
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "12\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  8.5784
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "7\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8217
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.063
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SEE STRUCTURAL FOR BEAMS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.8217
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.3507
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SMOOTH STUCCO FINISH\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.1892
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.5363
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONCRETE ROOF TILE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.1892
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.6975
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "ENGINEERED WD. TRUSSES @ 24\" O.C.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.1892
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.3616
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "3/4\" PLYWOOD ROOF SHEATHING\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.1892
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.03
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TRUSS ANCHORS - SEE STRUCT DRAWINGS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.1892
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.7826
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. 2X SUB FASCIA\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.1892
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.1631
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PLYWOOD STOP FOR SPRAY FOAM INSULATION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.1892
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  9.1687
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "OVERLAP PER MANUF. SPEC\u0027S AND APPROVED NOA\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.1892
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.1928
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PEEL \u0026 STICK MEMBRANE UNDERLAYMENT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.8139
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.0205
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. MTL DRIP EDGE ON P.T. 1X\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.8139
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.9382
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1X PAINTED WOOD FASCIA\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  11.8139
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  10.487
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "STUCCO SOFFIT ON GALV.\\rLATH \u0026 PLYWOOD\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  15,
+                     "extractedAt":  "2025-12-28 00:16:27",
+                     "regionCount":  14,
+                     "componentCount":  20,
+                     "textCount":  15
+                 }
+}

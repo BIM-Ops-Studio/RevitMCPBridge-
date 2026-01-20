@@ -1,0 +1,174 @@
+﻿{
+    "scale":  8,
+    "name":  "WALL TYPE 3- TYP. CMU INTERIOR WALL",
+    "id":  1740406,
+    "elements":  {
+                     "filledRegions":  {
+                                           "pattern":  null,
+                                           "typeName":  null,
+                                           "bounds":  {
+                                                          "minX":  7.4230,
+                                                          "maxX":  8.8188,
+                                                          "minY":  0.0,
+                                                          "maxY":  0.0
+                                                      }
+                                       },
+                     "detailLines":  [
+                                         {
+                                             "length":  2.1042,
+                                             "style":  "4",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.3857
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  7.2815
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.3333,
+                                             "style":  "4",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.6148
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  7.2815
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.1303
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.1303
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CEILING_ACT_TEGULAR EDGE-STRETCH",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.4638
+                                                               },
+                                                  "type":  "3/4 STRETCH"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CEILING_ACT_SUSPENSION EDGE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.4221
+                                                               },
+                                                  "type":  "15/16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.1303
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.1303
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  7.12
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "INTERIOR\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  8.7353
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "INTERIOR\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4391
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  7.7696
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "EXPOSED CMU WITH BLOCK FILLER \u0026 PAINT BOTH SIDES\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4779
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.9291
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BOTTOM OF DECK\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4779
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.8248
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CEILING, REFER TO REFLECTED CEILING PLANS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.4779
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.3002
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "EXPOSED CMU OR CONCRETE WALL PER STRUCTURAL DRAWINGS\\rSEE INTERIOR FINISH DRAWINGS FOR PAINT\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  2,
+                     "extractedAt":  "2025-12-28 00:17:17",
+                     "regionCount":  1,
+                     "componentCount":  8,
+                     "textCount":  6
+                 }
+}

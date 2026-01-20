@@ -1,0 +1,80 @@
+﻿{
+    "scale":  8,
+    "name":  "STAIR - OUTER RAILING1",
+    "id":  2139289,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  6.3874,
+                                                              "maxX":  7.0148,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  6.3874,
+                                                              "maxX":  6.4082,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Medium",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.9942
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Small",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.635
+                                                               },
+                                                  "type":  "Small Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "01-Break Line-Small",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  6.635
+                                                               },
+                                                  "type":  "Small Break Line"
+                                              }
+                                          ],
+                     "textNotes":  {
+                                       "position":  {
+                                                        "y":  0.0,
+                                                        "x":  4.9538
+                                                    },
+                                       "leaderEnd":  {
+                                                         "y":  0.0,
+                                                         "x":  6.3891
+                                                     },
+                                       "hasLeader":  true,
+                                       "text":  "STEEL post welded to imbed plate OR OTHER ATTACHMENT BY RAILING ENGINEER\\r"
+                                   }
+                 },
+    "metadata":  {
+                     "lineCount":  28,
+                     "extractedAt":  "2025-12-28 00:23:13",
+                     "regionCount":  2,
+                     "componentCount":  5,
+                     "textCount":  1
+                 }
+}

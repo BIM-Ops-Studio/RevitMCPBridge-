@@ -1,0 +1,290 @@
+﻿{
+    "scale":  8,
+    "name":  "Interior Bearing Partition",
+    "id":  1864011,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  3044.8173,
+                                                              "maxX":  3044.9069,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  3044.2677,
+                                                              "maxX":  3046.0273,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  3044.2677,
+                                                              "maxX":  3046.0273,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Wallboard-Section2",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Wallboard-Section2",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Resilient Topset Base-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.5205
+                                                               },
+                                                  "type":  "4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Resilient Topset Base-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.1246
+                                                               },
+                                                  "type":  "4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line6",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.3383
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Break Line6",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.3077
+                                                               },
+                                                  "type":  "Break Line"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Dimension Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.4684
+                                                               },
+                                                  "type":  "2 x 4"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Dimension Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.4684
+                                                               },
+                                                  "type":  "2 x 4"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Dimension Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.4684
+                                                               },
+                                                  "type":  "2 x 4"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Wallboard-Section2",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Gypsum Wallboard-Section2",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Dimension Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.1767
+                                                               },
+                                                  "type":  "1 x 2"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Dimension Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  3045.5934
+                                                               },
+                                                  "type":  "1 x 2"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.5356
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BASE AS SCHEDULED\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.7927
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SUB-FLOOR AND FINISHED FLOOR\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.6442
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "ROOF TRUSS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.37
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DOUBLE 2X4 PT TOP PLATE SECURED TO BOTTOM OF EA. CEILING JOISTS W/ #12X5\" LONG WOOD SCREWS @ 16\" O.C. (TO MATCH CEILING JOIST SPACING)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.2886
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONTINUOUS 2X4 WOOD STUDS AT 16\" O.C.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.37
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "2X4  WOOD SILL PLATE SECURED TO FLOOR JOSTS W/ #12X5\" LONG WOOD SCREWS @ 16\" O.C. (TO MATCH FLOOR JOIST SPACING)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.5211
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONT. ACOUSTICAL SEALANT (BOTH SIDES)\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.5017
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "5/8\"  TYPE \u0027X\u0027 GYP. BD. BOTH SIDES SECURED WITH DRYWALL SCREWS AT 12\" O.C. \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.3357
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "USP \"A3\" CLIPS W/ (3) 10dX1.5\" NAILS EA. LEG\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  3046.0937
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  3045.3139
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "USP \"A3\" CLIPS W/ (3) 10dX1.5\" NAILS EA. LEG\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  24,
+                     "extractedAt":  "2025-12-28 00:21:30",
+                     "regionCount":  3,
+                     "componentCount":  16,
+                     "textCount":  10
+                 }
+}

@@ -1,0 +1,350 @@
+{
+  "project_name": "512 CLEMATIS",
+  "firm": "SOP",
+  "firm_note": "Determined from titleblock family names (TITLEBLOCK_SOP_36x24_2018). ARKY folder indicates client, not architect. SOP is the firm abbreviation in titleblock naming.",
+  "titleblock_families": ["TITLEBLOCK_SOP_36x24_2018", "TITLEBLOCK_SOP_36x24_1", "TITLEBLOCK_SOP_36x24_2020_SITEPLAN", "TITLEBLOCK_GSP_42x30"],
+  "extracted_at": "2026-01-17",
+  "project_type": "multi-family",
+  "statistics": {
+    "rooms": 694,
+    "views": 2370,
+    "sheets": 370,
+    "levels": 5
+  },
+  "room_analysis": {
+    "Unit": {"count": 280, "avg_area": 850, "samples": ["UNIT A", "UNIT B", "UNIT C", "UNIT D", "UNIT E"]},
+    "Stair": {"count": 20, "avg_area": 235, "samples": ["STAIR #1", "STAIR #2"]},
+    "Elevator": {"count": 10, "avg_area": 72, "samples": ["ELEVATOR E02"]},
+    "Circulation": {"count": 50, "avg_area": 150, "samples": ["CORRIDOR", "LOBBY"]},
+    "Amenity": {"count": 25, "avg_area": 500, "samples": ["FITNESS", "CLUB ROOM", "COVERED PATIO"]},
+    "Utility": {"count": 30, "avg_area": 60, "samples": ["ELEC", "TRASH", "MECH"]},
+    "Bathroom": {"count": 140, "avg_area": 55, "samples": ["BATHROOM TYPE A", "BATHROOM TYPE B"]},
+    "Kitchen": {"count": 140, "avg_area": 95, "samples": ["KITCHEN"]}
+  },
+  "view_analysis": {
+    "FloorPlan": {"count": 85, "samples": ["L1 - Architectural", "Overall Ground Floor Plan"]},
+    "CeilingPlan": {"count": 45, "samples": ["Ground Floor Ceiling Plan"]},
+    "Elevation": {"count": 32, "samples": ["North Elevation", "Partial Exterior Elevation"]},
+    "Section": {"count": 48, "samples": ["Building Section", "Wall Section"]},
+    "ThreeD": {"count": 25, "samples": ["3D View"]},
+    "Schedule": {"count": 315, "samples": ["Door Schedule", "Window Schedule"]},
+    "DraftingView": {"count": 450, "samples": ["Detail", "Interior Elevation"]}
+  },
+  "sheet_analysis": {
+    "CVR/GI: Cover/Index": {
+      "count": 3,
+      "sheets": [
+        {"num": "CVR", "name": "COVER SHEET"},
+        {"num": "GI.0.1", "name": "INDEX OF DRAWING VOL. 1"}
+      ]
+    },
+    "ALS: Life Safety": {
+      "count": 6,
+      "sheets": [
+        {"num": "ALS.0.1", "name": "CODE DATA, FHA NOTES AND GENERAL NOTES"},
+        {"num": "ALS.0.2", "name": "FHA DETAILS"},
+        {"num": "ALS.0.3", "name": "FHA DETAILS"},
+        {"num": "ALS.0.4", "name": "UL ASSEMBLIES"},
+        {"num": "ALS.1.1", "name": "LIFE SAFETY PLAN-GROUND FLOOR PLAN"},
+        {"num": "ALS.2.1", "name": "LIFE SAFETY PLAN-SECOND FLOOR PLAN"},
+        {"num": "ALS.3.1", "name": "LIFE SAFETY PLAN-THIRD FLOOR PLAN"},
+        {"num": "ALS.4.1", "name": "LIFE SAFTY PLAN-FOURTH & FIFTH FLOOR PLAN"}
+      ]
+    },
+    "SP: Site": {
+      "count": 1,
+      "sheets": [
+        {"num": "SP.0.1", "name": "OVERALL SITE PLAN"}
+      ]
+    },
+    "A1: Floor Plans": {
+      "count": 12,
+      "sheets": [
+        {"num": "A1.1.1", "name": "OVERALL GROUND FLOOR PLAN"},
+        {"num": "A1.1.2", "name": "OVERALL GROUND FLOOR DIMENSION PLAN"},
+        {"num": "A1.1.3", "name": "OVERALL GROUND FLOOR CEILING PLAN"},
+        {"num": "A1.2.1", "name": "OVERALL SECOND FLOOR PLAN"},
+        {"num": "A1.3.1", "name": "OVERALL THIRD FLOOR PLAN"},
+        {"num": "A1.4.1", "name": "OVERALL FOURTH & FIFTH FLOOR PLAN"}
+      ]
+    },
+    "A2: Roof": {
+      "count": 2,
+      "sheets": [
+        {"num": "A2.0.1", "name": "OVERALL ROOF PLAN"},
+        {"num": "A2.0.2", "name": "OVERALL ROOF DIMENSION PLAN"}
+      ]
+    },
+    "A3: Elevations": {
+      "count": 14,
+      "sheets": [
+        {"num": "A3.0.1", "name": "NORTH AND SOUTH EXTERIOR ELEVATIONS"},
+        {"num": "A3.0.2", "name": "WEST AND EAST EXTERIOR ELEVATIONS"},
+        {"num": "A3.1.1", "name": "PARTIAL EXTERIOR ELEVATION"},
+        {"num": "A3.1.8", "name": "PARTIAL EXTERIOR ELEVATION"}
+      ]
+    },
+    "A4: Building Sections": {
+      "count": 3,
+      "sheets": [
+        {"num": "A4.0.1", "name": "BUILDING SECTIONS"},
+        {"num": "A4.0.2", "name": "BUILDING SECTIONS"},
+        {"num": "A4.0.3", "name": "BUILDING SECTIONS"}
+      ]
+    },
+    "A5: Wall Sections": {
+      "count": 6,
+      "sheets": [
+        {"num": "A5.0.1", "name": "WALL SECTIONS"},
+        {"num": "A5.0.2", "name": "WALL SECTIONS"},
+        {"num": "A5.0.3", "name": "WALL SECTIONS"},
+        {"num": "A5.0.4", "name": "WALL SECTIONS"},
+        {"num": "A5.0.5", "name": "WALL SECTIONS"},
+        {"num": "A5.0.6", "name": "WALL SECTIONS"}
+      ]
+    },
+    "A6: Vertical Circulation": {
+      "count": 10,
+      "sheets": [
+        {"num": "A6.0.1", "name": "ELEVATOR ENLARGED PLANS"},
+        {"num": "A6.0.2", "name": "ELEVATOR SECTIONS"},
+        {"num": "A6.0.3", "name": "ELEVATOR DETAILS"},
+        {"num": "A6.1.1", "name": "STAIR 1 ENLARGED PLANS"},
+        {"num": "A6.2.1", "name": "STAIR 2 ENLARGED PLANS"},
+        {"num": "A6.3.1", "name": "STAIR DETAILS"},
+        {"num": "A6.4.1", "name": "TRASH ROOM PLANS AND SECTIONS"}
+      ]
+    },
+    "A7: Doors": {
+      "count": 3,
+      "sheets": [
+        {"num": "A7.0.1", "name": "DOOR SCHEDULE - COMMON AREAS"},
+        {"num": "A7.0.2", "name": "DOOR DETAILS"},
+        {"num": "A7.0.3", "name": "DOOR DETAILS"}
+      ]
+    },
+    "A8: Windows/Exterior Details": {
+      "count": 14,
+      "sheets": [
+        {"num": "A8.0.1", "name": "WINDOW, STOREFRONT AND CURTAIN WALL SCHEDULES"},
+        {"num": "A8.0.2", "name": "WINDOW DETAILS"},
+        {"num": "A8.0.3", "name": "STOREFRONT DETAILS"},
+        {"num": "A8.0.4", "name": "LOUVER DETAILS"},
+        {"num": "A8.1.1", "name": "ROOF DETAILS"},
+        {"num": "A8.1.2", "name": "ROOF DETAILS"},
+        {"num": "A8.2.1", "name": "EXTERIOR DETAILS - TERRACE"},
+        {"num": "A8.2.2", "name": "EXTERIOR DETAILS - TERRACE"},
+        {"num": "A8.2.3", "name": "EXTERIOR DETAILS - STUCCO"},
+        {"num": "A8.2.4", "name": "EXTERIOR DETAILS-MISC."},
+        {"num": "A8.2.5", "name": "EXTERIOR DETAILS - RAILINGS"},
+        {"num": "A8.6.1", "name": "SPA DETAILS"}
+      ]
+    },
+    "A9: Enlarged Plans": {
+      "count": 85,
+      "sheets": [
+        {"num": "A9.1.1", "name": "UNIT A ENLARGED/FLOOR PLAN AND DIMENSION PLAN"},
+        {"num": "A9.1.2", "name": "UNIT A ENLARGED/FINISH PLAN AND RCP"},
+        {"num": "A9.1.3", "name": "UNIT A INTERIOR ELEVATIONS"},
+        {"num": "A9.2.1", "name": "UNIT B ENLARGED/FLOOR PLAN AND DIMENSION PLAN"},
+        {"num": "A9.3.1", "name": "UNIT C ENLARGED/FLOOR PLAN"},
+        {"num": "A9.14.1", "name": "UNIT N ENLARGED/FLOOR PLAN"},
+        {"num": "A9.15.0", "name": "BATHROOM TYPE A"},
+        {"num": "A9.15.1", "name": "BATHROOM TYPE B"},
+        {"num": "A9.15.4", "name": "BATHROOM TYPE E"},
+        {"num": "A9.16.0", "name": "KITCHEN TYPES"},
+        {"num": "A9.17.1", "name": "GROUND FLOOR ELEVATOR LOBBY/MAIL"},
+        {"num": "A9.18.1", "name": "GROUND FLOOR LOBBY"},
+        {"num": "A9.19.1", "name": "GROUND FLOOR LEASING OFFICE"},
+        {"num": "A9.22.1", "name": "FITNESS ROOM ENLARGED PLAN"},
+        {"num": "A9.23.1", "name": "CLUB ROOM ENLARGED PLAN"},
+        {"num": "A9.24.1", "name": "COURTYARD ENLARGED PLAN"},
+        {"num": "A9.27.1", "name": "FINISH SCHEDULE- COMMON AREAS"}
+      ]
+    },
+    "A10: Interior Details": {
+      "count": 10,
+      "sheets": [
+        {"num": "A10.0.1", "name": "PARTITION TYPES"},
+        {"num": "A10.0.2", "name": "FRAMING DETAILS"},
+        {"num": "A10.1.1", "name": "CEILING & INTERIOR DETAILS"},
+        {"num": "A10.2.1", "name": "SHOWER DETAILS"},
+        {"num": "A10.3.1", "name": "MILLWORK DETAILS"}
+      ]
+    },
+    "S: Structural": {
+      "count": 15,
+      "sheets": [
+        {"num": "S1.1", "name": "FOUNDATION PLAN"},
+        {"num": "S1.2", "name": "2ND FLOOR FRAMING PLAN"},
+        {"num": "S2.1", "name": "NOTES & SCHEDULE"},
+        {"num": "S3.1", "name": "SECTIONS"}
+      ]
+    },
+    "M: Mechanical": {
+      "count": 12,
+      "sheets": [
+        {"num": "M0.00", "name": "MECHANICAL ABBREVIATIONS, NOTES & SYMBOLS"},
+        {"num": "M1.00", "name": "MECHANICAL PLAN - GROUND FLOOR"}
+      ]
+    },
+    "P: Plumbing": {
+      "count": 18,
+      "sheets": [
+        {"num": "P0.00", "name": "PLUMBING ABBREVIATIONS, NOTES AND SYMBOLS"},
+        {"num": "P1.01", "name": "PLUMBING PLAN - GROUND FLOOR"}
+      ]
+    },
+    "E: Electrical": {
+      "count": 25,
+      "sheets": [
+        {"num": "E0.00", "name": "ELECTRICAL ABBREVIATIONS, NOTES & SYMBOLS"},
+        {"num": "EP1.00", "name": "POWER PLAN - GROUND FLOOR"},
+        {"num": "EL1.00", "name": "LIGHTING PLAN - GROUND FLOOR"}
+      ]
+    },
+    "FP: Fire Protection": {
+      "count": 10,
+      "sheets": [
+        {"num": "FP0.00", "name": "FIRE PROTECTION ABBREVIATIONS"},
+        {"num": "FP1.00", "name": "FIRE PROTECTION - GROUND FLOOR"}
+      ]
+    },
+    "L: Landscape": {
+      "count": 12,
+      "sheets": [
+        {"num": "L1.0", "name": "TREE DISPOSITION"},
+        {"num": "L2.0", "name": "GROUND PLANTING PLAN"}
+      ]
+    },
+    "C: Civil": {
+      "count": 7,
+      "sheets": [
+        {"num": "C.1", "name": "TITLE SHEET"},
+        {"num": "C.3", "name": "SITE DEVELOPMENT PLAN"}
+      ]
+    }
+  },
+  "numbering_pattern": "Discipline.Category.Sheet (A1.1.1, ALS.2.1)",
+  "proposed_rules": [
+    {
+      "id": "UNIT_ENLARGED_PLANS",
+      "name": "Unit Enlarged Plans (Extended)",
+      "condition": "project_type = 'multi-family' AND unit_types > 1",
+      "action": "Create enlarged floor plan series for each unit type with sub-sheets",
+      "confidence": "HIGH",
+      "evidence": [
+        "A9.1.1: UNIT A ENLARGED/FLOOR PLAN (14 unit types: A-N)",
+        "A9.x.2: FINISH PLAN AND RCP for each unit",
+        "A9.x.3: INTERIOR ELEVATIONS for each unit"
+      ],
+      "details": {
+        "sub_sheets_per_unit": [".1 Floor/Dimension", ".2 Finish/RCP", ".3 Interior Elevations"],
+        "total_unit_sheets": 42
+      }
+    },
+    {
+      "id": "TYPICAL_FLOOR_GROUPING",
+      "name": "Floor Plan Grouping (Typical Floors)",
+      "condition": "Multiple identical floors exist",
+      "action": "Combine typical floors on single sheet",
+      "confidence": "HIGH",
+      "evidence": [
+        "A1.4.1: OVERALL FOURTH & FIFTH FLOOR PLAN",
+        "ALS.4.1: LIFE SAFTY PLAN-FOURTH & FIFTH FLOOR"
+      ]
+    },
+    {
+      "id": "LIFE_SAFETY_PLANS",
+      "name": "Life Safety as Separate Discipline",
+      "condition": "building_height > 3_stories OR FHA requirements",
+      "action": "Create ALS discipline prefix with code notes, FHA details, and per-floor plans",
+      "confidence": "HIGH",
+      "evidence": [
+        "ALS.0.1: CODE DATA, FHA NOTES",
+        "ALS.0.2-0.3: FHA DETAILS",
+        "ALS.0.4: UL ASSEMBLIES",
+        "ALS.1.1-4.1: Per-floor life safety plans"
+      ]
+    },
+    {
+      "id": "SECTION_ORGANIZATION",
+      "name": "Building Sections vs Wall Sections",
+      "condition": "Project requires section documentation",
+      "action": "Separate building sections (A4.x) from wall sections (A5.x)",
+      "confidence": "HIGH",
+      "evidence": {
+        "building": ["A4.0.1", "A4.0.2", "A4.0.3"],
+        "wall": ["A5.0.1", "A5.0.2", "A5.0.3", "A5.0.4", "A5.0.5", "A5.0.6"]
+      }
+    },
+    {
+      "id": "BATHROOM_KITCHEN_TYPES",
+      "name": "Bathroom and Kitchen Type Sheets",
+      "condition": "project has multiple standard bathroom/kitchen layouts",
+      "action": "Create dedicated sheets for each bathroom type and kitchen type",
+      "confidence": "HIGH",
+      "evidence": [
+        "A9.15.0: BATHROOM TYPE A",
+        "A9.15.1: BATHROOM TYPE B",
+        "A9.15.2: BATHROOM TYPE C",
+        "A9.15.3: BATHROOM TYPE D",
+        "A9.15.4: BATHROOM TYPE E",
+        "A9.16.0-A9.16.3: KITCHEN TYPES"
+      ]
+    },
+    {
+      "id": "AMENITY_ENLARGED_PLANS",
+      "name": "Amenity Space Enlarged Plans",
+      "condition": "project has amenity spaces (fitness, club room, lobby)",
+      "action": "Create enlarged plans for each amenity space",
+      "confidence": "HIGH",
+      "evidence": [
+        "A9.17.1: GROUND FLOOR ELEVATOR LOBBY/MAIL",
+        "A9.18.1: GROUND FLOOR LOBBY",
+        "A9.19.1: GROUND FLOOR LEASING OFFICE",
+        "A9.22.1: FITNESS ROOM ENLARGED PLAN",
+        "A9.23.1: CLUB ROOM ENLARGED PLAN",
+        "A9.24.1: COURTYARD ENLARGED PLAN"
+      ]
+    },
+    {
+      "id": "PARTIAL_ELEVATIONS",
+      "name": "Partial Exterior Elevations",
+      "condition": "building has complex facade requiring detail",
+      "action": "Create partial elevation sheets at larger scale",
+      "confidence": "HIGH",
+      "evidence": [
+        "A3.1.1 through A3.1.8: PARTIAL EXTERIOR ELEVATION (8 sheets)"
+      ]
+    },
+    {
+      "id": "MULTI_DISCIPLINE_INTEGRATION",
+      "name": "Full Multi-Discipline Sheet Set",
+      "condition": "project = construction documents phase",
+      "action": "Include full MEP, structural, civil, landscape disciplines",
+      "confidence": "HIGH",
+      "evidence": [
+        "S1-S3: Structural (15 sheets)",
+        "M0-M7: Mechanical (12 sheets)",
+        "P0-P7: Plumbing (18 sheets)",
+        "E0-E7: Electrical (25 sheets)",
+        "FP0-FP7: Fire Protection (10 sheets)",
+        "L1-L5: Landscape (12 sheets)",
+        "C.1-C.7: Civil (7 sheets)"
+      ]
+    },
+    {
+      "id": "FLOOR_PLAN_SUB_TYPES",
+      "name": "Floor Plan Sub-Types",
+      "condition": "project = construction documents phase",
+      "action": "Create separate dimension plan and ceiling plan for each floor",
+      "confidence": "HIGH",
+      "evidence": [
+        "A1.1.1: OVERALL GROUND FLOOR PLAN",
+        "A1.1.2: OVERALL GROUND FLOOR DIMENSION PLAN",
+        "A1.1.3: OVERALL GROUND FLOOR CEILING PLAN"
+      ]
+    }
+  ]
+}

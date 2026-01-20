@@ -1,0 +1,82 @@
+{
+  "$schema": "standards-pack-v1",
+  "name": "ARKY_SFH_v1",
+  "description": "ARKY standards for Florida single-family residential",
+  "version": "1.0.0",
+  "firm": "ARKY",
+  "projectType": "SFH",
+
+  "titleBlock": {
+    "preferredPatterns": ["ARKY", "Custom"],
+    "excludePatterns": ["Autodesk", "11 x 17", "8.5 x 11"],
+    "fallbackSize": "24x36"
+  },
+
+  "sheetSize": {
+    "width": 36,
+    "height": 24,
+    "units": "inches"
+  },
+
+  "scales": {
+    "floorPlan": 48,
+    "ceilingPlan": 48,
+    "elevation": 48,
+    "section": 48,
+    "detail": 12,
+    "siteplan": 240
+  },
+
+  "cropStrategy": {
+    "method": "model_extents",
+    "marginFeet": 5.0,
+    "enabled": true
+  },
+
+  "sheetSet": {
+    "permitSkeleton": [
+      {"number": "A0.01", "name": "COVER SHEET", "viewType": null},
+      {"number": "A0.02", "name": "GENERAL NOTES", "viewType": null},
+      {"number": "A1.01", "name": "FIRST FLOOR PLAN", "viewType": "FloorPlan", "level": 1},
+      {"number": "A1.02", "name": "SECOND FLOOR PLAN", "viewType": "FloorPlan", "level": 2, "optional": true},
+      {"number": "A2.01", "name": "BUILDING ELEVATIONS", "viewType": "Elevation", "optional": true},
+      {"number": "A5.01", "name": "DOOR SCHEDULE", "viewType": "Schedule", "category": "Doors"}
+    ],
+    "fullCD": [
+      {"number": "A0.01", "name": "COVER SHEET"},
+      {"number": "A0.02", "name": "GENERAL NOTES"},
+      {"number": "A0.03", "name": "ABBREVIATIONS & SYMBOLS"},
+      {"number": "A1.01", "name": "FIRST FLOOR PLAN", "viewType": "FloorPlan", "level": 1},
+      {"number": "A1.02", "name": "SECOND FLOOR PLAN", "viewType": "FloorPlan", "level": 2, "optional": true},
+      {"number": "A1.03", "name": "ROOF PLAN", "viewType": "FloorPlan", "level": "roof", "optional": true},
+      {"number": "A2.01", "name": "EXTERIOR ELEVATIONS", "viewType": "Elevation"},
+      {"number": "A3.01", "name": "BUILDING SECTIONS", "viewType": "Section"},
+      {"number": "A4.01", "name": "WALL SECTIONS", "viewType": "Section"},
+      {"number": "A5.01", "name": "DOOR SCHEDULE", "viewType": "Schedule", "category": "Doors"},
+      {"number": "A5.02", "name": "WINDOW SCHEDULE", "viewType": "Schedule", "category": "Windows"},
+      {"number": "A5.03", "name": "ROOM FINISH SCHEDULE", "viewType": "Schedule", "category": "Rooms"}
+    ]
+  },
+
+  "naming": {
+    "viewPrefix": "ZZ_",
+    "schedulePattern": "{Category} Schedule",
+    "sheetNumberSuffix": "-{run_id:4}"
+  },
+
+  "levelMapping": {
+    "patterns": {
+      "level1": ["Level 1", "L1", "First Floor", "Ground", "1st Floor"],
+      "level2": ["Level 2", "L2", "Second Floor", "2nd Floor"],
+      "roof": ["Roof", "T.O. Roof", "Roof Level"]
+    }
+  },
+
+  "capabilities": {
+    "fallbacks": {
+      "scheduleViewport": "export_csv",
+      "legendViewport": "skip_with_warning",
+      "missingElevation": "create_or_skip"
+    }
+  }
+}

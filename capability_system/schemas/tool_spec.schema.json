@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://revitmcpbridge/schemas/tool_spec.schema.json",
+  "title": "Tool Specification",
+  "description": "Schema for proposing new MCP methods in RevitMCPBridge",
+  "type": "object",
+  "required": ["specVersion", "method", "inputs", "preconditions", "algorithm", "validation"],
+  "properties": {
+    "specVersion": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Schema version"
+    },
+    "method": {
+      "type": "object",
+      "required": ["name", "intent", "tier", "category"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-zA-Z0-9]*$",
+          "description": "Method name in camelCase"
+        },
+        "intent": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "One sentence describing what the method does"
+        },
+        "tier": {
+          "type": "integer",
+          "enum": [1, 2, 3],
+          "description": "1=Stable, 2=Beta, 3=Experimental"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "wall", "door_window", "room", "view", "sheet", "schedule",
+            "family", "parameter", "structural", "mep", "detail", "filter",
+            "material", "phase", "workset", "annotation", "document",
+            "selection", "geometry", "export", "import", "library", "capability"
+          ],
+          "description": "Method category for organization"
+        },
+        "relatedMethods": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Names of related existing methods"
+        }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["string", "int", "long", "double", "bool", "array", "object", "ElementId", "XYZ"]
+          },
+          "required": {"type": "boolean", "default": false},
+          "default": {},
+          "description": {"type": "string"},
+          "validation": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "max": {"type": "number"},
+              "pattern": {"type": "string"},
+              "enum": {"type": "array"}
+            }
+          }
+        }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "description": "Expected return values",
+      "properties": {
+        "success": {"type": "boolean"},
+        "data": {"type": "object"}
+      }
+    },
+    "preconditions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "Conditions that must be true before execution"
+    },
+    "algorithm": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "High-level steps the method performs"
+    },
+    "validation": {
+      "type": "object",
+      "required": ["successCriteria"],
+      "properties": {
+        "successCriteria": {
+          "type": "string",
+          "description": "How to verify the method succeeded"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Data to return as proof of success"
+        },
+        "assertions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {"type": "string", "enum": ["elementCreated", "countEquals", "parameterSet", "viewExists"]},
+              "target": {"type": "string"},
+              "expected": {}
+            }
+          }
+        }
+      }
+    },
+    "failureModes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "condition"],
+        "properties": {
+          "type": {"type": "string"},
+          "condition": {"type": "string"},
+          "recovery": {"type": "string"}
+        }
+      }
+    },
+    "apiDependencies": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Revit API classes/methods used"
+    },
+    "revitVersions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Supported Revit versions"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "proposedBy": {"type": "string"},
+        "proposedAt": {"type": "string", "format": "date-time"},
+        "approvedBy": {"type": "string"},
+        "approvedAt": {"type": "string", "format": "date-time"},
+        "implementedAt": {"type": "string", "format": "date-time"},
+        "triggeringTask": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

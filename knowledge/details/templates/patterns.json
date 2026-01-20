@@ -1,0 +1,194 @@
+{
+  "version": "1.0",
+  "createdAt": "2025-12-28",
+  "source": "AP Builder detail library extraction",
+
+  "detailComponentFamilies": {
+    "lumber": {
+      "family": "Nominal Cut Lumber-Section",
+      "types": ["1x3", "1x4", "2x4", "2x6", "2x8", "2x10", "2x12"],
+      "usage": "Framing, blocking, furring strips, fascia"
+    },
+    "plywood": {
+      "family": "Plywood-Section",
+      "types": ["3/8\"", "1/2\"", "5/8\"", "3/4\"", "19/32\""],
+      "usage": "Sheathing, roof deck, subflooring"
+    },
+    "gypsum": {
+      "family": "Gypsum Plaster-Section",
+      "types": ["1/2\"", "5/8\"", "3/4\""],
+      "usage": "Interior wall/ceiling finish"
+    },
+    "gypsumSheathing": {
+      "family": "Gypsum Sheathing-Section",
+      "types": ["1/2\"", "5/8\""],
+      "usage": "Exterior wall sheathing"
+    },
+    "rebar": {
+      "family": "Reinf Bar Section",
+      "types": ["#3", "#4", "#5", "#6"],
+      "usage": "Concrete reinforcement"
+    },
+    "breakLine": {
+      "family": "Break Line",
+      "types": ["Break Line"],
+      "usage": "Indicate continuous material"
+    },
+    "cmu": {
+      "family": "04-CMU-2 Core-Section",
+      "types": ["8\" CMU", "6\" CMU"],
+      "usage": "Masonry wall sections"
+    },
+    "insulation": {
+      "family": "07-INSULATION-RIGID",
+      "types": ["1\"", "2\"", "R-19"],
+      "usage": "Wall cavity, roof insulation"
+    }
+  },
+
+  "filledRegionPatterns": {
+    "concrete": "Solid - Black or Gray",
+    "earth": "Earth/Gravel pattern",
+    "insulation": "Diagonal lines or dots",
+    "wood": "Cross-hatch pattern",
+    "membrane": "Solid thin"
+  },
+
+  "lineStyles": {
+    "1": "Standard thin line",
+    "3": "Heavy line for emphasis",
+    "Pen 03": "Fine detail line",
+    "1_DASH B (x0.5)": "Hidden/beyond line",
+    "Medium Lines": "Medium weight"
+  },
+
+  "textNotePatterns": {
+    "withLeader": {
+      "format": "MATERIAL DESCRIPTION\\rDIMENSIONS\\rSPECIFICATION\\r",
+      "alignment": "left side of detail",
+      "spacing": "0.75-1.0 units vertical"
+    },
+    "withoutLeader": {
+      "format": "SLOPE/GRADE NOTATION\\r",
+      "placement": "above element"
+    }
+  },
+
+  "detailTemplates": {
+    "wallSection": {
+      "description": "Vertical wall section through exterior wall assembly",
+      "layers": [
+        {"name": "exterior finish", "component": "stucco or siding", "thickness": "3/4\""},
+        {"name": "sheathing", "component": "Gypsum Sheathing-Section", "thickness": "1/2\""},
+        {"name": "framing", "component": "Nominal Cut Lumber-Section", "size": "2x6 or 2x4"},
+        {"name": "insulation", "component": "batt or rigid", "rValue": "R-19 or R-13"},
+        {"name": "interior finish", "component": "Gypsum Plaster-Section", "thickness": "1/2\""}
+      ],
+      "annotations": [
+        "Exterior finish type",
+        "Wall framing size and spacing",
+        "Insulation R-value",
+        "Interior finish"
+      ]
+    },
+    "roofEave": {
+      "description": "Roof eave/overhang detail at wall top",
+      "elements": [
+        "Roof sheathing (plywood)",
+        "Fascia board (2x12)",
+        "Soffit (plywood with vent)",
+        "Blocking (1x3)",
+        "Drip edge metal",
+        "Roofing membrane/shingles"
+      ],
+      "annotations": [
+        "Roofing specification",
+        "Fascia size",
+        "Soffit vent spacing",
+        "Slope direction"
+      ]
+    },
+    "cmuWall": {
+      "description": "CMU masonry wall section",
+      "layers": [
+        {"name": "exterior", "component": "stucco", "thickness": "3/4\""},
+        {"name": "cmu", "component": "04-CMU-2 Core-Section", "size": "8\""},
+        {"name": "rebar", "component": "Reinf Bar Section", "size": "#5"},
+        {"name": "interior", "component": "furring + GWB", "thickness": "1\""}
+      ],
+      "annotations": [
+        "CMU size and type",
+        "Rebar size and spacing",
+        "Fill specification",
+        "Interior finish"
+      ]
+    },
+    "doorJamb": {
+      "description": "Door frame jamb section",
+      "elements": [
+        "Door frame",
+        "Shim space",
+        "Wall framing",
+        "Casing/trim"
+      ]
+    },
+    "windowSill": {
+      "description": "Window sill detail",
+      "elements": [
+        "Sill plate",
+        "Flashing",
+        "Subsill",
+        "Sheathing",
+        "Drip edge"
+      ]
+    },
+    "footing": {
+      "description": "Foundation footing section",
+      "elements": [
+        "Concrete footing",
+        "Rebar (horizontal and vertical)",
+        "CMU or concrete wall",
+        "Waterproofing",
+        "Gravel fill"
+      ],
+      "annotations": [
+        "Footing dimensions",
+        "Rebar size and spacing",
+        "Concrete strength"
+      ]
+    },
+    "stairPan": {
+      "description": "Pan stair tread/riser detail",
+      "elements": [
+        "Metal pan",
+        "Concrete fill",
+        "Nosing",
+        "Stringer"
+      ]
+    }
+  },
+
+  "coordinateNormalization": {
+    "method": "Subtract view crop region origin",
+    "offsetX": "from crop region min X",
+    "offsetZ": "from crop region min Z (used as Y in drafting)",
+    "roundTo": 4
+  },
+
+  "mcpMethods": {
+    "creation": [
+      "createDetailLineInDraftingView(viewId, startX, startY, endX, endY, lineStyle)",
+      "placeDetailComponent(viewId, familyName, typeName, x, y)",
+      "createFilledRegion(viewId, filledRegionTypeId, boundaryLoops)",
+      "createTextNote(viewId, text, x, y)",
+      "createTextNoteWithLeader(viewId, text, textX, textY, leaderEndX, leaderEndY)"
+    ],
+    "extraction": [
+      "getDetailLinesInViewVA(viewId)",
+      "getDetailComponentsInViewVA(viewId)",
+      "getFilledRegionsInView(viewId)",
+      "getTextNotePositions(viewId)",
+      "analyzeDetailView(viewId)"
+    ]
+  }
+}

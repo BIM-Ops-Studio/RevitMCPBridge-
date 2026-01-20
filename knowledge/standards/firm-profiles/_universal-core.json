@@ -1,0 +1,126 @@
+{
+  "profileVersion": "1.0",
+  "description": "Universal core standards - baseline for all firm profiles",
+
+  "sheetSizes": {
+    "default": "24x36",
+    "options": ["24x36", "30x42", "36x48"]
+  },
+
+  "textDefaults": {
+    "noteSize": "3/32\"",
+    "headerSize": "3/16\"",
+    "titleSize": "1/4\"",
+    "sheetTitleSize": "3/8\"",
+    "defaultFont": "Arial"
+  },
+
+  "dimensionDefaults": {
+    "textSize": "3/32\"",
+    "precision": "1/8\"",
+    "unitFormat": "feet-inches"
+  },
+
+  "requiredViewTemplates": [
+    "Architectural Plan",
+    "Architectural Elevation",
+    "Architectural Section",
+    "Reflected Ceiling Plan"
+  ],
+
+  "requiredSheetCategories": {
+    "residential": [
+      "Cover Sheet",
+      "Site Plan",
+      "Floor Plans",
+      "Elevations",
+      "Sections",
+      "Details",
+      "Schedules"
+    ],
+    "commercial": [
+      "Cover Sheet",
+      "General Notes",
+      "Code Analysis",
+      "Site Plan",
+      "Floor Plans",
+      "RCP",
+      "Elevations",
+      "Sections",
+      "Wall Sections",
+      "Enlarged Plans",
+      "Interior Elevations",
+      "Details",
+      "Schedules"
+    ],
+    "healthcare": [
+      "Cover Sheet",
+      "General Notes",
+      "Code Analysis",
+      "Life Safety Plans",
+      "Site Plan",
+      "Floor Plans",
+      "RCP",
+      "Elevations",
+      "Sections",
+      "Wall Sections",
+      "Enlarged Plans",
+      "Interior Elevations",
+      "Details",
+      "Equipment Plans",
+      "Schedules"
+    ]
+  },
+
+  "familyCategories": {
+    "doors": {
+      "required": ["Single-Flush", "Double-Flush", "Pocket", "Sliding"],
+      "optional": ["Bifold", "Overhead", "Storefront"]
+    },
+    "windows": {
+      "required": ["Fixed", "Double-Hung", "Casement", "Sliding"],
+      "optional": ["Awning", "Curtain Wall"]
+    },
+    "casework": {
+      "required": ["Base Cabinet", "Upper Cabinet", "Countertop"],
+      "optional": ["Tall Cabinet", "Vanity", "Shelving"]
+    },
+    "plumbingFixtures": {
+      "required": ["Toilet", "Sink-Lavatory", "Sink-Kitchen", "Tub/Shower"],
+      "optional": ["Urinal", "Drinking Fountain", "Bidet"]
+    },
+    "specialtyEquipment": {
+      "required": ["Range", "Refrigerator", "Dishwasher"],
+      "optional": ["Washer", "Dryer", "Microwave"]
+    }
+  },
+
+  "detailLibrary": {
+    "divisions": {
+      "03": "Concrete",
+      "04": "Masonry",
+      "05": "Metals",
+      "06": "Wood/Plastics",
+      "07": "Thermal/Moisture",
+      "08": "Doors/Windows",
+      "09": "Finishes",
+      "10": "Specialties"
+    }
+  },
+
+  "lineStyles": {
+    "required": [
+      "Thin Lines",
+      "Medium Lines",
+      "Wide Lines",
+      "Hidden",
+      "Centerline",
+      "Demolition"
+    ]
+  },
+
+  "phases": {
+    "standard": ["Existing", "New Construction"],
+    "renovation": ["Existing", "Demolition", "New Construction"]
+  }
+}

@@ -1,0 +1,309 @@
+﻿{
+    "scale":  8,
+    "name":  "MASONRY WALL - TYPE W1",
+    "id":  1881592,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  11.5102,
+                                                              "maxX":  12.1461,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  12.2815,
+                                                              "maxX":  12.3336,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  11.4477,
+                                                              "maxX":  11.5102,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  10.8229,
+                                                              "maxX":  12.8485,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  11.4477,
+                                                              "maxX":  12.8485,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "2-DashDense",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  12.3336
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  12.3336
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "2-DashDense",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  12.3171
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  12.3171
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "2-DashDense",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  12.3005
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  12.3005
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "2-DashDense",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  12.3336
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  12.3336
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "2-DashDense",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  12.3171
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  12.3171
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.0361,
+                                             "style":  "2-DashDense",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  12.3005
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  12.3005
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.8229
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE1",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  11.8229
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-Array-Metal Studs-Side",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "1 5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  12.2138
+                                                               },
+                                                  "type":  "1 5/8\" x 1 1/2\" 3"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  12.2138
+                                                               },
+                                                  "type":  "1 5/8\" x 1 1/2\" 3"
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.9951
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "MASONRY WALL \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.5575
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FLOOR/ROOF - REFER TO  STR\u0027L DWGS.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.224
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CONC. SLAB - REFER TO  STRuctural Drawings\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.7829
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "FILL ALL VOIDS BETWEEN CMU WALL AND SLAB ABOVE\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.2092
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1 5/8\" MTL STUD, CLIPPED TO CMU \\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.3048
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "5/8\" GYP. BD.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.1581
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SEMI-RIGID MINERAL WOOL INSULATION: 1 1/2\"\\rCONT. \u0026 1/2\" IN BETWEEN\\rFURRING STUDS = R-12\\rINSULATION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.3281
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SEALANT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  12.3248
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SEALANT\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  12.9302
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  11.472
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PORTLAND CEMENT PLASTER EXTERIOR FINISH - 3/8\" STRATCH COAT, 1/4\" BROWN COAT, 1/8\" FINISH COAT\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  6,
+                     "extractedAt":  "2025-12-28 00:21:52",
+                     "regionCount":  5,
+                     "componentCount":  11,
+                     "textCount":  10
+                 }
+}

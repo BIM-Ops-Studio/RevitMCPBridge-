@@ -1,0 +1,227 @@
+{
+  "project_name": "BETHESDA HOSPITAL EAST 2ND FLOOR RN STATION REFRESH",
+  "firm": "BD",
+  "firm_note": "Determined from titleblock family names (24 x 36 Border- BD, 24 x 36 Cover- BD). Folder also confirms: Bruce Davis Architect",
+  "titleblock_families": ["24 x 36 Border- BD", "24 x 36 Border- BD1", "24 x 36 Cover- BD", "Titleblock 11x17_BD Presentation Clean"],
+  "extracted_at": "2026-01-17",
+  "project_type": "healthcare",
+  "project_subtype": "renovation",
+  "statistics": {
+    "rooms": 34,
+    "views": 371,
+    "sheets": 59,
+    "levels": 1
+  },
+  "room_analysis": {
+    "Nurse Station": {"count": 3, "avg_area": 299, "samples": ["RN STATION (EAST) 2-100", "RN STATION (WEST) 2-101", "RN-MGR OFFICE 2-128"]},
+    "Utility": {"count": 4, "avg_area": 522, "samples": ["MECHANICAL ROOM 3-102", "FUTURE ELECTRICAL ROOM 3-103", "MECH. 2-117"]},
+    "Clean/Soiled": {"count": 2, "avg_area": 174, "samples": ["CLEAN WORKROOM 2-112", "SOILED WORKROOM 2-126"]},
+    "Medication": {"count": 1, "avg_area": 93, "samples": ["MEDS 2-111"]},
+    "Storage": {"count": 1, "avg_area": 153, "samples": ["EQUIP. STOR. 2-115"]},
+    "Office": {"count": 1, "avg_area": 204, "samples": ["CASE MGT. OFFICE 2-122"]},
+    "Other": {"count": 22, "avg_area": 172, "samples": ["COMMUNICATIONS CLOSET (TDR) 3-100", "COMMUNICATIONS CLOSET (TDR) 2-100"]}
+  },
+  "view_analysis": {
+    "DraftingView": {"count": 121, "samples": ["TYPICAL HEADER DETAIL", "TYP. ACOUSTICAL CEILING DETAIL", "DOOR HARDWARE LOCATIONS"]},
+    "Schedule": {"count": 78, "samples": ["DOOR SCHEDULE", "KEYNOTES - REFLECTED CEILING PLAN"]},
+    "Elevation": {"count": 62, "samples": ["East", "South", "North", "West"]},
+    "FloorPlan": {"count": 19, "samples": ["LEVEL 2 - EXISTING", "LEVEL 2 - DEMOLITION PLAN PHASE 1", "LEVEL 2 - NEW FLOOR PLAN"]},
+    "Legend": {"count": 15, "samples": ["LEGEND - PROJECT INFORMATION", "LEGEND - FLOOR PLAN", "KEY PLAN"]},
+    "CeilingPlan": {"count": 5, "samples": ["LEVEL 2 - CEILING PLAN", "LEVEL 2 - CEILING PLAN - DEMO", "LEVEL 2 - CEILING PLAN - NEW WORK"]},
+    "ThreeD": {"count": 4, "samples": ["RNWEST 3D View", "RN STATION EAST 3D View"]}
+  },
+  "sheet_analysis": {
+    "A0: Cover/General": {
+      "count": 2,
+      "sheets": [
+        {"num": "A000", "name": "COVER AND PROJECT INFORMATION"},
+        {"num": "A001", "name": "GENERAL NOTES AND SHEET INDEX"}
+      ]
+    },
+    "A1: Floor Plans": {
+      "count": 7,
+      "sheets": [
+        {"num": "A100", "name": "LEVEL 2 - DEMOLITION / PHASING PLANS"},
+        {"num": "A101", "name": "LEVEL 2- PHASING PLAN / NEW WORK"},
+        {"num": "A102", "name": "LEVEL 2 - NEW FLOOR PLAN"},
+        {"num": "A103", "name": "LEVEL 2 - NEW FLOOR PLAN - EQUIPMENT"},
+        {"num": "A104", "name": "LEVEL 2 - RCP PHASING PLAN"},
+        {"num": "A105", "name": "LEVEL 2 - REFLECTED CEILING PLAN"},
+        {"num": "A106", "name": "LEVEL 2 - FINISHES FLOOR PLANS"}
+      ]
+    },
+    "A4: Enlarged Plans": {
+      "count": 4,
+      "sheets": [
+        {"num": "A401", "name": "ENLARGED PLAN & INTERNAL ELEVATIONS"},
+        {"num": "A402", "name": "ENLARGED PLAN & INTERNAL ELEVATION"},
+        {"num": "A403", "name": "INTERNAL ELEVATIONS"},
+        {"num": "A404", "name": "ENLARGED PLAN & INTERNAL ELEVATIONS"}
+      ]
+    },
+    "A5: Details": {
+      "count": 4,
+      "sheets": [
+        {"num": "A501", "name": "PARTITION TYPES AND DETAILS"},
+        {"num": "A502", "name": "CEILING AND INTERIOR DETAILS"},
+        {"num": "A503", "name": "INTERIOR DETAILS"},
+        {"num": "A504", "name": "MILLWORK DETAILS"}
+      ]
+    },
+    "A6: Doors": {
+      "count": 1,
+      "sheets": [
+        {"num": "A601", "name": "DOOR SCHEDULE DETAILS"}
+      ]
+    },
+    "A7: Fire Rating": {
+      "count": 2,
+      "sheets": [
+        {"num": "A701", "name": "UL DETAILS"},
+        {"num": "A702", "name": "UL DETAILS"}
+      ]
+    },
+    "LS: Life Safety": {
+      "count": 1,
+      "sheets": [
+        {"num": "LS102", "name": "LIFE SAFETY FLOOR PLAN - LEVEL 2"}
+      ]
+    },
+    "ICRA: Infection Control": {
+      "count": 1,
+      "sheets": [
+        {"num": "MICRA", "name": "PARTIAL SECOND FLOOR PLAN - ICRA"}
+      ]
+    },
+    "E: Electrical": {
+      "count": 16,
+      "sheets": [
+        {"num": "E001", "name": "SYMBOLS, LEGENDS, NOTES, AND INDEX"},
+        {"num": "E002", "name": "ELECTRICAL GENERAL NOTES"},
+        {"num": "E212", "name": "PARTIAL SECOND FLOOR PLAN - LIGHTING - PHASE I"},
+        {"num": "E222", "name": "PARTIAL SECOND FLOOR PLAN - LIGHTING - PHASE II"},
+        {"num": "ED212", "name": "PARTIAL FIRST FLOOR DEMOLITION PLAN - ELECTRICAL - PHASE I"}
+      ]
+    },
+    "M: Mechanical": {
+      "count": 6,
+      "sheets": [
+        {"num": "M001", "name": "MECHANICAL SYMBOLS, LEGENDS, AND INDEX"},
+        {"num": "M201", "name": "PARTIAL SECOND FLOOR PLAN - MECHANICAL"},
+        {"num": "MD201", "name": "PARTIAL SECOND FLOOR DEMO PLAN - MECHANICAL PAHSE I"}
+      ]
+    },
+    "P: Plumbing": {
+      "count": 8,
+      "sheets": [
+        {"num": "P001", "name": "PLUMBING SYMBOLS, LEGENDS, NOTES, AND INDEX"},
+        {"num": "P201", "name": "PARTIAL SECOND FLOOR PLAN PHASE 1&2 - PLUMBING"},
+        {"num": "P301", "name": "PARTIAL SECOND FLOOR PLAN PHASE 1 - MEDICAL GAS"},
+        {"num": "PD202", "name": "PARTIAL SECOND FLOOR DEMO PLAN - PLUMBING"}
+      ]
+    },
+    "FP: Fire Protection": {
+      "count": 2,
+      "sheets": [
+        {"num": "FP001", "name": "FIRE PROTECTION SYMBOLS, LEGENDS, NOTES AND INDEX"},
+        {"num": "FP202", "name": "PARTIALSECOND FLOOR PLAN - FIRE PROTECTION"}
+      ]
+    }
+  },
+  "numbering_pattern": "Simple numeric (A100, E212) with discipline prefix",
+  "renovation_specific": {
+    "has_demo_plans": true,
+    "has_phasing": true,
+    "phase_count": 2,
+    "has_existing_conditions": true
+  },
+  "healthcare_specific": {
+    "has_life_safety": true,
+    "has_icra": true,
+    "has_ul_details": true,
+    "has_medical_gas": true,
+    "has_clean_soiled": true
+  },
+  "proposed_rules": [
+    {
+      "id": "RENOVATION_DEMO_PLANS",
+      "name": "Demolition Plans for Renovation",
+      "condition": "project_subtype = 'renovation'",
+      "action": "Create demolition/phasing plans before new work plans",
+      "confidence": "HIGH",
+      "evidence": [
+        "A100: LEVEL 2 - DEMOLITION / PHASING PLANS",
+        "ED212: PARTIAL FIRST FLOOR DEMOLITION PLAN - ELECTRICAL - PHASE I",
+        "MD201: PARTIAL SECOND FLOOR DEMO PLAN - MECHANICAL PAHSE I",
+        "PD202: PARTIAL SECOND FLOOR DEMO PLAN - PLUMBING"
+      ]
+    },
+    {
+      "id": "RENOVATION_PHASING",
+      "name": "Phased Construction Plans",
+      "condition": "project requires phased construction",
+      "action": "Create separate plan for each phase (Phase I, Phase II)",
+      "confidence": "HIGH",
+      "evidence": [
+        "E212: PARTIAL SECOND FLOOR PLAN - LIGHTING - PHASE I",
+        "E222: PARTIAL SECOND FLOOR PLAN - LIGHTING - PHASE II",
+        "E312: PARTIAL SECOND FLOOR PLAN - POWER & FIRE ALARM - PHASE I",
+        "E322: PARTIAL SECOND FLOOR PLAN - POWER & FIRE ALARM - PHASE II"
+      ]
+    },
+    {
+      "id": "HEALTHCARE_LIFE_SAFETY",
+      "name": "Life Safety Plan (Healthcare)",
+      "condition": "project_type = 'healthcare'",
+      "action": "Create dedicated life safety floor plan",
+      "confidence": "HIGH",
+      "evidence": [
+        "LS102: LIFE SAFETY FLOOR PLAN - LEVEL 2"
+      ]
+    },
+    {
+      "id": "HEALTHCARE_ICRA",
+      "name": "ICRA Plan (Healthcare)",
+      "condition": "project_type = 'healthcare' AND project_subtype = 'renovation'",
+      "action": "Create Infection Control Risk Assessment plan",
+      "confidence": "HIGH",
+      "evidence": [
+        "MICRA: PARTIAL SECOND FLOOR PLAN - ICRA"
+      ]
+    },
+    {
+      "id": "HEALTHCARE_UL_DETAILS",
+      "name": "UL Fire Rating Details",
+      "condition": "project_type = 'healthcare' OR fire_rated_assemblies > 5",
+      "action": "Create dedicated UL assembly detail sheets",
+      "confidence": "HIGH",
+      "evidence": [
+        "A701: UL DETAILS",
+        "A702: UL DETAILS"
+      ]
+    },
+    {
+      "id": "HEALTHCARE_MEDICAL_GAS",
+      "name": "Medical Gas Plans",
+      "condition": "project_type = 'healthcare' AND has_medical_gas = true",
+      "action": "Create separate medical gas plans under plumbing discipline",
+      "confidence": "HIGH",
+      "evidence": [
+        "P301: PARTIAL SECOND FLOOR PLAN PHASE 1 - MEDICAL GAS",
+        "PD301: PARTIAL FIRST FLOOR DEMO PLAN - MEDICAL GAS"
+      ]
+    },
+    {
+      "id": "INTERIOR_ENLARGED_ELEVATIONS",
+      "name": "Enlarged Plans with Interior Elevations",
+      "condition": "project has significant interior work",
+      "action": "Combine enlarged plans with interior elevations on same sheets",
+      "confidence": "HIGH",
+      "evidence": [
+        "A401: ENLARGED PLAN & INTERNAL ELEVATIONS",
+        "A402: ENLARGED PLAN & INTERNAL ELEVATION",
+        "A404: ENLARGED PLAN & INTERNAL ELEVATIONS"
+      ]
+    }
+  ]
+}

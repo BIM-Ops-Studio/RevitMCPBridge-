@@ -1,0 +1,385 @@
+{
+  "workflowType": "CD_Set",
+  "name": "Construction Documents Set - Small Commercial Interior",
+  "description": "Complete permit-ready CD set for small commercial interior projects",
+  "version": "1.0",
+  "projectTypes": ["SmallCommercial", "CommercialInterior", "TenantImprovement"],
+  "buildingCodes": ["IBC_2024", "FBC_2023"],
+  "codeVersions": {
+    "IBC": "2024 (Latest)",
+    "FBC": "8th Edition 2023 (Latest)",
+    "ADA": "2010 with 2023 Updates",
+    "NFPA": "101-2024"
+  },
+  "estimatedTime": "20-30 minutes",
+  "author": "Claude AI - Autonomous Architectural Agent",
+
+  "phases": [
+    {
+      "name": "Phase 1: Project Setup & Verification",
+      "description": "Verify project is ready for CD documentation",
+      "tasks": [
+        {
+          "id": "verify_dd_complete",
+          "description": "Verify DD package is complete",
+          "method": "custom",
+          "autonomous_decision": "Check that DD views, schedules, and sheets exist"
+        },
+        {
+          "id": "verify_code_compliance",
+          "description": "Run building code compliance checks",
+          "method": "custom",
+          "autonomous_decision": "Use BuildingCodeKnowledge to verify all code requirements"
+        },
+        {
+          "id": "create_code_analysis_sheet",
+          "description": "Create code analysis documentation",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "A0.0",
+            "sheetName": "Code Analysis & Project Data"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 2: Architectural Floor Plans",
+      "description": "Create detailed construction floor plans",
+      "tasks": [
+        {
+          "id": "create_construction_plans",
+          "description": "Create construction-level floor plans",
+          "method": "createFloorPlan",
+          "autonomous_decision": "One plan per level with construction details visible"
+        },
+        {
+          "id": "add_dimensions",
+          "description": "Add complete dimensioning",
+          "method": "custom",
+          "autonomous_decision": "Dimension all walls, openings, and major elements"
+        },
+        {
+          "id": "add_room_tags",
+          "description": "Tag all rooms with names and numbers",
+          "method": "batchTagRooms",
+          "autonomous_decision": "Include room number, name, and area"
+        },
+        {
+          "id": "add_door_window_tags",
+          "description": "Tag all doors and windows",
+          "method": "batchTagDoors",
+          "autonomous_decision": "Reference door/window schedules"
+        },
+        {
+          "id": "add_wall_types_tags",
+          "description": "Tag wall types and materials",
+          "method": "custom",
+          "autonomous_decision": "Identify all wall types with tags"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 3: Reflected Ceiling Plans",
+      "description": "Create RCP showing ceiling and lighting",
+      "tasks": [
+        {
+          "id": "create_ceiling_plans",
+          "description": "Create reflected ceiling plans",
+          "method": "createCeilingPlan",
+          "autonomous_decision": "One RCP per level"
+        },
+        {
+          "id": "show_ceiling_types",
+          "description": "Identify ceiling types and heights",
+          "method": "custom",
+          "autonomous_decision": "Tag ceiling types and show grid patterns"
+        },
+        {
+          "id": "show_lighting",
+          "description": "Show lighting fixtures",
+          "method": "custom",
+          "autonomous_decision": "Coordinate with electrical plans"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 4: Building Elevations",
+      "description": "Create exterior and interior elevations",
+      "tasks": [
+        {
+          "id": "create_exterior_elevations",
+          "description": "Create four exterior elevations",
+          "method": "createElevation",
+          "autonomous_decision": "North, South, East, West elevations"
+        },
+        {
+          "id": "create_interior_elevations",
+          "description": "Create key interior elevations",
+          "method": "createElevation",
+          "autonomous_decision": "Elevations for restrooms, special millwork areas"
+        },
+        {
+          "id": "dimension_elevations",
+          "description": "Add dimensions to elevations",
+          "method": "custom",
+          "autonomous_decision": "Show floor-to-ceiling heights, key dimensions"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 5: Building Sections",
+      "description": "Create building sections",
+      "tasks": [
+        {
+          "id": "create_building_sections",
+          "description": "Create building sections through key areas",
+          "method": "createSection",
+          "autonomous_decision": "2-3 sections showing construction assembly"
+        },
+        {
+          "id": "dimension_sections",
+          "description": "Dimension sections vertically",
+          "method": "custom",
+          "autonomous_decision": "Show all vertical dimensions and assemblies"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 6: Details & Annotations",
+      "description": "Create construction details",
+      "tasks": [
+        {
+          "id": "create_detail_sheet",
+          "description": "Create construction details sheet",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "A5.0",
+            "sheetName": "Construction Details"
+          }
+        },
+        {
+          "id": "add_typical_details",
+          "description": "Add typical construction details",
+          "method": "custom",
+          "autonomous_decision": "Wall sections, door/window details, typical connections"
+        },
+        {
+          "id": "add_keynotes",
+          "description": "Add keynotes and specifications",
+          "method": "custom",
+          "autonomous_decision": "Reference specifications and standards"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 7: Schedules & Documentation",
+      "description": "Create comprehensive schedules",
+      "tasks": [
+        {
+          "id": "create_room_finish_schedule",
+          "description": "Create detailed room finish schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Rooms",
+            "scheduleName": "Room Finish Schedule"
+          }
+        },
+        {
+          "id": "add_finish_schedule_fields",
+          "description": "Add finish schedule fields",
+          "method": "addScheduleField",
+          "fields": ["Number", "Name", "Area", "Floor Finish", "Base", "Wall Finish", "Ceiling Finish", "Ceiling Height"],
+          "autonomous_decision": "Complete finish specifications for permit review"
+        },
+        {
+          "id": "create_door_schedule",
+          "description": "Create comprehensive door schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Doors",
+            "scheduleName": "Door Schedule"
+          }
+        },
+        {
+          "id": "add_door_schedule_fields",
+          "description": "Add door schedule fields",
+          "method": "addScheduleField",
+          "fields": ["Mark", "Width", "Height", "Type", "Material", "Fire Rating", "Frame Material", "Hardware Set"],
+          "autonomous_decision": "Complete door specifications for construction"
+        },
+        {
+          "id": "create_window_schedule",
+          "description": "Create window schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Windows",
+            "scheduleName": "Window Schedule"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 8: Sheet Organization",
+      "description": "Organize complete CD sheet set",
+      "tasks": [
+        {
+          "id": "create_cover_sheet",
+          "description": "Create cover sheet with project info",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "A0.1",
+            "sheetName": "Cover Sheet"
+          }
+        },
+        {
+          "id": "create_plan_sheets",
+          "description": "Create sheets for floor plans",
+          "method": "createSheet",
+          "autonomous_decision": "Systematic numbering: A1.1, A1.2, etc."
+        },
+        {
+          "id": "create_rcp_sheets",
+          "description": "Create sheets for ceiling plans",
+          "method": "createSheet",
+          "autonomous_decision": "A2.1, A2.2, etc."
+        },
+        {
+          "id": "create_elevation_sheets",
+          "description": "Create sheets for elevations",
+          "method": "createSheet",
+          "autonomous_decision": "A3.1, A3.2, etc."
+        },
+        {
+          "id": "create_section_sheets",
+          "description": "Create sheets for sections",
+          "method": "createSheet",
+          "autonomous_decision": "A4.1, A4.2, etc."
+        },
+        {
+          "id": "create_schedule_sheet",
+          "description": "Create sheet for schedules",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "A9.1",
+            "sheetName": "Schedules"
+          }
+        },
+        {
+          "id": "place_all_views",
+          "description": "Place all views on appropriate sheets",
+          "method": "placeViewOnSheet",
+          "autonomous_decision": "Systematic placement with standard positioning"
+        },
+        {
+          "id": "create_sheet_index",
+          "description": "Create sheet index",
+          "method": "custom",
+          "autonomous_decision": "List all sheets in order"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 9: Code Compliance Final Check",
+      "description": "Final code compliance verification",
+      "tasks": [
+        {
+          "id": "verify_egress_compliance",
+          "description": "Verify all egress requirements met",
+          "method": "custom",
+          "autonomous_decision": "Check exits, travel distances, door widths per IBC/FBC"
+        },
+        {
+          "id": "verify_ada_compliance",
+          "description": "Verify ADA accessibility",
+          "method": "custom",
+          "autonomous_decision": "Check accessible routes, door clearances, restroom compliance"
+        },
+        {
+          "id": "verify_occupancy_loads",
+          "description": "Verify occupancy load calculations",
+          "method": "custom",
+          "autonomous_decision": "Calculate and document occupancy per IBC Table 1004.5"
+        },
+        {
+          "id": "create_compliance_report",
+          "description": "Generate code compliance report",
+          "method": "custom",
+          "autonomous_decision": "Document all code checks and compliance status"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 10: Quality Control",
+      "description": "Final QC before submission",
+      "tasks": [
+        {
+          "id": "verify_all_views_placed",
+          "description": "Verify all views are on sheets",
+          "method": "custom",
+          "autonomous_decision": "Check for unplaced views"
+        },
+        {
+          "id": "verify_all_schedules_complete",
+          "description": "Verify all schedules populated",
+          "method": "custom",
+          "autonomous_decision": "Check for empty fields or missing data"
+        },
+        {
+          "id": "verify_sheet_completeness",
+          "description": "Verify sheet set is complete",
+          "method": "getAllSheets",
+          "autonomous_decision": "Verify all required sheets present"
+        },
+        {
+          "id": "run_project_warnings",
+          "description": "Check and resolve Revit warnings",
+          "method": "custom",
+          "autonomous_decision": "Review and auto-fix common warnings"
+        },
+        {
+          "id": "verify_titleblock_info",
+          "description": "Verify all titleblock information complete",
+          "method": "custom",
+          "autonomous_decision": "Check project name, number, dates, revisions"
+        }
+      ]
+    }
+  ],
+
+  "completion_criteria": {
+    "required_sheets": [
+      "Cover Sheet",
+      "Code Analysis",
+      "Floor Plans",
+      "Reflected Ceiling Plans",
+      "Elevations",
+      "Sections",
+      "Details",
+      "Schedules"
+    ],
+    "required_schedules": [
+      "Room Finish Schedule",
+      "Door Schedule",
+      "Window Schedule"
+    ],
+    "code_compliance": "All IBC/FBC requirements met",
+    "min_quality_score": 98
+  },
+
+  "autonomous_behaviors": {
+    "error_handling": "Auto-correct code violations when possible, flag critical issues",
+    "decision_making": "Make all standard architectural and code decisions autonomously",
+    "code_compliance": "Apply IBC/FBC automatically, document all requirements",
+    "quality_standards": "Maintain permit-ready CD deliverable quality",
+    "coordination": "Coordinate all disciplines (architectural, structural notes, MEP coordination)"
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "workflowType": "CodeCompliance_Audit",
+  "name": "Building Code Compliance Audit",
+  "description": "Comprehensive autonomous code compliance verification for existing projects",
+  "version": "1.0",
+  "projectTypes": ["All"],
+  "buildingCodes": ["IBC_2024", "FBC_2023", "ADA_2023", "NFPA_2024"],
+  "codeVersions": {
+    "IBC": "2024 (Latest)",
+    "FBC": "8th Edition 2023 (Latest)",
+    "ADA": "2010 with 2023 Updates",
+    "NFPA": "101-2024"
+  },
+  "estimatedTime": "2-5 minutes",
+  "author": "Claude AI - Autonomous Architectural Agent",
+
+  "phases": [
+    {
+      "name": "Phase 1: Project Analysis & Setup",
+      "description": "Gather project information and determine applicable codes",
+      "tasks": [
+        {
+          "id": "get_project_info",
+          "description": "Retrieve project information",
+          "method": "getProjectInfo",
+          "autonomous_decision": "Extract project location, occupancy type, size for code applicability"
+        },
+        {
+          "id": "determine_occupancy",
+          "description": "Determine occupancy classification",
+          "method": "custom",
+          "autonomous_decision": "Analyze room types to determine IBC occupancy group (A, B, E, M, R, etc.)"
+        },
+        {
+          "id": "get_all_levels",
+          "description": "Get all building levels",
+          "method": "custom",
+          "autonomous_decision": "Count levels, determine building height for code requirements"
+        },
+        {
+          "id": "calculate_total_area",
+          "description": "Calculate total building area",
+          "method": "custom",
+          "autonomous_decision": "Sum all room areas for occupancy load calculations"
+        },
+        {
+          "id": "create_compliance_report_sheet",
+          "description": "Create code compliance report sheet",
+          "method": "createSheet",
+          "parameters": {
+            "sheetNumber": "CODE-1",
+            "sheetName": "Code Compliance Report"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 2: Egress & Life Safety Analysis",
+      "description": "Verify means of egress requirements (IBC Chapter 10)",
+      "tasks": [
+        {
+          "id": "get_all_doors",
+          "description": "Get all door elements",
+          "method": "getAllDoors",
+          "autonomous_decision": "Analyze all doors for egress compliance"
+        },
+        {
+          "id": "verify_egress_door_widths",
+          "description": "Check egress door widths",
+          "method": "custom",
+          "autonomous_decision": "Verify egress doors ≥ 36\" clear width per IBC 1010.1.1"
+        },
+        {
+          "id": "verify_exit_count",
+          "description": "Verify number of exits",
+          "method": "custom",
+          "autonomous_decision": "Check minimum 2 exits for occupant load, per IBC Table 1006.2.1"
+        },
+        {
+          "id": "check_exit_separation",
+          "description": "Verify exit separation",
+          "method": "custom",
+          "autonomous_decision": "Verify exits separated by ≥ 1/3 diagonal per IBC 1007.1.1"
+        },
+        {
+          "id": "calculate_travel_distances",
+          "description": "Calculate egress travel distances",
+          "method": "custom",
+          "autonomous_decision": "Verify travel distances meet IBC Table 1017.2 maximums"
+        },
+        {
+          "id": "verify_exit_signage",
+          "description": "Check for exit signs and emergency lighting",
+          "method": "custom",
+          "autonomous_decision": "Verify exit signs present per IBC 1013"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 3: Accessibility Compliance (ADA)",
+      "description": "Verify ADA 2010 accessibility requirements",
+      "tasks": [
+        {
+          "id": "verify_accessible_route",
+          "description": "Check accessible route width",
+          "method": "custom",
+          "autonomous_decision": "Verify accessible routes ≥ 36\" width per ADA 403.5.1"
+        },
+        {
+          "id": "check_door_clearances",
+          "description": "Verify ADA door clearances",
+          "method": "custom",
+          "autonomous_decision": "Check 32\" clear width and maneuvering clearances per ADA 404.2"
+        },
+        {
+          "id": "verify_restroom_ada",
+          "description": "Check restroom ADA compliance",
+          "method": "custom",
+          "autonomous_decision": "Verify toilet stall dimensions, grab bars, clearances per ADA 604/213"
+        },
+        {
+          "id": "check_accessible_parking",
+          "description": "Verify accessible parking if applicable",
+          "method": "custom",
+          "autonomous_decision": "Check parking count and van accessible spaces per ADA 208"
+        },
+        {
+          "id": "verify_signage_compliance",
+          "description": "Check ADA signage requirements",
+          "method": "custom",
+          "autonomous_decision": "Verify room identification, tactile signs per ADA 703"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 4: Corridor & Circulation",
+      "description": "Verify corridor and circulation requirements",
+      "tasks": [
+        {
+          "id": "measure_corridor_widths",
+          "description": "Check all corridor widths",
+          "method": "custom",
+          "autonomous_decision": "Verify corridors ≥ 44\" per IBC 1020.2, ≥ 48\" if occupancy > 50"
+        },
+        {
+          "id": "check_dead_end_corridors",
+          "description": "Verify dead-end corridor limits",
+          "method": "custom",
+          "autonomous_decision": "Check dead ends ≤ 20 ft per IBC 1020.4 (or 50 ft if sprinklered)"
+        },
+        {
+          "id": "verify_corridor_construction",
+          "description": "Check corridor fire rating if required",
+          "method": "custom",
+          "autonomous_decision": "Verify 1-hour rated corridors where required per IBC Table 1020.1"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 5: Occupancy Load Calculations",
+      "description": "Calculate and verify occupancy loads",
+      "tasks": [
+        {
+          "id": "get_all_rooms",
+          "description": "Get all room elements",
+          "method": "getAllRooms",
+          "autonomous_decision": "Calculate occupancy per room using IBC Table 1004.5"
+        },
+        {
+          "id": "calculate_room_occupancies",
+          "description": "Calculate occupant load per room",
+          "method": "custom",
+          "autonomous_decision": "Use BuildingCodeKnowledge.OccupancyRequirements for calculations"
+        },
+        {
+          "id": "verify_egress_capacity",
+          "description": "Verify egress capacity",
+          "method": "custom",
+          "autonomous_decision": "Check egress capacity vs occupant load per IBC 1005"
+        },
+        {
+          "id": "create_occupancy_schedule",
+          "description": "Create occupancy load schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Rooms",
+            "scheduleName": "Occupancy Load Calculations"
+          }
+        },
+        {
+          "id": "add_occupancy_fields",
+          "description": "Add occupancy calculation fields",
+          "method": "addScheduleField",
+          "fields": ["Number", "Name", "Area", "Occupancy Type", "Load Factor", "Occupant Load"],
+          "autonomous_decision": "Document all occupancy calculations for permit review"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 6: Fire Protection & Sprinklers",
+      "description": "Verify fire protection requirements",
+      "tasks": [
+        {
+          "id": "verify_sprinkler_requirement",
+          "description": "Determine if sprinklers required",
+          "method": "custom",
+          "autonomous_decision": "Check IBC 903.2 for sprinkler requirements by occupancy/area"
+        },
+        {
+          "id": "check_fire_alarm",
+          "description": "Verify fire alarm system requirement",
+          "method": "custom",
+          "autonomous_decision": "Check IBC 907.2 for fire alarm requirements"
+        },
+        {
+          "id": "verify_fire_extinguishers",
+          "description": "Check portable fire extinguisher locations",
+          "method": "custom",
+          "autonomous_decision": "Verify extinguishers per NFPA 10 travel distance requirements"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 7: Door Hardware & Fire Ratings",
+      "description": "Verify door hardware and fire rating requirements",
+      "tasks": [
+        {
+          "id": "check_door_fire_ratings",
+          "description": "Verify door fire ratings",
+          "method": "custom",
+          "autonomous_decision": "Check fire-rated door requirements per IBC Table 716.5"
+        },
+        {
+          "id": "verify_panic_hardware",
+          "description": "Check panic hardware requirements",
+          "method": "custom",
+          "autonomous_decision": "Verify panic hardware on egress doors serving occupancy ≥ 50 per IBC 1010.1.10"
+        },
+        {
+          "id": "check_door_swing",
+          "description": "Verify egress door swing direction",
+          "method": "custom",
+          "autonomous_decision": "Check doors swing in direction of egress per IBC 1010.1.2"
+        },
+        {
+          "id": "verify_self_closing",
+          "description": "Check self-closing devices",
+          "method": "custom",
+          "autonomous_decision": "Verify fire-rated doors have self-closing devices per IBC 716.2.6.5"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 8: Plumbing Fixture Count",
+      "description": "Verify plumbing fixture requirements (IBC Chapter 29)",
+      "tasks": [
+        {
+          "id": "count_restroom_fixtures",
+          "description": "Count all plumbing fixtures",
+          "method": "custom",
+          "autonomous_decision": "Count toilets, lavatories, drinking fountains"
+        },
+        {
+          "id": "verify_fixture_count",
+          "description": "Verify fixture count vs requirements",
+          "method": "custom",
+          "autonomous_decision": "Check IBC Table 2902.1 for minimum fixture requirements"
+        },
+        {
+          "id": "verify_ada_fixtures",
+          "description": "Check accessible fixture requirements",
+          "method": "custom",
+          "autonomous_decision": "Verify accessible fixtures per ADA 213 and IBC 1109.2"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 9: Florida-Specific Requirements",
+      "description": "Verify Florida Building Code specific requirements (if applicable)",
+      "tasks": [
+        {
+          "id": "check_wind_load_requirements",
+          "description": "Verify wind load design requirements",
+          "method": "custom",
+          "autonomous_decision": "Check if FBC wind loads apply, verify design wind speed"
+        },
+        {
+          "id": "verify_impact_glazing",
+          "description": "Check impact-resistant glazing requirements",
+          "method": "custom",
+          "autonomous_decision": "Verify if project in wind-borne debris region requiring impact glazing"
+        },
+        {
+          "id": "check_hvac_requirements",
+          "description": "Verify FBC energy efficiency requirements",
+          "method": "custom",
+          "autonomous_decision": "Flag energy code compliance requirements for mechanical review"
+        }
+      ]
+    },
+
+    {
+      "name": "Phase 10: Compliance Report Generation",
+      "description": "Generate comprehensive code compliance report",
+      "tasks": [
+        {
+          "id": "compile_violations",
+          "description": "Compile all code violations found",
+          "method": "custom",
+          "autonomous_decision": "Categorize by severity: Critical, Major, Minor"
+        },
+        {
+          "id": "compile_compliant_items",
+          "description": "Document compliant elements",
+          "method": "custom",
+          "autonomous_decision": "List all items that meet code requirements"
+        },
+        {
+          "id": "generate_auto_fixes",
+          "description": "Generate auto-fix recommendations",
+          "method": "custom",
+          "autonomous_decision": "Provide specific corrective actions for each violation"
+        },
+        {
+          "id": "create_compliance_summary",
+          "description": "Create executive summary",
+          "method": "custom",
+          "autonomous_decision": "Summarize overall compliance status with statistics"
+        },
+        {
+          "id": "create_detailed_report_schedule",
+          "description": "Create detailed findings schedule",
+          "method": "createSchedule",
+          "parameters": {
+            "category": "Custom",
+            "scheduleName": "Code Compliance Findings"
+          },
+          "autonomous_decision": "List all findings with code references and corrections"
+        },
+        {
+          "id": "place_report_on_sheet",
+          "description": "Place report on compliance sheet",
+          "method": "placeViewOnSheet",
+          "autonomous_decision": "Organize report for clear presentation"
+        }
+      ]
+    }
+  ],
+
+  "completion_criteria": {
+    "required_checks": [
+      "Egress Analysis Complete",
+      "ADA Compliance Check Complete",
+      "Occupancy Load Calculations Complete",
+      "Corridor Requirements Verified",
+      "Door Compliance Verified"
+    ],
+    "required_outputs": [
+      "Code Compliance Report Sheet",
+      "Occupancy Load Schedule",
+      "Compliance Findings Schedule"
+    ],
+    "min_quality_score": 98
+  },
+
+  "autonomous_behaviors": {
+    "error_handling": "Document all violations, provide auto-fix recommendations",
+    "decision_making": "Apply current IBC/FBC/ADA requirements autonomously",
+    "code_compliance": "Comprehensive check against all applicable codes",
+    "quality_standards": "Permit-ready compliance documentation",
+    "reporting": "Clear categorization: Critical (must fix), Major (should fix), Minor (recommended)"
+  },
+
+  "violation_categories": {
+    "CRITICAL": "Life safety violations that must be corrected before permit approval",
+    "MAJOR": "Code violations that should be corrected for compliance",
+    "MINOR": "Best practice recommendations or minor code interpretations",
+    "COMPLIANT": "Elements that meet or exceed code requirements"
+  }
+}

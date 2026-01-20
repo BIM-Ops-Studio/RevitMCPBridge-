@@ -1,0 +1,148 @@
+﻿{
+    "scale":  8,
+    "name":  "GARAGE DOOR DETAIL",
+    "id":  1741424,
+    "elements":  {
+                     "filledRegions":  [
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  -42.1578,
+                                                              "maxX":  -40.5119,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  -42.1578,
+                                                              "maxX":  -42.0042,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  -43.3934,
+                                                              "maxX":  -42.0391,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  -42.1578,
+                                                              "maxX":  -41.7564,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           },
+                                           {
+                                               "pattern":  null,
+                                               "typeName":  null,
+                                               "bounds":  {
+                                                              "minX":  -43.3934,
+                                                              "maxX":  -42.1578,
+                                                              "minY":  0.0,
+                                                              "maxY":  0.0
+                                                          }
+                                           }
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  -40.6086
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Nominal Cut Lumber-Section",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  -42.1578
+                                                               },
+                                                  "type":  "2x8"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "Expansion Bolts-Side",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  -41.9204
+                                                               },
+                                                  "type":  "5/8\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  -43.3875
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  -42.5712
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "DOOR AS\\rSCHEDULED\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  -43.155
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  -41.9107
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "TRACK BRACKETS \u0026\\rANCHORS AS PER\\rDOOR MFR. SPECS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  -41.009
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  -41.5721
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "POURED CONC.\\rCOLUMN OR FILLED\\rCELL\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  -41.009
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  -41.6166
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "2X8 PT BUCK\\rFASTENED 6\" FROM\\rEDGE @ 8\" O.C. W/2\\r1/2\" T-NAIL\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  0,
+                     "extractedAt":  "2025-12-28 00:18:01",
+                     "regionCount":  5,
+                     "componentCount":  8,
+                     "textCount":  4
+                 }
+}

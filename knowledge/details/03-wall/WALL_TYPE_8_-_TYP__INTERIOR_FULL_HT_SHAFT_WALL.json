@@ -1,0 +1,218 @@
+﻿{
+    "scale":  8,
+    "name":  "WALL TYPE 8 - TYP. INTERIOR FULL HT SHAFT WALL",
+    "id":  1740348,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  2.3333,
+                                             "style":  "4",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.0425
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.7092
+                                                       }
+                                         },
+                                         {
+                                             "length":  2.3333,
+                                             "style":  "4",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  9.0425
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  6.7092
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  7.8624
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  7.8624
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_CHANNEL",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  7.8185
+                                                               },
+                                                  "type":  "03.625\" x 1.375\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_CHANNEL",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  7.8185
+                                                               },
+                                                  "type":  "03.625\" x 1.375\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-SHEATHING_GWB",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "5/8\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CEILING_ACT_TEGULAR EDGE-STRETCH",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.0917
+                                                               },
+                                                  "type":  "3/4 STRETCH"
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-CEILING_ACT_SUSPENSION EDGE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.0501
+                                                               },
+                                                  "type":  "15/16\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  7.8496
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "00-BREAK LINE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  7.8496
+                                                               },
+                                                  "type":  "008 - 1 1/2\" = 1\u0027-0\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-WOOD_TRIM",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  8.0217
+                                                               },
+                                                  "type":  "HALF ROUND - 3/4\""
+                                              },
+                                              {
+                                                  "typeId":  null,
+                                                  "family":  "09-FRAMING_STUD_SIDE",
+                                                  "location":  {
+                                                                   "y":  0.0,
+                                                                   "x":  0.0
+                                                               },
+                                                  "type":  "3 5/8\""
+                                              }
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.0334
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.4737
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BOTTOM OF DECK\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.0334
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  7.7924
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "3 5/8\" METAL STUDS. FOR SPACING, GUAGE, AND HEIGHT LIMITATIONS, SEE LIMI\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.0334
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  7.9955
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "5/8\" GYP. BOARD\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.0334
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.0564
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "BASE - SEE FINISH PLAN AND SPECS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.0334
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  7.8121
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "SET TRACK IN CONT CAULKING. FASTEN TRACK TO SLAB WITH 3/16\"X1\" TAPCONS OR 7/64\"X3/4\"  DRIVE PINS @ 12\" O.C.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  9.0688
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  8.4405
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "CEILING, SEE REFLECTED CEILING PLANS\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  2,
+                     "extractedAt":  "2025-12-28 00:17:05",
+                     "regionCount":  0,
+                     "componentCount":  11,
+                     "textCount":  6
+                 }
+}

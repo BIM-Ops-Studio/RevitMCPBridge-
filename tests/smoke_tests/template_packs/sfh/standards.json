@@ -1,0 +1,191 @@
+{
+  "$schema": "standards-pack-v2",
+  "_extends": "_core",
+  "_moduleType": "sector",
+
+  "identity": {
+    "name": "Module_Residential_SFH_v1",
+    "version": "1.0.0",
+    "description": "Single-family residential sector module",
+    "projectType": "Residential_SFH"
+  },
+
+  "titleBlocks": {
+    "required": [
+      {"familyName": "ARCH D 24x36", "size": "24x36", "isDefault": true}
+    ],
+    "preferredPatterns": ["24x36", "ARCH D", "D size"]
+  },
+
+  "sheets": {
+    "numberingFormat": "standard",
+    "numberingSuffix": "-{run_id:4}",
+    "sets": {
+      "permitSkeleton": [
+        {"number": "A0.01", "name": "COVER SHEET"},
+        {"number": "A0.02", "name": "GENERAL NOTES"},
+        {"number": "A1.01", "name": "FIRST FLOOR PLAN", "viewType": "FloorPlan", "level": 1},
+        {"number": "A1.02", "name": "SECOND FLOOR PLAN", "viewType": "FloorPlan", "level": 2, "optional": true},
+        {"number": "A1.03", "name": "ROOF PLAN", "viewType": "FloorPlan", "level": "roof", "optional": true},
+        {"number": "A2.01", "name": "BUILDING ELEVATIONS", "viewType": "Elevation"},
+        {"number": "A3.01", "name": "BUILDING SECTIONS", "viewType": "Section", "optional": true},
+        {"number": "A5.01", "name": "DOOR SCHEDULE", "viewType": "Schedule", "category": "Doors"},
+        {"number": "A5.02", "name": "WINDOW SCHEDULE", "viewType": "Schedule", "category": "Windows"}
+      ],
+      "fullCD": [
+        {"number": "A1.11", "name": "FIRST FLOOR CEILING PLAN", "viewType": "CeilingPlan", "level": 1},
+        {"number": "A1.12", "name": "SECOND FLOOR CEILING PLAN", "viewType": "CeilingPlan", "level": 2},
+        {"number": "A4.01", "name": "WALL SECTIONS", "viewType": "Section", "template": "wallSection"},
+        {"number": "A4.02", "name": "CONSTRUCTION DETAILS", "viewType": "Detail"},
+        {"number": "A5.03", "name": "ROOM FINISH SCHEDULE", "viewType": "Schedule", "category": "Rooms"},
+        {"number": "A6.01", "name": "INTERIOR ELEVATIONS - KITCHEN", "viewType": "InteriorElevation"},
+        {"number": "A6.02", "name": "INTERIOR ELEVATIONS - BATHROOMS", "viewType": "InteriorElevation"}
+      ]
+    },
+    "coverSheet": {
+      "projectDataBlock": true,
+      "teamBlock": true,
+      "codeSummaryBlock": true,
+      "keyPlan": false,
+      "vicinityMap": false,
+      "areaCalculations": true,
+      "zoning": true
+    }
+  },
+
+  "views": {
+    "templates": {
+      "floorPlan": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "cropEnabled": true
+      },
+      "exteriorElevation": {
+        "scale": 48,
+        "detailLevel": "Medium"
+      },
+      "buildingSection": {
+        "scale": 48,
+        "detailLevel": "Medium"
+      },
+      "wallSection": {
+        "scale": 24,
+        "detailLevel": "Fine"
+      },
+      "interiorElevation": {
+        "scale": 24,
+        "detailLevel": "Fine"
+      }
+    }
+  },
+
+  "schedules": {
+    "definitions": {
+      "doorSchedule": {
+        "category": "Doors",
+        "fields": ["Mark", "Type Mark", "Level", "Width", "Height", "Material", "Hardware Set", "Comments"],
+        "sorting": ["Level", "Mark"],
+        "grouping": ["Level"]
+      },
+      "windowSchedule": {
+        "category": "Windows",
+        "fields": ["Mark", "Type Mark", "Level", "Width", "Height", "Sill Height", "Glass Type", "Frame", "Comments"],
+        "sorting": ["Level", "Mark"],
+        "grouping": ["Level"]
+      },
+      "roomSchedule": {
+        "category": "Rooms",
+        "fields": ["Number", "Name", "Level", "Area", "Floor Finish", "Base", "Wall Finish", "Ceiling Finish", "Ceiling Height"],
+        "sorting": ["Level", "Number"],
+        "grouping": ["Level"]
+      }
+    }
+  },
+
+  "filters": {
+    "preflight": [
+      {
+        "id": "GARAGE_DOOR",
+        "name": "Garage Door Present",
+        "category": "Doors",
+        "condition": "Type contains 'Garage'",
+        "severity": "info",
+        "message": "Garage door found - verify fire rating to house"
+      }
+    ],
+    "codeCompliance": [
+      {
+        "id": "EGRESS_WINDOWS",
+        "name": "Bedroom Egress Windows",
+        "category": "Rooms",
+        "condition": "Room Type == 'Bedroom'",
+        "severity": "warning",
+        "message": "Verify bedroom has code-compliant egress window"
+      },
+      {
+        "id": "SMOKE_DETECTORS",
+        "name": "Smoke Detector Locations",
+        "category": "Equipment",
+        "condition": "Type contains 'Smoke'",
+        "severity": "info",
+        "message": "Verify smoke detector placement per code"
+      }
+    ]
+  },
+
+  "levelMapping": {
+    "patterns": {
+      "level1": ["Level 1", "L1", "First Floor", "Ground", "Main Level", "1"],
+      "level2": ["Level 2", "L2", "Second Floor", "Upper Level", "2"],
+      "level3": ["Level 3", "L3", "Third Floor", "3"],
+      "basement": ["Basement", "Lower Level", "Foundation"],
+      "roof": ["Roof", "T.O. Roof", "Attic"]
+    },
+    "dynamicLevels": true,
+    "maxLevels": 4
+  },
+
+  "cropStrategy": {
+    "method": "model_extents",
+    "marginFeet": 5.0,
+    "enabled": true
+  },
+
+  "completeness": {
+    "permit": {
+      "description": "SFH permit - simpler requirements",
+      "required_sheets": ["cover", "floor_plans", "elevations"],
+      "required_schedules": ["door"],
+      "min_tag_coverage": 0.85,
+      "allow_missing_dims": true,
+      "allow_missing_sections": true
+    },
+    "cd": {
+      "description": "SFH Construction Documents",
+      "required_sheets": ["cover", "notes", "floor_plans", "ceiling_plans", "elevations", "sections", "details"],
+      "required_schedules": ["door", "window", "room"],
+      "min_tag_coverage": 0.95,
+      "allow_missing_dims": false,
+      "allow_missing_sections": false
+    }
+  },
+
+  "sectorSpecific": {
+    "residentialRequirements": {
+      "energyCode": true,
+      "windLoad": true,
+      "floodZone": false
+    },
+    "roomRequirements": {
+      "minimumBedrooms": 1,
+      "minimumBathrooms": 1,
+      "garageIncluded": true
+    },
+    "siteRequirements": {
+      "setbacks": true,
+      "lotCoverage": true,
+      "heightLimit": true
+    }
+  }
+}

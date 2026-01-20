@@ -1,0 +1,61 @@
+﻿{
+    "scale":  8,
+    "name":  "STAIR_HANDRAIL WALL MOUNTED",
+    "id":  2138954,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  504.2257
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  502.6758
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "MASONRY WALLS - SEE STAIR SECTIONS\\rFOR FINISH\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  504.2257
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  503.0009
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "1-1/4\" ROUND PAINTED STEEL RAIL SEE\\rSTAIR SECTION FOR FINISH\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  504.2257
+                                                        },
+                                           "leaderEnd":  {
+                                                             "y":  0.0,
+                                                             "x":  502.8879
+                                                         },
+                                           "hasLeader":  true,
+                                           "text":  "PAINTED STEEL BRACKET\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  16,
+                     "extractedAt":  "2025-12-28 00:22:35",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  3
+                 }
+}

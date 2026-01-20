@@ -1,0 +1,539 @@
+{
+  "$schema": "standards-pack-v2",
+  "identity": {
+    "name": "Resolved_Residential_SFH_20251215",
+    "version": "1.0.0",
+    "description": "Single-family residential sector module",
+    "firm": null,
+    "projectType": "Residential_SFH",
+    "revitVersions": [
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "discipline": "ARCH",
+    "unitSystem": "Imperial",
+    "roundingRules": {
+      "lengths": "1/8 inch",
+      "areas": "1 SF",
+      "angles": "0.1 degrees"
+    },
+    "coordinateStrategy": {
+      "internalOrigin": "Keep at 0,0,0",
+      "projectBasePoint": "Set to building corner or grid intersection",
+      "surveyPoint": "Set from survey if available"
+    },
+    "phases": [
+      "Existing",
+      "New Construction",
+      "Demolition"
+    ],
+    "worksharing": {
+      "enabled": false,
+      "worksetNaming": "{Category}_{Description}"
+    },
+    "resolvedFrom": {
+      "core": "/mnt/d/RevitMCPBridge2026/smoke_tests/template_packs/_core/standards.json",
+      "sector": "/mnt/d/RevitMCPBridge2026/smoke_tests/template_packs/sfh/standards.json",
+      "firmOverrides": false
+    },
+    "resolvedAt": "2025-12-15T00:46:12.826792"
+  },
+  "titleBlocks": {
+    "required": [
+      {
+        "familyName": "ARCH D 24x36",
+        "size": "24x36",
+        "isDefault": true
+      }
+    ],
+    "preferredPatterns": [
+      "24x36",
+      "ARCH D",
+      "D size"
+    ],
+    "excludePatterns": [
+      "Autodesk",
+      "Sample"
+    ],
+    "sharedParameters": [
+      "Project Name",
+      "Project Number",
+      "Client",
+      "Issue Date"
+    ],
+    "revisionSystem": {
+      "numberingScheme": "numeric",
+      "cloudTagging": "Delta with number"
+    }
+  },
+  "sheets": {
+    "numberingFormat": "standard",
+    "numberingSuffix": "-{run_id:4}",
+    "sets": {
+      "permitSkeleton": [
+        {
+          "number": "A0.01",
+          "name": "COVER SHEET"
+        },
+        {
+          "number": "A0.02",
+          "name": "GENERAL NOTES"
+        },
+        {
+          "number": "A1.01",
+          "name": "FIRST FLOOR PLAN",
+          "viewType": "FloorPlan",
+          "level": 1
+        },
+        {
+          "number": "A1.02",
+          "name": "SECOND FLOOR PLAN",
+          "viewType": "FloorPlan",
+          "level": 2,
+          "optional": true
+        },
+        {
+          "number": "A1.03",
+          "name": "ROOF PLAN",
+          "viewType": "FloorPlan",
+          "level": "roof",
+          "optional": true
+        },
+        {
+          "number": "A2.01",
+          "name": "BUILDING ELEVATIONS",
+          "viewType": "Elevation"
+        },
+        {
+          "number": "A3.01",
+          "name": "BUILDING SECTIONS",
+          "viewType": "Section",
+          "optional": true
+        },
+        {
+          "number": "A5.01",
+          "name": "DOOR SCHEDULE",
+          "viewType": "Schedule",
+          "category": "Doors"
+        },
+        {
+          "number": "A5.02",
+          "name": "WINDOW SCHEDULE",
+          "viewType": "Schedule",
+          "category": "Windows"
+        }
+      ],
+      "fullCD": [
+        {
+          "number": "A1.11",
+          "name": "FIRST FLOOR CEILING PLAN",
+          "viewType": "CeilingPlan",
+          "level": 1
+        },
+        {
+          "number": "A1.12",
+          "name": "SECOND FLOOR CEILING PLAN",
+          "viewType": "CeilingPlan",
+          "level": 2
+        },
+        {
+          "number": "A4.01",
+          "name": "WALL SECTIONS",
+          "viewType": "Section",
+          "template": "wallSection"
+        },
+        {
+          "number": "A4.02",
+          "name": "CONSTRUCTION DETAILS",
+          "viewType": "Detail"
+        },
+        {
+          "number": "A5.03",
+          "name": "ROOM FINISH SCHEDULE",
+          "viewType": "Schedule",
+          "category": "Rooms"
+        },
+        {
+          "number": "A6.01",
+          "name": "INTERIOR ELEVATIONS - KITCHEN",
+          "viewType": "InteriorElevation"
+        },
+        {
+          "number": "A6.02",
+          "name": "INTERIOR ELEVATIONS - BATHROOMS",
+          "viewType": "InteriorElevation"
+        }
+      ]
+    },
+    "coverSheet": {
+      "projectDataBlock": true,
+      "teamBlock": true,
+      "codeSummaryBlock": true,
+      "keyPlan": false,
+      "vicinityMap": false,
+      "areaCalculations": true,
+      "zoning": true
+    }
+  },
+  "views": {
+    "prefix": "ZZ_",
+    "namingPattern": "{Prefix}{ViewType}_{Level}_{RunId}",
+    "templates": {
+      "floorPlan": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "discipline": "Architectural",
+        "phaseFilter": "Show New",
+        "cropEnabled": true,
+        "annotationCrop": true
+      },
+      "reflectedCeiling": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "discipline": "Architectural",
+        "cropEnabled": true
+      },
+      "exteriorElevation": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "discipline": "Architectural",
+        "cropEnabled": true
+      },
+      "buildingSection": {
+        "scale": 48,
+        "detailLevel": "Medium",
+        "visualStyle": "Hidden Line",
+        "discipline": "Architectural",
+        "cropEnabled": true
+      },
+      "detail": {
+        "scale": 12,
+        "detailLevel": "Fine",
+        "visualStyle": "Hidden Line"
+      },
+      "wallSection": {
+        "scale": 24,
+        "detailLevel": "Fine"
+      },
+      "interiorElevation": {
+        "scale": 24,
+        "detailLevel": "Fine"
+      }
+    }
+  },
+  "annotations": {
+    "textTypes": {
+      "notes": "3/32\" Arial",
+      "titles": "1/4\" Arial Bold",
+      "keynotes": "3/32\" Arial",
+      "small": "1/16\" Arial",
+      "large": "3/8\" Arial Bold"
+    },
+    "dimensionStyles": [
+      "Linear - 3/32\"",
+      "Angular",
+      "Spot Elevation"
+    ],
+    "tagFamilies": {
+      "door": "Door Tag",
+      "window": "Window Tag",
+      "room": "Room Tag",
+      "area": "Area Tag"
+    },
+    "keynoteStrategy": "elementKeynotes",
+    "lineStyles": [
+      "Thin Lines",
+      "Medium Lines",
+      "Wide Lines",
+      "Hidden",
+      "Centerline",
+      "Demolition"
+    ],
+    "symbolFamilies": {
+      "sectionMarker": "Section Head - Filled",
+      "elevationMarker": "Elevation Mark - Square",
+      "northArrow": "North Arrow 2",
+      "detailCallout": "Detail Callout",
+      "revisionCloud": "Revision Cloud"
+    }
+  },
+  "families": {
+    "required": {
+      "doors": [
+        "Single-Flush",
+        "Double-Flush"
+      ],
+      "windows": [
+        "Fixed",
+        "Casement",
+        "Double Hung"
+      ],
+      "annotations": [
+        "Door Tag",
+        "Window Tag",
+        "Room Tag",
+        "Section Head",
+        "Elevation Mark"
+      ]
+    },
+    "namingConvention": {
+      "pattern": "{Width}x{Height}_{Material}_{Rating}",
+      "requiredParams": [
+        "Mark",
+        "Type Mark",
+        "Width",
+        "Height"
+      ]
+    }
+  },
+  "schedules": {
+    "definitions": {
+      "doorSchedule": {
+        "category": "Doors",
+        "fields": [
+          "Mark",
+          "Type Mark",
+          "Level",
+          "Width",
+          "Height",
+          "Material",
+          "Hardware Set",
+          "Comments"
+        ],
+        "sorting": [
+          "Level",
+          "Mark"
+        ],
+        "grouping": [
+          "Level"
+        ],
+        "filters": [
+          "Exclude Demo"
+        ],
+        "formatting": {
+          "units": "feet-inches",
+          "rounding": "1/8\"",
+          "alignment": "left"
+        }
+      },
+      "windowSchedule": {
+        "category": "Windows",
+        "fields": [
+          "Mark",
+          "Type Mark",
+          "Level",
+          "Width",
+          "Height",
+          "Sill Height",
+          "Glass Type",
+          "Frame",
+          "Comments"
+        ],
+        "sorting": [
+          "Level",
+          "Mark"
+        ],
+        "grouping": [
+          "Level"
+        ],
+        "filters": [
+          "Exclude Demo"
+        ],
+        "formatting": {
+          "units": "feet-inches",
+          "rounding": "1/8\"",
+          "alignment": "left"
+        }
+      },
+      "roomSchedule": {
+        "category": "Rooms",
+        "fields": [
+          "Number",
+          "Name",
+          "Level",
+          "Area",
+          "Floor Finish",
+          "Base",
+          "Wall Finish",
+          "Ceiling Finish",
+          "Ceiling Height"
+        ],
+        "sorting": [
+          "Level",
+          "Number"
+        ],
+        "grouping": [
+          "Level"
+        ],
+        "formatting": {
+          "units": "SF",
+          "rounding": "1 SF",
+          "alignment": "left"
+        }
+      }
+    }
+  },
+  "filters": {
+    "preflight": [
+      {
+        "id": "GARAGE_DOOR",
+        "name": "Garage Door Present",
+        "category": "Doors",
+        "condition": "Type contains 'Garage'",
+        "severity": "info",
+        "message": "Garage door found - verify fire rating to house"
+      }
+    ],
+    "codeCompliance": [
+      {
+        "id": "EGRESS_WINDOWS",
+        "name": "Bedroom Egress Windows",
+        "category": "Rooms",
+        "condition": "Room Type == 'Bedroom'",
+        "severity": "warning",
+        "message": "Verify bedroom has code-compliant egress window"
+      },
+      {
+        "id": "SMOKE_DETECTORS",
+        "name": "Smoke Detector Locations",
+        "category": "Equipment",
+        "condition": "Type contains 'Smoke'",
+        "severity": "info",
+        "message": "Verify smoke detector placement per code"
+      }
+    ]
+  },
+  "browserOrganization": {
+    "scheme": "byViewType",
+    "namingConvention": "{Discipline}-{ViewType}-{Level}"
+  },
+  "worksets": {
+    "standard": [
+      {
+        "name": "Shared Levels and Grids",
+        "defaultFor": [
+          "Levels",
+          "Grids"
+        ]
+      },
+      {
+        "name": "Shell",
+        "defaultFor": [
+          "Walls",
+          "Roofs",
+          "Floors"
+        ]
+      },
+      {
+        "name": "Interiors",
+        "defaultFor": [
+          "Interior Walls",
+          "Doors",
+          "Casework"
+        ]
+      },
+      {
+        "name": "Site",
+        "defaultFor": [
+          "Topography",
+          "Site Components"
+        ]
+      }
+    ],
+    "defaultActive": "Shell"
+  },
+  "coordination": {
+    "linkPositioning": "Auto - By Shared Coordinates",
+    "copyMonitor": [
+      "Levels",
+      "Grids"
+    ],
+    "auditRules": {
+      "purgePolicy": "Before issue",
+      "warningThreshold": 100
+    }
+  },
+  "exports": {
+    "pdf": {
+      "dpi": 300,
+      "vectorRaster": "vector",
+      "colorMode": "mono"
+    },
+    "dwg": {
+      "layerMapping": "AIA Standard"
+    },
+    "folderStructure": "{ProjectNumber}/{Discipline}/{IssueDate}",
+    "namingPattern": "{ProjectNumber}_{SheetNumber}_{SheetName}"
+  },
+  "sectorModules": [],
+  "levelMapping": {
+    "patterns": {
+      "level1": [
+        "Level 1",
+        "L1",
+        "First Floor",
+        "Ground",
+        "Main Level",
+        "1"
+      ],
+      "level2": [
+        "Level 2",
+        "L2",
+        "Second Floor",
+        "Upper Level",
+        "2"
+      ],
+      "level3": [
+        "Level 3",
+        "L3",
+        "Third Floor",
+        "3"
+      ],
+      "roof": [
+        "Roof",
+        "T.O. Roof",
+        "Attic"
+      ],
+      "basement": [
+        "Basement",
+        "Lower Level",
+        "Foundation"
+      ]
+    },
+    "dynamicLevels": true,
+    "maxLevels": 4
+  },
+  "cropStrategy": {
+    "method": "model_extents",
+    "marginFeet": 5.0,
+    "enabled": true
+  },
+  "capabilities": {
+    "fallbacks": {
+      "scheduleViewport": "export_csv",
+      "legendViewport": "skip_with_warning",
+      "missingElevation": "skip_with_warning"
+    }
+  },
+  "sectorSpecific": {
+    "residentialRequirements": {
+      "energyCode": true,
+      "windLoad": true,
+      "floodZone": false
+    },
+    "roomRequirements": {
+      "minimumBedrooms": 1,
+      "minimumBathrooms": 1,
+      "garageIncluded": true
+    },
+    "siteRequirements": {
+      "setbacks": true,
+      "lotCoverage": true,
+      "heightLimit": true
+    }
+  }
+}

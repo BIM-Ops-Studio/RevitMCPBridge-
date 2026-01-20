@@ -1,0 +1,66 @@
+{
+  "$schema": "standards-pack-v1",
+  "name": "ARKY_Duplex_v1",
+  "description": "ARKY standards for duplex/townhouse projects",
+  "version": "1.0.0",
+  "firm": "ARKY",
+  "projectType": "Duplex",
+
+  "titleBlock": {
+    "preferredPatterns": ["ARKY", "Custom"],
+    "excludePatterns": ["Autodesk"],
+    "fallbackSize": "24x36"
+  },
+
+  "sheetSize": {
+    "width": 36,
+    "height": 24,
+    "units": "inches"
+  },
+
+  "scales": {
+    "floorPlan": 48,
+    "ceilingPlan": 48,
+    "elevation": 48,
+    "section": 48,
+    "detail": 12
+  },
+
+  "cropStrategy": {
+    "method": "model_extents",
+    "marginFeet": 5.0,
+    "enabled": true
+  },
+
+  "sheetSet": {
+    "permitSkeleton": [
+      {"number": "A0.01", "name": "COVER SHEET"},
+      {"number": "A0.02", "name": "GENERAL NOTES"},
+      {"number": "A1.01", "name": "FIRST FLOOR PLAN - UNIT A", "viewType": "FloorPlan", "level": 1, "unit": "A"},
+      {"number": "A1.02", "name": "FIRST FLOOR PLAN - UNIT B", "viewType": "FloorPlan", "level": 1, "unit": "B"},
+      {"number": "A2.01", "name": "BUILDING ELEVATIONS", "viewType": "Elevation"},
+      {"number": "A5.01", "name": "DOOR SCHEDULE - UNIT A", "viewType": "Schedule", "category": "Doors", "unit": "A"},
+      {"number": "A5.02", "name": "DOOR SCHEDULE - UNIT B", "viewType": "Schedule", "category": "Doors", "unit": "B"}
+    ]
+  },
+
+  "naming": {
+    "viewPrefix": "ZZ_",
+    "schedulePattern": "{Category} Schedule - {Unit}",
+    "sheetNumberSuffix": "-{run_id:4}"
+  },
+
+  "unitStrategy": {
+    "enabled": true,
+    "units": ["A", "B"],
+    "perUnitSchedules": ["Doors", "Windows", "Rooms"],
+    "sharedSchedules": ["Wall Types", "Floor Types"]
+  },
+
+  "levelMapping": {
+    "patterns": {
+      "level1": ["Level 1", "L1", "First Floor"],
+      "level2": ["Level 2", "L2", "Second Floor"]
+    }
+  }
+}

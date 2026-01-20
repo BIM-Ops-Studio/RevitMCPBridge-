@@ -1,0 +1,243 @@
+{
+  "_description": "Maps Revit materials to detail components and filled region types for intelligent tracing",
+  "_version": "1.0",
+
+  "materialMappings": {
+    "Concrete - Cast-in-Place": {
+      "filledRegionType": "CONCRETE",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 1
+    },
+    "Concrete - Precast": {
+      "filledRegionType": "CONCRETE 2",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 1
+    },
+    "Concrete, Cast-in-Place": {
+      "filledRegionType": "CONCRETE",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 1
+    },
+    "Concrete Masonry Units": {
+      "filledRegionType": "GROUT",
+      "detailComponent": "8\"x8\"x16\"",
+      "lineWeight": 2,
+      "priority": 2
+    },
+    "CMU": {
+      "filledRegionType": "GROUT",
+      "detailComponent": "8\"x8\"x16\"",
+      "lineWeight": 2,
+      "priority": 2
+    },
+    "Masonry - Concrete Masonry Units": {
+      "filledRegionType": "GROUT",
+      "detailComponent": "8\"x8\"x16\"",
+      "lineWeight": 2,
+      "priority": 2
+    },
+    "Stucco": {
+      "filledRegionType": "STUCCO",
+      "detailComponent": null,
+      "lineWeight": 1,
+      "priority": 3
+    },
+    "Finish - Exterior - Stucco": {
+      "filledRegionType": "STUCCO",
+      "detailComponent": null,
+      "lineWeight": 1,
+      "priority": 3
+    },
+    "Gypsum Wall Board": {
+      "filledRegionType": null,
+      "detailComponent": "5/8\"",
+      "lineWeight": 1,
+      "priority": 4
+    },
+    "Gypsum Board": {
+      "filledRegionType": null,
+      "detailComponent": "5/8\"",
+      "lineWeight": 1,
+      "priority": 4
+    },
+    "GWB": {
+      "filledRegionType": null,
+      "detailComponent": "5/8\"",
+      "lineWeight": 1,
+      "priority": 4
+    },
+    "Gypsum Board - Type X": {
+      "filledRegionType": null,
+      "detailComponent": "5/8\" Type \"X\"",
+      "lineWeight": 1,
+      "priority": 4
+    },
+    "Wood - Framing": {
+      "filledRegionType": "WOOD",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 5
+    },
+    "Wood - Stud Layer": {
+      "filledRegionType": "WOOD",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 5
+    },
+    "Softwood - Lumber": {
+      "filledRegionType": "WOOD",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 5
+    },
+    "Plywood": {
+      "filledRegionType": "Wood 1",
+      "detailComponent": null,
+      "lineWeight": 1,
+      "priority": 6
+    },
+    "Plywood, Sheathing": {
+      "filledRegionType": "Wood 1",
+      "detailComponent": null,
+      "lineWeight": 1,
+      "priority": 6
+    },
+    "Metal - Steel": {
+      "filledRegionType": "STEEL",
+      "detailComponent": null,
+      "lineWeight": 3,
+      "priority": 7
+    },
+    "Steel": {
+      "filledRegionType": "STEEL",
+      "detailComponent": null,
+      "lineWeight": 3,
+      "priority": 7
+    },
+    "Metal - Stud Layer": {
+      "filledRegionType": "STEEL",
+      "detailComponent": "3 5/8\"",
+      "lineWeight": 2,
+      "priority": 7
+    },
+    "Metal Stud": {
+      "filledRegionType": "STEEL",
+      "detailComponent": "3 5/8\"",
+      "lineWeight": 2,
+      "priority": 7
+    },
+    "Insulation / Thermal Barriers - Batt": {
+      "filledRegionType": "CMU INSULATION",
+      "detailComponent": null,
+      "lineWeight": 1,
+      "priority": 8
+    },
+    "Insulation - Batt": {
+      "filledRegionType": "CMU INSULATION",
+      "detailComponent": null,
+      "lineWeight": 1,
+      "priority": 8
+    },
+    "Insulation / Thermal Barriers - Rigid": {
+      "filledRegionType": "Diagonal Crosshatch",
+      "detailComponent": "Rigid Insulation - Tapered",
+      "lineWeight": 1,
+      "priority": 8
+    },
+    "Rigid Insulation": {
+      "filledRegionType": "Diagonal Crosshatch",
+      "detailComponent": "Rigid Insulation - Tapered",
+      "lineWeight": 1,
+      "priority": 8
+    },
+    "Roofing - TPO": {
+      "filledRegionType": "Solid Black",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 9
+    },
+    "Roofing - EPDM": {
+      "filledRegionType": "Solid Black",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 9
+    },
+    "Roofing - Built Up": {
+      "filledRegionType": "GRAY SHADE",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 9
+    },
+    "Earth": {
+      "filledRegionType": "EARTH",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 10
+    },
+    "Soil": {
+      "filledRegionType": "SOIL",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 10
+    },
+    "Stone": {
+      "filledRegionType": "STONE",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 11
+    },
+    "Aluminum": {
+      "filledRegionType": "SOLID FILL LT GRAY",
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 12
+    },
+    "Glass": {
+      "filledRegionType": "LT GRAY TRANSPARENT 2",
+      "detailComponent": null,
+      "lineWeight": 1,
+      "priority": 13
+    },
+    "Air": {
+      "filledRegionType": null,
+      "detailComponent": null,
+      "lineWeight": 0,
+      "priority": 99,
+      "skip": true
+    },
+    "Default": {
+      "filledRegionType": null,
+      "detailComponent": null,
+      "lineWeight": 2,
+      "priority": 100
+    }
+  },
+
+  "detailComponentFamilies": {
+    "8\"x8\"x16\"": { "family": "CMU-Section", "type": "8\"x8\"x16\"", "category": "CMU" },
+    "8\"x8\"": { "family": "CMU-Section", "type": "8\"x8\"", "category": "CMU" },
+    "5/8\"": { "family": "GWB-Section", "type": "5/8\"", "category": "Drywall" },
+    "1/2\"": { "family": "GWB-Section", "type": "1/2\"", "category": "Drywall" },
+    "5/8\" Type \"X\"": { "family": "GWB-Section", "type": "5/8\" Type \"X\"", "category": "Drywall" },
+    "3 5/8\"": { "family": "Metal Stud-Section", "type": "3 5/8\"", "category": "Framing" },
+    "2x8": { "family": "Wood Framing-Section", "type": "2x8", "category": "Framing" },
+    "2x10": { "family": "Wood Framing-Section", "type": "2x10", "category": "Framing" },
+    "Rigid Insulation - Tapered": { "family": "Insulation-Section", "type": "Rigid Insulation - Tapered", "category": "Insulation" },
+    "Wall Flashing-Through Wall-Section": { "family": "Flashing-Section", "type": "Wall Flashing-Through Wall-Section", "category": "Flashing" }
+  },
+
+  "filledRegionPriority": [
+    "CONCRETE",
+    "GROUT",
+    "STUCCO",
+    "WOOD",
+    "STEEL",
+    "CMU INSULATION",
+    "EARTH",
+    "SOIL",
+    "STONE"
+  ]
+}

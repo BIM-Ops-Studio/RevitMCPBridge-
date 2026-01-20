@@ -1,0 +1,243 @@
+﻿{
+    "scale":  1,
+    "name":  "PROPERTY INFORMATION",
+    "id":  2200485,
+    "elements":  {
+                     "filledRegions":  [
+
+                                       ],
+                     "detailLines":  [
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.42,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.02
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.42,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.57
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.5500,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.57
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.02
+                                                       }
+                                         },
+                                         {
+                                             "length":  0.38,
+                                             "style":  "\u003cThin Lines\u003e",
+                                             "end":  {
+                                                         "y":  0.0,
+                                                         "x":  0.17
+                                                     },
+                                             "start":  {
+                                                           "y":  0.0,
+                                                           "x":  0.17
+                                                       }
+                                         }
+                                     ],
+                     "detailComponents":  [
+
+                                          ],
+                     "textNotes":  [
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "SITE DATA\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "SITE ADDRESS\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "MUNICIPALITY\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "LEGAL\\rDESCRIPTION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "PARCEL\\rCONTROL NO.\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.03
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "BUILDING\\rDESCRIPTION\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "9254 ROSEBUD CIRCLE, PORT CHARLOTTE, FL 33981\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "CHARLOTTE COUNTY\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "LOT 13, BLOCK 4524, PORT CHARLOTTE\\rSUBDIVISION SECTION 81, PB 6, PG 51A-51P,\\rCHARLOTTE COUNTY, FLORIDA\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "412122180013\\r"
+                                       },
+                                       {
+                                           "position":  {
+                                                            "y":  0.0,
+                                                            "x":  0.18
+                                                        },
+                                           "leaderEnd":  null,
+                                           "hasLeader":  false,
+                                           "text":  "SINGLE FAMILY RESIDENTIAL\\r"
+                                       }
+                                   ]
+                 },
+    "metadata":  {
+                     "lineCount":  10,
+                     "extractedAt":  "2025-12-28 00:24:09",
+                     "regionCount":  0,
+                     "componentCount":  0,
+                     "textCount":  11
+                 }
+}

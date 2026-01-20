@@ -1,0 +1,89 @@
+{
+  "$schema": "validation-pack-v1",
+  "_sector": "commercial_ti",
+
+  "postconditions": {
+    "required": [
+      {
+        "id": "SHEETS_CREATED",
+        "check": "sheet_count >= permitSkeleton.length",
+        "severity": "blocker",
+        "message": "All required sheets must be created"
+      },
+      {
+        "id": "CONSTRUCTION_PLAN_PLACED",
+        "check": "viewport_exists('Construction Floor Plan')",
+        "severity": "blocker",
+        "message": "Construction floor plan must be placed"
+      },
+      {
+        "id": "CLEANUP_COMPLETE",
+        "check": "leftover_count == 0",
+        "severity": "blocker",
+        "message": "All test artifacts must be cleaned up"
+      }
+    ],
+    "optional": [
+      {
+        "id": "DEMOLITION_PLAN",
+        "check": "viewport_exists('Demolition Plan')",
+        "severity": "warning",
+        "message": "Demolition plan should be placed for TI projects"
+      },
+      {
+        "id": "RCP_PLACED",
+        "check": "viewport_type('ceilingPlan') >= 1",
+        "severity": "warning",
+        "message": "Reflected ceiling plan should be placed"
+      },
+      {
+        "id": "FINISH_SCHEDULE",
+        "check": "schedule_exists('Finish Schedule')",
+        "severity": "warning",
+        "message": "Finish schedule should exist"
+      },
+      {
+        "id": "SCHEDULES_PLACED",
+        "check": "schedule_viewport_count >= 1",
+        "severity": "warning",
+        "message": "Schedule placement not supported in Revit 2026"
+      }
+    ]
+  },
+
+  "exports": {
+    "required": [
+      {
+        "id": "SHEET_LIST_CSV",
+        "filename": "sheet_list_{run_id}.csv",
+        "hash": true,
+        "columns": ["Sheet Number", "Sheet Name", "View Count"]
+      },
+      {
+        "id": "DOOR_SCHEDULE_CSV",
+        "filename": "door_schedule_{run_id}.csv",
+        "hash": true
+      }
+    ],
+    "optional": [
+      {
+        "id": "FINISH_SCHEDULE_CSV",
+        "filename": "finish_schedule_{run_id}.csv"
+      },
+      {
+        "id": "LIGHTING_SCHEDULE_CSV",
+        "filename": "lighting_schedule_{run_id}.csv"
+      }
+    ]
+  },
+
+  "evidence": {
+    "collect": [
+      "workflow_report_{run_id}.json",
+      "workflow_report_{run_id}.ndjson",
+      "sheet_list_{run_id}.csv",
+      "door_schedule_{run_id}.csv"
+    ],
+    "screenshot": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "specVersion": "1.0",
+  "method": {
+    "name": "setroomupperlimit",
+    "intent": "Set the upper limit and offset for a room element",
+    "tier": 2,
+    "category": "Room"
+  },
+  "inputs": {},
+  "preconditions": [],
+  "algorithm": [],
+  "validation": {
+    "successCriteria": "Method completes without error",
+    "evidence": [
+      "success",
+      "message"
+    ]
+  },
+  "failureModes": [],
+  "apiDependencies": [],
+  "revitVersions": [
+    "2026"
+  ],
+  "metadata": {
+    "proposedBy": "Claude",
+    "proposedAt": "2025-12-27T17:46:56.8867391-08:00",
+    "triggeringTask": null,
+    "approvedBy": "User",
+    "approvedAt": "2025-12-27T17:47:01.6097511-08:00"
+  }
+}

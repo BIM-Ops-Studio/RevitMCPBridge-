@@ -1,0 +1,188 @@
+{
+  "project_name": "SOUTH GOLF COVE RESIDENCE",
+  "firm": "Fantal Consulting",
+  "extracted_at": "2026-01-17",
+  "project_type": "single-family",
+  "statistics": {
+    "rooms": 22,
+    "views": 360,
+    "sheets": 23,
+    "levels": 2
+  },
+  "room_analysis": {
+    "Bedroom": {"count": 4, "avg_area": 280, "samples": ["MASTER BEDROOM #1", "BEDROOM #2", "BEDROOM #3", "BEDROOM #4"]},
+    "Bathroom": {"count": 4, "avg_area": 85, "samples": ["MASTER BATHROOM #1", "BATHROOM #2", "BATHROOM #3", "BATHROOM #4"]},
+    "Living": {"count": 2, "avg_area": 367, "samples": ["GREAT ROOM", "FAMILY ROOM"]},
+    "Kitchen": {"count": 1, "avg_area": 149, "samples": ["KITCHEN"]},
+    "Dining": {"count": 1, "avg_area": 142, "samples": ["DINING"]},
+    "Closet": {"count": 4, "avg_area": 33, "samples": ["W.I.C.", "W.I.C.", "CLOSET", "CLOSET"]},
+    "Circulation": {"count": 2, "avg_area": 26, "samples": ["HALL", "HALL"]},
+    "Garage": {"count": 1, "avg_area": 520, "samples": ["GARAGE"]},
+    "Utility": {"count": 2, "avg_area": 45, "samples": ["LAUNDRY", "MECHANICAL"]},
+    "Other": {"count": 1, "avg_area": 120, "samples": ["LANAI"]}
+  },
+  "view_analysis": {
+    "FloorPlan": {"count": 12, "samples": ["L1 - Architectural", "L2 - Architectural", "PROPOSED SITE PLAN"]},
+    "CeilingPlan": {"count": 2, "samples": ["PROPOSED GROUND FLOOR - RCP"]},
+    "Elevation": {"count": 4, "samples": ["WEST ELEVATION", "NORTH ELEVATION", "SOUTH ELEVATION", "EAST ELEVATION"]},
+    "Section": {"count": 8, "samples": ["BUILDING SECTION 1", "WALL SECTION 1"]},
+    "ThreeD": {"count": 5, "samples": ["Cover Sheet View", "3D View 1"]},
+    "Schedule": {"count": 15, "samples": ["Door Schedule", "WINDOW SCHEDULE", "ROOM FINISH SCHEDULE"]},
+    "Legend": {"count": 3, "samples": ["Text and Dimensions", "Symbols"]},
+    "DraftingView": {"count": 45, "samples": ["TYPICAL DETAIL 1", "WALL DETAIL 1"]}
+  },
+  "sheet_analysis": {
+    "A-0: General/Index": {
+      "count": 3,
+      "sheets": [
+        {"num": "A0.0", "name": "COVER SHEET"},
+        {"num": "A0.1", "name": "PROJECT INFORMATION"},
+        {"num": "A0.2", "name": "ABBREVIATION, NOTES & SYMBOLS"}
+      ]
+    },
+    "A-1: Site": {
+      "count": 1,
+      "sheets": [
+        {"num": "A1.0", "name": "PROPOSED SITE PLAN"}
+      ]
+    },
+    "A-2: Plans/RCP": {
+      "count": 4,
+      "sheets": [
+        {"num": "A2.1", "name": "PROPOSED GROUND FLOOR PLAN"},
+        {"num": "A2.2", "name": "PROPOSED SECOND FLOOR PLAN"},
+        {"num": "A2.3", "name": "DOOR / WINDOW SCHEDULE & DETAILS"},
+        {"num": "A2.4", "name": "PROPOSED ROOF PLAN"}
+      ]
+    },
+    "A-3: RCP": {
+      "count": 2,
+      "sheets": [
+        {"num": "A3.0", "name": "PROPOSED GROUND FLOOR REFLECTED CEILING PLAN"},
+        {"num": "A3.1", "name": "PROPOSED SECOND FLOOR REFLECTED CEILING PLAN"}
+      ]
+    },
+    "A-5: Elevations": {
+      "count": 2,
+      "sheets": [
+        {"num": "A5.0", "name": "PROPOSED BUILDING ELEVATIONS - NORTH & EAST"},
+        {"num": "A5.1", "name": "PROPOSED BUILDING ELEVATIONS - SOUTH & WEST"}
+      ]
+    },
+    "A-6: Enlarged Plans": {
+      "count": 2,
+      "sheets": [
+        {"num": "A6.0", "name": "ENLARGED PLANS , ELEVATIONS & DETAILS"},
+        {"num": "A6.1", "name": "ENLARGED STAIR PLAN, SECTIONS AND DETAILS"}
+      ]
+    },
+    "A-7: Building Sections": {
+      "count": 2,
+      "sheets": [
+        {"num": "A7.0", "name": "BUILDING SECTIONS"},
+        {"num": "A7.1", "name": "BUILDING SECTIONS"}
+      ]
+    },
+    "A-8: Wall Sections": {
+      "count": 3,
+      "sheets": [
+        {"num": "A8.0", "name": "WALL SECTIONS"},
+        {"num": "A8.1", "name": "WALL SECTIONS"},
+        {"num": "A8.2", "name": "WALL SECTIONS"}
+      ]
+    },
+    "A-9: Details": {
+      "count": 3,
+      "sheets": [
+        {"num": "A9.0", "name": "TYPICAL DETAILS"},
+        {"num": "A9.1", "name": "TYPICAL DETAILS"},
+        {"num": "A9.2", "name": "TYPICAL DETAILS"}
+      ]
+    },
+    "A-12: Renderings": {
+      "count": 1,
+      "sheets": [
+        {"num": "A12.0", "name": "3D RENDERINGS"}
+      ]
+    }
+  },
+  "numbering_pattern": "Dot-decimal no dash (A2.1, A5.0)",
+  "proposed_rules": [
+    {
+      "id": "FLOOR_PLAN_PER_LEVEL",
+      "name": "Floor Plan Per Level",
+      "condition": "project_type = 'single-family' AND levels > 1",
+      "action": "Create separate floor plan sheet for each level",
+      "confidence": "HIGH",
+      "evidence": [
+        "A2.1: PROPOSED GROUND FLOOR PLAN",
+        "A2.2: PROPOSED SECOND FLOOR PLAN"
+      ]
+    },
+    {
+      "id": "ELEVATION_GROUPING",
+      "name": "Elevation Grouping",
+      "condition": "project_type = 'single-family'",
+      "action": "Group 2 elevations per sheet (opposite pairs)",
+      "confidence": "HIGH",
+      "evidence": [
+        "A5.0: PROPOSED BUILDING ELEVATIONS - NORTH & EAST",
+        "A5.1: PROPOSED BUILDING ELEVATIONS - SOUTH & WEST"
+      ]
+    },
+    {
+      "id": "SECTION_ORGANIZATION",
+      "name": "Building Sections vs Wall Sections",
+      "condition": "Project requires section documentation",
+      "action": "Separate building sections (A-7.x) from wall sections (A-8.x)",
+      "confidence": "HIGH",
+      "evidence": {
+        "building": ["A7.0", "A7.1"],
+        "wall": ["A8.0", "A8.1", "A8.2"]
+      }
+    },
+    {
+      "id": "RCP_PER_LEVEL",
+      "name": "RCP Per Level",
+      "condition": "project has ceiling plans",
+      "action": "Create RCP sheet for each level",
+      "confidence": "HIGH",
+      "evidence": [
+        "A3.0: PROPOSED GROUND FLOOR REFLECTED CEILING PLAN",
+        "A3.1: PROPOSED SECOND FLOOR REFLECTED CEILING PLAN"
+      ]
+    },
+    {
+      "id": "TYPICAL_DETAILS",
+      "name": "Typical Details Organization",
+      "condition": "project has construction details",
+      "action": "Group typical details on A-9.x series sheets",
+      "confidence": "HIGH",
+      "evidence": [
+        "A9.0: TYPICAL DETAILS",
+        "A9.1: TYPICAL DETAILS",
+        "A9.2: TYPICAL DETAILS"
+      ]
+    },
+    {
+      "id": "ENLARGED_STAIR_PLANS",
+      "name": "Enlarged Stair Plans",
+      "condition": "building has stairs AND levels > 1",
+      "action": "Create enlarged stair plan with sections and details",
+      "confidence": "HIGH",
+      "evidence": [
+        "A6.1: ENLARGED STAIR PLAN, SECTIONS AND DETAILS"
+      ]
+    },
+    {
+      "id": "SCHEDULE_WITH_PLANS",
+      "name": "Schedules Combined with Plans",
+      "condition": "project_type = 'single-family'",
+      "action": "Combine door/window schedules with floor plan sheets",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "A2.3: DOOR / WINDOW SCHEDULE & DETAILS"
+      ]
+    }
+  ]
+}
