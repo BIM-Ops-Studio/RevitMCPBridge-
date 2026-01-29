@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevitMCPBridge - Episode 2: Building the Bridge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0D1B2A 0%, #1E3A5F 100%);
+            color: #F4F4F4;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .slide {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes drawBridge {
+            from { width: 0; }
+            to { width: 200px; }
+        }
+
+        @keyframes dataFlow {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #F4F4F4, #00D4FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #FF6B35;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00D4FF;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+
+        .big-question {
+            font-size: 2.2rem;
+            line-height: 1.4;
+            max-width: 900px;
+            color: #fff;
+        }
+
+        .big-question .highlight {
+            color: #FF6B35;
+            font-weight: 700;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px 60px;
+            margin: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #FF6B35;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-top: 10px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .two-columns {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            min-width: 280px;
+            max-width: 350px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .column h3 {
+            margin-bottom: 25px;
+        }
+
+        .column ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .column li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .column li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #00D4FF;
+            font-weight: bold;
+        }
+
+        .bridge-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .bridge-node {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .bridge-node.claude {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+        }
+
+        .bridge-node.revit {
+            background: linear-gradient(135deg, #FF6B35, #F59E0B);
+        }
+
+        .bridge-node.mcp {
+            background: linear-gradient(135deg, #00D4FF, #10B981);
+        }
+
+        .bridge-line {
+            height: 8px;
+            background: linear-gradient(90deg, #8B5CF6, #00D4FF, #FF6B35);
+            border-radius: 4px;
+            animation: drawBridge 1.5s ease-out forwards;
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #00D4FF;
+            animation: pulse 2s infinite;
+        }
+
+        /* Architecture diagram */
+        .architecture {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .layer {
+            background: rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 20px 30px;
+            border-left: 4px solid;
+            text-align: left;
+        }
+
+        .layer.layer1 { border-color: #8B5CF6; }
+        .layer.layer2 { border-color: #00D4FF; }
+        .layer.layer3 { border-color: #FF6B35; }
+
+        .layer-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .layer-desc {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        .connector {
+            text-align: center;
+            color: #00D4FF;
+            font-size: 1.2rem;
+        }
+
+        /* Code block */
+        .code-block {
+            background: rgba(0,0,0,0.5);
+            border-radius: 15px;
+            padding: 30px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            text-align: left;
+            max-width: 700px;
+            margin: 20px auto;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .code-line {
+            margin: 8px 0;
+        }
+
+        .code-key { color: #FF6B35; }
+        .code-string { color: #10B981; }
+        .code-number { color: #00D4FF; }
+        .code-comment { color: #6B7280; font-style: italic; }
+
+        /* Terminal style */
+        .terminal {
+            background: #0a0a0a;
+            border-radius: 15px;
+            padding: 30px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            text-align: left;
+            max-width: 700px;
+            margin: 20px auto;
+            border: 1px solid #333;
+        }
+
+        .terminal-prompt {
+            color: #10B981;
+        }
+
+        .terminal-command {
+            color: #fff;
+        }
+
+        .terminal-output {
+            color: #00D4FF;
+            margin: 10px 0;
+        }
+
+        .success-banner {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.1));
+            border: 2px solid #10B981;
+            border-radius: 15px;
+            padding: 30px 50px;
+            margin-top: 30px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        /* Method list */
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .method-item {
+            background: rgba(255,255,255,0.08);
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+
+        .method-item::before {
+            content: ">";
+            color: #10B981;
+            margin-right: 10px;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .control-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-btn:hover {
+            background: #FF6B35;
+            transform: scale(1.05);
+        }
+
+        .control-btn.playing {
+            background: #FF6B35;
+        }
+
+        .progress-bar {
+            flex: 1;
+            max-width: 400px;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #FF6B35;
+            transition: width 0.3s;
+        }
+
+        .slide-counter {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .logo {
+            position: absolute;
+            bottom: 100px;
+            right: 40px;
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+
+        .audio-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #00D4FF;
+        }
+
+        .audio-indicator.playing::before {
+            content: "🔊";
+            animation: pulse 1s infinite;
+        }
+
+        .audio-indicator:not(.playing)::before {
+            content: "🔇";
+        }
+
+        /* Pipe visualization */
+        .pipe-visual {
+            background: linear-gradient(90deg, rgba(139,92,246,0.2), rgba(0,212,255,0.2), rgba(255,107,53,0.2));
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            max-width: 700px;
+        }
+
+        .pipe-name {
+            font-family: monospace;
+            font-size: 1.3rem;
+            color: #00D4FF;
+            margin-bottom: 20px;
+        }
+
+        .pipe-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        .flow-item {
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="slide-container">
+            <!-- Slide 1: Title -->
+            <div class="slide active" data-duration="5000">
+                <h1>RevitMCPBridge</h1>
+                <p class="subtitle">"Teaching AI to Build"</p>
+                <h2>Episode 2: Building the Bridge</h2>
+                <p style="color: #aaa; margin-top: 20px;">Connecting two worlds that were never meant to talk</p>
+                <div class="bridge-visual">
+                    <div class="bridge-node claude">CLAUDE</div>
+                    <div class="bridge-line"></div>
+                    <div class="bridge-node revit">REVIT</div>
+                </div>
+            </div>
+
+            <!-- Slide 2: The Challenge -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep2/slide02.mp3">
+                <h2>THE CHALLENGE</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 style="color: #8B5CF6;">CLAUDE</h3>
+                        <ul>
+                            <li>Runs in cloud</li>
+                            <li>Text in/out</li>
+                            <li>No file access</li>
+                            <li>Stateless</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3 style="color: #FF6B35;">REVIT</h3>
+                        <ul>
+                            <li>Runs on desktop</li>
+                            <li>GUI-based</li>
+                            <li>C#/.NET</li>
+                            <li>Stateful</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="big-question" style="margin-top: 40px;">How do you make these <span class="highlight">talk to each other</span>?</p>
+            </div>
+
+            <!-- Slide 3: The Key Insight -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep2/slide03.mp3">
+                <h2>THE KEY INSIGHT</h2>
+                <h3>Model Context Protocol (MCP)</h3>
+                <div class="bridge-visual" style="margin: 40px 0;">
+                    <div class="bridge-node claude" style="width: 100px; height: 80px;">CLAUDE</div>
+                    <div style="color: #00D4FF;">JSON ─►</div>
+                    <div class="bridge-node mcp" style="width: 100px; height: 80px;">MCP<br>SERVER</div>
+                    <div style="color: #00D4FF;">─► JSON</div>
+                    <div class="bridge-node revit" style="width: 100px; height: 80px;">TOOL</div>
+                </div>
+                <p style="font-size: 1.4rem; max-width: 700px;">Anthropic built MCP so Claude could use external tools.<br><br>We just needed to make Revit... <span style="color: #FF6B35; font-weight: bold;">a tool</span>.</p>
+            </div>
+
+            <!-- Slide 4: The Architecture -->
+            <div class="slide" data-duration="15000" data-audio="audio/ep2/slide04.mp3">
+                <h2>THE ARCHITECTURE</h2>
+                <div class="architecture">
+                    <div class="layer layer1">
+                        <div class="layer-title" style="color: #8B5CF6;">LAYER 1: Claude Code</div>
+                        <div class="layer-desc">User ─► "Create a 20x30 room" ─► Claude Code (WSL)</div>
+                    </div>
+                    <div class="connector">│ stdio</div>
+                    <div class="layer layer2">
+                        <div class="layer-title" style="color: #00D4FF;">LAYER 2: MCP Server (Python)</div>
+                        <div class="layer-desc">Translates MCP calls ─► Named Pipe messages</div>
+                    </div>
+                    <div class="connector">│ Named Pipe</div>
+                    <div class="layer layer3">
+                        <div class="layer-title" style="color: #FF6B35;">LAYER 3: Revit Add-in (C#)</div>
+                        <div class="layer-desc">Receives JSON ─► Executes Revit API ─► Returns data</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Named Pipes -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep2/slide05.mp3">
+                <h2>NAMED PIPES</h2>
+                <p style="color: #aaa; margin-bottom: 20px;">A persistent communication channel in Windows</p>
+                <div class="pipe-visual">
+                    <div class="pipe-name">\\.\pipe\RevitMCPBridge2026</div>
+                    <div class="pipe-flow">
+                        <div class="flow-item" style="color: #10B981;">{"method":"createWall",...} ─►</div>
+                        <div class="flow-item" style="color: #FF6B35;">◄─ {"success":true,"wallId":12345}</div>
+                    </div>
+                </div>
+                <p style="font-size: 1.3rem; margin-top: 30px;">Messages flow both directions. <span style="color: #00D4FF;">Instantly.</span></p>
+            </div>
+
+            <!-- Slide 6: Inside Revit -->
+            <div class="slide" data-duration="15000" data-audio="audio/ep2/slide06.mp3">
+                <h2>INSIDE REVIT: THE ADD-IN</h2>
+                <div class="architecture" style="max-width: 700px;">
+                    <div style="text-align: center; color: #aaa; margin-bottom: 10px;">MCPServer.cs</div>
+                    <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+                        <div class="stat-box" style="padding: 15px 25px; margin: 0;">
+                            <div style="font-size: 0.9rem;">Listen<br>on Pipe</div>
+                        </div>
+                        <div style="color: #00D4FF; align-self: center;">►</div>
+                        <div class="stat-box" style="padding: 15px 25px; margin: 0;">
+                            <div style="font-size: 0.9rem;">Parse<br>JSON</div>
+                        </div>
+                        <div style="color: #00D4FF; align-self: center;">►</div>
+                        <div class="stat-box" style="padding: 15px 25px; margin: 0;">
+                            <div style="font-size: 0.9rem;">Route<br>Method</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: #00D4FF;">▼</div>
+                    <div class="layer layer3" style="text-align: center;">
+                        <div style="font-family: monospace;">WallMethods │ ViewMethods │ SheetMethods │ ...</div>
+                    </div>
+                    <div style="text-align: center; color: #00D4FF;">▼</div>
+                    <div style="text-align: center; font-size: 1.3rem; color: #FF6B35;">REVIT API</div>
+                </div>
+            </div>
+
+            <!-- Slide 7: First Test -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep2/slide07.mp3">
+                <h2>THE FIRST TEST</h2>
+                <div class="terminal">
+                    <div><span class="terminal-prompt">$ </span><span class="terminal-command">echo '{"method":"ping"}' | nc -U /pipe/RevitMCP2026</span></div>
+                    <div class="terminal-output">{"success": true, "result": "pong"}</div>
+                    <div><span class="terminal-prompt">$ </span><span style="color: #666;">_</span></div>
+                </div>
+                <div class="success-banner">IT WORKS.</div>
+            </div>
+
+            <!-- Slide 8: The Method Structure -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep2/slide08.mp3">
+                <h2>ANATOMY OF A COMMAND</h2>
+                <div class="code-block">
+                    <div class="code-line">{</div>
+                    <div class="code-line">  <span class="code-key">"method"</span>: <span class="code-string">"createWall"</span>,  <span class="code-comment">// What to do</span></div>
+                    <div class="code-line"></div>
+                    <div class="code-line">  <span class="code-key">"params"</span>: {  <span class="code-comment">// How to do it</span></div>
+                    <div class="code-line">    <span class="code-key">"startPoint"</span>: [<span class="code-number">0</span>, <span class="code-number">0</span>, <span class="code-number">0</span>],</div>
+                    <div class="code-line">    <span class="code-key">"endPoint"</span>: [<span class="code-number">20</span>, <span class="code-number">0</span>, <span class="code-number">0</span>],</div>
+                    <div class="code-line">    <span class="code-key">"levelId"</span>: <span class="code-number">30</span>,</div>
+                    <div class="code-line">    <span class="code-key">"height"</span>: <span class="code-number">10</span></div>
+                    <div class="code-line">  }</div>
+                    <div class="code-line">}</div>
+                </div>
+                <p style="margin-top: 20px; color: #aaa;">Plain JSON. Human readable. Machine executable.</p>
+            </div>
+
+            <!-- Slide 9: The Early Methods -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep2/slide09.mp3">
+                <h2>FIRST METHODS</h2>
+                <p class="subtitle">November 2024</p>
+                <div class="method-grid">
+                    <div class="method-item">ping</div>
+                    <div class="method-item">getLevels</div>
+                    <div class="method-item">getProjectInfo</div>
+                    <div class="method-item">getWallTypes</div>
+                    <div class="method-item">createWall</div>
+                    <div class="method-item">getViews</div>
+                    <div class="method-item">getElements</div>
+                    <div class="method-item">getSheets</div>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.3rem;">~30 methods total</p>
+                <p style="color: #aaa;">Enough to prove the concept.</p>
+            </div>
+
+            <!-- Slide 10: The Revit Context Challenge -->
+            <div class="slide" data-duration="15000" data-audio="audio/ep2/slide10.mp3">
+                <h2>THE REVIT CONTEXT CHALLENGE</h2>
+                <div class="stat-box" style="background: rgba(255,107,53,0.1); border-color: #FF6B35; margin-bottom: 30px;">
+                    <div style="font-size: 1.2rem;">REVIT'S RULE: All API calls must happen on<br><span style="color: #FF6B35; font-size: 1.5rem;">Revit's main thread</span></div>
+                </div>
+                <div class="two-columns" style="gap: 40px;">
+                    <div style="text-align: left;">
+                        <p style="color: #10B981;">External command</p>
+                        <p style="color: #aaa;">─► Direct API access ✓</p>
+                    </div>
+                    <div style="text-align: left;">
+                        <p style="color: #EF4444;">Named pipe listener</p>
+                        <p style="color: #aaa;">─► Background thread ✗</p>
+                    </div>
+                </div>
+                <div style="margin-top: 40px; padding: 20px; background: rgba(16,185,129,0.1); border-radius: 10px; border: 1px solid #10B981;">
+                    <p style="color: #10B981; font-weight: 600;">SOLUTION: ExternalEvent + IExternalEventHandler</p>
+                    <p style="color: #aaa; margin-top: 10px;">Queue commands, execute on main thread</p>
+                </div>
+            </div>
+
+            <!-- Slide 11: The Bridge Complete -->
+            <div class="slide" data-duration="8000" data-audio="audio/ep2/slide11.mp3">
+                <h2>THE BRIDGE: COMPLETE</h2>
+                <div class="bridge-visual" style="margin: 40px 0;">
+                    <div class="bridge-node claude" style="width: 140px; height: 100px;">CLAUDE</div>
+                    <div style="font-size: 2rem; color: #00D4FF;">═══════════►</div>
+                    <div class="bridge-node revit" style="width: 140px; height: 100px;">REVIT</div>
+                </div>
+                <p style="font-size: 1.5rem; margin: 30px 0;">Natural language in. BIM model changes out.</p>
+                <div class="stats-row">
+                    <div class="stat-box" style="padding: 20px 30px; margin: 10px;">
+                        <div style="color: #00D4FF; font-size: 1.8rem; font-weight: 700;">52,400</div>
+                        <div class="stat-label">Lines of C#</div>
+                    </div>
+                    <div class="stat-box" style="padding: 20px 30px; margin: 10px;">
+                        <div style="color: #00D4FF; font-size: 1.8rem; font-weight: 700;">41</div>
+                        <div class="stat-label">Source Files</div>
+                    </div>
+                    <div class="stat-box" style="padding: 20px 30px; margin: 10px;">
+                        <div style="color: #00D4FF; font-size: 1.8rem; font-weight: 700;">30</div>
+                        <div class="stat-label">Methods</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: End Card -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep2/slide12.mp3">
+                <h2 style="color: #aaa;">Next Episode:</h2>
+                <h1 style="font-size: 3rem;">"First Autonomous Breakthrough"</h1>
+                <p style="font-size: 1.4rem; margin-top: 30px;">December 2024.<br><span style="color: #FF6B35;">30 walls</span> appeared in Revit.</p>
+                <p style="font-size: 1.6rem; margin-top: 20px; color: #00D4FF;">No human touched the mouse.</p>
+                <div style="margin-top: 60px; opacity: 0.6;">
+                    <p>BIM Ops Studio</p>
+                    <p style="color: #00D4FF;">www.bimopsstudio.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn" id="playBtn" onclick="togglePlay()">
+                <span id="playIcon">▶</span> Play
+            </button>
+            <button class="control-btn" onclick="prevSlide()">◀ Prev</button>
+            <button class="control-btn" onclick="nextSlide()">Next ▶</button>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">12</span></span>
+            <div class="audio-indicator" id="audioIndicator">Audio</div>
+        </div>
+
+        <div class="logo">BIM Ops Studio</div>
+    </div>
+
+    <audio id="narrator" preload="auto"></audio>
+
+    <script>
+        let currentSlide = 0;
+        let isPlaying = false;
+        let slideTimer = null;
+        const audio = document.getElementById('narrator');
+        const audioIndicator = document.getElementById('audioIndicator');
+
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        const audioFiles = {};
+        slides.forEach((slide, i) => {
+            const audioSrc = slide.dataset.audio;
+            if (audioSrc) {
+                audioFiles[i] = new Audio(audioSrc);
+                audioFiles[i].preload = 'auto';
+            }
+        });
+
+        function showSlide(index) {
+            audio.pause();
+            audio.currentTime = 0;
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            currentSlide = index;
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('progress').style.width = ((index + 1) / totalSlides * 100) + '%';
+
+            if (isPlaying) {
+                playSlideAudio();
+            }
+        }
+
+        function playSlideAudio() {
+            const activeSlide = slides[currentSlide];
+            const audioSrc = activeSlide.dataset.audio;
+
+            if (audioSrc) {
+                audio.src = audioSrc;
+                audio.play().then(() => {
+                    audioIndicator.classList.add('playing');
+                }).catch(e => {
+                    console.log('Audio play failed:', e);
+                    scheduleNextSlide();
+                });
+
+                audio.onended = () => {
+                    audioIndicator.classList.remove('playing');
+                    if (isPlaying && currentSlide < totalSlides - 1) {
+                        setTimeout(() => nextSlide(), 500);
+                    } else if (currentSlide >= totalSlides - 1) {
+                        stopPlay();
+                    }
+                };
+            } else {
+                scheduleNextSlide();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            } else {
+                stopPlay();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        function scheduleNextSlide() {
+            clearTimeout(slideTimer);
+            const duration = parseInt(slides[currentSlide].dataset.duration) || 5000;
+            slideTimer = setTimeout(nextSlide, duration);
+        }
+
+        function togglePlay() {
+            if (isPlaying) {
+                stopPlay();
+            } else {
+                startPlay();
+            }
+        }
+
+        function startPlay() {
+            isPlaying = true;
+            document.getElementById('playBtn').classList.add('playing');
+            document.getElementById('playIcon').textContent = '⏸';
+            playSlideAudio();
+        }
+
+        function stopPlay() {
+            isPlaying = false;
+            clearTimeout(slideTimer);
+            audio.pause();
+            audioIndicator.classList.remove('playing');
+            document.getElementById('playBtn').classList.remove('playing');
+            document.getElementById('playIcon').textContent = '▶';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                    prevSlide();
+                    break;
+                case ' ':
+                    e.preventDefault();
+                    togglePlay();
+                    break;
+                case 'Escape':
+                    stopPlay();
+                    break;
+            }
+        });
+
+        showSlide(0);
+    </script>
+</body>
+</html>

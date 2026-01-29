@@ -278,7 +278,7 @@
 │                   │  2026   │  Revit 2026 Support           │
 │                   └─────────┘                               │
 │                                                             │
-│               Open Source | Active Development              │
+│              Proprietary | Production-Ready                 │
 │                                                             │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
@@ -286,7 +286,7 @@
 
 **Animation:** Logo treatment builds, version badges appear
 **Narration:**
-> "We call it RevitMCPBridge. MCP—Model Context Protocol—is how Claude talks to external tools. Our bridge takes that protocol and connects it directly to Revit. Both 2025 and 2026 versions. Open source. Actively developed."
+> "We call it RevitMCPBridge. MCP—Model Context Protocol—is how Claude talks to external tools. Our bridge takes that protocol and connects it directly to Revit. Both 2025 and 2026 versions. Proprietary technology. Production-ready."
 
 ---
 
@@ -306,7 +306,7 @@
 │   Vision   Bridge   Break-   Growth   Spine   Future       │
 │                     through                                 │
 │                                                             │
-│   "From zero to 449 endpoints.                              │
+│   "From zero to 705 endpoints.                              │
 │    From idea to autonomous CD production."                  │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
@@ -314,7 +314,7 @@
 
 **Animation:** Episode cards slide in, EP1 highlights
 **Narration:**
-> "In this series, we'll take you through the journey. From the first lines of code to 449 working endpoints. From manual wall creation to autonomous construction document production. This is that story."
+> "In this series, we'll take you through the journey. From the first lines of code to 705 working endpoints. From manual wall creation to autonomous construction document production. This is that story."
 
 ---
 
@@ -365,9 +365,9 @@ The vision: A direct connection. You tell Claude what you want—in plain Englis
 
 We're BIM Ops Studio, based in South Florida. For years, we've produced construction documents for multi-family, single-family, and commercial projects. We know the pain. We live it every day. So we decided to fix it.
 
-We call it RevitMCPBridge. MCP—Model Context Protocol—is how Claude talks to external tools. Our bridge takes that protocol and connects it directly to Revit. Both 2025 and 2026 versions. Open source. Actively developed.
+We call it RevitMCPBridge. MCP—Model Context Protocol—is how Claude talks to external tools. Our bridge takes that protocol and connects it directly to Revit. Both 2025 and 2026 versions. Proprietary technology. Production-ready.
 
-In this series, we'll take you through the journey. From the first lines of code to 449 working endpoints. From manual wall creation to autonomous construction document production. This is that story.
+In this series, we'll take you through the journey. From the first lines of code to seven hundred five working methods. From manual wall creation to autonomous construction document production. This is that story.
 
 Next episode: Building the Bridge. How we connected two worlds that were never meant to talk.
 

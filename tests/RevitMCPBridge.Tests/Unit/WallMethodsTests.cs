@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using NUnit.Framework;
 using Newtonsoft.Json.Linq;
 using FluentAssertions;
@@ -258,10 +259,12 @@ namespace RevitMCPBridge.Tests.Unit
             var response = ExecuteMethod("getWallTypes");
             var types = response["wallTypes"] as JArray;
 
-            // Assert
-            var typeNames = types.ToString();
-            typeNames.Should().Contain("Basic Wall");
-            typeNames.Should().Contain("Generic - 8\"");
+            // Assert - check for expected type names in the array
+            var hasBasicWall = types.Any(t => t["name"]?.ToString() == "Basic Wall");
+            var hasGeneric8 = types.Any(t => t["name"]?.ToString() == "Generic - 8\"");
+
+            hasBasicWall.Should().BeTrue("Expected 'Basic Wall' type to exist");
+            hasGeneric8.Should().BeTrue("Expected 'Generic - 8\"' type to exist");
         }
 
         #endregion

@@ -42,7 +42,7 @@
 │   ●──────────●──────────●──────────●──────────●             │
 │   Nov 2024   Dec 2024   Mar 2025   Dec 2025   Now           │
 │                                                             │
-│   30         First      300        449        Spine         │
+│   30         First      300        705        Spine         │
 │   methods    auto       methods    endpoints  workflows     │
 │              walls                                          │
 │                                                             │
@@ -55,7 +55,7 @@
 
 **Animation:** Timeline draws with milestones appearing
 **Narration:**
-> "Look how far we've come. November 2024: thirty methods—a foundation. December: first autonomous walls—proof of concept. March 2025: three hundred methods—scale. December: four hundred forty-nine endpoints—a complete toolkit. Now: Spine workflows—intelligence. Each step built on the last."
+> "Look how far we've come. November 2024: thirty methods—a foundation. December: first autonomous walls—proof of concept. March 2025: three hundred methods—scale. December: seven hundred five endpoints—a complete toolkit. Now: Spine workflows—intelligence. Each step built on the last."
 
 ---
 
@@ -301,36 +301,36 @@
 
 ---
 
-## SLIDE 10: Open Development
+## SLIDE 10: Proprietary Innovation
 **Duration:** 10 seconds
-**Visual:** Community/collaboration
+**Visual:** Professional development approach
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                                                             │
-│                  OPEN DEVELOPMENT                           │
+│                 PROPRIETARY INNOVATION                      │
 │                                                             │
 │   ┌───────────────────────────────────────────────────────┐ │
 │   │                                                        │ │
-│   │  RevitMCPBridge is open source.                        │ │
+│   │  RevitMCPBridge is proprietary technology.             │ │
 │   │                                                        │ │
-│   │  • Code available on GitHub                            │ │
-│   │  • Documentation for all 449+ methods                  │ │
-│   │  • Knowledge base shared publicly                      │ │
-│   │  • Community contributions welcome                     │ │
+│   │  • 705+ methods built and tested                       │ │
+│   │  • 113 files of architectural knowledge                │ │
+│   │  • Proven on real production projects                  │ │
+│   │  • Continuous development and refinement               │ │
 │   │                                                        │ │
 │   │  Built by architects. For architects.                  │ │
 │   │                                                        │ │
 │   └───────────────────────────────────────────────────────┘ │
 │                                                             │
-│      "This isn't a product. It's a movement."               │
+│      "Years of work. Real results. Ready to deploy."        │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Animation:** Community icons appear, connections form
+**Animation:** Professional icons appear, quality indicators highlight
 **Narration:**
-> "RevitMCPBridge is open source. The code is on GitHub. Documentation for all four hundred forty-nine methods. Knowledge base shared publicly. We want contributions. We want collaborators. Built by architects, for architects. This isn't just a product. It's a movement."
+> "RevitMCPBridge is proprietary technology developed by BIM Ops Studio. Seven hundred five methods built and tested. A hundred thirteen files of architectural knowledge. Proven on real production projects. This isn't experimental. It's production-ready. Built by architects, for architects. Years of work. Real results."
 
 ---
 
@@ -365,25 +365,25 @@
 
 ---
 
-## SLIDE 12: Call to Action
+## SLIDE 12: What's Next
 **Duration:** 10 seconds
-**Visual:** Engagement options
+**Visual:** Future possibilities
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                                                             │
-│                   JOIN US                                   │
+│                   WHAT'S NEXT                               │
 │                                                             │
 │   ┌───────────────────────────────────────────────────────┐ │
 │   │                                                        │ │
-│   │  TEST IT                                               │ │
-│   │  Download RevitMCPBridge. Try it on your projects.     │ │
+│   │  INTERESTED?                                           │ │
+│   │  Reach out to learn more about RevitMCPBridge.         │ │
 │   │                                                        │ │
-│   │  BUILD WITH US                                         │ │
-│   │  Contribute methods. Fix bugs. Add features.           │ │
+│   │  HAVE A PROJECT?                                       │ │
+│   │  Let's discuss how this technology can help.           │ │
 │   │                                                        │ │
-│   │  SPREAD THE WORD                                       │ │
-│   │  Share with colleagues. Start conversations.           │ │
+│   │  WANT A DEMO?                                          │ │
+│   │  See it in action on a real project.                   │ │
 │   │                                                        │ │
 │   │  CONNECT                                               │ │
 │   │  www.bimopsstudio.com                                  │ │
@@ -395,7 +395,7 @@
 
 **Animation:** Options appear with subtle emphasis
 **Narration:**
-> "Join us. Test it—download RevitMCPBridge, try it on your projects. Build with us—contribute methods, fix bugs, add features. Spread the word—share with colleagues, start conversations about what's possible. Connect with us at BIM Ops Studio dot com."
+> "Interested? Reach out to learn more about RevitMCPBridge and what it can do. Have a project? Let's discuss how this technology can accelerate your CD production. Want to see it in action? We can demonstrate on a real project. Connect with us at BIM Ops Studio dot com."
 
 ---
 
@@ -461,7 +461,7 @@
 
 **[INTRO - 5 seconds silence with music]**
 
-Look how far we've come. November 2024: thirty methods—a foundation. December: first autonomous walls—proof of concept. March 2025: three hundred methods—scale. December: four hundred forty-nine endpoints—a complete toolkit. Now: Spine workflows—intelligence. Each step built on the last.
+Look how far we've come. November 2024: thirty methods—a foundation. December: first autonomous walls—proof of concept. March 2025: three hundred methods—scale. December: seven hundred five endpoints—a complete toolkit. Now: Spine workflows—intelligence. Each step built on the last.
 
 We define autonomy in levels. Level 1: execute commands. Done. Level 2: query first, then execute. Done. Level 3: understand the problem, plan an approach, execute. Done. Level 4: run entire autonomous workflows. Done with Spine. Level 5? That's the target. Ninety percent of the CD set produced autonomously.
 
@@ -477,11 +477,11 @@ The ripple effects go beyond time savings. For architects: more projects per yea
 
 The roadmap. Q1 2026: full detail library integration, automated sections, multi-discipline coordination. Q2: code compliance checking, permit-ready packages, presentation automation. Q3 and Q4: full CD automation—Level 5—plus cloud deployment and enterprise features. The path is clear.
 
-RevitMCPBridge is open source. The code is on GitHub. Documentation for all four hundred forty-nine methods. Knowledge base shared publicly. We want contributions. We want collaborators. Built by architects, for architects. This isn't just a product. It's a movement.
+RevitMCPBridge is proprietary technology developed by BIM Ops Studio. Seven hundred five methods built and tested. A hundred thirteen files of architectural knowledge. Proven on real production projects. This isn't experimental. It's production-ready. Built by architects, for architects. Years of work. Real results.
 
 The bigger vision. Today: AI assists with construction documents. Tomorrow: AI handles routine building design for standard typologies. The future? Architects focus purely on creativity. Client relationships. The complex, ambiguous problems that only humans can solve. We're not replacing architects. We're freeing them.
 
-Join us. Test it—download RevitMCPBridge, try it on your projects. Build with us—contribute methods, fix bugs, add features. Spread the word—share with colleagues, start conversations about what's possible. Connect with us at BIM Ops Studio dot com.
+Interested? Reach out to learn more about RevitMCPBridge and what it can do. Have a project? Let's discuss how this technology can accelerate your CD production. Want to see it in action? We can demonstrate on a real project. Connect with us at BIM Ops Studio dot com.
 
 We started with a question. What if AI could actually build? Now we have an answer. It can.
 

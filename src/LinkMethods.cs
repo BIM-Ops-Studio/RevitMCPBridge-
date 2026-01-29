@@ -289,6 +289,7 @@ namespace RevitMCPBridge
                 var filePath = parameters["filePath"]?.ToString();
                 var viewId = parameters["viewId"]?.Value<int>();
                 var asLink = parameters["asLink"]?.Value<bool>() ?? false;
+                var unitStr = parameters["unit"]?.ToString()?.ToLower() ?? "foot";
 
                 if (string.IsNullOrEmpty(filePath))
                 {
@@ -310,6 +311,19 @@ namespace RevitMCPBridge
                     return JsonConvert.SerializeObject(new { success = false, error = "No valid view found" });
                 }
 
+                // Parse unit parameter
+                ImportUnit importUnit = ImportUnit.Foot;
+                switch (unitStr)
+                {
+                    case "default": importUnit = ImportUnit.Default; break;
+                    case "foot": importUnit = ImportUnit.Foot; break;
+                    case "inch": importUnit = ImportUnit.Inch; break;
+                    case "meter": importUnit = ImportUnit.Meter; break;
+                    case "centimeter": importUnit = ImportUnit.Centimeter; break;
+                    case "millimeter": importUnit = ImportUnit.Millimeter; break;
+                    case "decimeter": importUnit = ImportUnit.Decimeter; break;
+                }
+
                 using (var trans = new Transaction(doc, asLink ? "Link CAD" : "Import CAD"))
                 {
                     trans.Start();
@@ -319,7 +333,7 @@ namespace RevitMCPBridge
 
                     var options = new DWGImportOptions();
                     options.ColorMode = ImportColorMode.Preserved;
-                    options.Unit = ImportUnit.Foot;
+                    options.Unit = importUnit;
 
                     ElementId importedId = ElementId.InvalidElementId;
 
@@ -338,7 +352,8 @@ namespace RevitMCPBridge
                     {
                         success = true,
                         importedId = (int)importedId.Value,
-                        isLink = asLink
+                        isLink = asLink,
+                        unit = unitStr
                     });
                 }
             }

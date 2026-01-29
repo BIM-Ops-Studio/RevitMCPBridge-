@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevitMCPBridge - Episode 4: From Methods to Intelligence</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0D1B2A 0%, #1E3A5F 100%); color: #F4F4F4; min-height: 100vh; overflow: hidden; }
+        .presentation { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+        .slide-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; }
+        .slide { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 1200px; width: 100%; animation: fadeIn 0.8s ease-out; }
+        .slide.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes growBar { from { width: 7%; } to { width: 100%; } }
+        h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; background: linear-gradient(90deg, #F4F4F4, #00D4FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 30px; color: #FF6B35; }
+        h3 { font-size: 1.5rem; margin-bottom: 15px; color: #00D4FF; }
+        .subtitle { font-size: 1.5rem; color: #aaa; margin-bottom: 40px; }
+        .highlight { color: #FF6B35; font-weight: 700; }
+        .cyan { color: #00D4FF; }
+        .stat-box { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 30px 50px; margin: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
+        .stat-number { font-size: 3rem; font-weight: 700; color: #FF6B35; }
+        .stat-label { font-size: 1rem; color: #aaa; margin-top: 8px; }
+        .stats-row { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+        /* Growth chart */
+        .growth-chart { width: 100%; max-width: 800px; margin: 30px auto; }
+        .chart-bars { display: flex; align-items: flex-end; justify-content: space-between; height: 200px; padding: 0 10px; }
+        .chart-bar { width: 40px; background: linear-gradient(180deg, #FF6B35, #00D4FF); border-radius: 5px 5px 0 0; transition: height 1s ease-out; }
+        .chart-labels { display: flex; justify-content: space-between; padding: 10px; font-size: 0.8rem; color: #aaa; }
+
+        /* Category list */
+        .categories { display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 650px; text-align: left; }
+        .category { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 15px 20px; border-left: 4px solid #00D4FF; display: flex; justify-content: space-between; }
+        .cat-name { font-weight: 600; }
+        .cat-count { color: #FF6B35; }
+
+        /* Code comparison */
+        .code-compare { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin: 20px 0; }
+        .code-box { background: rgba(0,0,0,0.5); border-radius: 15px; padding: 20px; font-family: monospace; text-align: left; min-width: 300px; max-width: 400px; }
+        .code-box.before { border: 1px solid #EF4444; }
+        .code-box.after { border: 1px solid #10B981; }
+        .code-label { font-size: 0.9rem; margin-bottom: 10px; }
+        .code-label.before { color: #EF4444; }
+        .code-label.after { color: #10B981; }
+
+        /* Level steps */
+        .levels { display: flex; flex-direction: column; gap: 15px; max-width: 700px; }
+        .level { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 20px; text-align: left; }
+        .level-title { font-weight: 600; color: #00D4FF; margin-bottom: 8px; }
+        .level-desc { color: #aaa; font-size: 0.95rem; }
+
+        /* Project cards */
+        .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 700px; }
+        .project { background: rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; text-align: left; }
+        .project-name { font-weight: 600; color: #FF6B35; margin-bottom: 5px; }
+        .project-desc { color: #aaa; font-size: 0.9rem; }
+
+        /* Knowledge tree */
+        .knowledge-tree { background: rgba(0,0,0,0.3); border-radius: 15px; padding: 25px; font-family: monospace; text-align: left; max-width: 500px; }
+        .tree-item { padding: 5px 0; color: #aaa; }
+        .tree-item.folder { color: #00D4FF; }
+
+        /* Final stats */
+        .final-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 600px; }
+        .final-stat { background: rgba(255,255,255,0.1); border-radius: 15px; padding: 25px; }
+        .final-value { font-size: 2.5rem; font-weight: 700; color: #00D4FF; }
+        .final-label { color: #aaa; margin-top: 5px; }
+
+        /* Controls */
+        .controls { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 20px; background: rgba(0,0,0,0.3); }
+        .control-btn { background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 15px 30px; border-radius: 30px; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
+        .control-btn:hover { background: #FF6B35; transform: scale(1.05); }
+        .control-btn.playing { background: #FF6B35; }
+        .progress-bar { flex: 1; max-width: 400px; height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #FF6B35; transition: width 0.3s; }
+        .slide-counter { font-size: 1rem; color: #aaa; }
+        .logo { position: absolute; bottom: 100px; right: 40px; opacity: 0.5; font-size: 0.9rem; }
+        .audio-indicator { display: flex; align-items: center; gap: 8px; color: #00D4FF; }
+        .audio-indicator.playing::before { content: "🔊"; animation: pulse 1s infinite; }
+        .audio-indicator:not(.playing)::before { content: "🔇"; }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="slide-container">
+            <!-- Slide 1: Title -->
+            <div class="slide active" data-duration="5000">
+                <h1>RevitMCPBridge</h1>
+                <p class="subtitle">"Teaching AI to Build"</p>
+                <h2>Episode 4: From Methods to Intelligence</h2>
+                <p style="margin-top: 30px; font-size: 1.3rem;">From 30 methods to 705 methods</p>
+            </div>
+
+            <!-- Slide 2: Starting Point -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep4/slide02.mp3">
+                <h2>NOVEMBER 2024: BASELINE</h2>
+                <div class="stats-row">
+                    <div class="stat-box"><div class="stat-number">30</div><div class="stat-label">Methods</div></div>
+                    <div class="stat-box"><div class="stat-number">~5K</div><div class="stat-label">Lines of Code</div></div>
+                    <div class="stat-box"><div class="stat-number">5</div><div class="stat-label">Source Files</div></div>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.3rem;">A foundation. <span class="highlight">Not a building.</span></p>
+            </div>
+
+            <!-- Slide 3: Growth Chart -->
+            <div class="slide" data-duration="15000" data-audio="audio/ep4/slide03.mp3">
+                <h2>THE GROWTH</h2>
+                <div class="growth-chart">
+                    <div class="chart-bars">
+                        <div class="chart-bar" style="height: 7%;"></div>
+                        <div class="chart-bar" style="height: 33%;"></div>
+                        <div class="chart-bar" style="height: 44%;"></div>
+                        <div class="chart-bar" style="height: 67%;"></div>
+                        <div class="chart-bar" style="height: 78%;"></div>
+                        <div class="chart-bar" style="height: 89%;"></div>
+                        <div class="chart-bar" style="height: 97%;"></div>
+                        <div class="chart-bar" style="height: 100%;"></div>
+                    </div>
+                    <div class="chart-labels">
+                        <span>Nov '24<br>30</span>
+                        <span>Dec '24<br>150</span>
+                        <span>Jan '25<br>200</span>
+                        <span>Mar '25<br>300</span>
+                        <span>Jun '25<br>400</span>
+                        <span>Sep '25<br>500</span>
+                        <span>Dec '25<br>650</span>
+                        <span>Jan '26<br>705</span>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; font-size: 1.5rem;"><span class="highlight">2,250%</span> growth in 14 months</p>
+            </div>
+
+            <!-- Slide 4: Categories -->
+            <div class="slide" data-duration="15000" data-audio="audio/ep4/slide04.mp3">
+                <h2>METHOD CATEGORIES</h2>
+                <div class="categories">
+                    <div class="category"><span class="cat-name">GEOMETRY</span><span class="cat-count">78 methods</span></div>
+                    <div class="category"><span class="cat-name">DOCUMENTATION</span><span class="cat-count">95 methods</span></div>
+                    <div class="category"><span class="cat-name">FAMILIES</span><span class="cat-count">62 methods</span></div>
+                    <div class="category"><span class="cat-name">SCHEDULES</span><span class="cat-count">34 methods</span></div>
+                    <div class="category"><span class="cat-name">ORCHESTRATION</span><span class="cat-count">45 methods</span></div>
+                    <div class="category"><span class="cat-name">+ Rooms, MEP, Rendering, UI...</span><span class="cat-count">135+ more</span></div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Lines of Code -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep4/slide05.mp3">
+                <h2>CODEBASE GROWTH</h2>
+                <div class="stats-row" style="flex-direction: column; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 20px;"><span style="width: 100px;">Nov 2024:</span><span class="cyan">5,000 lines</span></div>
+                    <div style="display: flex; align-items: center; gap: 20px;"><span style="width: 100px;">Dec 2024:</span><span class="cyan">20,000 lines</span></div>
+                    <div style="display: flex; align-items: center; gap: 20px;"><span style="width: 100px;">Mar 2025:</span><span class="cyan">40,000 lines</span></div>
+                    <div style="display: flex; align-items: center; gap: 20px;"><span style="width: 100px;">Sep 2025:</span><span class="cyan">52,000 lines</span></div>
+                    <div style="display: flex; align-items: center; gap: 20px;"><span style="width: 100px;">Jan 2026:</span><span class="highlight" style="font-size: 1.3rem;">75,000+ lines</span></div>
+                </div>
+                <p style="margin-top: 30px;">Source Files: <span class="cyan">5 → 41</span></p>
+            </div>
+
+            <!-- Slide 6: Batch Revolution -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep4/slide06.mp3">
+                <h2>THE BATCH REVOLUTION</h2>
+                <div class="code-compare">
+                    <div class="code-box before">
+                        <div class="code-label before">BEFORE</div>
+                        <p>30 walls = 30 API calls</p>
+                        <p style="color: #EF4444; margin-top: 10px;">= 30 seconds</p>
+                    </div>
+                    <div class="code-box after">
+                        <div class="code-label after">AFTER</div>
+                        <p>createWallBatch([...])</p>
+                        <p style="color: #10B981; margin-top: 10px;">= 2 seconds</p>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; font-size: 2rem;"><span class="highlight">15x</span> FASTER</p>
+            </div>
+
+            <!-- Slide 7: Error Handling -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep4/slide07.mp3">
+                <h2>ERROR HANDLING EVOLUTION</h2>
+                <div class="code-compare">
+                    <div class="code-box before">
+                        <div class="code-label before">VERSION 1</div>
+                        <p style="color: #EF4444;">"Object reference not set"</p>
+                        <p style="color: #666; margin-top: 10px;">??? What? Where? Why? ???</p>
+                    </div>
+                    <div class="code-box after" style="font-size: 0.85rem;">
+                        <div class="code-label after">VERSION 2</div>
+                        <p>{"success": false,</p>
+                        <p>&nbsp;"error": "Wall creation failed",</p>
+                        <p>&nbsp;"details": "Level ID 99 not found",</p>
+                        <p>&nbsp;"suggestion": "Use getLevels"}</p>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;">Errors that <span class="cyan">teach</span>. Failures that <span class="highlight">guide</span>.</p>
+            </div>
+
+            <!-- Slide 8: Commands to Comprehension -->
+            <div class="slide" data-duration="15000" data-audio="audio/ep4/slide08.mp3">
+                <h2>FROM COMMANDS TO COMPREHENSION</h2>
+                <div class="levels">
+                    <div class="level"><div class="level-title">LEVEL 1: Execute Commands</div><div class="level-desc">"createWall with these exact parameters"</div></div>
+                    <div class="level"><div class="level-title">LEVEL 2: Query + Execute</div><div class="level-desc">"Check what exists, then create what's needed"</div></div>
+                    <div class="level"><div class="level-title">LEVEL 3: Understand + Decide + Execute</div><div class="level-desc">"Analyze project, identify gaps, propose fixes, validate results"</div></div>
+                </div>
+                <p style="margin-top: 25px;">Same AI. <span class="highlight">Dramatically more capable.</span></p>
+            </div>
+
+            <!-- Slide 9: Real Projects -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep4/slide09.mp3">
+                <h2>TESTED ON REAL PROJECTS</h2>
+                <div class="projects">
+                    <div class="project"><div class="project-name">512 Clematis</div><div class="project-desc">5-story multifamily<br>181 doors, 2,370 views</div></div>
+                    <div class="project"><div class="project-name">Avon Park</div><div class="project-desc">Single-family residence<br>Complete CD set test</div></div>
+                    <div class="project"><div class="project-name">BHSF Beth E</div><div class="project-desc">Healthcare facility<br>Complex MEP coordination</div></div>
+                    <div class="project"><div class="project-name">Goulds Tower</div><div class="project-desc">Multi-story tower<br>Large-scale sheets</div></div>
+                </div>
+                <p style="margin-top: 25px;">Not demos. <span class="highlight">Production projects.</span></p>
+            </div>
+
+            <!-- Slide 10: Large Model Fix -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep4/slide10.mp3">
+                <h2>THE LARGE MODEL FIX</h2>
+                <div class="code-compare">
+                    <div class="code-box before">
+                        <div class="code-label before">PROBLEM</div>
+                        <p>getViews() → 2,370 views</p>
+                        <p style="color: #EF4444; margin-top: 10px;">Buffer overflow!</p>
+                    </div>
+                    <div class="code-box after">
+                        <div class="code-label after">SOLUTION</div>
+                        <p>getViews(type="FloorPlan") → 310</p>
+                        <p>getViews(type="Elevation") → 45</p>
+                        <p style="color: #10B981; margin-top: 10px;">Smart filtering ✓</p>
+                    </div>
+                </div>
+                <p style="margin-top: 25px;">Scale tested. Scale proven. <span class="highlight">Scale ready.</span></p>
+            </div>
+
+            <!-- Slide 11: Knowledge Base -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep4/slide11.mp3">
+                <h2>THE KNOWLEDGE BASE</h2>
+                <div class="knowledge-tree">
+                    <div class="tree-item folder">/knowledge/</div>
+                    <div class="tree-item">├── WHAT_ACTUALLY_WORKS.md</div>
+                    <div class="tree-item">├── cd-standards.md</div>
+                    <div class="tree-item">├── firm-profiles/</div>
+                    <div class="tree-item">├── sheet-composition.md</div>
+                    <div class="tree-item">└── gotchas.md</div>
+                </div>
+                <div class="stats-row" style="margin-top: 25px;">
+                    <div class="stat-box" style="padding: 20px 30px;"><div class="stat-number" style="font-size: 2rem;">113</div><div class="stat-label">Knowledge files</div></div>
+                    <div class="stat-box" style="padding: 20px 30px;"><div class="stat-number" style="font-size: 2rem;">444</div><div class="stat-label">Persistent memories</div></div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Current State -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep4/slide12.mp3">
+                <h2>JANUARY 2026</h2>
+                <div class="final-stats">
+                    <div class="final-stat"><div class="final-value">705+</div><div class="final-label">MCP methods</div></div>
+                    <div class="final-stat"><div class="final-value">85K+</div><div class="final-label">lines of C#</div></div>
+                    <div class="final-stat"><div class="final-value">41</div><div class="final-label">source files</div></div>
+                    <div class="final-stat"><div class="final-value">25+</div><div class="final-label">categories</div></div>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.3rem;">The most complete Revit MCP bridge <span class="highlight">ever built</span>.</p>
+            </div>
+
+            <!-- Slide 13: What's Next -->
+            <div class="slide" data-duration="8000" data-audio="audio/ep4/slide13.mp3">
+                <h2>BUT METHODS AREN'T ENOUGH</h2>
+                <div style="margin: 40px 0;">
+                    <p style="font-size: 1.5rem;">Individual methods = <span class="cyan">Building blocks</span></p>
+                    <p style="font-size: 3rem; margin: 20px 0;">↓</p>
+                    <p style="font-size: 1.5rem;">Workflows = <span class="highlight">Complete buildings</span></p>
+                </div>
+                <p style="font-size: 1.4rem; color: #aaa;">"What if the AI understood <span class="cyan">entire processes</span>?"</p>
+            </div>
+
+            <!-- Slide 14: End Card -->
+            <div class="slide" data-duration="8000" data-audio="audio/ep4/slide14.mp3">
+                <h2 style="color: #aaa;">Next Episode:</h2>
+                <h1 style="font-size: 3rem;">"The Spine Workflow System"</h1>
+                <p style="font-size: 1.4rem; margin-top: 30px;">From individual commands to<br><span class="highlight">automated CD sets</span>.</p>
+                <div style="margin-top: 60px; opacity: 0.6;">
+                    <p>BIM Ops Studio</p>
+                    <p style="color: #00D4FF;">www.bimopsstudio.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn" id="playBtn" onclick="togglePlay()"><span id="playIcon">▶</span> Play</button>
+            <button class="control-btn" onclick="prevSlide()">◀ Prev</button>
+            <button class="control-btn" onclick="nextSlide()">Next ▶</button>
+            <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+            <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">14</span></span>
+            <div class="audio-indicator" id="audioIndicator">Audio</div>
+        </div>
+        <div class="logo">BIM Ops Studio</div>
+    </div>
+
+    <audio id="narrator" preload="auto"></audio>
+    <script>
+        let currentSlide = 0, isPlaying = false, slideTimer = null;
+        const audio = document.getElementById('narrator'), audioIndicator = document.getElementById('audioIndicator');
+        const slides = document.querySelectorAll('.slide'), totalSlides = slides.length;
+        document.getElementById('totalSlides').textContent = totalSlides;
+        slides.forEach((slide, i) => { const src = slide.dataset.audio; if (src) { const a = new Audio(src); a.preload = 'auto'; } });
+
+        function showSlide(index) {
+            audio.pause(); audio.currentTime = 0;
+            slides.forEach((s, i) => { s.classList.remove('active'); if (i === index) s.classList.add('active'); });
+            currentSlide = index;
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('progress').style.width = ((index + 1) / totalSlides * 100) + '%';
+            if (isPlaying) playSlideAudio();
+        }
+        function playSlideAudio() {
+            const src = slides[currentSlide].dataset.audio;
+            if (src) {
+                audio.src = src;
+                audio.play().then(() => audioIndicator.classList.add('playing')).catch(() => scheduleNextSlide());
+                audio.onended = () => { audioIndicator.classList.remove('playing'); if (isPlaying && currentSlide < totalSlides - 1) setTimeout(nextSlide, 500); else if (currentSlide >= totalSlides - 1) stopPlay(); };
+            } else scheduleNextSlide();
+        }
+        function nextSlide() { if (currentSlide < totalSlides - 1) showSlide(currentSlide + 1); else stopPlay(); }
+        function prevSlide() { if (currentSlide > 0) showSlide(currentSlide - 1); }
+        function scheduleNextSlide() { clearTimeout(slideTimer); slideTimer = setTimeout(nextSlide, parseInt(slides[currentSlide].dataset.duration) || 5000); }
+        function togglePlay() { isPlaying ? stopPlay() : startPlay(); }
+        function startPlay() { isPlaying = true; document.getElementById('playBtn').classList.add('playing'); document.getElementById('playIcon').textContent = '⏸'; playSlideAudio(); }
+        function stopPlay() { isPlaying = false; clearTimeout(slideTimer); audio.pause(); audioIndicator.classList.remove('playing'); document.getElementById('playBtn').classList.remove('playing'); document.getElementById('playIcon').textContent = '▶'; }
+        document.addEventListener('keydown', e => { if (e.key === 'ArrowRight') nextSlide(); else if (e.key === 'ArrowLeft') prevSlide(); else if (e.key === ' ') { e.preventDefault(); togglePlay(); } else if (e.key === 'Escape') stopPlay(); });
+        showSlide(0);
+    </script>
+</body>
+</html>

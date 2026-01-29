@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevitMCPBridge - Episode 5: The Spine Workflow System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0D1B2A 0%, #1E3A5F 100%); color: #F4F4F4; min-height: 100vh; overflow: hidden; }
+        .presentation { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+        .slide-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; }
+        .slide { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 1200px; width: 100%; animation: fadeIn 0.8s ease-out; }
+        .slide.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; background: linear-gradient(90deg, #F4F4F4, #00D4FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 30px; color: #FF6B35; }
+        .subtitle { font-size: 1.5rem; color: #aaa; margin-bottom: 40px; }
+        .highlight { color: #FF6B35; font-weight: 700; }
+        .cyan { color: #00D4FF; }
+
+        /* Spine visualization */
+        .spine { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 30px 0; }
+        .spine-node { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #FF6B35, #00D4FF); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.8rem; }
+        .spine-line { width: 30px; height: 4px; background: linear-gradient(90deg, #FF6B35, #00D4FF); }
+        .spine-labels { display: flex; gap: 40px; font-size: 0.8rem; color: #aaa; margin-top: 10px; }
+
+        /* Architecture flow */
+        .arch-flow { display: flex; flex-direction: column; gap: 15px; max-width: 700px; }
+        .arch-box { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 20px; border-left: 4px solid #00D4FF; text-align: left; }
+        .arch-title { font-weight: 600; color: #00D4FF; margin-bottom: 5px; }
+        .arch-desc { color: #aaa; font-size: 0.9rem; }
+        .arch-arrow { text-align: center; color: #FF6B35; font-size: 1.5rem; }
+
+        /* Checklist */
+        .checklist { text-align: left; max-width: 600px; }
+        .check-item { display: flex; align-items: center; gap: 15px; padding: 12px 0; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .check-icon { color: #10B981; font-size: 1.3rem; }
+
+        /* Code block */
+        .code-block { background: rgba(0,0,0,0.5); border-radius: 15px; padding: 25px; font-family: monospace; text-align: left; max-width: 650px; font-size: 0.9rem; }
+        .code-keyword { color: #c792ea; }
+        .code-string { color: #10B981; }
+        .code-comment { color: #6B7280; }
+
+        /* Firm cards */
+        .firm-cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .firm-card { background: rgba(255,255,255,0.1); border-radius: 15px; padding: 25px; min-width: 180px; border: 1px solid rgba(255,255,255,0.2); }
+        .firm-name { font-weight: 600; color: #FF6B35; margin-bottom: 15px; font-size: 1.2rem; }
+        .firm-detail { color: #aaa; font-size: 0.9rem; margin: 5px 0; }
+
+        /* Report box */
+        .report { background: rgba(0,0,0,0.4); border-radius: 15px; padding: 25px; max-width: 500px; font-family: monospace; text-align: left; }
+        .report-title { color: #00D4FF; margin-bottom: 15px; font-weight: 600; }
+        .report-line { color: #aaa; padding: 5px 0; }
+        .report-status { color: #10B981; font-weight: 600; margin-top: 15px; }
+
+        /* Test results */
+        .test-results { display: flex; flex-direction: column; gap: 15px; max-width: 600px; }
+        .test-item { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .test-name { font-weight: 600; }
+        .test-desc { color: #aaa; font-size: 0.9rem; }
+        .test-pass { color: #10B981; font-weight: 700; }
+
+        /* Future list */
+        .future-section { text-align: left; max-width: 550px; }
+        .future-title { color: #aaa; margin-bottom: 10px; font-weight: 600; }
+        .future-list { list-style: none; }
+        .future-list li { padding: 8px 0; padding-left: 25px; position: relative; }
+        .future-list li::before { content: "•"; position: absolute; left: 0; color: #FF6B35; }
+
+        /* Controls */
+        .controls { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 20px; background: rgba(0,0,0,0.3); }
+        .control-btn { background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 15px 30px; border-radius: 30px; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
+        .control-btn:hover { background: #FF6B35; transform: scale(1.05); }
+        .control-btn.playing { background: #FF6B35; }
+        .progress-bar { flex: 1; max-width: 400px; height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #FF6B35; transition: width 0.3s; }
+        .slide-counter { font-size: 1rem; color: #aaa; }
+        .logo { position: absolute; bottom: 100px; right: 40px; opacity: 0.5; font-size: 0.9rem; }
+        .audio-indicator { display: flex; align-items: center; gap: 8px; color: #00D4FF; }
+        .audio-indicator.playing::before { content: "🔊"; animation: pulse 1s infinite; }
+        .audio-indicator:not(.playing)::before { content: "🔇"; }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="slide-container">
+            <!-- Slide 1: Title -->
+            <div class="slide active" data-duration="5000">
+                <h1>RevitMCPBridge</h1>
+                <p class="subtitle">"Teaching AI to Build"</p>
+                <h2>Episode 5: The Spine Workflow System</h2>
+                <div class="spine">
+                    <div class="spine-node">1</div><div class="spine-line"></div>
+                    <div class="spine-node">2</div><div class="spine-line"></div>
+                    <div class="spine-node">3</div><div class="spine-line"></div>
+                    <div class="spine-node">4</div><div class="spine-line"></div>
+                    <div class="spine-node">5</div><div class="spine-line"></div>
+                    <div class="spine-node">6</div>
+                </div>
+            </div>
+
+            <!-- Slide 2: The Limitation -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep5/slide02.mp3">
+                <h2>THE LIMITATION</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 30px;">705 methods = 705 individual capabilities</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 10px;">create sheet</div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 10px;">place view</div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 10px;">add dims</div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 10px;">setup schedule</div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 10px;">...</div>
+                </div>
+                <p style="font-size: 1.3rem;">But a CD set isn't 705 commands.<br>It's a <span class="highlight">PROCESS</span> with dependencies, logic, and decisions.</p>
+            </div>
+
+            <!-- Slide 3: Introducing Spine -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep5/slide03.mp3">
+                <h1 style="font-size: 4rem;">SPINE</h1>
+                <p class="subtitle">A Workflow Orchestration System</p>
+                <div class="spine" style="margin: 40px 0;">
+                    <div class="spine-node">P</div><div class="spine-line"></div>
+                    <div class="spine-node">R</div><div class="spine-line"></div>
+                    <div class="spine-node">P</div><div class="spine-line"></div>
+                    <div class="spine-node">E</div><div class="spine-line"></div>
+                    <div class="spine-node">V</div><div class="spine-line"></div>
+                    <div class="spine-node">R</div>
+                </div>
+                <div class="spine-labels">
+                    <span>Profile</span><span>Resolve</span><span>Plan</span><span>Execute</span><span>Verify</span><span>Report</span>
+                </div>
+                <p style="margin-top: 30px; color: #aaa;">Config-driven. Adaptable. Repeatable. Auditable.</p>
+            </div>
+
+            <!-- Slide 4: Architecture -->
+            <div class="slide" data-duration="15000" data-audio="audio/ep5/slide04.mp3">
+                <h2>SPINE ARCHITECTURE</h2>
+                <div class="arch-flow">
+                    <div class="arch-box"><div class="arch-title">STANDARDS PACK</div><div class="arch-desc">Sheet naming • View scales • Title blocks • Dims</div></div>
+                    <div class="arch-arrow">▼</div>
+                    <div class="arch-box"><div class="arch-title">PROFILE</div><div class="arch-desc">Project type • Firm standards • Building code</div></div>
+                    <div class="arch-arrow">▼</div>
+                    <div class="arch-box"><div class="arch-title">RESOLVED CONFIG</div><div class="arch-desc">"This project, this firm, these sheets, this way"</div></div>
+                    <div class="arch-arrow">▼</div>
+                    <div style="text-align: center; font-size: 1.3rem; color: #FF6B35;">EXECUTION ENGINE</div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Spine v0.1 -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep5/slide05.mp3">
+                <h2>SPINE v0.1: PERMIT SET SKELETON</h2>
+                <p style="color: #aaa; margin-bottom: 20px;">INPUT: A Revit model with rooms, walls, doors, windows</p>
+                <div class="checklist">
+                    <div class="check-item"><span class="check-icon">✓</span>A0.01 - COVER SHEET (3D view)</div>
+                    <div class="check-item"><span class="check-icon">✓</span>A0.02 - GENERAL NOTES (Legends)</div>
+                    <div class="check-item"><span class="check-icon">✓</span>A1.01 - FIRST FLOOR PLAN (cropped)</div>
+                    <div class="check-item"><span class="check-icon">✓</span>A1.02 - SECOND FLOOR PLAN</div>
+                    <div class="check-item"><span class="check-icon">✓</span>A2.01 - ELEVATIONS (4x)</div>
+                    <div class="check-item"><span class="check-icon">✓</span>A5.01 - BUILDING SECTION</div>
+                </div>
+                <p style="margin-top: 25px; font-size: 1.4rem;"><span class="highlight">Under 3 minutes</span>. Every time.</p>
+            </div>
+
+            <!-- Slide 6: Spine v0.2 -->
+            <div class="slide" data-duration="15000" data-audio="audio/ep5/slide06.mp3">
+                <h2>SPINE v0.2: ADAPTIVE WORKFLOW</h2>
+                <div class="code-block">
+                    <p><span class="code-keyword">IF</span> project_type == <span class="code-string">"single_family"</span>:</p>
+                    <p style="padding-left: 20px;">sheets = [A001, A101, A201, A301, A401]</p>
+                    <p style="padding-left: 20px;">scale = <span class="code-string">"1/4\" = 1'-0\""</span></p>
+                    <p style="margin-top: 15px;"><span class="code-keyword">IF</span> project_type == <span class="code-string">"multi_family"</span>:</p>
+                    <p style="padding-left: 20px;">sheets = [A001...A010, A101...A115, ...]</p>
+                    <p style="padding-left: 20px;">include_unit_plans = <span class="code-keyword">true</span></p>
+                    <p style="margin-top: 15px;"><span class="code-keyword">IF</span> firm == <span class="code-string">"ARKY"</span>:</p>
+                    <p style="padding-left: 20px;">title_block = <span class="code-string">"ARKY - Title Block"</span></p>
+                </div>
+                <p style="margin-top: 25px;">Same engine. Different outputs. <span class="highlight">Zero manual config.</span></p>
+            </div>
+
+            <!-- Slide 7: Multi-Firm -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep5/slide07.mp3">
+                <h2>MULTI-FIRM SUPPORT</h2>
+                <div class="firm-cards">
+                    <div class="firm-card"><div class="firm-name">ARKY</div><div class="firm-detail">A-X.XX nums</div><div class="firm-detail">ARKY title</div><div class="firm-detail">1/4" scale</div></div>
+                    <div class="firm-card"><div class="firm-name">BD Arch</div><div class="firm-detail">A-XXX nums</div><div class="firm-detail">BD title</div><div class="firm-detail">1/8" scale</div></div>
+                    <div class="firm-card"><div class="firm-name">Custom</div><div class="firm-detail">Your rules</div><div class="firm-detail">Your title</div><div class="firm-detail">Your scale</div></div>
+                </div>
+                <p style="margin-top: 30px;"><span class="cyan">Detection:</span> Automatic based on title block in project</p>
+            </div>
+
+            <!-- Slide 8: Verification -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep5/slide08.mp3">
+                <h2>THE VERIFICATION LAYER</h2>
+                <div class="checklist">
+                    <div class="check-item"><span class="check-icon">✓</span>Sheets created match expected count</div>
+                    <div class="check-item"><span class="check-icon">✓</span>All views placed on correct sheets</div>
+                    <div class="check-item"><span class="check-icon">✓</span>No overlapping viewports</div>
+                    <div class="check-item"><span class="check-icon">✓</span>Title block populated</div>
+                    <div class="check-item"><span class="check-icon">✓</span>Scales match requirements</div>
+                    <div class="check-item"><span class="check-icon">✓</span>Sheet numbers follow convention</div>
+                </div>
+                <p style="margin-top: 25px;"><span class="highlight">PASS: 6/6</span> — Trust, but verify. <span class="cyan">Automatically.</span></p>
+            </div>
+
+            <!-- Slide 9: Cleanup -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep5/slide09.mp3">
+                <h2>INTELLIGENT CLEANUP</h2>
+                <div class="report">
+                    <div class="report-title">WORKFLOW CLEANUP REPORT</div>
+                    <div class="report-line">Created: 6 sheets, 12 views, 18 viewports</div>
+                    <div class="report-line">Artifacts removed: 3 temp views</div>
+                    <div class="report-line">Cascade deletions: 0</div>
+                    <div class="report-line">Leftovers: 0</div>
+                    <div class="report-status">Model state: CLEAN ✓</div>
+                </div>
+                <p style="margin-top: 25px; color: #aaa;">No orphaned views. No temp elements. <span class="highlight">Clean model.</span></p>
+            </div>
+
+            <!-- Slide 10: Budget -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep5/slide10.mp3">
+                <h2>BUDGET ENFORCEMENT</h2>
+                <div class="report">
+                    <div class="report-title">WORKFLOW CONSTRAINTS</div>
+                    <div class="report-line">max_steps: 100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used: 47/100 <span style="color: #10B981;">✓</span></div>
+                    <div class="report-line">max_retries: 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used: 1/3 <span style="color: #10B981;">✓</span></div>
+                    <div class="report-line">max_undos: 5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used: 0/5 <span style="color: #10B981;">✓</span></div>
+                    <div class="report-line">max_elapsed: 600s &nbsp;Used: 127s <span style="color: #10B981;">✓</span></div>
+                    <div class="report-status">STATUS: WITHIN BUDGET</div>
+                </div>
+                <p style="margin-top: 25px; color: #aaa;">Workflows can't run forever. <span class="highlight">Guardrails built in.</span></p>
+            </div>
+
+            <!-- Slide 11: Portability -->
+            <div class="slide" data-duration="12000" data-audio="audio/ep5/slide11.mp3">
+                <h2>PORTABILITY PROVEN</h2>
+                <p style="color: #aaa; margin-bottom: 20px;">Same Spine config. Different projects.</p>
+                <div class="test-results">
+                    <div class="test-item"><div><div class="test-name">TEST-4</div><div class="test-desc">2-story residential • 6 sheets</div></div><div class="test-pass">✓ PASS</div></div>
+                    <div class="test-item"><div><div class="test-name">512 Clematis</div><div class="test-desc">5-story multifamily • 181 doors</div></div><div class="test-pass">✓ PASS</div></div>
+                    <div class="test-item"><div><div class="test-name">Avon Park</div><div class="test-desc">Single-family • CD in 2:47</div></div><div class="test-pass">✓ PASS</div></div>
+                </div>
+                <p style="margin-top: 25px;">Write once. <span class="highlight">Run on any project.</span></p>
+            </div>
+
+            <!-- Slide 12: What This Enables -->
+            <div class="slide" data-duration="10000" data-audio="audio/ep5/slide12.mp3">
+                <h2>WHAT SPINE ENABLES</h2>
+                <div style="display: flex; gap: 50px; flex-wrap: wrap; justify-content: center;">
+                    <div class="future-section">
+                        <div class="future-title cyan">TODAY:</div>
+                        <ul class="future-list">
+                            <li>Permit set skeletons in minutes</li>
+                            <li>Automated sheet creation & layout</li>
+                            <li>Multi-firm standard compliance</li>
+                        </ul>
+                    </div>
+                    <div class="future-section">
+                        <div class="future-title highlight">TOMORROW:</div>
+                        <ul class="future-list">
+                            <li>Full CD sets from schematic models</li>
+                            <li>Automated detail generation</li>
+                            <li>Code compliance workflows</li>
+                            <li>Drawing set coordination</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Bigger Picture -->
+            <div class="slide" data-duration="8000" data-audio="audio/ep5/slide13.mp3">
+                <h2>THE BIGGER PICTURE</h2>
+                <div style="font-size: 1.8rem; margin: 40px 0; line-height: 2;">
+                    <p>705 Methods = <span class="cyan">The vocabulary</span></p>
+                    <p>Spine = <span class="highlight">The grammar</span></p>
+                    <p>Together = <span style="color: #10B981;">Complete sentences</span></p>
+                </div>
+                <p style="font-size: 1.4rem; color: #aaa;">"Now Claude doesn't just know words.<br>It <span class="highlight">speaks fluently</span>."</p>
+            </div>
+
+            <!-- Slide 14: End Card -->
+            <div class="slide" data-duration="8000" data-audio="audio/ep5/slide14.mp3">
+                <h2 style="color: #aaa;">Final Episode:</h2>
+                <h1 style="font-size: 3rem;">"Vision & The Road Ahead"</h1>
+                <p style="font-size: 1.4rem; margin-top: 30px;">Level 5: The AI produces<br><span class="highlight">90% of the CD set</span>.</p>
+                <div style="margin-top: 60px; opacity: 0.6;">
+                    <p>BIM Ops Studio</p>
+                    <p style="color: #00D4FF;">www.bimopsstudio.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn" id="playBtn" onclick="togglePlay()"><span id="playIcon">▶</span> Play</button>
+            <button class="control-btn" onclick="prevSlide()">◀ Prev</button>
+            <button class="control-btn" onclick="nextSlide()">Next ▶</button>
+            <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+            <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">14</span></span>
+            <div class="audio-indicator" id="audioIndicator">Audio</div>
+        </div>
+        <div class="logo">BIM Ops Studio</div>
+    </div>
+
+    <audio id="narrator" preload="auto"></audio>
+    <script>
+        let currentSlide = 0, isPlaying = false, slideTimer = null;
+        const audio = document.getElementById('narrator'), audioIndicator = document.getElementById('audioIndicator');
+        const slides = document.querySelectorAll('.slide'), totalSlides = slides.length;
+        document.getElementById('totalSlides').textContent = totalSlides;
+        slides.forEach((slide, i) => { const src = slide.dataset.audio; if (src) { const a = new Audio(src); a.preload = 'auto'; } });
+
+        function showSlide(index) {
+            audio.pause(); audio.currentTime = 0;
+            slides.forEach((s, i) => { s.classList.remove('active'); if (i === index) s.classList.add('active'); });
+            currentSlide = index;
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('progress').style.width = ((index + 1) / totalSlides * 100) + '%';
+            if (isPlaying) playSlideAudio();
+        }
+        function playSlideAudio() {
+            const src = slides[currentSlide].dataset.audio;
+            if (src) {
+                audio.src = src;
+                audio.play().then(() => audioIndicator.classList.add('playing')).catch(() => scheduleNextSlide());
+                audio.onended = () => { audioIndicator.classList.remove('playing'); if (isPlaying && currentSlide < totalSlides - 1) setTimeout(nextSlide, 500); else if (currentSlide >= totalSlides - 1) stopPlay(); };
+            } else scheduleNextSlide();
+        }
+        function nextSlide() { if (currentSlide < totalSlides - 1) showSlide(currentSlide + 1); else stopPlay(); }
+        function prevSlide() { if (currentSlide > 0) showSlide(currentSlide - 1); }
+        function scheduleNextSlide() { clearTimeout(slideTimer); slideTimer = setTimeout(nextSlide, parseInt(slides[currentSlide].dataset.duration) || 5000); }
+        function togglePlay() { isPlaying ? stopPlay() : startPlay(); }
+        function startPlay() { isPlaying = true; document.getElementById('playBtn').classList.add('playing'); document.getElementById('playIcon').textContent = '⏸'; playSlideAudio(); }
+        function stopPlay() { isPlaying = false; clearTimeout(slideTimer); audio.pause(); audioIndicator.classList.remove('playing'); document.getElementById('playBtn').classList.remove('playing'); document.getElementById('playIcon').textContent = '▶'; }
+        document.addEventListener('keydown', e => { if (e.key === 'ArrowRight') nextSlide(); else if (e.key === 'ArrowLeft') prevSlide(); else if (e.key === ' ') { e.preventDefault(); togglePlay(); } else if (e.key === 'Escape') stopPlay(); });
+        showSlide(0);
+    </script>
+</body>
+</html>

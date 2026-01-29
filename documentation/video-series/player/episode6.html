@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevitMCPBridge - Episode 6: Vision & The Road Ahead</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 2.5rem;
+            font-style: italic;
+            color: #00d4ff;
+            margin: 40px 0;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        /* Timeline styles */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            transform: translateY(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #00d4ff;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-date {
+            font-size: 1rem;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .timeline-label {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 5px;
+            text-align: center;
+            max-width: 100px;
+        }
+
+        .timeline-milestone {
+            font-size: 0.8rem;
+            color: #00ff88;
+            margin-top: 5px;
+        }
+
+        /* Autonomy levels */
+        .levels-container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .level {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            border-left: 4px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .level.complete {
+            border-left-color: #00ff88;
+            background: rgba(0,255,136,0.1);
+        }
+
+        .level.target {
+            border-left-color: #00d4ff;
+            background: rgba(0,212,255,0.15);
+            animation: pulse 2s infinite;
+        }
+
+        .level-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            margin-right: 20px;
+            min-width: 80px;
+        }
+
+        .level-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .level-name {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .level-desc {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .level-status {
+            font-size: 1.5rem;
+            margin-left: 20px;
+        }
+
+        /* Input/Output boxes */
+        .io-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .io-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 30px;
+            min-width: 300px;
+            max-width: 450px;
+        }
+
+        .io-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+
+        .io-box.output h3 {
+            color: #00ff88;
+        }
+
+        .io-box ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .io-box li {
+            padding: 8px 0;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .io-box li::before {
+            content: '>';
+            color: #00d4ff;
+            margin-right: 10px;
+        }
+
+        .io-box.output li::before {
+            content: '<';
+            color: #00ff88;
+        }
+
+        /* Pipeline flow */
+        .pipeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .pipeline-step {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 25px 30px;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .pipeline-step.highlight {
+            background: rgba(0,212,255,0.2);
+            border: 2px solid #00d4ff;
+        }
+
+        .pipeline-arrow {
+            font-size: 2rem;
+            color: #00d4ff;
+        }
+
+        .pipeline-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .pipeline-label {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .pipeline-sublabel {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Split sections */
+        .split-section {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .split-box {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .split-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+        }
+
+        .split-box.ai h3 {
+            color: #00ff88;
+            border-bottom-color: #00ff88;
+        }
+
+        .split-box.human h3 {
+            color: #00d4ff;
+            border-bottom-color: #00d4ff;
+        }
+
+        .check-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .check-list li {
+            padding: 8px 0;
+            color: #ccc;
+        }
+
+        .check-list li::before {
+            content: '✓';
+            color: #00ff88;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .bullet-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .bullet-list li {
+            padding: 8px 0;
+            color: #ccc;
+        }
+
+        .bullet-list li::before {
+            content: '•';
+            color: #00d4ff;
+            margin-right: 10px;
+        }
+
+        /* Time comparison bars */
+        .time-comparison {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px 0;
+        }
+
+        .time-bar-container {
+            margin: 25px 0;
+        }
+
+        .time-bar-label {
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #888;
+        }
+
+        .time-bar {
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-weight: bold;
+        }
+
+        .time-bar.traditional {
+            background: linear-gradient(90deg, #ff6b6b, #ee5a5a);
+            width: 100%;
+        }
+
+        .time-bar.new {
+            background: linear-gradient(90deg, #00ff88, #00d4ff);
+            width: 15%;
+            animation: growBar 1s ease-out;
+        }
+
+        .time-savings {
+            font-size: 3rem;
+            color: #00ff88;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        /* Roadmap */
+        .roadmap {
+            text-align: left;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .roadmap-quarter {
+            margin: 25px 0;
+            padding-left: 30px;
+            border-left: 3px solid #00d4ff;
+        }
+
+        .roadmap-quarter h4 {
+            font-size: 1.4rem;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .roadmap-quarter ul {
+            list-style: none;
+        }
+
+        .roadmap-quarter li {
+            padding: 5px 0;
+            color: #ccc;
+        }
+
+        .roadmap-quarter li::before {
+            content: '├─';
+            color: #00d4ff;
+            margin-right: 10px;
+            font-family: monospace;
+        }
+
+        .roadmap-quarter li:last-child::before {
+            content: '└─';
+        }
+
+        /* Benefits grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: left;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+
+        .benefit-card ul {
+            list-style: none;
+        }
+
+        .benefit-card li {
+            padding: 5px 0;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        .benefit-card li::before {
+            content: '•';
+            color: #00ff88;
+            margin-right: 8px;
+        }
+
+        /* Open source box */
+        .open-source-box {
+            background: rgba(0,212,255,0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .open-source-box h3 {
+            font-size: 1.8rem;
+            color: #00d4ff;
+            margin-bottom: 25px;
+        }
+
+        .open-source-box ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .open-source-box li {
+            padding: 10px 0;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .open-source-tagline {
+            font-size: 1.3rem;
+            color: #00ff88;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .movement-quote {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 25px;
+            font-style: italic;
+        }
+
+        /* Vision progression */
+        .vision-progression {
+            max-width: 700px;
+            text-align: left;
+        }
+
+        .vision-step {
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .vision-step:last-child {
+            border-bottom: none;
+        }
+
+        .vision-label {
+            font-size: 1rem;
+            color: #00d4ff;
+            margin-bottom: 8px;
+        }
+
+        .vision-text {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .vision-quote {
+            font-size: 2rem;
+            color: #00ff88;
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+        }
+
+        /* CTA cards */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 800px;
+        }
+
+        .cta-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cta-card h4 {
+            font-size: 1.3rem;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .cta-card p {
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        .cta-url {
+            grid-column: span 2;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #00ff88;
+            padding: 20px;
+        }
+
+        /* Final quote styling */
+        .final-quote {
+            font-size: 2.2rem;
+            line-height: 1.6;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .final-quote .question {
+            color: #888;
+        }
+
+        .final-quote .answer {
+            color: #00ff88;
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        /* End card */
+        .end-card {
+            text-align: center;
+        }
+
+        .end-logo {
+            font-size: 3rem;
+            font-weight: 300;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .end-tagline {
+            font-size: 1.8rem;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .end-company {
+            display: inline-block;
+            background: rgba(0,212,255,0.2);
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        .end-url {
+            font-size: 1.5rem;
+            color: #00ff88;
+        }
+
+        /* Controls */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .control-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .audio-indicator {
+            position: fixed;
+            top: 20px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #00d4ff;
+            font-size: 0.9rem;
+        }
+
+        .audio-bars {
+            display: flex;
+            gap: 3px;
+            height: 20px;
+            align-items: flex-end;
+        }
+
+        .audio-bar {
+            width: 4px;
+            background: #00d4ff;
+            border-radius: 2px;
+            animation: audioBar 0.5s ease infinite;
+        }
+
+        .audio-bar:nth-child(1) { animation-delay: 0s; }
+        .audio-bar:nth-child(2) { animation-delay: 0.1s; }
+        .audio-bar:nth-child(3) { animation-delay: 0.2s; }
+        .audio-bar:nth-child(4) { animation-delay: 0.3s; }
+
+        .audio-indicator.paused .audio-bar {
+            animation: none;
+            height: 8px;
+        }
+
+        @keyframes audioBar {
+            0%, 100% { height: 8px; }
+            50% { height: 20px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        @keyframes growBar {
+            from { width: 0; }
+            to { width: 15%; }
+        }
+
+        .animate-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        .delay-4 { animation-delay: 0.8s; opacity: 0; }
+        .delay-5 { animation-delay: 1.0s; opacity: 0; }
+
+        /* Episode navigation */
+        .episode-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .episode-link {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #888;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .episode-link:hover {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        .episode-link.current {
+            background: rgba(0,212,255,0.3);
+            border-color: #00d4ff;
+            color: #00d4ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="episode-nav">
+        <a href="episode1.html" class="episode-link">EP1</a>
+        <a href="episode2.html" class="episode-link">EP2</a>
+        <a href="episode3.html" class="episode-link">EP3</a>
+        <a href="episode4.html" class="episode-link">EP4</a>
+        <a href="episode5.html" class="episode-link">EP5</a>
+        <a href="episode6.html" class="episode-link current">EP6</a>
+    </div>
+
+    <div class="audio-indicator paused" id="audioIndicator">
+        <div class="audio-bars">
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+        </div>
+        <span>Andrew</span>
+    </div>
+
+    <div class="slide-counter" id="slideCounter">1 / 14</div>
+
+    <div class="presentation" id="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active" data-slide="1" data-duration="5000">
+            <div class="slide-content">
+                <div class="slide-title animate-in">RevitMCPBridge</div>
+                <div class="quote animate-in delay-1">"Teaching AI to Build"</div>
+                <div class="subtitle animate-in delay-2">Episode 6: Vision & The Road Ahead</div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Journey So Far -->
+        <div class="slide" data-slide="2" data-duration="14000" data-audio="audio/ep6/slide02.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">The Journey So Far</div>
+                <div class="timeline animate-in delay-1">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Nov 2024</div>
+                        <div class="timeline-label">30 methods</div>
+                        <div class="timeline-milestone">Foundation</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Dec 2024</div>
+                        <div class="timeline-label">First auto walls</div>
+                        <div class="timeline-milestone">Proof of Concept</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Mar 2025</div>
+                        <div class="timeline-label">300 methods</div>
+                        <div class="timeline-milestone">Scale</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Dec 2025</div>
+                        <div class="timeline-label">705 methods</div>
+                        <div class="timeline-milestone">Complete Toolkit</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Now</div>
+                        <div class="timeline-label">Spine workflows</div>
+                        <div class="timeline-milestone">Intelligence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Autonomy Levels -->
+        <div class="slide" data-slide="3" data-duration="17000" data-audio="audio/ep6/slide03.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">The Autonomy Levels</div>
+                <div class="levels-container animate-in delay-1">
+                    <div class="level complete">
+                        <div class="level-number">Level 1</div>
+                        <div class="level-text">
+                            <div class="level-name">Execute Commands</div>
+                            <div class="level-desc">"Do exactly what I say"</div>
+                        </div>
+                        <div class="level-status">✓</div>
+                    </div>
+                    <div class="level complete">
+                        <div class="level-number">Level 2</div>
+                        <div class="level-text">
+                            <div class="level-name">Query + Execute</div>
+                            <div class="level-desc">"Check first, then act"</div>
+                        </div>
+                        <div class="level-status">✓</div>
+                    </div>
+                    <div class="level complete">
+                        <div class="level-number">Level 3</div>
+                        <div class="level-text">
+                            <div class="level-name">Understand + Plan + Execute</div>
+                            <div class="level-desc">"Figure out the approach"</div>
+                        </div>
+                        <div class="level-status">✓</div>
+                    </div>
+                    <div class="level complete">
+                        <div class="level-number">Level 4</div>
+                        <div class="level-text">
+                            <div class="level-name">Autonomous Workflows</div>
+                            <div class="level-desc">"Run entire processes"</div>
+                        </div>
+                        <div class="level-status">✓</div>
+                    </div>
+                    <div class="level target">
+                        <div class="level-number">Level 5</div>
+                        <div class="level-text">
+                            <div class="level-name">Complete CD Production</div>
+                            <div class="level-desc">"90% of the set, autonomously"</div>
+                        </div>
+                        <div class="level-status">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Level 5 Vision -->
+        <div class="slide" data-slide="4" data-duration="18000" data-audio="audio/ep6/slide04.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">Level 5: The Vision</div>
+                <div class="io-container animate-in delay-1">
+                    <div class="io-box">
+                        <h3>INPUT</h3>
+                        <ul>
+                            <li>PDF floor plan or schematic design</li>
+                            <li>Site survey data</li>
+                            <li>Building program (room list, areas)</li>
+                            <li>Style reference or firm profile</li>
+                        </ul>
+                    </div>
+                    <div class="io-box output">
+                        <h3>OUTPUT</h3>
+                        <ul>
+                            <li>Complete Revit model</li>
+                            <li>50-100 sheet CD set</li>
+                            <li>Floor plans, elevations, sections, details</li>
+                            <li>Schedules, legends, general notes</li>
+                            <li>Ready for architect review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: PDF to Revit Pipeline -->
+        <div class="slide" data-slide="5" data-duration="14000" data-audio="audio/ep6/slide05.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">PDF to Revit: Already Working</div>
+                <div class="pipeline animate-in delay-1">
+                    <div class="pipeline-step">
+                        <div class="pipeline-icon">📄</div>
+                        <div class="pipeline-label">PDF</div>
+                        <div class="pipeline-sublabel">Floor Plan</div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    <div class="pipeline-step highlight">
+                        <div class="pipeline-icon">👁️</div>
+                        <div class="pipeline-label">Vision AI</div>
+                        <div class="pipeline-sublabel">Extraction</div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-icon">{ }</div>
+                        <div class="pipeline-label">JSON</div>
+                        <div class="pipeline-sublabel">Walls, Doors, Windows</div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    <div class="pipeline-step highlight">
+                        <div class="pipeline-icon">🏗️</div>
+                        <div class="pipeline-label">Revit Model</div>
+                        <div class="pipeline-sublabel">via MCP Bridge</div>
+                    </div>
+                </div>
+                <div class="quote animate-in delay-2" style="font-size: 1.5rem;">Floor Plan Vision MCP: Operational</div>
+            </div>
+        </div>
+
+        <!-- Slide 6: What 90% Means -->
+        <div class="slide" data-slide="6" data-duration="18000" data-audio="audio/ep6/slide06.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">What 90% Means</div>
+                <div class="split-section animate-in delay-1">
+                    <div class="split-box ai">
+                        <h3>AI Handles (90%)</h3>
+                        <ul class="check-list">
+                            <li>Model creation from floor plans</li>
+                            <li>Sheet setup and organization</li>
+                            <li>View placement and layout</li>
+                            <li>Standard details from library</li>
+                            <li>Schedules and legends</li>
+                            <li>Dimensions and annotations</li>
+                        </ul>
+                    </div>
+                    <div class="split-box human">
+                        <h3>Architect Handles (10%)</h3>
+                        <ul class="bullet-list">
+                            <li>Design decisions and refinements</li>
+                            <li>Complex custom details</li>
+                            <li>Code compliance verification</li>
+                            <li>Client coordination and review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Time Transformation -->
+        <div class="slide" data-slide="7" data-duration="12000" data-audio="audio/ep6/slide07.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">Time Transformation</div>
+                <div class="time-comparison animate-in delay-1">
+                    <div class="time-bar-container">
+                        <div class="time-bar-label">Traditional CD Set (Single Family)</div>
+                        <div class="time-bar traditional">3-4 weeks</div>
+                    </div>
+                    <div class="time-bar-container">
+                        <div class="time-bar-label">With RevitMCPBridge + Spine</div>
+                        <div class="time-bar new">2-3 days</div>
+                    </div>
+                </div>
+                <div class="time-savings animate-in delay-2">85% TIME SAVINGS</div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Ripple Effects -->
+        <div class="slide" data-slide="8" data-duration="14000" data-audio="audio/ep6/slide08.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">The Ripple Effects</div>
+                <div class="benefits-grid animate-in delay-1">
+                    <div class="benefit-card">
+                        <h4>For Architects</h4>
+                        <ul>
+                            <li>More projects per year</li>
+                            <li>More time for design</li>
+                            <li>Better work-life balance</li>
+                        </ul>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>For Firms</h4>
+                        <ul>
+                            <li>Higher capacity, same staff</li>
+                            <li>Faster turnaround</li>
+                            <li>Consistent quality</li>
+                        </ul>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>For Clients</h4>
+                        <ul>
+                            <li>Faster project delivery</li>
+                            <li>Potentially lower costs</li>
+                            <li>More iterations possible</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Roadmap -->
+        <div class="slide" data-slide="9" data-duration="14000" data-audio="audio/ep6/slide09.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">The Roadmap</div>
+                <div class="roadmap animate-in delay-1">
+                    <div class="roadmap-quarter">
+                        <h4>Q1 2026</h4>
+                        <ul>
+                            <li>Full detail library integration</li>
+                            <li>Automated section generation</li>
+                            <li>Multi-discipline coordination</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-quarter">
+                        <h4>Q2 2026</h4>
+                        <ul>
+                            <li>Code compliance checking</li>
+                            <li>Permit-ready package generation</li>
+                            <li>Client-facing presentation automation</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-quarter">
+                        <h4>Q3-Q4 2026</h4>
+                        <ul>
+                            <li>Full CD automation (Level 5)</li>
+                            <li>Cloud deployment options</li>
+                            <li>Enterprise features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Proprietary Innovation -->
+        <div class="slide" data-slide="10" data-duration="12000" data-audio="audio/ep6/slide10.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">Proprietary Innovation</div>
+                <div class="open-source-box animate-in delay-1">
+                    <h3>RevitMCPBridge is proprietary technology.</h3>
+                    <ul>
+                        <li>705+ methods built and tested</li>
+                        <li>113 files of architectural knowledge</li>
+                        <li>Proven on real production projects</li>
+                        <li>Continuous development and refinement</li>
+                    </ul>
+                    <div class="open-source-tagline">Built by architects. For architects.</div>
+                    <div class="movement-quote">"Years of work. Real results. Ready to deploy."</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Bigger Vision -->
+        <div class="slide" data-slide="11" data-duration="14000" data-audio="audio/ep6/slide11.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">The Bigger Vision</div>
+                <div class="vision-progression animate-in delay-1">
+                    <div class="vision-step">
+                        <div class="vision-label">Today</div>
+                        <div class="vision-text">AI assists with construction documents.</div>
+                    </div>
+                    <div class="vision-step">
+                        <div class="vision-label">Tomorrow</div>
+                        <div class="vision-text">AI handles routine building design.</div>
+                    </div>
+                    <div class="vision-step">
+                        <div class="vision-label">The Future</div>
+                        <div class="vision-text">Architects focus purely on creativity, client relationships, and the problems that only humans can solve.</div>
+                    </div>
+                </div>
+                <div class="vision-quote animate-in delay-2">"We're not replacing architects. We're freeing them."</div>
+            </div>
+        </div>
+
+        <!-- Slide 12: What's Next -->
+        <div class="slide" data-slide="12" data-duration="12000" data-audio="audio/ep6/slide12.mp3">
+            <div class="slide-content">
+                <div class="slide-title animate-in">What's Next</div>
+                <div class="cta-grid animate-in delay-1">
+                    <div class="cta-card">
+                        <h4>INTERESTED?</h4>
+                        <p>Reach out to learn more about RevitMCPBridge.</p>
+                    </div>
+                    <div class="cta-card">
+                        <h4>HAVE A PROJECT?</h4>
+                        <p>Let's discuss how this technology can help.</p>
+                    </div>
+                    <div class="cta-card">
+                        <h4>WANT A DEMO?</h4>
+                        <p>See it in action on a real project.</p>
+                    </div>
+                    <div class="cta-card">
+                        <h4>CONNECT</h4>
+                        <p>Questions? Ideas? Let's talk.</p>
+                    </div>
+                    <div class="cta-url">www.bimopsstudio.com</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Closing Statement -->
+        <div class="slide" data-slide="13" data-duration="10000" data-audio="audio/ep6/slide13.mp3">
+            <div class="slide-content">
+                <div class="final-quote animate-in">
+                    <p class="question">"We started with a question:</p>
+                    <p class="question" style="margin: 30px 0;">What if AI could actually build?</p>
+                    <p class="question" style="margin: 30px 0;">Now we have an answer.</p>
+                    <p class="answer">It can."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: End Card -->
+        <div class="slide" data-slide="14" data-duration="10000" data-audio="audio/ep6/slide14.mp3">
+            <div class="slide-content end-card">
+                <div class="end-logo animate-in">RevitMCPBridge</div>
+                <div class="end-tagline animate-in delay-1">"Teaching AI to Build"</div>
+                <div class="end-company animate-in delay-2">BIM OPS STUDIO</div>
+                <div class="end-url animate-in delay-3">www.bimopsstudio.com</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="control-btn" id="prevBtn">← Previous</button>
+        <button class="control-btn" id="playBtn">▶ Play</button>
+        <button class="control-btn" id="nextBtn">Next →</button>
+    </div>
+
+    <audio id="audioPlayer" preload="auto"></audio>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+        const prevBtn = document.getElementById('prevBtn');
+        const playBtn = document.getElementById('playBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioIndicator = document.getElementById('audioIndicator');
+
+        let currentSlide = 0;
+        let isPlaying = false;
+        let slideTimeout = null;
+
+        function updateSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+
+            progressBar.style.width = ((index + 1) / slides.length * 100) + '%';
+            slideCounter.textContent = `${index + 1} / ${slides.length}`;
+
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === slides.length - 1;
+
+            // Handle audio
+            const audioSrc = slides[index].dataset.audio;
+            if (audioSrc && isPlaying) {
+                audioPlayer.src = audioSrc;
+                audioPlayer.play().catch(e => console.log('Audio play failed:', e));
+                audioIndicator.classList.remove('paused');
+            } else {
+                audioPlayer.pause();
+                audioIndicator.classList.add('paused');
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlide(currentSlide);
+
+                if (isPlaying) {
+                    scheduleNextSlide();
+                }
+            } else {
+                stopPlayback();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide(currentSlide);
+            }
+        }
+
+        function scheduleNextSlide() {
+            clearTimeout(slideTimeout);
+            const duration = parseInt(slides[currentSlide].dataset.duration) || 5000;
+            slideTimeout = setTimeout(nextSlide, duration);
+        }
+
+        function startPlayback() {
+            isPlaying = true;
+            playBtn.textContent = '⏸ Pause';
+
+            const audioSrc = slides[currentSlide].dataset.audio;
+            if (audioSrc) {
+                audioPlayer.src = audioSrc;
+                audioPlayer.play().catch(e => console.log('Audio play failed:', e));
+                audioIndicator.classList.remove('paused');
+            }
+
+            scheduleNextSlide();
+        }
+
+        function stopPlayback() {
+            isPlaying = false;
+            playBtn.textContent = '▶ Play';
+            clearTimeout(slideTimeout);
+            audioPlayer.pause();
+            audioIndicator.classList.add('paused');
+        }
+
+        function togglePlayback() {
+            if (isPlaying) {
+                stopPlayback();
+            } else {
+                startPlayback();
+            }
+        }
+
+        // Audio ended handler
+        audioPlayer.addEventListener('ended', () => {
+            // Audio finished naturally - slide timer handles transition
+        });
+
+        // Event listeners
+        prevBtn.addEventListener('click', () => {
+            stopPlayback();
+            prevSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            stopPlayback();
+            nextSlide();
+        });
+
+        playBtn.addEventListener('click', togglePlayback);
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    if (e.key === ' ') {
+                        togglePlayback();
+                    } else {
+                        stopPlayback();
+                        nextSlide();
+                    }
+                    break;
+                case 'ArrowLeft':
+                    stopPlayback();
+                    prevSlide();
+                    break;
+                case 'Escape':
+                    stopPlayback();
+                    break;
+            }
+        });
+
+        // Initialize
+        updateSlide(0);
+    </script>
+</body>
+</html>

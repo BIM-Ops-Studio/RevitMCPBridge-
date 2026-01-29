@@ -54,11 +54,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes typeIn {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -346,15 +341,22 @@
             font-size: 0.9rem;
         }
 
-        /* Animations for specific elements */
-        .animate-in {
-            animation: fadeIn 0.6s ease-out forwards;
+        /* Audio indicator */
+        .audio-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #00D4FF;
         }
 
-        .delay-1 { animation-delay: 0.3s; opacity: 0; }
-        .delay-2 { animation-delay: 0.6s; opacity: 0; }
-        .delay-3 { animation-delay: 0.9s; opacity: 0; }
-        .delay-4 { animation-delay: 1.2s; opacity: 0; }
+        .audio-indicator.playing::before {
+            content: "🔊";
+            animation: pulse 1s infinite;
+        }
+
+        .audio-indicator:not(.playing)::before {
+            content: "🔇";
+        }
     </style>
 </head>
 <body>
@@ -373,7 +375,7 @@
             </div>
 
             <!-- Slide 2: The Hook -->
-            <div class="slide" data-duration="10000" data-narration="What if your AI assistant... could actually draw construction documents?">
+            <div class="slide" data-duration="10000" data-audio="audio/slide02.mp3">
                 <p class="big-question">
                     "What if your AI assistant<br>
                     could actually draw<br>
@@ -382,7 +384,7 @@
             </div>
 
             <!-- Slide 3: The Day-to-Day -->
-            <div class="slide" data-duration="15000" data-narration="Every day, architects around the world sit down at their computers. And for most of them, roughly 65% of their time goes to one thing: documentation. Not designing. Not problem-solving. Repetitive, tedious documentation.">
+            <div class="slide" data-duration="18000" data-audio="audio/slide03.mp3">
                 <h2>The Architect's Day</h2>
                 <div class="bar-chart">
                     <div class="bar">
@@ -405,14 +407,14 @@
             </div>
 
             <!-- Slide 4: The Stack -->
-            <div class="slide" data-duration="12000" data-narration="A typical commercial project? Fifty to a hundred sheets. Floor plans, elevations, sections, details, schedules. Each one placed, dimensioned, annotated by hand. It takes weeks. Sometimes months.">
+            <div class="slide" data-duration="15000" data-audio="audio/slide04.mp3">
                 <h2>A Construction Document Set</h2>
                 <div class="stats-row">
-                    <div class="stat-box animate-in delay-1">
+                    <div class="stat-box">
                         <div class="stat-number">50-100+</div>
                         <div class="stat-label">Sheets Per Project</div>
                     </div>
-                    <div class="stat-box animate-in delay-2">
+                    <div class="stat-box">
                         <div class="stat-number">Weeks</div>
                         <div class="stat-label">Of Manual Work</div>
                     </div>
@@ -421,7 +423,7 @@
             </div>
 
             <!-- Slide 5: The AI Revolution -->
-            <div class="slide" data-duration="15000" data-narration="AI can write code. Generate art. Compose music. Analyze legal documents. Design websites. But ask Claude, GPT, or any AI to create a Revit floor plan? To place walls, doors, dimensions? Nothing. That's the gap.">
+            <div class="slide" data-duration="17000" data-audio="audio/slide05.mp3">
                 <h2>The AI Revolution</h2>
                 <div class="stats-row" style="margin-bottom: 30px;">
                     <div class="stat-box" style="padding: 20px 30px;">
@@ -444,7 +446,7 @@
             </div>
 
             <!-- Slide 6: Two Worlds -->
-            <div class="slide" data-duration="12000" data-narration="On one side: AI. Natural language, flexible, conversational. On the other: Revit. Precise geometry, complex parameters, forty thousand API methods. These two worlds were never designed to communicate.">
+            <div class="slide" data-duration="16000" data-audio="audio/slide06.mp3">
                 <h2>The Problem</h2>
                 <div class="two-columns">
                     <div class="column">
@@ -471,7 +473,7 @@
             </div>
 
             <!-- Slide 7: The Question -->
-            <div class="slide" data-duration="8000" data-narration="What if we could build a bridge?">
+            <div class="slide" data-duration="6000" data-audio="audio/slide07.mp3">
                 <p class="big-question" style="font-size: 3.5rem;">
                     What if we could<br>
                     <span class="highlight" style="font-size: 4.5rem;">BUILD A BRIDGE?</span>
@@ -479,7 +481,7 @@
             </div>
 
             <!-- Slide 8: The Vision -->
-            <div class="slide" data-duration="15000" data-narration="The vision: A direct connection. You tell Claude what you want—in plain English. 'Create a twenty by thirty foot room. Add two doors and three windows.' And it happens. Instantly. In Revit. No mouse. No menus. Just... intent to reality.">
+            <div class="slide" data-duration="20000" data-audio="audio/slide08.mp3">
                 <h2>The Vision</h2>
                 <div class="bridge-visual" style="margin: 40px 0;">
                     <div class="bridge-node claude">CLAUDE</div>
@@ -497,7 +499,7 @@
             </div>
 
             <!-- Slide 9: Who We Are -->
-            <div class="slide" data-duration="12000" data-narration="We're BIM Ops Studio, based in South Florida. For years, we've produced construction documents for multi-family, single-family, and commercial projects. We know the pain. We live it every day. So we decided to fix it.">
+            <div class="slide" data-duration="16000" data-audio="audio/slide09.mp3">
                 <h1 style="font-size: 2.5rem;">BIM Ops Studio</h1>
                 <p class="subtitle">South Florida, USA</p>
                 <div class="stats-row">
@@ -515,7 +517,7 @@
             </div>
 
             <!-- Slide 10: The Project -->
-            <div class="slide" data-duration="10000" data-narration="We call it RevitMCPBridge. MCP—Model Context Protocol—is how Claude talks to external tools. Our bridge takes that protocol and connects it directly to Revit. Both 2025 and 2026 versions. Open source. Actively developed.">
+            <div class="slide" data-duration="18000" data-audio="audio/slide10.mp3">
                 <h1>RevitMCPBridge</h1>
                 <p class="subtitle">Model Context Protocol → Revit</p>
                 <div class="stats-row" style="margin-top: 40px;">
@@ -528,11 +530,11 @@
                         <div class="stat-label">Revit Support</div>
                     </div>
                 </div>
-                <p style="margin-top: 30px; color: #00D4FF; font-size: 1.3rem;">Open Source | Active Development</p>
+                <p style="margin-top: 30px; color: #00D4FF; font-size: 1.3rem;">Proprietary | Production-Ready</p>
             </div>
 
             <!-- Slide 11: What's Coming -->
-            <div class="slide" data-duration="10000" data-narration="In this series, we'll take you through the journey. From the first lines of code to 449 working endpoints. From manual wall creation to autonomous construction document production. This is that story.">
+            <div class="slide" data-duration="14000" data-audio="audio/slide11.mp3">
                 <h2>This Series</h2>
                 <div class="episode-cards">
                     <div class="episode-card active">
@@ -560,11 +562,11 @@
                         <div class="ep-title">Future</div>
                     </div>
                 </div>
-                <p style="margin-top: 40px; font-size: 1.3rem;">From zero to <span style="color: #FF6B35;">449 endpoints</span>.<br>From idea to <span style="color: #00D4FF;">autonomous CD production</span>.</p>
+                <p style="margin-top: 40px; font-size: 1.3rem;">From zero to <span style="color: #FF6B35;">705 methods</span>.<br>From idea to <span style="color: #00D4FF;">autonomous CD production</span>.</p>
             </div>
 
             <!-- Slide 12: End Card -->
-            <div class="slide" data-duration="8000" data-narration="Next episode: Building the Bridge. How we connected two worlds that were never meant to talk.">
+            <div class="slide" data-duration="10000" data-audio="audio/slide12.mp3">
                 <h2 style="color: #aaa;">Next Episode:</h2>
                 <h1 style="font-size: 3rem;">"Building the Bridge"</h1>
                 <p style="font-size: 1.4rem; margin-top: 30px;">How we connected two worlds<br>that were never meant to talk.</p>
@@ -585,27 +587,42 @@
                 <div class="progress-fill" id="progress"></div>
             </div>
             <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">12</span></span>
-            <button class="control-btn" onclick="toggleNarration()">
-                <span id="narrationIcon">🔊</span> Narration
-            </button>
+            <div class="audio-indicator" id="audioIndicator">Audio</div>
         </div>
 
         <div class="logo">BIM Ops Studio</div>
     </div>
 
+    <!-- Audio element for narration -->
+    <audio id="narrator" preload="auto"></audio>
+
     <script>
         let currentSlide = 0;
         let isPlaying = false;
-        let narrationEnabled = true;
         let slideTimer = null;
-        let synth = window.speechSynthesis;
+        const audio = document.getElementById('narrator');
+        const audioIndicator = document.getElementById('audioIndicator');
 
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
 
         document.getElementById('totalSlides').textContent = totalSlides;
 
+        // Preload audio files
+        const audioFiles = {};
+        slides.forEach((slide, i) => {
+            const audioSrc = slide.dataset.audio;
+            if (audioSrc) {
+                audioFiles[i] = new Audio(audioSrc);
+                audioFiles[i].preload = 'auto';
+            }
+        });
+
         function showSlide(index) {
+            // Stop current audio
+            audio.pause();
+            audio.currentTime = 0;
+
             slides.forEach((slide, i) => {
                 slide.classList.remove('active');
                 if (i === index) {
@@ -616,51 +633,44 @@
             document.getElementById('currentSlide').textContent = index + 1;
             document.getElementById('progress').style.width = ((index + 1) / totalSlides * 100) + '%';
 
-            // Trigger animations
-            const activeSlide = slides[index];
-            const animatedElements = activeSlide.querySelectorAll('.animate-in');
-            animatedElements.forEach(el => {
-                el.style.animation = 'none';
-                el.offsetHeight; // Trigger reflow
-                el.style.animation = null;
-            });
-
-            // Speak narration
-            if (narrationEnabled && isPlaying) {
-                const narration = activeSlide.dataset.narration;
-                if (narration) {
-                    speak(narration);
-                }
+            // Play narration if playing
+            if (isPlaying) {
+                playSlideAudio();
             }
         }
 
-        function speak(text) {
-            synth.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.95;
-            utterance.pitch = 1;
+        function playSlideAudio() {
+            const activeSlide = slides[currentSlide];
+            const audioSrc = activeSlide.dataset.audio;
 
-            // Try to find a good voice
-            const voices = synth.getVoices();
-            const preferredVoice = voices.find(v =>
-                v.name.includes('David') ||
-                v.name.includes('Mark') ||
-                v.name.includes('Male') ||
-                v.lang === 'en-US'
-            );
-            if (preferredVoice) {
-                utterance.voice = preferredVoice;
+            if (audioSrc) {
+                audio.src = audioSrc;
+                audio.play().then(() => {
+                    audioIndicator.classList.add('playing');
+                }).catch(e => {
+                    console.log('Audio play failed:', e);
+                    // If audio fails, use duration-based advance
+                    scheduleNextSlide();
+                });
+
+                // When audio ends, advance to next slide
+                audio.onended = () => {
+                    audioIndicator.classList.remove('playing');
+                    if (isPlaying && currentSlide < totalSlides - 1) {
+                        setTimeout(() => nextSlide(), 500); // Small pause between slides
+                    } else if (currentSlide >= totalSlides - 1) {
+                        stopPlay();
+                    }
+                };
+            } else {
+                // No audio for this slide, use timer
+                scheduleNextSlide();
             }
-
-            synth.speak(utterance);
         }
 
         function nextSlide() {
             if (currentSlide < totalSlides - 1) {
                 showSlide(currentSlide + 1);
-                if (isPlaying) {
-                    scheduleNextSlide();
-                }
             } else {
                 stopPlay();
             }
@@ -690,57 +700,36 @@
             isPlaying = true;
             document.getElementById('playBtn').classList.add('playing');
             document.getElementById('playIcon').textContent = '⏸';
-
-            // Speak current slide if it has narration
-            if (narrationEnabled) {
-                const narration = slides[currentSlide].dataset.narration;
-                if (narration) {
-                    speak(narration);
-                }
-            }
-
-            scheduleNextSlide();
+            playSlideAudio();
         }
 
         function stopPlay() {
             isPlaying = false;
             clearTimeout(slideTimer);
-            synth.cancel();
+            audio.pause();
+            audioIndicator.classList.remove('playing');
             document.getElementById('playBtn').classList.remove('playing');
             document.getElementById('playIcon').textContent = '▶';
-        }
-
-        function toggleNarration() {
-            narrationEnabled = !narrationEnabled;
-            document.getElementById('narrationIcon').textContent = narrationEnabled ? '🔊' : '🔇';
-            if (!narrationEnabled) {
-                synth.cancel();
-            }
         }
 
         // Keyboard controls
         document.addEventListener('keydown', (e) => {
             switch(e.key) {
                 case 'ArrowRight':
-                case ' ':
                     nextSlide();
                     break;
                 case 'ArrowLeft':
                     prevSlide();
                     break;
-                case 'p':
+                case ' ':
+                    e.preventDefault();
                     togglePlay();
                     break;
-                case 'm':
-                    toggleNarration();
+                case 'Escape':
+                    stopPlay();
                     break;
             }
         });
-
-        // Initialize voices
-        if (synth.onvoiceschanged !== undefined) {
-            synth.onvoiceschanged = () => {};
-        }
 
         // Show first slide
         showSlide(0);

@@ -374,7 +374,7 @@
 │                    THE BEGINNING                            │
 │                                                             │
 │                                                             │
-│               30 methods → 449+ endpoints                   │
+│               30 methods → 705+ endpoints                   │
 │                                                             │
 │                                                             │
 │           ┌────────────────────────────────────┐            │
@@ -403,7 +403,7 @@
 │                                                             │
 │          "From Methods to Intelligence"                     │
 │                                                             │
-│       How 30 methods became 449 endpoints.                  │
+│       How 30 methods became 705 endpoints.                  │
 │       How commands became comprehension.                    │
 │                                                             │
 │                                                             │

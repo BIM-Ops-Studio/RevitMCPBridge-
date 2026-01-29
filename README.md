@@ -285,14 +285,32 @@ The project includes:
 
 ## License
 
-Proprietary - BD Architect LLC
+MIT License - see [LICENSE](LICENSE) file.
+
+Created by **Weber Gouin** / **[BIM Ops Studio](https://bimopsstudio.com)**
 
 ## Contributing
 
-Internal project. Contact project maintainers for contribution guidelines.
+Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Ways to Contribute
+- Report bugs and issues
+- Suggest new methods or features
+- Submit pull requests
+- Share your use cases
+
+## Support
+
+- **Issues**: Use GitHub Issues for bugs and feature requests
+- **Professional Support**: Contact [BIM Ops Studio](https://bimopsstudio.com) for consulting and custom implementations
+
+## Acknowledgments
+
+This project represents the first open-source bridge connecting Claude AI to Autodesk Revit, enabling AI-assisted BIM automation through the Model Context Protocol.
 
 ---
 
 **Version**: 2.0.0
-**Revit**: 2026
-**Last Updated**: 2025-01
+**Revit**: 2025, 2026
+**Author**: Weber Gouin / BIM Ops Studio
+**Last Updated**: 2026-01

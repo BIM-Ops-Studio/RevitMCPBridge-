@@ -67,9 +67,20 @@ namespace RevitMCPBridge.Tests
         /// <summary>
         /// Assert that a response contains a specific property with expected value
         /// </summary>
-        protected void AssertProperty<T>(JObject response, string property, T expectedValue)
+        protected void AssertProperty<T>(JObject response, string property, T expectedValue) where T : struct
         {
-            var actualValue = response[property]?.Value<T>();
+            var token = response[property];
+            T? actualValue = token != null ? token.Value<T>() : default(T?);
+            Assert.That(actualValue, Is.EqualTo(expectedValue),
+                $"Property '{property}' expected {expectedValue} but was {actualValue}");
+        }
+
+        /// <summary>
+        /// Assert that a response contains a specific string property with expected value
+        /// </summary>
+        protected void AssertStringProperty(JObject response, string property, string expectedValue)
+        {
+            var actualValue = response[property]?.ToString();
             Assert.That(actualValue, Is.EqualTo(expectedValue),
                 $"Property '{property}' expected {expectedValue} but was {actualValue}");
         }
@@ -129,6 +140,30 @@ namespace RevitMCPBridge.Tests
         protected MockSheet CreateTestSheet(string number = "A-101", string name = "Test Sheet")
         {
             return MockContext.CreateSheet(number, name, null);
+        }
+
+        /// <summary>
+        /// Create a standard door for testing (requires a wall)
+        /// </summary>
+        protected MockDoor CreateTestDoor(MockWall wall = null, int doorTypeId = 2001)
+        {
+            if (wall == null)
+            {
+                wall = CreateTestWall();
+            }
+            return MockContext.CreateDoor(wall.Id, 10.0, 0.0, doorTypeId);
+        }
+
+        /// <summary>
+        /// Create a standard window for testing (requires a wall)
+        /// </summary>
+        protected MockWindow CreateTestWindow(MockWall wall = null, int windowTypeId = 3001, double sillHeight = 3.0)
+        {
+            if (wall == null)
+            {
+                wall = CreateTestWall();
+            }
+            return MockContext.CreateWindow(wall.Id, 10.0, 0.0, windowTypeId, sillHeight);
         }
 
         #endregion

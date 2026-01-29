@@ -140,7 +140,7 @@ msbuild RevitMCPBridge2026.csproj /p:Configuration=Release
 # bin/Release/RevitMCPBridge2026.dll
 
 # To deploy (requires Revit restart):
-# Copy DLL to: C:\Users\rick\AppData\Roaming\Autodesk\Revit\Addins\2026\
+# Copy DLL to: %APPDATA%\Autodesk\Revit\Addins\2026\
 ```
 
 ## Revit 2026 API Changes to Remember

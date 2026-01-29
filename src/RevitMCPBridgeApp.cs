@@ -320,6 +320,23 @@ namespace RevitMCPBridge
             var aiAssistantButton = panel.AddItem(aiAssistantButtonData) as PushButton;
             aiAssistantButton.LargeImage = CreateButtonIcon("ai", 32);
             aiAssistantButton.Image = CreateButtonIcon("ai", 16);
+
+            // Smart Element Panel button - Shows element info and linked views
+            var smartPanelButtonData = new PushButtonData(
+                "SmartElementPanel",
+                "Smart\nPanel",
+                Assembly.GetExecutingAssembly().Location,
+                "RevitMCPBridge.Commands.ShowSmartPanelCommand")
+            {
+                ToolTip = "Smart Element Info Panel",
+                LongDescription = "Opens a panel that displays comprehensive information about selected elements including specifications, " +
+                                  "linked drafting views, schedules, manufacturer data, and fire ratings. Click links to navigate directly to views.",
+                AvailabilityClassName = "RevitMCPBridge.Commands.SmartPanelAvailability"
+            };
+
+            var smartPanelButton = panel.AddItem(smartPanelButtonData) as PushButton;
+            smartPanelButton.LargeImage = CreateButtonIcon("smart", 32);
+            smartPanelButton.Image = CreateButtonIcon("smart", 16);
         }
 
         private void CreateSettingsPanel(UIControlledApplication application)
@@ -401,6 +418,9 @@ namespace RevitMCPBridge
                             break;
                         case "library":
                             DrawLibraryIcon(dc, size);
+                            break;
+                        case "smart":
+                            DrawSmartIcon(dc, size);
                             break;
                     }
                 }
@@ -824,6 +844,106 @@ namespace RevitMCPBridge
                     new Point(docLeft + size * 0.05, lineY),
                     new Point(docLeft + docWidth - size * 0.05, lineY));
             }
+        }
+
+        private void DrawSmartIcon(DrawingContext dc, int size)
+        {
+            // Smart/Info icon - lightbulb with info badge
+            var margin = size * 0.1;
+            var center = size / 2.0;
+
+            // Lightbulb background (yellow glow)
+            var glowGradient = new RadialGradientBrush(
+                Color.FromRgb(255, 235, 59),   // Yellow center
+                Color.FromRgb(255, 193, 7));   // Amber edge
+            dc.DrawEllipse(glowGradient, null, new Point(center, center - size * 0.05),
+                size * 0.35, size * 0.35);
+
+            // Lightbulb body
+            var bulbPath = new PathGeometry();
+            var bulbFigure = new PathFigure { StartPoint = new Point(center - size * 0.2, center) };
+
+            // Left arc up to top
+            bulbFigure.Segments.Add(new ArcSegment(
+                new Point(center, center - size * 0.3),
+                new Size(size * 0.25, size * 0.25),
+                0, false, SweepDirection.Clockwise, true));
+
+            // Right arc down
+            bulbFigure.Segments.Add(new ArcSegment(
+                new Point(center + size * 0.2, center),
+                new Size(size * 0.25, size * 0.25),
+                0, false, SweepDirection.Clockwise, true));
+
+            // Base narrowing
+            bulbFigure.Segments.Add(new LineSegment(new Point(center + size * 0.12, center + size * 0.15), true));
+            bulbFigure.Segments.Add(new LineSegment(new Point(center - size * 0.12, center + size * 0.15), true));
+            bulbFigure.IsClosed = true;
+            bulbPath.Figures.Add(bulbFigure);
+
+            var bulbGradient = new LinearGradientBrush(
+                Color.FromRgb(255, 255, 255),
+                Color.FromRgb(255, 241, 118),
+                90);
+            dc.DrawGeometry(bulbGradient, new Pen(new SolidColorBrush(Color.FromRgb(255, 160, 0)), 1), bulbPath);
+
+            // Lightbulb base (screw part)
+            var baseRect = new Rect(center - size * 0.1, center + size * 0.15, size * 0.2, size * 0.12);
+            dc.DrawRectangle(new SolidColorBrush(Color.FromRgb(158, 158, 158)),
+                new Pen(new SolidColorBrush(Color.FromRgb(97, 97, 97)), 0.5), baseRect);
+
+            // Screw lines
+            var screwPen = new Pen(new SolidColorBrush(Color.FromRgb(97, 97, 97)), 0.5);
+            dc.DrawLine(screwPen,
+                new Point(center - size * 0.08, center + size * 0.19),
+                new Point(center + size * 0.08, center + size * 0.19));
+            dc.DrawLine(screwPen,
+                new Point(center - size * 0.08, center + size * 0.23),
+                new Point(center + size * 0.08, center + size * 0.23));
+
+            // Info badge (small circle with 'i')
+            var badgeCenter = new Point(center + size * 0.25, center - size * 0.2);
+            var badgeRadius = size * 0.15;
+
+            // Badge background
+            dc.DrawEllipse(new SolidColorBrush(Color.FromRgb(33, 150, 243)),
+                new Pen(new SolidColorBrush(Colors.White), 1), badgeCenter, badgeRadius, badgeRadius);
+
+            // Info 'i' symbol
+            var infoText = new FormattedText(
+                "i",
+                System.Globalization.CultureInfo.CurrentCulture,
+                System.Windows.FlowDirection.LeftToRight,
+                new Typeface(new FontFamily("Arial"),
+                    System.Windows.FontStyles.Italic,
+                    System.Windows.FontWeights.Bold,
+                    System.Windows.FontStretches.Normal),
+                size * 0.18,
+                new SolidColorBrush(Colors.White),
+                96);
+
+            dc.DrawText(infoText,
+                new Point(badgeCenter.X - infoText.Width / 2, badgeCenter.Y - infoText.Height / 2));
+
+            // Rays emanating from bulb (smart/enlightenment)
+            var rayPen = new Pen(new SolidColorBrush(Color.FromRgb(255, 193, 7)), 1);
+            var rayLength = size * 0.08;
+            var rayDistance = size * 0.38;
+
+            // Top ray
+            dc.DrawLine(rayPen,
+                new Point(center, center - rayDistance),
+                new Point(center, center - rayDistance - rayLength));
+
+            // Top-left ray
+            dc.DrawLine(rayPen,
+                new Point(center - rayDistance * 0.7, center - rayDistance * 0.5),
+                new Point(center - (rayDistance + rayLength) * 0.7, center - (rayDistance + rayLength) * 0.5));
+
+            // Top-right ray
+            dc.DrawLine(rayPen,
+                new Point(center + rayDistance * 0.7, center - rayDistance * 0.5),
+                new Point(center + (rayDistance + rayLength) * 0.7, center - (rayDistance + rayLength) * 0.5));
         }
 
         // Dialog handling event

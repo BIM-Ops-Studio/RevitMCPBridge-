@@ -343,10 +343,10 @@ namespace RevitMCPBridge2026.AgentFramework
             return button;
         }
 
-        // Config file path - use explicit Windows path for reliability
-        private static readonly string ConfigDir = @"C:\Users\rick\.bimops";
-        private static readonly string ConfigPath = @"C:\Users\rick\.bimops\config.json";
-        private static readonly string SessionPath = @"C:\Users\rick\.bimops\session.json";
+        // Config file path - use user's home directory for portability
+        private static readonly string ConfigDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".bimops");
+        private static readonly string ConfigPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".bimops", "config.json");
+        private static readonly string SessionPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".bimops", "session.json");
         private static readonly string DefaultModel = "claude-sonnet-4-20250514"; // Default to Sonnet for cost-effectiveness
 
         // Session data for persistence
@@ -1721,9 +1721,9 @@ namespace RevitMCPBridge2026.AgentFramework
 
         #region Memory Operation Handlers
 
-        // Memory storage file path
-        private static readonly string MemoryDir = @"C:\Users\rick\.bimops\memory";
-        private static readonly string MemoryFile = @"C:\Users\rick\.bimops\memory\memories.json";
+        // Memory storage file path - use user's home directory for portability
+        private static readonly string MemoryDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".bimops", "memory");
+        private static readonly string MemoryFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".bimops", "memory", "memories.json");
 
         /// <summary>
         /// Handle memory operation tools locally (no MCP needed)

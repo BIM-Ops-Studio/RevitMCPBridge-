@@ -39,14 +39,14 @@
 │                                                             │
 │               THE LIMITATION                                │
 │                                                             │
-│   449 methods means 449 individual capabilities.            │
+│   705 methods means 705 individual capabilities.            │
 │                                                             │
 │   ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐          │
 │   │create│ │place │ │add  │ │setup│ │place│ │add  │          │
 │   │sheet │ │view  │ │dims │ │sched│ │title│ │notes│          │
 │   └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘          │
 │                                                             │
-│   But a construction document set isn't 449 commands.       │
+│   But a construction document set isn't 705 commands.       │
 │                                                             │
 │   It's a PROCESS with dependencies, logic, and decisions.   │
 │                                                             │
@@ -401,7 +401,7 @@
 │                  THE BIGGER PICTURE                         │
 │                                                             │
 │                                                             │
-│         449 Methods = The vocabulary                        │
+│         705 Methods = The vocabulary                        │
 │                                                             │
 │         Spine = The grammar                                 │
 │                                                             │
