@@ -302,6 +302,7 @@ Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 ## Support
 
 - **Issues**: Use GitHub Issues for bugs and feature requests
+- **Email**: weberg@bimopsstudio.com
 - **Professional Support**: Contact [BIM Ops Studio](https://bimopsstudio.com) for consulting and custom implementations
 
 ## Acknowledgments

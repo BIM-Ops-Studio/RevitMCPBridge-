@@ -46,7 +46,8 @@ Thank you for your interest in contributing to RevitMCPBridge!
 ## Questions?
 
 - Open an issue for questions
-- Contact: BIM Ops Studio (https://bimopsstudio.com)
+- Email: weberg@bimopsstudio.com
+- Web: [BIM Ops Studio](https://bimopsstudio.com)
 
 ## License
 
