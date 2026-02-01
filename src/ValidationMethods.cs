@@ -1281,6 +1281,603 @@ namespace RevitMCPBridge
         }
 
         /// <summary>
+        /// Run comprehensive clash detection across multiple category pairs.
+        /// Parameters:
+        /// - clashTests: Array of {category1, category2, tolerance} objects (optional)
+        /// - useDefaults: If true, runs standard MEP/Structural/Architectural tests (default: true)
+        /// - maxClashesPerTest: Max clashes to report per test (default: 100)
+        /// </summary>
+        public static string RunFullClashDetection(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+                var useDefaults = parameters?["useDefaults"]?.ToObject<bool>() ?? true;
+                var maxPerTest = parameters?["maxClashesPerTest"]?.ToObject<int>() ?? 100;
+                var customTests = parameters?["clashTests"]?.ToObject<List<JObject>>();
+
+                var testResults = new List<object>();
+                var allClashes = new List<object>();
+                int criticalCount = 0, majorCount = 0, minorCount = 0;
+
+                // Define default clash tests
+                var tests = new List<(string cat1, string cat2, double tolerance, string priority)>();
+
+                if (useDefaults)
+                {
+                    // Structure vs MEP (Critical)
+                    tests.Add(("Structural Framing", "Ducts", 0.167, "critical")); // 2" clearance
+                    tests.Add(("Structural Framing", "Pipes", 0.083, "critical")); // 1" clearance
+                    tests.Add(("Structural Columns", "Ducts", 0.167, "critical"));
+                    tests.Add(("Structural Columns", "Pipes", 0.083, "critical"));
+
+                    // Architecture vs MEP (Major)
+                    tests.Add(("Walls", "Ducts", 0.0, "major"));
+                    tests.Add(("Walls", "Pipes", 0.0, "major"));
+                    tests.Add(("Floors", "Ducts", 0.0, "major"));
+
+                    // MEP vs MEP (Minor)
+                    tests.Add(("Ducts", "Pipes", 0.083, "minor"));
+                    tests.Add(("Ducts", "Cable Trays", 0.083, "minor"));
+                    tests.Add(("Pipes", "Conduits", 0.042, "minor")); // 0.5" clearance
+                }
+
+                // Add custom tests
+                if (customTests != null)
+                {
+                    foreach (var test in customTests)
+                    {
+                        tests.Add((
+                            test["category1"]?.ToString() ?? "",
+                            test["category2"]?.ToString() ?? "",
+                            test["tolerance"]?.ToObject<double>() ?? 0.0,
+                            test["priority"]?.ToString() ?? "major"
+                        ));
+                    }
+                }
+
+                // Run each test
+                foreach (var test in tests)
+                {
+                    try
+                    {
+                        BuiltInCategory cat1, cat2;
+                        if (!TryParseCategory(test.cat1, out cat1) || !TryParseCategory(test.cat2, out cat2))
+                        {
+                            continue; // Skip invalid categories
+                        }
+
+                        var elements1 = new FilteredElementCollector(doc)
+                            .OfCategory(cat1)
+                            .WhereElementIsNotElementType()
+                            .ToList();
+
+                        var elements2 = new FilteredElementCollector(doc)
+                            .OfCategory(cat2)
+                            .WhereElementIsNotElementType()
+                            .ToList();
+
+                        var clashesInTest = new List<object>();
+                        int clashCount = 0;
+
+                        foreach (var elem1 in elements1)
+                        {
+                            if (clashCount >= maxPerTest) break;
+
+                            var bb1 = elem1.get_BoundingBox(null);
+                            if (bb1 == null) continue;
+
+                            var min1 = new XYZ(bb1.Min.X - test.tolerance, bb1.Min.Y - test.tolerance, bb1.Min.Z - test.tolerance);
+                            var max1 = new XYZ(bb1.Max.X + test.tolerance, bb1.Max.Y + test.tolerance, bb1.Max.Z + test.tolerance);
+
+                            foreach (var elem2 in elements2)
+                            {
+                                if (clashCount >= maxPerTest) break;
+
+                                var bb2 = elem2.get_BoundingBox(null);
+                                if (bb2 == null) continue;
+
+                                bool intersects = !(max1.X < bb2.Min.X || min1.X > bb2.Max.X ||
+                                                   max1.Y < bb2.Min.Y || min1.Y > bb2.Max.Y ||
+                                                   max1.Z < bb2.Min.Z || min1.Z > bb2.Max.Z);
+
+                                if (intersects)
+                                {
+                                    var clashX = (Math.Max(min1.X, bb2.Min.X) + Math.Min(max1.X, bb2.Max.X)) / 2;
+                                    var clashY = (Math.Max(min1.Y, bb2.Min.Y) + Math.Min(max1.Y, bb2.Max.Y)) / 2;
+                                    var clashZ = (Math.Max(min1.Z, bb2.Min.Z) + Math.Min(max1.Z, bb2.Max.Z)) / 2;
+
+                                    var clash = new
+                                    {
+                                        id = $"{elem1.Id.Value}_{elem2.Id.Value}",
+                                        element1Id = elem1.Id.Value,
+                                        element1Name = elem1.Name,
+                                        element1Category = test.cat1,
+                                        element2Id = elem2.Id.Value,
+                                        element2Name = elem2.Name,
+                                        element2Category = test.cat2,
+                                        clashPoint = new { x = Math.Round(clashX, 2), y = Math.Round(clashY, 2), z = Math.Round(clashZ, 2) },
+                                        priority = test.priority,
+                                        testName = $"{test.cat1} vs {test.cat2}"
+                                    };
+
+                                    clashesInTest.Add(clash);
+                                    allClashes.Add(clash);
+                                    clashCount++;
+
+                                    if (test.priority == "critical") criticalCount++;
+                                    else if (test.priority == "major") majorCount++;
+                                    else minorCount++;
+                                }
+                            }
+                        }
+
+                        testResults.Add(new
+                        {
+                            testName = $"{test.cat1} vs {test.cat2}",
+                            category1 = test.cat1,
+                            category2 = test.cat2,
+                            tolerance = test.tolerance,
+                            priority = test.priority,
+                            elements1Count = elements1.Count,
+                            elements2Count = elements2.Count,
+                            clashCount = clashesInTest.Count
+                        });
+                    }
+                    catch
+                    {
+                        // Skip failed tests
+                    }
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    testsRun = testResults.Count,
+                    totalClashes = allClashes.Count,
+                    summary = new
+                    {
+                        critical = criticalCount,
+                        major = majorCount,
+                        minor = minorCount
+                    },
+                    healthStatus = criticalCount > 0 ? "Critical Issues" :
+                                   majorCount > 5 ? "Needs Attention" :
+                                   allClashes.Count == 0 ? "No Clashes" : "Minor Issues",
+                    testResults = testResults,
+                    clashes = allClashes.Take(500)
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Create a 3D view focused on a clash location.
+        /// Parameters:
+        /// - clashPoint: {x, y, z} location of clash
+        /// - element1Id: First element ID
+        /// - element2Id: Second element ID
+        /// - viewName: Name for the clash view (optional)
+        /// - zoomMargin: Extra margin around clash in feet (default: 5)
+        /// </summary>
+        public static string CreateClashView(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                var clashPoint = parameters?["clashPoint"]?.ToObject<Dictionary<string, double>>();
+                var element1Id = parameters?["element1Id"]?.ToObject<int>();
+                var element2Id = parameters?["element2Id"]?.ToObject<int>();
+                var viewName = parameters?["viewName"]?.ToString() ?? $"Clash View {DateTime.Now:yyyyMMdd_HHmmss}";
+                var zoomMargin = parameters?["zoomMargin"]?.ToObject<double>() ?? 5.0;
+
+                if (clashPoint == null || !element1Id.HasValue || !element2Id.HasValue)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "clashPoint, element1Id, and element2Id are required"
+                    });
+                }
+
+                ElementId newViewId = ElementId.InvalidElementId;
+
+                using (var trans = new Transaction(doc, "Create Clash View"))
+                {
+                    trans.Start();
+
+                    // Find a 3D view type
+                    var viewType3D = new FilteredElementCollector(doc)
+                        .OfClass(typeof(ViewFamilyType))
+                        .Cast<ViewFamilyType>()
+                        .FirstOrDefault(vft => vft.ViewFamily == ViewFamily.ThreeDimensional);
+
+                    if (viewType3D == null)
+                    {
+                        trans.RollBack();
+                        return JsonConvert.SerializeObject(new
+                        {
+                            success = false,
+                            error = "No 3D view type available"
+                        });
+                    }
+
+                    // Create new 3D view
+                    var view3D = View3D.CreateIsometric(doc, viewType3D.Id);
+                    view3D.Name = viewName;
+
+                    // Get bounding boxes of both elements
+                    var elem1 = doc.GetElement(new ElementId(element1Id.Value));
+                    var elem2 = doc.GetElement(new ElementId(element2Id.Value));
+
+                    BoundingBoxXYZ combinedBB = null;
+                    var bb1 = elem1?.get_BoundingBox(null);
+                    var bb2 = elem2?.get_BoundingBox(null);
+
+                    if (bb1 != null && bb2 != null)
+                    {
+                        combinedBB = new BoundingBoxXYZ
+                        {
+                            Min = new XYZ(
+                                Math.Min(bb1.Min.X, bb2.Min.X) - zoomMargin,
+                                Math.Min(bb1.Min.Y, bb2.Min.Y) - zoomMargin,
+                                Math.Min(bb1.Min.Z, bb2.Min.Z) - zoomMargin
+                            ),
+                            Max = new XYZ(
+                                Math.Max(bb1.Max.X, bb2.Max.X) + zoomMargin,
+                                Math.Max(bb1.Max.Y, bb2.Max.Y) + zoomMargin,
+                                Math.Max(bb1.Max.Z, bb2.Max.Z) + zoomMargin
+                            )
+                        };
+                    }
+                    else
+                    {
+                        // Use clash point with margin
+                        var pt = new XYZ(clashPoint["x"], clashPoint["y"], clashPoint["z"]);
+                        combinedBB = new BoundingBoxXYZ
+                        {
+                            Min = new XYZ(pt.X - zoomMargin, pt.Y - zoomMargin, pt.Z - zoomMargin),
+                            Max = new XYZ(pt.X + zoomMargin, pt.Y + zoomMargin, pt.Z + zoomMargin)
+                        };
+                    }
+
+                    // Set section box
+                    view3D.SetSectionBox(combinedBB);
+                    view3D.IsSectionBoxActive = true;
+
+                    // Isolate the clashing elements
+                    var elementsToIsolate = new List<ElementId>();
+                    if (elem1 != null) elementsToIsolate.Add(elem1.Id);
+                    if (elem2 != null) elementsToIsolate.Add(elem2.Id);
+
+                    if (elementsToIsolate.Count > 0)
+                    {
+                        try
+                        {
+                            view3D.IsolateElementsTemporary(elementsToIsolate);
+                        }
+                        catch
+                        {
+                            // Isolation may fail on some elements
+                        }
+                    }
+
+                    newViewId = view3D.Id;
+                    trans.Commit();
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    viewId = newViewId.Value,
+                    viewName = viewName,
+                    clashPoint = clashPoint,
+                    element1Id = element1Id,
+                    element2Id = element2Id,
+                    message = "3D view created with section box focused on clash"
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Export clash detection results to file (HTML report).
+        /// Parameters:
+        /// - clashes: Array of clash objects from detectClashes/runFullClashDetection
+        /// - outputPath: File path for output (optional, uses temp folder if not specified)
+        /// - projectName: Name to include in report (optional)
+        /// - format: "html" (default), "csv", or "json"
+        /// </summary>
+        public static string ExportClashReport(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+                var clashes = parameters?["clashes"]?.ToObject<List<JObject>>() ?? new List<JObject>();
+                var projectName = parameters?["projectName"]?.ToString() ?? doc.Title;
+                var format = parameters?["format"]?.ToString()?.ToLower() ?? "html";
+                var outputPath = parameters?["outputPath"]?.ToString();
+
+                if (string.IsNullOrEmpty(outputPath))
+                {
+                    var tempDir = System.IO.Path.GetTempPath();
+                    var fileName = $"ClashReport_{DateTime.Now:yyyyMMdd_HHmmss}.{format}";
+                    outputPath = System.IO.Path.Combine(tempDir, fileName);
+                }
+
+                // Count by priority
+                var critical = clashes.Count(c => c["priority"]?.ToString() == "critical");
+                var major = clashes.Count(c => c["priority"]?.ToString() == "major");
+                var minor = clashes.Count(c => c["priority"]?.ToString() == "minor");
+
+                if (format == "html")
+                {
+                    var html = new System.Text.StringBuilder();
+                    html.AppendLine("<!DOCTYPE html>");
+                    html.AppendLine("<html><head><title>Clash Detection Report</title>");
+                    html.AppendLine("<style>");
+                    html.AppendLine("body { font-family: Arial, sans-serif; margin: 20px; }");
+                    html.AppendLine("h1 { color: #333; }");
+                    html.AppendLine("table { border-collapse: collapse; width: 100%; margin-top: 20px; }");
+                    html.AppendLine("th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }");
+                    html.AppendLine("th { background-color: #4CAF50; color: white; }");
+                    html.AppendLine("tr:nth-child(even) { background-color: #f2f2f2; }");
+                    html.AppendLine(".critical { background-color: #ffcccc; }");
+                    html.AppendLine(".major { background-color: #ffffcc; }");
+                    html.AppendLine(".minor { background-color: #ccffcc; }");
+                    html.AppendLine(".summary { display: flex; gap: 20px; margin: 20px 0; }");
+                    html.AppendLine(".summary-box { padding: 15px; border-radius: 5px; text-align: center; }");
+                    html.AppendLine(".summary-critical { background: #ff6666; color: white; }");
+                    html.AppendLine(".summary-major { background: #ffcc00; }");
+                    html.AppendLine(".summary-minor { background: #66cc66; color: white; }");
+                    html.AppendLine("</style></head><body>");
+                    html.AppendLine($"<h1>Clash Detection Report</h1>");
+                    html.AppendLine($"<p><strong>Project:</strong> {projectName}</p>");
+                    html.AppendLine($"<p><strong>Generated:</strong> {DateTime.Now:yyyy-MM-dd HH:mm:ss}</p>");
+                    html.AppendLine($"<p><strong>Total Clashes:</strong> {clashes.Count}</p>");
+
+                    html.AppendLine("<div class='summary'>");
+                    html.AppendLine($"<div class='summary-box summary-critical'><h2>{critical}</h2><p>Critical</p></div>");
+                    html.AppendLine($"<div class='summary-box summary-major'><h2>{major}</h2><p>Major</p></div>");
+                    html.AppendLine($"<div class='summary-box summary-minor'><h2>{minor}</h2><p>Minor</p></div>");
+                    html.AppendLine("</div>");
+
+                    html.AppendLine("<table>");
+                    html.AppendLine("<tr><th>#</th><th>Priority</th><th>Element 1</th><th>Element 2</th><th>Location</th><th>Test</th></tr>");
+
+                    int idx = 1;
+                    foreach (var clash in clashes)
+                    {
+                        var priority = clash["priority"]?.ToString() ?? "minor";
+                        var elem1 = clash["element1Name"]?.ToString() ?? clash["element1Id"]?.ToString() ?? "Unknown";
+                        var elem2 = clash["element2Name"]?.ToString() ?? clash["element2Id"]?.ToString() ?? "Unknown";
+                        var point = clash["clashPoint"];
+                        var location = point != null ? $"({point["x"]}, {point["y"]}, {point["z"]})" : "N/A";
+                        var test = clash["testName"]?.ToString() ?? "Custom";
+
+                        html.AppendLine($"<tr class='{priority}'>");
+                        html.AppendLine($"<td>{idx++}</td>");
+                        html.AppendLine($"<td>{priority.ToUpper()}</td>");
+                        html.AppendLine($"<td>{elem1} (ID: {clash["element1Id"]})</td>");
+                        html.AppendLine($"<td>{elem2} (ID: {clash["element2Id"]})</td>");
+                        html.AppendLine($"<td>{location}</td>");
+                        html.AppendLine($"<td>{test}</td>");
+                        html.AppendLine("</tr>");
+                    }
+
+                    html.AppendLine("</table>");
+                    html.AppendLine("</body></html>");
+
+                    System.IO.File.WriteAllText(outputPath, html.ToString());
+                }
+                else if (format == "csv")
+                {
+                    var csv = new System.Text.StringBuilder();
+                    csv.AppendLine("Index,Priority,Element1_ID,Element1_Name,Element2_ID,Element2_Name,Location_X,Location_Y,Location_Z,Test");
+
+                    int idx = 1;
+                    foreach (var clash in clashes)
+                    {
+                        var point = clash["clashPoint"];
+                        csv.AppendLine($"{idx++},{clash["priority"]},{clash["element1Id"]},\"{clash["element1Name"]}\",{clash["element2Id"]},\"{clash["element2Name"]}\",{point?["x"]},{point?["y"]},{point?["z"]},\"{clash["testName"]}\"");
+                    }
+
+                    System.IO.File.WriteAllText(outputPath, csv.ToString());
+                }
+                else // json
+                {
+                    var report = new
+                    {
+                        projectName = projectName,
+                        generatedAt = DateTime.Now.ToString("o"),
+                        summary = new { total = clashes.Count, critical, major, minor },
+                        clashes = clashes
+                    };
+                    System.IO.File.WriteAllText(outputPath, JsonConvert.SerializeObject(report, Formatting.Indented));
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    filePath = outputPath,
+                    format = format,
+                    clashCount = clashes.Count,
+                    summary = new { critical, major, minor }
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Get quick summary of potential clashes without full detection.
+        /// Checks element counts and overlap potential for common problem pairs.
+        /// </summary>
+        public static string GetClashRiskAssessment(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                var risks = new List<object>();
+
+                // Count elements by category
+                var categoryCounts = new Dictionary<string, int>
+                {
+                    ["Ducts"] = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_DuctCurves).WhereElementIsNotElementType().GetElementCount(),
+                    ["Pipes"] = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_PipeCurves).WhereElementIsNotElementType().GetElementCount(),
+                    ["StructuralFraming"] = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_StructuralFraming).WhereElementIsNotElementType().GetElementCount(),
+                    ["StructuralColumns"] = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_StructuralColumns).WhereElementIsNotElementType().GetElementCount(),
+                    ["Walls"] = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType().GetElementCount(),
+                    ["Floors"] = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Floors).WhereElementIsNotElementType().GetElementCount(),
+                    ["CableTray"] = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_CableTray).WhereElementIsNotElementType().GetElementCount(),
+                    ["Conduit"] = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Conduit).WhereElementIsNotElementType().GetElementCount()
+                };
+
+                // Assess risk for common pairs
+                if (categoryCounts["Ducts"] > 0 && categoryCounts["StructuralFraming"] > 0)
+                {
+                    int potential = categoryCounts["Ducts"] * categoryCounts["StructuralFraming"];
+                    risks.Add(new
+                    {
+                        pair = "Ducts vs Structural Framing",
+                        riskLevel = potential > 10000 ? "High" : potential > 1000 ? "Medium" : "Low",
+                        ductCount = categoryCounts["Ducts"],
+                        framingCount = categoryCounts["StructuralFraming"],
+                        potentialChecks = potential,
+                        recommendation = "Run detectClashes with category1='Ducts', category2='Structural Framing'"
+                    });
+                }
+
+                if (categoryCounts["Pipes"] > 0 && categoryCounts["StructuralFraming"] > 0)
+                {
+                    int potential = categoryCounts["Pipes"] * categoryCounts["StructuralFraming"];
+                    risks.Add(new
+                    {
+                        pair = "Pipes vs Structural Framing",
+                        riskLevel = potential > 10000 ? "High" : potential > 1000 ? "Medium" : "Low",
+                        pipeCount = categoryCounts["Pipes"],
+                        framingCount = categoryCounts["StructuralFraming"],
+                        potentialChecks = potential,
+                        recommendation = "Run detectClashes with category1='Pipes', category2='Structural Framing'"
+                    });
+                }
+
+                if (categoryCounts["Ducts"] > 0 && categoryCounts["Pipes"] > 0)
+                {
+                    int potential = categoryCounts["Ducts"] * categoryCounts["Pipes"];
+                    risks.Add(new
+                    {
+                        pair = "Ducts vs Pipes",
+                        riskLevel = potential > 10000 ? "High" : potential > 1000 ? "Medium" : "Low",
+                        ductCount = categoryCounts["Ducts"],
+                        pipeCount = categoryCounts["Pipes"],
+                        potentialChecks = potential,
+                        recommendation = "Run detectClashes with category1='Ducts', category2='Pipes'"
+                    });
+                }
+
+                string overallRisk = risks.Any(r => ((dynamic)r).riskLevel == "High") ? "High" :
+                                    risks.Any(r => ((dynamic)r).riskLevel == "Medium") ? "Medium" : "Low";
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    overallRisk = overallRisk,
+                    categoryCounts = categoryCounts,
+                    riskAssessments = risks,
+                    recommendation = overallRisk == "High" ?
+                        "Multiple high-risk category pairs detected. Run runFullClashDetection for comprehensive analysis." :
+                        overallRisk == "Medium" ?
+                        "Some clash risk detected. Consider running targeted clash tests." :
+                        "Low clash risk. Model appears well-coordinated."
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Helper method to parse category names to BuiltInCategory
+        /// </summary>
+        private static bool TryParseCategory(string categoryName, out BuiltInCategory category)
+        {
+            category = BuiltInCategory.INVALID;
+
+            var categoryMap = new Dictionary<string, BuiltInCategory>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["Walls"] = BuiltInCategory.OST_Walls,
+                ["Floors"] = BuiltInCategory.OST_Floors,
+                ["Ceilings"] = BuiltInCategory.OST_Ceilings,
+                ["Roofs"] = BuiltInCategory.OST_Roofs,
+                ["Doors"] = BuiltInCategory.OST_Doors,
+                ["Windows"] = BuiltInCategory.OST_Windows,
+                ["Ducts"] = BuiltInCategory.OST_DuctCurves,
+                ["Pipes"] = BuiltInCategory.OST_PipeCurves,
+                ["Conduits"] = BuiltInCategory.OST_Conduit,
+                ["Conduit"] = BuiltInCategory.OST_Conduit,
+                ["Cable Trays"] = BuiltInCategory.OST_CableTray,
+                ["CableTray"] = BuiltInCategory.OST_CableTray,
+                ["Structural Framing"] = BuiltInCategory.OST_StructuralFraming,
+                ["StructuralFraming"] = BuiltInCategory.OST_StructuralFraming,
+                ["Structural Columns"] = BuiltInCategory.OST_StructuralColumns,
+                ["StructuralColumns"] = BuiltInCategory.OST_StructuralColumns,
+                ["Columns"] = BuiltInCategory.OST_Columns,
+                ["Furniture"] = BuiltInCategory.OST_Furniture,
+                ["Casework"] = BuiltInCategory.OST_Casework,
+                ["Mechanical Equipment"] = BuiltInCategory.OST_MechanicalEquipment,
+                ["Plumbing Fixtures"] = BuiltInCategory.OST_PlumbingFixtures,
+                ["Electrical Equipment"] = BuiltInCategory.OST_ElectricalEquipment,
+                ["Electrical Fixtures"] = BuiltInCategory.OST_ElectricalFixtures,
+                ["Lighting Fixtures"] = BuiltInCategory.OST_LightingFixtures
+            };
+
+            if (categoryMap.TryGetValue(categoryName, out category))
+            {
+                return true;
+            }
+
+            // Try direct enum parse
+            if (Enum.TryParse($"OST_{categoryName.Replace(" ", "")}", true, out category))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Comprehensive model health validation.
         /// Checks for orphaned elements, floating furniture, missing parameters, etc.
         /// </summary>

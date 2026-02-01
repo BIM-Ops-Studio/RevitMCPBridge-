@@ -1691,5 +1691,580 @@ namespace RevitMCPBridge2026
         }
 
         #endregion
+
+        #region Paint Methods
+
+        /// <summary>
+        /// Paint an element face with a material
+        /// Parameters:
+        /// - elementId: The element to paint
+        /// - materialId: The material to apply
+        /// - faceIndex: (optional) Specific face index to paint (default paints all faces)
+        /// </summary>
+        public static string PaintElementFace(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                if (parameters["elementId"] == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "elementId is required"
+                    });
+                }
+
+                if (parameters["materialId"] == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "materialId is required"
+                    });
+                }
+
+                var elementId = new ElementId(Convert.ToInt64(parameters["elementId"].ToString()));
+                var materialId = new ElementId(Convert.ToInt64(parameters["materialId"].ToString()));
+                var faceIndex = parameters["faceIndex"] != null ? int.Parse(parameters["faceIndex"].ToString()) : -1;
+
+                var element = doc.GetElement(elementId);
+                if (element == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"Element not found: {elementId.Value}"
+                    });
+                }
+
+                var material = doc.GetElement(materialId) as Material;
+                if (material == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"Material not found: {materialId.Value}"
+                    });
+                }
+
+                // Get element geometry
+                var options = new Options();
+                options.ComputeReferences = true;
+                var geomElement = element.get_Geometry(options);
+
+                if (geomElement == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Could not get element geometry"
+                    });
+                }
+
+                var paintedFaces = 0;
+                var faceCounter = 0;
+
+                using (var trans = new Transaction(doc, "Paint Element Face"))
+                {
+                    trans.Start();
+
+                    foreach (var geomObj in geomElement)
+                    {
+                        var solid = geomObj as Solid;
+                        if (solid == null || solid.Faces.Size == 0)
+                        {
+                            // Try to get solid from geometry instance
+                            var geomInst = geomObj as GeometryInstance;
+                            if (geomInst != null)
+                            {
+                                foreach (var instObj in geomInst.GetInstanceGeometry())
+                                {
+                                    solid = instObj as Solid;
+                                    if (solid != null && solid.Faces.Size > 0)
+                                        break;
+                                }
+                            }
+                        }
+
+                        if (solid != null)
+                        {
+                            foreach (Face face in solid.Faces)
+                            {
+                                if (faceIndex == -1 || faceIndex == faceCounter)
+                                {
+                                    try
+                                    {
+                                        doc.Paint(elementId, face, materialId);
+                                        paintedFaces++;
+                                    }
+                                    catch { }
+                                }
+                                faceCounter++;
+                            }
+                        }
+                    }
+
+                    trans.Commit();
+                }
+
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    elementId = elementId.Value,
+                    materialId = materialId.Value,
+                    materialName = material.Name,
+                    facesPainted = paintedFaces,
+                    totalFaces = faceCounter
+                });
+            }
+            catch (Exception ex)
+            {
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Paint wall faces with a material
+        /// Parameters:
+        /// - wallId: The wall to paint
+        /// - materialId: The material to apply
+        /// - side: "interior", "exterior", or "both" (default: "both")
+        /// </summary>
+        public static string PaintWall(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                if (parameters["wallId"] == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "wallId is required"
+                    });
+                }
+
+                if (parameters["materialId"] == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "materialId is required"
+                    });
+                }
+
+                var wallId = new ElementId(Convert.ToInt64(parameters["wallId"].ToString()));
+                var materialId = new ElementId(Convert.ToInt64(parameters["materialId"].ToString()));
+                var side = parameters["side"]?.ToString()?.ToLower() ?? "both";
+
+                var wall = doc.GetElement(wallId) as Wall;
+                if (wall == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"Wall not found: {wallId.Value}"
+                    });
+                }
+
+                var material = doc.GetElement(materialId) as Material;
+                if (material == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"Material not found: {materialId.Value}"
+                    });
+                }
+
+                // Get wall geometry
+                var options = new Options();
+                options.ComputeReferences = true;
+                var geomElement = wall.get_Geometry(options);
+
+                var paintedFaces = new List<string>();
+
+                using (var trans = new Transaction(doc, "Paint Wall"))
+                {
+                    trans.Start();
+
+                    foreach (var geomObj in geomElement)
+                    {
+                        var solid = geomObj as Solid;
+                        if (solid == null || solid.Faces.Size == 0) continue;
+
+                        foreach (Face face in solid.Faces)
+                        {
+                            var planarFace = face as PlanarFace;
+                            if (planarFace == null) continue;
+
+                            // Determine if face is interior or exterior based on normal
+                            var normal = planarFace.FaceNormal;
+                            var locationCurve = wall.Location as LocationCurve;
+                            if (locationCurve == null) continue;
+
+                            var curve = locationCurve.Curve;
+                            var wallDirection = curve.GetEndPoint(1) - curve.GetEndPoint(0);
+                            var wallNormal = wallDirection.CrossProduct(XYZ.BasisZ).Normalize();
+                            var dot = normal.DotProduct(wallNormal);
+
+                            var isExterior = dot > 0.5;
+                            var isInterior = dot < -0.5;
+
+                            var shouldPaint = side == "both" ||
+                                            (side == "exterior" && isExterior) ||
+                                            (side == "interior" && isInterior);
+
+                            if (shouldPaint && (isExterior || isInterior))
+                            {
+                                try
+                                {
+                                    doc.Paint(wallId, face, materialId);
+                                    paintedFaces.Add(isExterior ? "exterior" : "interior");
+                                }
+                                catch { }
+                            }
+                        }
+                    }
+
+                    trans.Commit();
+                }
+
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    wallId = wallId.Value,
+                    materialId = materialId.Value,
+                    materialName = material.Name,
+                    side = side,
+                    facesPainted = paintedFaces.Count,
+                    paintedSides = paintedFaces.Distinct().ToList()
+                });
+            }
+            catch (Exception ex)
+            {
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Paint multiple walls with a material
+        /// Parameters:
+        /// - wallIds: Array of wall IDs to paint
+        /// - materialId: The material to apply
+        /// - side: "interior", "exterior", or "both" (default: "both")
+        /// </summary>
+        public static string PaintWalls(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                if (parameters["wallIds"] == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "wallIds is required"
+                    });
+                }
+
+                if (parameters["materialId"] == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "materialId is required"
+                    });
+                }
+
+                var wallIds = parameters["wallIds"].ToObject<List<long>>();
+                var materialId = new ElementId(Convert.ToInt64(parameters["materialId"].ToString()));
+                var side = parameters["side"]?.ToString()?.ToLower() ?? "both";
+
+                var material = doc.GetElement(materialId) as Material;
+                if (material == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"Material not found: {materialId.Value}"
+                    });
+                }
+
+                var results = new List<object>();
+                var successCount = 0;
+                var failCount = 0;
+
+                using (var trans = new Transaction(doc, "Paint Multiple Walls"))
+                {
+                    trans.Start();
+
+                    foreach (var wId in wallIds)
+                    {
+                        var wallId = new ElementId(wId);
+                        var wall = doc.GetElement(wallId) as Wall;
+
+                        if (wall == null)
+                        {
+                            results.Add(new { wallId = wId, success = false, error = "Wall not found" });
+                            failCount++;
+                            continue;
+                        }
+
+                        var options = new Options();
+                        options.ComputeReferences = true;
+                        var geomElement = wall.get_Geometry(options);
+                        var paintedFaces = 0;
+
+                        foreach (var geomObj in geomElement)
+                        {
+                            var solid = geomObj as Solid;
+                            if (solid == null || solid.Faces.Size == 0) continue;
+
+                            foreach (Face face in solid.Faces)
+                            {
+                                var planarFace = face as PlanarFace;
+                                if (planarFace == null) continue;
+
+                                var normal = planarFace.FaceNormal;
+                                var locationCurve = wall.Location as LocationCurve;
+                                if (locationCurve == null) continue;
+
+                                var curve = locationCurve.Curve;
+                                var wallDirection = curve.GetEndPoint(1) - curve.GetEndPoint(0);
+                                var wallNormal = wallDirection.CrossProduct(XYZ.BasisZ).Normalize();
+                                var dot = normal.DotProduct(wallNormal);
+
+                                var isExterior = dot > 0.5;
+                                var isInterior = dot < -0.5;
+
+                                var shouldPaint = side == "both" ||
+                                                (side == "exterior" && isExterior) ||
+                                                (side == "interior" && isInterior);
+
+                                if (shouldPaint && (isExterior || isInterior))
+                                {
+                                    try
+                                    {
+                                        doc.Paint(wallId, face, materialId);
+                                        paintedFaces++;
+                                    }
+                                    catch { }
+                                }
+                            }
+                        }
+
+                        results.Add(new { wallId = wId, success = true, facesPainted = paintedFaces });
+                        successCount++;
+                    }
+
+                    trans.Commit();
+                }
+
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    materialId = materialId.Value,
+                    materialName = material.Name,
+                    side = side,
+                    totalWalls = wallIds.Count,
+                    successCount = successCount,
+                    failCount = failCount,
+                    results = results
+                });
+            }
+            catch (Exception ex)
+            {
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Remove paint from an element face
+        /// Parameters:
+        /// - elementId: The element to remove paint from
+        /// - faceIndex: (optional) Specific face index, or remove from all faces
+        /// </summary>
+        public static string RemovePaint(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                if (parameters["elementId"] == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "elementId is required"
+                    });
+                }
+
+                var elementId = new ElementId(Convert.ToInt64(parameters["elementId"].ToString()));
+                var faceIndex = parameters["faceIndex"] != null ? int.Parse(parameters["faceIndex"].ToString()) : -1;
+
+                var element = doc.GetElement(elementId);
+                if (element == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"Element not found: {elementId.Value}"
+                    });
+                }
+
+                var options = new Options();
+                options.ComputeReferences = true;
+                var geomElement = element.get_Geometry(options);
+
+                var removedCount = 0;
+                var faceCounter = 0;
+
+                using (var trans = new Transaction(doc, "Remove Paint"))
+                {
+                    trans.Start();
+
+                    foreach (var geomObj in geomElement)
+                    {
+                        var solid = geomObj as Solid;
+                        if (solid == null || solid.Faces.Size == 0) continue;
+
+                        foreach (Face face in solid.Faces)
+                        {
+                            if (faceIndex == -1 || faceIndex == faceCounter)
+                            {
+                                if (doc.IsPainted(elementId, face))
+                                {
+                                    doc.RemovePaint(elementId, face);
+                                    removedCount++;
+                                }
+                            }
+                            faceCounter++;
+                        }
+                    }
+
+                    trans.Commit();
+                }
+
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    elementId = elementId.Value,
+                    facesUnpainted = removedCount
+                });
+            }
+            catch (Exception ex)
+            {
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        /// <summary>
+        /// Check if an element face is painted
+        /// Parameters:
+        /// - elementId: The element to check
+        /// </summary>
+        public static string IsPainted(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                if (parameters["elementId"] == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "elementId is required"
+                    });
+                }
+
+                var elementId = new ElementId(Convert.ToInt64(parameters["elementId"].ToString()));
+                var element = doc.GetElement(elementId);
+
+                if (element == null)
+                {
+                    return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"Element not found: {elementId.Value}"
+                    });
+                }
+
+                var options = new Options();
+                options.ComputeReferences = true;
+                var geomElement = element.get_Geometry(options);
+
+                var paintedFaces = new List<object>();
+                var faceCounter = 0;
+
+                foreach (var geomObj in geomElement)
+                {
+                    var solid = geomObj as Solid;
+                    if (solid == null || solid.Faces.Size == 0) continue;
+
+                    foreach (Face face in solid.Faces)
+                    {
+                        var isPainted = doc.IsPainted(elementId, face);
+                        if (isPainted)
+                        {
+                            var materialId = doc.GetPaintedMaterial(elementId, face);
+                            var material = doc.GetElement(materialId) as Material;
+                            paintedFaces.Add(new
+                            {
+                                faceIndex = faceCounter,
+                                materialId = materialId.Value,
+                                materialName = material?.Name ?? "Unknown"
+                            });
+                        }
+                        faceCounter++;
+                    }
+                }
+
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    elementId = elementId.Value,
+                    totalFaces = faceCounter,
+                    paintedFaceCount = paintedFaces.Count,
+                    paintedFaces = paintedFaces
+                });
+            }
+            catch (Exception ex)
+            {
+                return Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+        }
+
+        #endregion
     }
 }

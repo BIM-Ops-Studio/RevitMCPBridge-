@@ -21,10 +21,54 @@ namespace RevitMCPBridge
         {
             try
             {
+                // Validate UIApplication and document
+                if (uiApp?.ActiveUIDocument?.Document == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No active document open in Revit"
+                    });
+                }
                 var doc = uiApp.ActiveUIDocument.Document;
 
+                // Validate required parameters
+                if (parameters["location"] == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "location parameter is required (array of [x, y] coordinates)"
+                    });
+                }
+                if (parameters["levelId"] == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "levelId parameter is required"
+                    });
+                }
+
                 var location = parameters["location"].ToObject<double[]>();
-                var levelId = new ElementId(int.Parse(parameters["levelId"].ToString()));
+                if (location == null || location.Length < 2)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "location must be an array with at least 2 values [x, y]"
+                    });
+                }
+
+                if (!int.TryParse(parameters["levelId"].ToString(), out int levelIdInt))
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "levelId must be a valid integer"
+                    });
+                }
+                var levelId = new ElementId(levelIdInt);
                 var name = parameters["name"]?.ToString();
                 var number = parameters["number"]?.ToString();
 

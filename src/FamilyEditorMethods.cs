@@ -1618,8 +1618,12 @@ namespace RevitMCPBridge
         #region Add Dimension
 
         /// <summary>
-        /// Add a dimension between two references in the family.
+        /// Add a dimension between references in the family.
         /// Can optionally label the dimension with a parameter for parametric control.
+        /// Supports:
+        ///   - Two-point dimensions: elementId1, elementId2
+        ///   - Multi-point EQ dimensions: elementIds array with setEQ=true
+        /// For EQ dimensions (e.g., Left-Center-Right), use elementIds=[leftId, centerId, rightId] with setEQ=true
         /// </summary>
         public static string AddDimension(UIApplication uiApp, JObject parameters)
         {
@@ -1631,24 +1635,71 @@ namespace RevitMCPBridge
                     return JsonConvert.SerializeObject(new { success = false, error = "Not in family editor" });
                 }
 
+                var labelParameter = parameters["labelParameter"]?.ToString();
+                var offset = parameters["offset"]?.Value<double>() ?? 1.0;
+                var setEQ = parameters["setEQ"]?.Value<bool>() ?? false;
+
+                // Support both old style (elementId1, elementId2) and new style (elementIds array)
+                var elementIds = parameters["elementIds"]?.ToObject<int[]>();
                 var elementId1 = parameters["elementId1"]?.Value<int>();
                 var elementId2 = parameters["elementId2"]?.Value<int>();
-                var labelParameter = parameters["labelParameter"]?.ToString();
 
-                if (elementId1 == null || elementId2 == null)
+                // Build element list
+                List<Element> elements = new List<Element>();
+
+                if (elementIds != null && elementIds.Length >= 2)
+                {
+                    // New style: array of element IDs
+                    foreach (var id in elementIds)
+                    {
+                        var elem = doc.GetElement(new ElementId(id));
+                        if (elem != null) elements.Add(elem);
+                    }
+                }
+                else if (elementId1.HasValue && elementId2.HasValue)
+                {
+                    // Old style: two element IDs
+                    var e1 = doc.GetElement(new ElementId(elementId1.Value));
+                    var e2 = doc.GetElement(new ElementId(elementId2.Value));
+                    if (e1 != null) elements.Add(e1);
+                    if (e2 != null) elements.Add(e2);
+                }
+
+                if (elements.Count < 2)
                 {
                     return JsonConvert.SerializeObject(new {
                         success = false,
-                        error = "elementId1 and elementId2 are required"
+                        error = "At least 2 valid element IDs required. Use elementIds array or elementId1/elementId2"
                     });
                 }
 
-                var elem1 = doc.GetElement(new ElementId(elementId1.Value));
-                var elem2 = doc.GetElement(new ElementId(elementId2.Value));
+                var elem1 = elements.First();
+                var elem2 = elements.Last();
 
                 if (elem1 == null || elem2 == null)
                 {
                     return JsonConvert.SerializeObject(new { success = false, error = "One or both elements not found" });
+                }
+
+                // Find a suitable plan view for the dimension
+                View planView = null;
+                var viewCollector = new FilteredElementCollector(doc)
+                    .OfClass(typeof(View))
+                    .Cast<View>()
+                    .Where(v => !v.IsTemplate && (v.ViewType == ViewType.FloorPlan || v.ViewType == ViewType.CeilingPlan || v.ViewType == ViewType.EngineeringPlan));
+
+                planView = viewCollector.FirstOrDefault();
+                if (planView == null)
+                {
+                    // Try elevation views
+                    planView = new FilteredElementCollector(doc)
+                        .OfClass(typeof(View))
+                        .Cast<View>()
+                        .FirstOrDefault(v => !v.IsTemplate && v.ViewType == ViewType.Elevation);
+                }
+                if (planView == null)
+                {
+                    planView = doc.ActiveView;
                 }
 
                 using (var trans = new Transaction(doc, "Add Dimension"))
@@ -1658,24 +1709,34 @@ namespace RevitMCPBridge
                     // Get references from elements
                     Reference ref1 = null;
                     Reference ref2 = null;
+                    XYZ point1 = XYZ.Zero;
+                    XYZ point2 = XYZ.Zero;
+                    XYZ direction1 = XYZ.Zero;
+                    XYZ direction2 = XYZ.Zero;
 
-                    // For reference planes, get the reference directly
+                    // For reference planes, get the reference and geometry info
                     if (elem1 is ReferencePlane rp1)
                     {
                         ref1 = rp1.GetReference();
+                        point1 = (rp1.BubbleEnd + rp1.FreeEnd) / 2;
+                        direction1 = (rp1.FreeEnd - rp1.BubbleEnd).Normalize();
                     }
                     else if (elem1 is CurveElement ce1)
                     {
                         ref1 = ce1.GeometryCurve.Reference;
+                        point1 = (ce1.GeometryCurve.GetEndPoint(0) + ce1.GeometryCurve.GetEndPoint(1)) / 2;
                     }
 
                     if (elem2 is ReferencePlane rp2)
                     {
                         ref2 = rp2.GetReference();
+                        point2 = (rp2.BubbleEnd + rp2.FreeEnd) / 2;
+                        direction2 = (rp2.FreeEnd - rp2.BubbleEnd).Normalize();
                     }
                     else if (elem2 is CurveElement ce2)
                     {
                         ref2 = ce2.GeometryCurve.Reference;
+                        point2 = (ce2.GeometryCurve.GetEndPoint(0) + ce2.GeometryCurve.GetEndPoint(1)) / 2;
                     }
 
                     if (ref1 == null || ref2 == null)
@@ -1687,28 +1748,170 @@ namespace RevitMCPBridge
                         });
                     }
 
-                    // Create reference array
+                    // Create reference array with ALL elements (for multi-point dimensions)
                     var refArray = new ReferenceArray();
-                    refArray.Append(ref1);
-                    refArray.Append(ref2);
+                    var allPoints = new List<XYZ>();
 
-                    // Calculate dimension line position (midpoint between elements)
-                    var loc1 = GetElementLocation(elem1);
-                    var loc2 = GetElementLocation(elem2);
-                    var midPoint = (loc1 + loc2) / 2;
-                    var dimLine = Line.CreateBound(loc1, loc2);
+                    foreach (var elem in elements)
+                    {
+                        Reference elemRef = null;
+                        XYZ elemPoint = XYZ.Zero;
+
+                        if (elem is ReferencePlane rp)
+                        {
+                            elemRef = rp.GetReference();
+                            elemPoint = (rp.BubbleEnd + rp.FreeEnd) / 2;
+                        }
+                        else if (elem is CurveElement ce)
+                        {
+                            elemRef = ce.GeometryCurve.Reference;
+                            elemPoint = (ce.GeometryCurve.GetEndPoint(0) + ce.GeometryCurve.GetEndPoint(1)) / 2;
+                        }
+
+                        if (elemRef != null)
+                        {
+                            refArray.Append(elemRef);
+                            allPoints.Add(elemPoint);
+                        }
+                    }
+
+                    // Calculate the dimension line
+                    // For parallel reference planes, the dimension line must be PERPENDICULAR to the planes
+                    XYZ dimLineStart, dimLineEnd;
+
+                    // Get the vector between the two reference plane centers
+                    var vectorBetween = point2 - point1;
+                    var distance = vectorBetween.GetLength();
+
+                    if (distance < 0.001)
+                    {
+                        trans.RollBack();
+                        return JsonConvert.SerializeObject(new {
+                            success = false,
+                            error = "Reference planes are at the same location"
+                        });
+                    }
+
+                    // The dimension line should be perpendicular to the reference planes
+                    // For vertical planes (Left/Right), dimension line is horizontal
+                    // For horizontal planes (Front/Back), dimension line is vertical in plan
+
+                    // Calculate points on each reference plane for the dimension line
+                    // Use the common Y (or X) coordinate offset by the offset parameter
+                    if (elem1 is ReferencePlane refPlane1 && elem2 is ReferencePlane refPlane2)
+                    {
+                        // Determine if planes are vertical (running in Y direction) or horizontal (running in X direction)
+                        var dir1 = (refPlane1.FreeEnd - refPlane1.BubbleEnd).Normalize();
+                        var isVerticalPlane = Math.Abs(dir1.X) < 0.1; // Plane runs in Y direction
+
+                        if (isVerticalPlane)
+                        {
+                            // Planes are vertical (Left/Right) - dimension line is horizontal at Y = offset
+                            var y = offset;
+                            var z = (point1.Z + point2.Z) / 2;
+                            dimLineStart = new XYZ(point1.X, y, z);
+                            dimLineEnd = new XYZ(point2.X, y, z);
+                        }
+                        else
+                        {
+                            // Planes are horizontal (Front/Back) - dimension line is vertical at X = offset
+                            var x = offset;
+                            var z = (point1.Z + point2.Z) / 2;
+                            dimLineStart = new XYZ(x, point1.Y, z);
+                            dimLineEnd = new XYZ(x, point2.Y, z);
+                        }
+                    }
+                    else
+                    {
+                        // Fallback: use direct line between points with offset
+                        var midPoint = (point1 + point2) / 2;
+                        var perpVector = vectorBetween.CrossProduct(XYZ.BasisZ).Normalize();
+                        if (perpVector.IsZeroLength())
+                        {
+                            perpVector = vectorBetween.CrossProduct(XYZ.BasisY).Normalize();
+                        }
+                        dimLineStart = point1 + perpVector * offset;
+                        dimLineEnd = point2 + perpVector * offset;
+                    }
+
+                    // Ensure the dimension line has sufficient length
+                    var dimLineLength = dimLineStart.DistanceTo(dimLineEnd);
+                    if (dimLineLength < 0.01)
+                    {
+                        trans.RollBack();
+                        return JsonConvert.SerializeObject(new {
+                            success = false,
+                            error = $"Dimension line too short: {dimLineLength:F4} ft. Check that reference planes are not at the same position."
+                        });
+                    }
+
+                    var dimLine = Line.CreateBound(dimLineStart, dimLineEnd);
 
                     // Create the dimension
-                    var dimension = doc.FamilyCreate.NewDimension(doc.ActiveView, dimLine, refArray);
+                    Dimension dimension = null;
+                    try
+                    {
+                        dimension = doc.FamilyCreate.NewDimension(planView, dimLine, refArray);
+                    }
+                    catch (Exception dimEx)
+                    {
+                        trans.RollBack();
+                        return JsonConvert.SerializeObject(new {
+                            success = false,
+                            error = $"Failed to create dimension: {dimEx.Message}",
+                            dimLineStart = new { x = dimLineStart.X, y = dimLineStart.Y, z = dimLineStart.Z },
+                            dimLineEnd = new { x = dimLineEnd.X, y = dimLineEnd.Y, z = dimLineEnd.Z },
+                            dimLineLength = dimLineLength,
+                            viewName = planView?.Name
+                        });
+                    }
+
+                    if (dimension == null)
+                    {
+                        trans.RollBack();
+                        return JsonConvert.SerializeObject(new {
+                            success = false,
+                            error = "Dimension creation returned null"
+                        });
+                    }
+
+                    // Set EQ constraint if requested (for multi-segment dimensions)
+                    bool eqApplied = false;
+                    if (setEQ && dimension.Segments != null && dimension.Segments.Size > 1)
+                    {
+                        try
+                        {
+                            dimension.AreSegmentsEqual = true;
+                            eqApplied = true;
+                        }
+                        catch (Exception eqEx)
+                        {
+                            // EQ might not be applicable for all dimension types
+                            Log.Debug($"Could not set EQ: {eqEx.Message}");
+                        }
+                    }
 
                     // Label with parameter if specified
+                    string labelResult = null;
                     if (!string.IsNullOrEmpty(labelParameter))
                     {
                         var familyManager = doc.FamilyManager;
                         var familyParam = familyManager.get_Parameter(labelParameter);
                         if (familyParam != null)
                         {
-                            dimension.FamilyLabel = familyParam;
+                            try
+                            {
+                                dimension.FamilyLabel = familyParam;
+                                labelResult = $"Labeled with '{labelParameter}'";
+                            }
+                            catch (Exception labelEx)
+                            {
+                                labelResult = $"Could not label: {labelEx.Message}";
+                            }
+                        }
+                        else
+                        {
+                            labelResult = $"Parameter '{labelParameter}' not found";
                         }
                     }
 
@@ -1719,15 +1922,19 @@ namespace RevitMCPBridge
                         success = true,
                         dimensionId = (int)dimension.Id.Value,
                         value = dimension.Value,
+                        segmentCount = dimension.Segments?.Size ?? 1,
+                        isEQ = eqApplied,
                         labelParameter = labelParameter,
-                        message = "Dimension created"
+                        labelResult = labelResult,
+                        viewUsed = planView?.Name,
+                        message = eqApplied ? "EQ dimension created" : "Dimension created"
                     });
                 }
             }
             catch (Exception ex)
             {
                 Log.Error(ex, "Error adding dimension");
-                return JsonConvert.SerializeObject(new { success = false, error = ex.Message });
+                return JsonConvert.SerializeObject(new { success = false, error = ex.Message, stackTrace = ex.StackTrace });
             }
         }
 

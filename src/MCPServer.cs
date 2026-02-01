@@ -378,10 +378,23 @@ namespace RevitMCPBridge
             _methodRegistry["safeExecute"] = TransactionMethods.SafeExecute;
             _methodRegistry["verifyAndRollback"] = TransactionMethods.VerifyAndRollback;
 
-            // Stair Creation Methods (Critical CD Methods)
+            // Stair/Railing/Ramp Methods (Complete registration)
+            _methodRegistry["getStairs"] = StairRailingMethods.GetStairs;
+            _methodRegistry["getStairTypes"] = StairRailingMethods.GetStairTypes;
+            _methodRegistry["getStairDetails"] = StairRailingMethods.GetStairDetails;
             _methodRegistry["createStairBySketch"] = StairRailingMethods.CreateStairBySketch;
             _methodRegistry["createStairByComponent"] = StairRailingMethods.CreateStairByComponent;
             _methodRegistry["modifyStair"] = StairRailingMethods.ModifyStair;
+            _methodRegistry["deleteStair"] = StairRailingMethods.DeleteStair;
+            _methodRegistry["getStairRailings"] = StairRailingMethods.GetStairRailings;
+            _methodRegistry["getRailings"] = StairRailingMethods.GetRailings;
+            _methodRegistry["getRailingTypes"] = StairRailingMethods.GetRailingTypes;
+            _methodRegistry["createRailing"] = StairRailingMethods.CreateRailing;
+            _methodRegistry["deleteRailing"] = StairRailingMethods.DeleteRailing;
+            _methodRegistry["getRamps"] = StairRailingMethods.GetRamps;
+            _methodRegistry["getRampTypes"] = StairRailingMethods.GetRampTypes;
+            _methodRegistry["createRamp"] = StairRailingMethods.CreateRamp;
+            _methodRegistry["deleteRamp"] = StairRailingMethods.DeleteRamp;
 
             // Area Plan Methods (Critical CD Methods)
             _methodRegistry["createAreaPlan"] = RoomMethods.CreateAreaPlan;
@@ -928,6 +941,10 @@ namespace RevitMCPBridge
             _methodRegistry["getModelState"] = ValidationMethods.GetModelState;
             _methodRegistry["preFlightCheck"] = ValidationMethods.PreFlightCheck;
             _methodRegistry["detectClashes"] = ValidationMethods.DetectClashes;
+            _methodRegistry["runFullClashDetection"] = ValidationMethods.RunFullClashDetection;
+            _methodRegistry["createClashView"] = ValidationMethods.CreateClashView;
+            _methodRegistry["exportClashReport"] = ValidationMethods.ExportClashReport;
+            _methodRegistry["getClashRiskAssessment"] = ValidationMethods.GetClashRiskAssessment;
             _methodRegistry["validateModelHealth"] = ValidationMethods.ValidateModelHealth;
             _methodRegistry["autoPlaceKeynotes"] = ValidationMethods.AutoPlaceKeynotes;
             _methodRegistry["generateLegendFromTypes"] = ValidationMethods.GenerateLegendFromTypes;
@@ -3707,6 +3724,19 @@ namespace RevitMCPBridge
                         return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.MaterialMethods.SetMaterialSurfacePattern(uiApp, parameters));
                     case "setMaterialTexture":
                         return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.MaterialMethods.SetMaterialTexture(uiApp, parameters));
+
+                    // Paint Methods
+                    case "paintElementFace":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.MaterialMethods.PaintElementFace(uiApp, parameters));
+                    case "paintWall":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.MaterialMethods.PaintWall(uiApp, parameters));
+                    case "paintWalls":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.MaterialMethods.PaintWalls(uiApp, parameters));
+                    case "removePaint":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.MaterialMethods.RemovePaint(uiApp, parameters));
+                    case "isPainted":
+                        return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.MaterialMethods.IsPainted(uiApp, parameters));
+
                     case "setRenderAppearance":
                         return await ExecuteInRevitContext(uiApp => RevitMCPBridge2026.MaterialMethods.SetRenderAppearance(uiApp, parameters));
                     case "bindSharedParameter":

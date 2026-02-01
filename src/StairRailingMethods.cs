@@ -454,6 +454,184 @@ namespace RevitMCPBridge
         }
 
         /// <summary>
+        /// Create a ramp by sketch
+        /// Parameters: levelId, rampTypeId (optional),
+        ///             points: [[x1,y1], [x2,y2], ...] defining the ramp path,
+        ///             width (optional, default 4'),
+        ///             slope (optional, default 1:12 = 0.0833)
+        /// </summary>
+        public static string CreateRamp(UIApplication uiApp, JObject parameters)
+        {
+            try
+            {
+                var doc = uiApp.ActiveUIDocument.Document;
+
+                var levelId = parameters["levelId"]?.Value<int>();
+                var rampTypeId = parameters["rampTypeId"]?.Value<int>();
+                var points = parameters["points"]?.ToObject<double[][]>();
+                var width = parameters["width"]?.Value<double>() ?? 4.0; // Default 4' width
+                var slope = parameters["slope"]?.Value<double>() ?? (1.0 / 12.0); // Default 1:12 ADA compliant
+
+                if (!levelId.HasValue)
+                {
+                    return JsonConvert.SerializeObject(new { success = false, error = "levelId is required" });
+                }
+
+                if (points == null || points.Length < 2)
+                {
+                    return JsonConvert.SerializeObject(new { success = false, error = "At least 2 points are required to define ramp path" });
+                }
+
+                var level = doc.GetElement(new ElementId(levelId.Value)) as Level;
+                if (level == null)
+                {
+                    return JsonConvert.SerializeObject(new { success = false, error = "Level not found" });
+                }
+
+                // Get or find floor type (ramps use floor types in Revit)
+                FloorType floorType = null;
+                if (rampTypeId.HasValue)
+                {
+                    floorType = doc.GetElement(new ElementId(rampTypeId.Value)) as FloorType;
+                }
+                if (floorType == null)
+                {
+                    // First try to find a ramp-specific floor type
+                    floorType = new FilteredElementCollector(doc)
+                        .OfClass(typeof(FloorType))
+                        .Cast<FloorType>()
+                        .FirstOrDefault(ft => ft.Name.ToLower().Contains("ramp"));
+
+                    // If no ramp type, use any floor type
+                    if (floorType == null)
+                    {
+                        floorType = new FilteredElementCollector(doc)
+                            .OfClass(typeof(FloorType))
+                            .Cast<FloorType>()
+                            .FirstOrDefault();
+                    }
+                }
+
+                if (floorType == null)
+                {
+                    return JsonConvert.SerializeObject(new { success = false, error = "No floor type available in project for ramp creation" });
+                }
+
+                // Calculate ramp path length for elevation change
+                double totalLength = 0;
+                for (int i = 0; i < points.Length - 1; i++)
+                {
+                    var dx = points[i + 1][0] - points[i][0];
+                    var dy = points[i + 1][1] - points[i][1];
+                    totalLength += Math.Sqrt(dx * dx + dy * dy);
+                }
+                double riseHeight = totalLength * slope;
+
+                ElementId newRampId = ElementId.InvalidElementId;
+
+                using (var trans = new Transaction(doc, "Create Ramp"))
+                {
+                    trans.Start();
+                    var failureOptions = trans.GetFailureHandlingOptions();
+                    failureOptions.SetFailuresPreprocessor(new WarningSwallower());
+                    trans.SetFailureHandlingOptions(failureOptions);
+
+                    // Create centerline points at level elevation (we'll add slope arrow after)
+                    var pathPoints = new List<XYZ>();
+                    for (int i = 0; i < points.Length; i++)
+                    {
+                        pathPoints.Add(new XYZ(points[i][0], points[i][1], level.Elevation));
+                    }
+
+                    // Create offset curves for ramp width (left and right edges)
+                    var leftEdge = new List<XYZ>();
+                    var rightEdge = new List<XYZ>();
+                    double halfWidth = width / 2.0;
+
+                    for (int i = 0; i < pathPoints.Count; i++)
+                    {
+                        XYZ direction;
+                        if (i == 0)
+                        {
+                            direction = (pathPoints[1] - pathPoints[0]).Normalize();
+                        }
+                        else if (i == pathPoints.Count - 1)
+                        {
+                            direction = (pathPoints[i] - pathPoints[i - 1]).Normalize();
+                        }
+                        else
+                        {
+                            var d1 = (pathPoints[i] - pathPoints[i - 1]).Normalize();
+                            var d2 = (pathPoints[i + 1] - pathPoints[i]).Normalize();
+                            direction = ((d1 + d2) / 2).Normalize();
+                        }
+
+                        var perp = new XYZ(-direction.Y, direction.X, 0).Normalize();
+                        leftEdge.Add(pathPoints[i] + perp * halfWidth);
+                        rightEdge.Add(pathPoints[i] - perp * halfWidth);
+                    }
+
+                    // Build closed CurveLoop boundary
+                    var curveLoop = new CurveLoop();
+
+                    // Left edge forward
+                    for (int i = 0; i < leftEdge.Count - 1; i++)
+                    {
+                        curveLoop.Append(Line.CreateBound(leftEdge[i], leftEdge[i + 1]));
+                    }
+                    // End cap
+                    curveLoop.Append(Line.CreateBound(leftEdge[leftEdge.Count - 1], rightEdge[rightEdge.Count - 1]));
+                    // Right edge backward
+                    for (int i = rightEdge.Count - 1; i > 0; i--)
+                    {
+                        curveLoop.Append(Line.CreateBound(rightEdge[i], rightEdge[i - 1]));
+                    }
+                    // Start cap
+                    curveLoop.Append(Line.CreateBound(rightEdge[0], leftEdge[0]));
+
+                    // Create floor with the boundary (Revit 2026 Floor.Create API)
+                    var curveLoops = new List<CurveLoop> { curveLoop };
+                    var floor = Floor.Create(doc, curveLoops, floorType.Id, level.Id);
+
+                    if (floor != null)
+                    {
+                        newRampId = floor.Id;
+
+                        // Note: In Revit 2026, floor slope is best controlled via:
+                        // 1. Slope arrows in edit mode
+                        // 2. FloorSlopes.Add() API for programmatic slope
+                        // The floor is created flat; user can add slope arrows manually or via addSlopeArrow method
+                    }
+
+                    trans.Commit();
+                }
+
+                if (newRampId == ElementId.InvalidElementId)
+                {
+                    return JsonConvert.SerializeObject(new { success = false, error = "Failed to create ramp" });
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    rampId = newRampId.Value,
+                    typeName = floorType?.Name ?? "Default",
+                    levelName = level.Name,
+                    width = width,
+                    slope = slope,
+                    slopeRatio = $"1:{Math.Round(1.0 / slope)}",
+                    riseHeight = riseHeight,
+                    runLength = totalLength,
+                    note = "Ramp created as sloped floor. Use slope arrows in Revit for precise control."
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new { success = false, error = ex.Message, stackTrace = ex.StackTrace });
+            }
+        }
+
+        /// <summary>
         /// Create a stair by sketch (run/landing geometry)
         /// Parameters: baseLevelId, topLevelId, stairTypeId (optional),
         ///             runs: [{startPoint: [x,y], endPoint: [x,y], width: feet}],

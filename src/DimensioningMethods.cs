@@ -245,6 +245,9 @@ namespace RevitMCPBridge
                 double? minWidth = parameters["minWidth"]?.ToObject<double?>();
                 double? maxWidth = parameters["maxWidth"]?.ToObject<double?>();
 
+                // If true, dimension only to wall endpoints (ignore door/window openings)
+                bool wallsOnly = parameters["wallsOnly"]?.ToObject<bool>() ?? false;
+
                 // Get all walls in view
                 var allWalls = new FilteredElementCollector(doc, view.Id)
                     .OfCategory(BuiltInCategory.OST_Walls)
@@ -328,10 +331,26 @@ namespace RevitMCPBridge
                         // Filter by wall width/thickness
                         if (minWidth.HasValue || maxWidth.HasValue)
                         {
-                            var widthParam = w.get_Parameter(BuiltInParameter.WALL_ATTR_WIDTH_PARAM);
-                            if (widthParam != null)
+                            double width = 0;
+
+                            // Try to get width from WallType first (more reliable)
+                            var wallTypeObj = doc.GetElement(w.GetTypeId()) as WallType;
+                            if (wallTypeObj != null)
                             {
-                                double width = widthParam.AsDouble();
+                                width = wallTypeObj.Width;
+                            }
+                            else
+                            {
+                                // Fallback to wall parameter
+                                var widthParam = w.get_Parameter(BuiltInParameter.WALL_ATTR_WIDTH_PARAM);
+                                if (widthParam != null)
+                                {
+                                    width = widthParam.AsDouble();
+                                }
+                            }
+
+                            if (width > 0)
+                            {
                                 if (minWidth.HasValue && width < minWidth.Value) return false;
                                 if (maxWidth.HasValue && width > maxWidth.Value) return false;
                             }
@@ -347,7 +366,11 @@ namespace RevitMCPBridge
 
                 Log.Information($"Filtered to {walls.Count} walls from {allWalls.Count} total in view {viewId.Value}");
 
-                // Group walls by direction
+                // Collinearity tolerance in feet (walls within this distance are considered collinear)
+                double collinearityTolerance = parameters["collinearityTolerance"]?.ToObject<double>() ?? 1.0;
+
+                // Group walls by direction AND collinearity (position along perpendicular axis)
+                // Key format: "horizontal_Y123.45" or "vertical_X45.67" to group walls on the same line
                 var wallGroups = new Dictionary<string, List<(Wall wall, Line curve, XYZ direction)>>();
 
                 foreach (var wall in walls)
@@ -365,6 +388,10 @@ namespace RevitMCPBridge
                         var endPoint = curve.GetEndPoint(1);
                         var wallDir = (endPoint - startPoint).Normalize();
 
+                        // Get wall midpoint for position grouping
+                        var midY = (startPoint.Y + endPoint.Y) / 2;
+                        var midX = (startPoint.X + endPoint.X) / 2;
+
                         // Determine if wall is horizontal or vertical
                         double angleThreshold = 0.1; // ~5 degrees
                         bool isHorizontal = Math.Abs(wallDir.Y) < angleThreshold;
@@ -373,11 +400,15 @@ namespace RevitMCPBridge
                         string groupKey = null;
                         if (isHorizontal && (direction == "horizontal" || direction == "both"))
                         {
-                            groupKey = "horizontal";
+                            // For horizontal walls, group by Y position (rounded to tolerance)
+                            double roundedY = Math.Round(midY / collinearityTolerance) * collinearityTolerance;
+                            groupKey = $"horizontal_Y{roundedY:F2}";
                         }
                         else if (isVertical && (direction == "vertical" || direction == "both"))
                         {
-                            groupKey = "vertical";
+                            // For vertical walls, group by X position (rounded to tolerance)
+                            double roundedX = Math.Round(midX / collinearityTolerance) * collinearityTolerance;
+                            groupKey = $"vertical_X{roundedX:F2}";
                         }
 
                         if (groupKey != null)
@@ -395,7 +426,7 @@ namespace RevitMCPBridge
                     }
                 }
 
-                Log.Information($"Grouped walls: {string.Join(", ", wallGroups.Select(kvp => $"{kvp.Key}={kvp.Value.Count}"))}");
+                Log.Information($"Grouped walls into {wallGroups.Count} collinear groups: {string.Join(", ", wallGroups.Select(kvp => $"{kvp.Key}={kvp.Value.Count}"))}");
 
                 var dimensionedCount = 0;
                 var dimensionIds = new List<long>();
@@ -408,39 +439,46 @@ namespace RevitMCPBridge
                     failureOptions.SetFailuresPreprocessor(new WarningSwallower());
                     trans.SetFailureHandlingOptions(failureOptions);
 
-                    // Process each group
+                    // Process each collinear group
                     foreach (var group in wallGroups)
                     {
                         try
                         {
-                            var groupDirection = group.Key;
+                            var groupKey = group.Key;
                             var groupWalls = group.Value;
 
-                            if (groupWalls.Count == 0) continue;
-
-                            // Sort walls by position
-                            if (groupDirection == "horizontal")
+                            // Skip groups with only one wall (need at least 2 for meaningful dimension)
+                            if (groupWalls.Count < 2)
                             {
-                                // Sort by X position (left to right)
-                                groupWalls.Sort((a, b) =>
-                                {
-                                    var aX = (a.curve.GetEndPoint(0).X + a.curve.GetEndPoint(1).X) / 2;
-                                    var bX = (b.curve.GetEndPoint(0).X + b.curve.GetEndPoint(1).X) / 2;
-                                    return aX.CompareTo(bX);
-                                });
-                            }
-                            else // vertical
-                            {
-                                // Sort by Y position (bottom to top)
-                                groupWalls.Sort((a, b) =>
-                                {
-                                    var aY = (a.curve.GetEndPoint(0).Y + a.curve.GetEndPoint(1).Y) / 2;
-                                    var bY = (b.curve.GetEndPoint(0).Y + b.curve.GetEndPoint(1).Y) / 2;
-                                    return aY.CompareTo(bY);
-                                });
+                                Log.Information($"Skipping group {groupKey}: only {groupWalls.Count} wall(s)");
+                                continue;
                             }
 
-                            // Build continuous reference array for this group
+                            bool isHorizontalGroup = groupKey.StartsWith("horizontal");
+
+                            // Sort walls by position along their axis
+                            if (isHorizontalGroup)
+                            {
+                                // Horizontal walls: sort by X position (left to right)
+                                groupWalls.Sort((a, b) =>
+                                {
+                                    var aMinX = Math.Min(a.curve.GetEndPoint(0).X, a.curve.GetEndPoint(1).X);
+                                    var bMinX = Math.Min(b.curve.GetEndPoint(0).X, b.curve.GetEndPoint(1).X);
+                                    return aMinX.CompareTo(bMinX);
+                                });
+                            }
+                            else
+                            {
+                                // Vertical walls: sort by Y position (bottom to top)
+                                groupWalls.Sort((a, b) =>
+                                {
+                                    var aMinY = Math.Min(a.curve.GetEndPoint(0).Y, a.curve.GetEndPoint(1).Y);
+                                    var bMinY = Math.Min(b.curve.GetEndPoint(0).Y, b.curve.GetEndPoint(1).Y);
+                                    return aMinY.CompareTo(bMinY);
+                                });
+                            }
+
+                            // Build reference array for this collinear group
                             var refArray = new ReferenceArray();
                             var options = new Options { ComputeReferences = true, View = view };
 
@@ -450,6 +488,10 @@ namespace RevitMCPBridge
                                 {
                                     var geomElem = wall.get_Geometry(options);
                                     if (geomElem == null) continue;
+
+                                    // Get wall endpoints for filtering when wallsOnly is true
+                                    var wallStart = curve.GetEndPoint(0);
+                                    var wallEnd = curve.GetEndPoint(1);
 
                                     List<Reference> faceRefs = new List<Reference>();
                                     foreach (GeometryObject geomObj in geomElem)
@@ -463,18 +505,42 @@ namespace RevitMCPBridge
                                                     var faceNormal = planarFace.FaceNormal;
                                                     var dot = Math.Abs(faceNormal.DotProduct(wallDir));
 
-                                                    if (dot > 0.9) // Nearly perpendicular
+                                                    if (dot > 0.9) // Nearly perpendicular to wall direction
                                                     {
-                                                        faceRefs.Add(face.Reference);
-                                                        if (faceRefs.Count >= 2) break;
+                                                        if (wallsOnly)
+                                                        {
+                                                            // Only include faces at wall endpoints (not door/window jambs)
+                                                            var bbox = face.GetBoundingBox();
+                                                            var faceCenter = (bbox.Min + bbox.Max) / 2;
+                                                            // Transform to model coordinates
+                                                            var transform = planarFace.ComputeDerivatives(faceCenter).Origin;
+
+                                                            // Check if face center is near wall start or end
+                                                            double tolerance = 0.5; // 6 inches
+                                                            bool nearStart = Math.Abs(transform.X - wallStart.X) < tolerance &&
+                                                                           Math.Abs(transform.Y - wallStart.Y) < tolerance;
+                                                            bool nearEnd = Math.Abs(transform.X - wallEnd.X) < tolerance &&
+                                                                         Math.Abs(transform.Y - wallEnd.Y) < tolerance;
+
+                                                            if (nearStart || nearEnd)
+                                                            {
+                                                                faceRefs.Add(face.Reference);
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            // Include all perpendicular faces (original behavior)
+                                                            faceRefs.Add(face.Reference);
+                                                            if (faceRefs.Count >= 2) break;
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
-                                        if (faceRefs.Count >= 2) break;
+                                        if (!wallsOnly && faceRefs.Count >= 2) break;
                                     }
 
-                                    // Add face references to the continuous array
+                                    // Add face references to the array
                                     foreach (var faceRef in faceRefs)
                                     {
                                         refArray.Append(faceRef);
@@ -488,16 +554,31 @@ namespace RevitMCPBridge
 
                             if (refArray.Size < 2)
                             {
-                                Log.Warning($"Group {groupDirection} has insufficient references ({refArray.Size})");
+                                Log.Warning($"Group {groupKey} has insufficient references ({refArray.Size})");
                                 continue;
                             }
 
-                            // Calculate dimension line that spans the entire group
+                            // Calculate dimension line that spans this collinear group
                             var firstWall = groupWalls.First();
                             var lastWall = groupWalls.Last();
 
-                            var firstPoint = firstWall.curve.GetEndPoint(0);
-                            var lastPoint = lastWall.curve.GetEndPoint(1);
+                            XYZ firstPoint, lastPoint;
+                            if (isHorizontalGroup)
+                            {
+                                // Use leftmost point of first wall, rightmost of last
+                                firstPoint = firstWall.curve.GetEndPoint(0).X < firstWall.curve.GetEndPoint(1).X
+                                    ? firstWall.curve.GetEndPoint(0) : firstWall.curve.GetEndPoint(1);
+                                lastPoint = lastWall.curve.GetEndPoint(0).X > lastWall.curve.GetEndPoint(1).X
+                                    ? lastWall.curve.GetEndPoint(0) : lastWall.curve.GetEndPoint(1);
+                            }
+                            else
+                            {
+                                // Use bottom point of first wall, top of last
+                                firstPoint = firstWall.curve.GetEndPoint(0).Y < firstWall.curve.GetEndPoint(1).Y
+                                    ? firstWall.curve.GetEndPoint(0) : firstWall.curve.GetEndPoint(1);
+                                lastPoint = lastWall.curve.GetEndPoint(0).Y > lastWall.curve.GetEndPoint(1).Y
+                                    ? lastWall.curve.GetEndPoint(0) : lastWall.curve.GetEndPoint(1);
+                            }
 
                             // Calculate offset direction (perpendicular to walls)
                             var avgDir = firstWall.direction;
@@ -509,14 +590,14 @@ namespace RevitMCPBridge
                             var dimLineEnd = lastPoint + offsetVector;
                             var dimLine = Line.CreateBound(dimLineStart, dimLineEnd);
 
-                            // Create ONE dimension for the entire group
+                            // Create dimension for this collinear group
                             var dimension = doc.Create.NewDimension(view, dimLine, refArray);
 
                             if (dimension != null)
                             {
                                 dimensionIds.Add(dimension.Id.Value);
                                 dimensionedCount++;
-                                Log.Information($"Created dimension for {groupDirection} group with {refArray.Size} references");
+                                Log.Information($"Created dimension for collinear group {groupKey} with {groupWalls.Count} walls, {refArray.Size} references");
                             }
                         }
                         catch (Exception ex)
@@ -550,6 +631,7 @@ namespace RevitMCPBridge
                     success = true,
                     totalWalls = allWalls.Count,
                     filteredWalls = walls.Count,
+                    collinearGroups = wallGroups.Count,
                     dimensionStringsCreated = dimensionedCount,
                     dimensionIds = dimensionIds,
                     skippedWalls = skippedWalls,
@@ -557,7 +639,9 @@ namespace RevitMCPBridge
                     wallType = wallType,
                     offset = offset,
                     direction = direction,
-                    message = $"Created {dimensionedCount} continuous dimension string(s) for {walls.Count} walls{filterInfo} at {offset}' offset"
+                    collinearityTolerance = collinearityTolerance,
+                    wallsOnly = wallsOnly,
+                    message = $"Created {dimensionedCount} dimension string(s) for {wallGroups.Count} collinear wall groups ({walls.Count} walls total){filterInfo}{(wallsOnly ? ", walls only (no doors/windows)" : "")} at {offset}' offset"
                 });
             }
             catch (Exception ex)

@@ -915,9 +915,38 @@ namespace RevitMCPBridge
         {
             try
             {
-                var doc = uiApp.ActiveUIDocument.Document;
+                // Null check for uiApp
+                if (uiApp == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "UIApplication is null"
+                    });
+                }
 
-                if (parameters["familyPath"] == null)
+                // Null check for ActiveUIDocument
+                if (uiApp.ActiveUIDocument == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No active document. Please open a Revit project first."
+                    });
+                }
+
+                var doc = uiApp.ActiveUIDocument.Document;
+                if (doc == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "Document is null"
+                    });
+                }
+
+                // Parameter validation
+                if (parameters == null || parameters["familyPath"] == null)
                 {
                     return JsonConvert.SerializeObject(new
                     {
@@ -928,6 +957,15 @@ namespace RevitMCPBridge
 
                 var familyPath = parameters["familyPath"].ToString();
 
+                if (string.IsNullOrEmpty(familyPath))
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "familyPath cannot be empty"
+                    });
+                }
+
                 if (!System.IO.File.Exists(familyPath))
                 {
                     return JsonConvert.SerializeObject(new
@@ -937,61 +975,126 @@ namespace RevitMCPBridge
                     });
                 }
 
-                using (var trans = new Transaction(doc, "Load Family"))
+                // Validate file extension
+                if (!familyPath.EndsWith(".rfa", StringComparison.OrdinalIgnoreCase))
                 {
-                    trans.Start();
-                    var failureOptions = trans.GetFailureHandlingOptions();
-                    failureOptions.SetFailuresPreprocessor(new WarningSwallower());
-                    trans.SetFailureHandlingOptions(failureOptions);
-
-                    Family family = null;
-                    bool loaded = doc.LoadFamily(familyPath, out family);
-
-                    if (!loaded && family == null)
+                    return JsonConvert.SerializeObject(new
                     {
-                        // Family might already be loaded, try to find it by name
-                        var familyName = System.IO.Path.GetFileNameWithoutExtension(familyPath);
-                        family = new FilteredElementCollector(doc)
-                            .OfClass(typeof(Family))
-                            .Cast<Family>()
-                            .FirstOrDefault(f => f.Name.Equals(familyName, StringComparison.OrdinalIgnoreCase));
+                        success = false,
+                        error = "File must be a Revit family file (.rfa)"
+                    });
+                }
 
-                        if (family == null)
+                Family family = null;
+                bool loaded = false;
+                bool alreadyLoaded = false;
+                var familyName = System.IO.Path.GetFileNameWithoutExtension(familyPath);
+
+                // First check if family is already loaded
+                family = new FilteredElementCollector(doc)
+                    .OfClass(typeof(Family))
+                    .Cast<Family>()
+                    .FirstOrDefault(f => f.Name.Equals(familyName, StringComparison.OrdinalIgnoreCase));
+
+                if (family != null)
+                {
+                    alreadyLoaded = true;
+                    loaded = false;
+                }
+                else
+                {
+                    // Family not loaded, load it now
+                    using (var trans = new Transaction(doc, "Load Family"))
+                    {
+                        trans.Start();
+
+                        try
                         {
-                            trans.RollBack();
+                            var failureOptions = trans.GetFailureHandlingOptions();
+                            failureOptions.SetFailuresPreprocessor(new WarningSwallower());
+                            trans.SetFailureHandlingOptions(failureOptions);
+
+                            loaded = doc.LoadFamily(familyPath, out family);
+
+                            if (loaded && family != null)
+                            {
+                                trans.Commit();
+                            }
+                            else
+                            {
+                                trans.RollBack();
+
+                                // Try once more to find it (LoadFamily returns false if already loaded)
+                                family = new FilteredElementCollector(doc)
+                                    .OfClass(typeof(Family))
+                                    .Cast<Family>()
+                                    .FirstOrDefault(f => f.Name.Equals(familyName, StringComparison.OrdinalIgnoreCase));
+
+                                if (family != null)
+                                {
+                                    alreadyLoaded = true;
+                                }
+                            }
+                        }
+                        catch (Exception loadEx)
+                        {
+                            if (trans.HasStarted() && !trans.HasEnded())
+                            {
+                                trans.RollBack();
+                            }
                             return JsonConvert.SerializeObject(new
                             {
                                 success = false,
-                                error = "Failed to load family"
+                                error = $"Error loading family: {loadEx.Message}",
+                                familyPath = familyPath
                             });
                         }
                     }
+                }
 
-                    trans.Commit();
-
-                    // Get all types in the loaded family
-                    var familyTypes = family.GetFamilySymbolIds()
-                        .Select(id => doc.GetElement(id) as FamilySymbol)
-                        .Where(fs => fs != null)
-                        .Select(fs => new
-                        {
-                            typeId = (int)fs.Id.Value,
-                            typeName = fs.Name,
-                            fullName = $"{family.Name} - {fs.Name}"
-                        })
-                        .ToList();
-
+                // Final check - if we still don't have the family, fail
+                if (family == null)
+                {
                     return JsonConvert.SerializeObject(new
                     {
-                        success = true,
-                        loaded = loaded,
-                        familyId = (int)family.Id.Value,
-                        familyName = family.Name,
-                        category = family.FamilyCategory?.Name ?? "Unknown",
-                        typeCount = familyTypes.Count,
-                        types = familyTypes
+                        success = false,
+                        error = "Failed to load family. The file may be corrupted or incompatible with this Revit version.",
+                        familyPath = familyPath
                     });
                 }
+
+                // Get all types in the loaded family
+                var typeIds = family.GetFamilySymbolIds();
+                var familyTypes = new List<object>();
+
+                if (typeIds != null)
+                {
+                    foreach (var id in typeIds)
+                    {
+                        var fs = doc.GetElement(id) as FamilySymbol;
+                        if (fs != null)
+                        {
+                            familyTypes.Add(new
+                            {
+                                typeId = id.Value,
+                                typeName = fs.Name,
+                                fullName = $"{family.Name} - {fs.Name}"
+                            });
+                        }
+                    }
+                }
+
+                return JsonConvert.SerializeObject(new
+                {
+                    success = true,
+                    loaded = loaded,
+                    alreadyLoaded = alreadyLoaded,
+                    familyId = family.Id.Value,
+                    familyName = family.Name,
+                    category = family.FamilyCategory?.Name ?? "Unknown",
+                    typeCount = familyTypes.Count,
+                    types = familyTypes
+                });
             }
             catch (Exception ex)
             {

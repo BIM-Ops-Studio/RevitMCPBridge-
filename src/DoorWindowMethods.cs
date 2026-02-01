@@ -551,8 +551,46 @@ namespace RevitMCPBridge
         {
             try
             {
+                // Validate UIApplication and document
+                if (uiApp?.ActiveUIDocument?.Document == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No active document open in Revit"
+                    });
+                }
                 var doc = uiApp.ActiveUIDocument.Document;
-                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
+
+                // Validate viewId parameter
+                if (parameters["viewId"] == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "viewId parameter is required"
+                    });
+                }
+
+                if (!int.TryParse(parameters["viewId"].ToString(), out int viewIdInt))
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "viewId must be a valid integer"
+                    });
+                }
+
+                var viewId = new ElementId(viewIdInt);
+                var view = doc.GetElement(viewId) as View;
+                if (view == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"View with ID {viewIdInt} not found"
+                    });
+                }
 
                 var doors = new FilteredElementCollector(doc, viewId)
                     .OfClass(typeof(FamilyInstance))
@@ -561,9 +599,9 @@ namespace RevitMCPBridge
                     .Select(d => new
                     {
                         doorId = (int)d.Id.Value,
-                        familyName = d.Symbol.Family.Name,
-                        typeName = d.Symbol.Name,
-                        typeId = (int)d.Symbol.Id.Value,
+                        familyName = d.Symbol?.Family?.Name ?? "Unknown",
+                        typeName = d.Symbol?.Name ?? "Unknown",
+                        typeId = d.Symbol != null ? (int)d.Symbol.Id.Value : 0,
                         mark = d.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)?.AsString(),
                         width = d.get_Parameter(BuiltInParameter.DOOR_WIDTH)?.AsDouble() ?? 0,
                         height = d.get_Parameter(BuiltInParameter.DOOR_HEIGHT)?.AsDouble() ?? 0,
@@ -595,8 +633,46 @@ namespace RevitMCPBridge
         {
             try
             {
+                // Validate UIApplication and document
+                if (uiApp?.ActiveUIDocument?.Document == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No active document open in Revit"
+                    });
+                }
                 var doc = uiApp.ActiveUIDocument.Document;
-                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
+
+                // Validate viewId parameter
+                if (parameters["viewId"] == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "viewId parameter is required"
+                    });
+                }
+
+                if (!int.TryParse(parameters["viewId"].ToString(), out int viewIdInt))
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "viewId must be a valid integer"
+                    });
+                }
+
+                var viewId = new ElementId(viewIdInt);
+                var view = doc.GetElement(viewId) as View;
+                if (view == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = $"View with ID {viewIdInt} not found"
+                    });
+                }
 
                 var windows = new FilteredElementCollector(doc, viewId)
                     .OfClass(typeof(FamilyInstance))
@@ -605,9 +681,9 @@ namespace RevitMCPBridge
                     .Select(w => new
                     {
                         windowId = (int)w.Id.Value,
-                        familyName = w.Symbol.Family.Name,
-                        typeName = w.Symbol.Name,
-                        typeId = (int)w.Symbol.Id.Value,
+                        familyName = w.Symbol?.Family?.Name ?? "Unknown",
+                        typeName = w.Symbol?.Name ?? "Unknown",
+                        typeId = w.Symbol != null ? (int)w.Symbol.Id.Value : 0,
                         mark = w.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)?.AsString(),
                         width = w.get_Parameter(BuiltInParameter.WINDOW_WIDTH)?.AsDouble() ?? 0,
                         height = w.get_Parameter(BuiltInParameter.WINDOW_HEIGHT)?.AsDouble() ?? 0,
@@ -850,6 +926,15 @@ namespace RevitMCPBridge
         {
             try
             {
+                // Validate UIApplication and document
+                if (uiApp?.ActiveUIDocument?.Document == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No active document open in Revit"
+                    });
+                }
                 var doc = uiApp.ActiveUIDocument.Document;
 
                 var doors = new FilteredElementCollector(doc)
@@ -867,9 +952,9 @@ namespace RevitMCPBridge
                         return new
                         {
                             doorId = (int)d.Id.Value,
-                            familyName = d.Symbol.Family.Name,
-                            typeName = d.Symbol.Name,
-                            typeId = (int)d.Symbol.Id.Value,
+                            familyName = d.Symbol?.Family?.Name ?? "Unknown",
+                            typeName = d.Symbol?.Name ?? "Unknown",
+                            typeId = d.Symbol != null ? (int)d.Symbol.Id.Value : 0,
                             mark = d.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)?.AsString(),
                             width = d.get_Parameter(BuiltInParameter.DOOR_WIDTH)?.AsDouble() ?? 0,
                             height = d.get_Parameter(BuiltInParameter.DOOR_HEIGHT)?.AsDouble() ?? 0,
@@ -906,6 +991,15 @@ namespace RevitMCPBridge
         {
             try
             {
+                // Validate UIApplication and document
+                if (uiApp?.ActiveUIDocument?.Document == null)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        success = false,
+                        error = "No active document open in Revit"
+                    });
+                }
                 var doc = uiApp.ActiveUIDocument.Document;
 
                 var windows = new FilteredElementCollector(doc)
@@ -923,9 +1017,9 @@ namespace RevitMCPBridge
                         return new
                         {
                             windowId = (int)w.Id.Value,
-                            familyName = w.Symbol.Family.Name,
-                            typeName = w.Symbol.Name,
-                            typeId = (int)w.Symbol.Id.Value,
+                            familyName = w.Symbol?.Family?.Name ?? "Unknown",
+                            typeName = w.Symbol?.Name ?? "Unknown",
+                            typeId = w.Symbol != null ? (int)w.Symbol.Id.Value : 0,
                             mark = w.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)?.AsString(),
                             width = w.get_Parameter(BuiltInParameter.WINDOW_WIDTH)?.AsDouble() ?? 0,
                             height = w.get_Parameter(BuiltInParameter.WINDOW_HEIGHT)?.AsDouble() ?? 0,
