@@ -1,159 +1,256 @@
-# RevitMCPBridge2026
+<p align="center">
+  <h1 align="center">RevitMCPBridge</h1>
+  <p align="center">
+    <strong>Give AI full read-write access to Autodesk Revit. 705+ endpoints. Zero manual steps.</strong>
+  </p>
+  <p align="center">
+    <a href="#quick-start">Quick Start</a> &middot;
+    <a href="#what-it-enables">What It Enables</a> &middot;
+    <a href="#api-categories">API Reference</a> &middot;
+    <a href="#autonomy-levels">Autonomy Levels</a>
+  </p>
+  <p align="center">
+    <img src="https://img.shields.io/badge/endpoints-705%2B-brightgreen" alt="Endpoints">
+    <img src="https://img.shields.io/badge/C%23-.NET%204.8-blue" alt=".NET">
+    <img src="https://img.shields.io/badge/Revit-2025%20%7C%202026-orange" alt="Revit">
+    <img src="https://img.shields.io/badge/knowledge-113%20files-purple" alt="Knowledge">
+    <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  </p>
+</p>
 
-A Revit 2026 Add-in that exposes the Revit API through the Model Context Protocol (MCP), enabling AI-assisted automation of Revit tasks.
+---
 
-## Features
+## What is this?
 
-- **705+ MCP Methods** across 25+ categories (walls, doors, rooms, views, sheets, intelligence, validation, etc.)
-- **5 Levels of Autonomy**:
-  - Level 1: Basic Bridge (direct API access)
-  - Level 2: Context Awareness (multi-element tracking)
-  - Level 3: Learning & Memory (correction learning)
-  - Level 4: Proactive Intelligence (gap detection, suggestions)
-  - Level 5: Full Autonomy (goal execution, self-healing)
-- **Knowledge Base**: 113 files of architectural domain expertise
-- **Floor Plan Vision**: PDF-to-Revit conversion pipeline
-- **Configuration System**: Centralized settings with hot-reload
-- **Comprehensive Testing**: 68 unit tests with NUnit
+RevitMCPBridge is a Revit add-in that exposes the entire Revit API through the Model Context Protocol (MCP) via named pipes. AI systems — Claude, GPT, custom agents — can read, create, modify, and validate anything in a Revit model programmatically. No Dynamo. No manual steps. Just send JSON, get results.
+
+**For AEC professionals:** Your AI assistant can now open your Revit model and actually *do things* — create walls, place doors, generate sheets, check code compliance, produce construction documents.
+
+**For developers:** 705+ typed endpoints with parameter validation, transaction management, and structured error responses. Connect any language that can write to a named pipe.
+
+## Before and After
+
+**Before RevitMCPBridge:**
+```
+You: "Create a sheet set for these 12 floor plans"
+AI:  "Here are the steps you should follow manually in Revit:
+      1. Go to View > Sheet Composition > New Sheet
+      2. Select your title block...
+      3. Repeat 12 times..."
+```
+
+**After RevitMCPBridge:**
+```python
+# AI executes directly in Revit
+for i, view_id in enumerate(floor_plan_ids):
+    call_revit("createSheet", {
+        "sheetNumber": f"A1.{i+1}",
+        "sheetName": f"Floor Plan - Level {i+1}",
+        "titleBlockName": "E1 30x42 Horizontal"
+    })
+    call_revit("placeViewOnSheet", {
+        "sheetId": sheet_id,
+        "viewId": view_id,
+        "locationX": 1.5,
+        "locationY": 1.0
+    })
+# 12 sheets created, views placed, titled — in seconds
+```
+
+## What It Enables
+
+| Capability | Methods | Example |
+|---|---|---|
+| **Read any model data** | Parameters, elements, geometry, schedules | Extract every door schedule to JSON |
+| **Create elements** | Walls, doors, windows, rooms, structural, MEP | Build a floor plan from a PDF specification |
+| **Modify elements** | Move, resize, reparameter, retype | Batch-update 200 door fire ratings |
+| **Generate documents** | Sheets, views, schedules, annotations | Produce a full CD set automatically |
+| **Validate models** | Code compliance, clash detection, QC | Check egress paths against IBC requirements |
+| **AI autonomy** | Goal execution, learning, self-healing | "Set up this project" → 360 sheets, done |
+
+## Scale
+
+- **705+ MCP endpoints** across 25+ categories
+- **146 C# source files**, 13,000+ lines
+- **113 knowledge files** of architectural domain expertise (building codes, room standards, MEP systems, material specs)
+- **68 unit tests** with NUnit
+- **5 levels of autonomy** — from direct API calls to autonomous goal execution
+
+## API Categories
+
+| Category | Endpoints | What It Does |
+|---|---|---|
+| **Walls** | 11 | Create, modify, split, join, query wall elements |
+| **Doors & Windows** | 13 | Place openings, configure hardware, set fire ratings |
+| **Rooms** | 10 | Create rooms, compute areas, tag, set finishes |
+| **Views** | 12 | Create plans, sections, elevations, 3D views |
+| **Sheets** | 11 | Create sheets, place viewports, manage title blocks |
+| **Schedules** | 34 | Create/modify schedules, export data, configure fields |
+| **Families** | 29 | Load families, place instances, query types |
+| **Parameters** | 29 | Get/set any parameter on any element |
+| **Structural** | 26 | Beams, columns, foundations, framing |
+| **MEP** | 35 | Ducts, pipes, equipment, electrical |
+| **Details** | 33 | Detail lines, filled regions, detail components |
+| **Filters** | 27 | View filters, graphic overrides, visibility |
+| **Materials** | 27 | Material creation, assignment, appearance |
+| **Phases** | 24 | Construction phases, phase filters |
+| **Worksets** | 27 | Workset management for workshared models |
+| **Annotations** | 33 | Dimensions, tags, text notes, keynotes |
+| **Intelligence** | 35 | AI autonomy, learning, goal execution, self-healing |
+| **Sheet Patterns** | 11 | Intelligent sheet numbering and organization |
+| **Viewport Capture** | 7 | View capture, camera control |
+| **Rendering** | 7 | AI-assisted rendering via Stable Diffusion |
+| **System** | 6 | Health check, version, stats, method listing |
 
 ## Quick Start
 
 ### Prerequisites
-- Revit 2026
+- Autodesk Revit 2025 or 2026
 - .NET Framework 4.8
-- Visual Studio 2022 (for building)
+- Visual Studio 2022 (for building from source)
 
-### Installation (Recommended)
-
-Use the installer script:
+### Install
 
 ```powershell
-# From project root
+# Option 1: Installer script
+git clone https://github.com/WeberG619/RevitMCPBridge2026.git
+cd RevitMCPBridge2026
 .\scripts\deploy\Install-RevitMCPBridge.ps1
-```
 
-This will:
-1. Build the project
-2. Copy DLL and add-in to Revit folder
-3. Copy default configuration
-
-### Manual Installation
-
-```bash
-# Build
+# Option 2: Manual
 msbuild RevitMCPBridge2026.csproj /p:Configuration=Release
-
-# Deploy
 copy bin\Release\RevitMCPBridge2026.dll "%APPDATA%\Autodesk\Revit\Addins\2026\"
 copy RevitMCPBridge2026.addin "%APPDATA%\Autodesk\Revit\Addins\2026\"
 copy appsettings.json "%APPDATA%\Autodesk\Revit\Addins\2026\"
 ```
 
-### Verify Installation
+### Connect
 
-Start Revit and test the connection:
+Start Revit, then from any language:
 
 ```python
-import socket, json
+import struct, json
+
+PIPE_NAME = r'\\.\pipe\RevitMCPBridge2026'
 
 def call_revit(method, params=None):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect(('localhost', 8765))
-        s.sendall(json.dumps({"method": method, "params": params or {}}).encode() + b'\n')
-        return json.loads(s.recv(65536).decode())
+    """Call any Revit method via named pipe."""
+    import win32file, win32pipe
+    handle = win32file.CreateFile(
+        PIPE_NAME, win32file.GENERIC_READ | win32file.GENERIC_WRITE,
+        0, None, win32file.OPEN_EXISTING, 0, None
+    )
+    request = json.dumps({"method": method, "params": params or {}}).encode()
+    win32file.WriteFile(handle, struct.pack('<I', len(request)) + request)
+    size = struct.unpack('<I', win32file.ReadFile(handle, 4)[1])[0]
+    data = win32file.ReadFile(handle, size)[1]
+    handle.Close()
+    return json.loads(data)
 
-# Check version
-print(call_revit("getVersion"))
-
-# Health check
+# Verify connection
 print(call_revit("healthCheck"))
+# {"status": "healthy", "documentOpen": true, "methodCount": 705}
+
+# List all available methods
+print(call_revit("getMethods"))
+# {"methods": ["getVersion", "createWall", ...], "count": 705}
 ```
 
-## Project Structure
+> **Note:** The bridge communicates via Windows named pipes (`\\.\pipe\RevitMCPBridge2026`), not HTTP. This provides direct in-process communication with Revit. For a simpler Python wrapper, see the `python/` directory.
 
-```
-RevitMCPBridge2026/
-├── src/                        # C# source files
-│   ├── MCPServer.cs            # Named pipe server (705+ methods)
-│   ├── Configuration/          # Centralized settings
-│   │   └── BridgeConfiguration.cs
-│   ├── Exceptions/             # Custom exception hierarchy
-│   │   └── MCPExceptions.cs
-│   ├── Validation/             # Parameter validation
-│   │   └── ParameterValidator.cs
-│   ├── Helpers/                # Utility classes
-│   │   ├── ResponseBuilder.cs  # Fluent JSON responses
-│   │   ├── TransactionHelper.cs # Transaction management
-│   │   ├── ElementLookup.cs    # Element queries
-│   │   ├── GeometryHelper.cs   # Geometry utilities
-│   │   └── CorrelatedLogger.cs # Request-correlated logging
-│   ├── *Methods.cs             # API method implementations
-│   └── AutonomousExecutor.cs   # Level 5 autonomy
-├── tests/                      # 68 unit tests
-│   ├── Unit/                   # Core unit tests
-│   └── Integration/            # Integration tests
-├── knowledge/                  # Domain knowledge (113 files)
-├── docs/                       # Documentation
-│   ├── api/METHODS.md          # API reference
-│   ├── QUICKSTART.md           # Quick start guide
-│   └── guides/                 # User guides
-├── scripts/                    # Build & deploy scripts
-│   └── deploy/                 # Installer scripts
-├── python/                     # Python integration
-└── appsettings.json            # Configuration file
-```
-
-## API Categories
-
-| Category | Methods | Description |
-|----------|---------|-------------|
-| **System** | 6 | Version, health, configuration, stats |
-| Walls | 11 | Create, modify, query walls |
-| Doors/Windows | 13 | Place, configure openings |
-| Rooms | 10 | Room creation, tagging, areas |
-| Views | 12 | View creation, manipulation |
-| Sheets | 11 | Sheet management, viewports |
-| Schedules | 34 | Schedule creation, data export |
-| Families | 29 | Family loading, placement |
-| Parameters | 29 | Parameter get/set operations |
-| Structural | 26 | Beams, columns, foundations |
-| MEP | 35 | Ducts, pipes, equipment |
-| Details | 33 | Detail lines, regions |
-| Filters | 27 | View filters, overrides |
-| Materials | 27 | Material management |
-| Phases | 24 | Phase management |
-| Worksets | 27 | Workset operations |
-| Annotations | 33 | Tags, dimensions, text |
-| Intelligence | 35 | AI autonomy methods |
-
-## System Methods
-
-New in v2.0: Built-in system monitoring and diagnostics.
+### Your first wall
 
 ```python
-# Get version info
-call_revit("getVersion")
-# {"version": "2.0.0", "revitVersion": "2026.2", ...}
+# Create a wall
+result = call_revit("createWall", {
+    "startX": 0, "startY": 0,
+    "endX": 20, "endY": 0,
+    "wallTypeName": "Generic - 8\"",
+    "levelName": "Level 1",
+    "height": 10
+})
+print(result)
+# {"success": true, "elementId": 123456, "length": 20.0}
+```
 
-# Health check
-call_revit("healthCheck")
-# {"status": "healthy", "documentOpen": true, ...}
+## Autonomy Levels
 
-# Request statistics
-call_revit("getStats")
-# {"totalRequests": 1542, "averageResponseTimeMs": 45, ...}
+The bridge supports 5 levels of AI autonomy:
 
-# List all methods
-call_revit("getMethods")
-# {"methods": ["getVersion", "createWall", ...], "count": 705}
+| Level | Name | What It Does |
+|---|---|---|
+| **1** | Basic Bridge | Direct API translation. Send method, get result. |
+| **2** | Context Awareness | Tracks element relationships, maintains session context. |
+| **3** | Learning & Memory | Stores corrections, learns patterns for future use. |
+| **4** | Proactive Intelligence | Detects workflow gaps, suggests next steps, anticipates needs. |
+| **5** | Full Autonomy | Executes high-level goals with self-healing and guardrails. |
 
-# Reload configuration
-call_revit("reloadConfiguration")
+### Level 5 Example
+
+```python
+# "Set up construction document sheets" — one command
+call_revit("executeGoal", {
+    "goalType": "create_sheet_set",
+    "parameters": {
+        "viewIds": [123456, 234567, 345678],
+        "sheetPattern": "A-{level}.{sequence}"
+    }
+})
+# Creates sheets, places views, adds title blocks, numbers everything
+
+# Safety guardrails
+call_revit("configureAutonomy", {
+    "maxElementsPerTask": 100,
+    "allowedMethods": ["createWall", "placeDoor", "createSheet"],
+    "blockedMethods": ["deleteElements"],
+    "requireApprovalFor": ["deleteSheet"]
+})
+```
+
+## Knowledge Base
+
+The bridge includes 113 files of architectural domain knowledge:
+
+| Category | Files | Coverage |
+|---|---|---|
+| Building Types | 17 | Residential, commercial, healthcare, education, hospitality, industrial |
+| Building Codes | 15 | IBC, Florida Building Code (complete), NYC, California, Chicago |
+| Structural & Envelope | 12 | Foundations, framing, walls, roofs, glazing, mass timber |
+| MEP Systems | 10 | HVAC, electrical, plumbing, fire protection, elevators |
+| Interior & Finishes | 9 | Kitchen/bath, materials, millwork, acoustics, door hardware |
+| Codes & Regulatory | 9 | Accessibility, egress, energy, zoning, permitting |
+| Project Delivery | 10 | Cost estimating, specifications, construction admin |
+| Documentation | 7 | CD standards, annotation standards, detail libraries |
+
+This knowledge base enables AI agents to make code-compliant, architecturally correct decisions without requiring the user to specify every standard.
+
+## Connection to the Autonomy Engine
+
+RevitMCPBridge is the flagship integration for the [Autonomy Engine](https://github.com/WeberG619/claude-ai-tools). When connected:
+
+- **Goal tracking** — "Set up this project" becomes a tracked goal with sub-goals and progress
+- **Correction learning** — BIM-specific mistakes get stored and injected into future Revit tasks
+- **Alignment injection** — Every Revit agent gets compiled corrections for the BIM domain
+- **Coordination** — Multiple agents can work on the same model with resource locking
+
+```
+User Goal: "Create construction documents"
+    ↓
+Autonomy Engine decomposes into plan:
+    1. Create sheet set (SheetMethods)
+    2. Place views on sheets (ViewMethods)
+    3. Add annotations (AnnotationMethods)
+    4. Generate schedules (ScheduleMethods)
+    5. QC check (Intelligence)
+    ↓
+Each step gets BIM-domain alignment injection
+    ↓
+Corrections from past sessions prevent known mistakes
+    ↓
+Progress cascades to parent goal: 100%
 ```
 
 ## Configuration
-
-Configure via `appsettings.json`:
 
 ```json
 {
@@ -164,154 +261,82 @@ Configure via `appsettings.json`:
   },
   "Logging": {
     "Level": "Information",
-    "LogDirectory": "%APPDATA%/RevitMCPBridge/logs",
-    "RetainedFileDays": 7
+    "LogDirectory": "%APPDATA%/RevitMCPBridge/logs"
   },
   "Autonomy": {
     "Enabled": true,
     "MaxRetries": 3,
     "MaxElementsPerBatch": 100
-  },
-  "Version": {
-    "Major": 2,
-    "Minor": 0,
-    "Patch": 0
   }
 }
 ```
 
-Changes take effect after calling `reloadConfiguration` or restarting Revit.
+## Architecture
 
-## Autonomy Levels
+```mermaid
+graph LR
+    subgraph "AI Side"
+        CL[Claude / GPT / Custom Agent]
+        AE[Autonomy Engine]
+        CL --> AE
+    end
 
-### Level 1: Basic Bridge
-Direct MCP-to-Revit API translation. Each method call executes immediately.
+    subgraph "Bridge"
+        NP[Named Pipe Server]
+        MR[Method Router]
+        TV[Transaction Validator]
+        NP --> MR --> TV
+    end
 
-### Level 2: Context Awareness
-Tracks relationships between elements, maintains session context.
+    subgraph "Revit Side"
+        RA[Revit API]
+        DOC[Active Document]
+        TV --> RA --> DOC
+    end
 
-### Level 3: Learning & Memory
-Learns from corrections, stores patterns for future use.
+    AE --> |JSON over pipe| NP
+    DOC --> |result| NP --> |JSON response| AE
 
-### Level 4: Proactive Intelligence
-Detects gaps in workflow, suggests next steps, anticipates needs.
-
-### Level 5: Full Autonomy
-Execute high-level goals with self-healing:
-
-```json
-{
-  "method": "executeGoal",
-  "params": {
-    "goalType": "create_sheet_set",
-    "parameters": {
-      "viewIds": [123456, 234567],
-      "sheetPattern": "A-{level}.{sequence}"
-    }
-  }
-}
-```
-
-**Guardrails:**
-```json
-{
-  "method": "configureAutonomy",
-  "params": {
-    "maxElementsPerTask": 100,
-    "allowedMethods": ["createWall", "placeDoor"],
-    "blockedMethods": ["deleteElements"],
-    "requireApprovalFor": ["createSheet"]
-  }
-}
+    style CL fill:#4A90D9,color:#fff
+    style AE fill:#E74C3C,color:#fff
+    style NP fill:#2ECC71,color:#fff
+    style RA fill:#F39C12,color:#fff
 ```
 
 ## Development
 
-### Building
-
 ```bash
-# Full build
+# Build
 msbuild RevitMCPBridge2026.csproj /p:Configuration=Release
 
-# Install and build
-.\scripts\deploy\Install-RevitMCPBridge.ps1
-```
-
-### Testing
-
-```bash
-# Run all tests
+# Run tests
 dotnet test tests/RevitMCPBridge.Tests.csproj
 
-# Run specific test
-dotnet test --filter "FullyQualifiedName~WallMethodsTests"
-
-# Run smoke tests
+# Smoke test (requires Revit running)
 python tests/smoke_test.py
 ```
 
-### Code Quality
-
-The project includes:
-- **Custom Exceptions**: Structured error hierarchy (MCPRevitException)
-- **Parameter Validation**: Fluent validation with clear error messages
-- **Response Builder**: Consistent JSON response formatting
-- **Correlated Logging**: Request tracking with correlation IDs
-- **Helper Utilities**: Transaction management, element lookup, geometry helpers
-
-## Documentation
-
-- [Quick Start Guide](docs/QUICKSTART.md) - Get running in 5 minutes
-- [API Reference](docs/api/METHODS.md) - Complete method documentation
-- [Usage Guide](docs/guides/USAGE_GUIDE.md) - Detailed workflows
-- [Architecture](docs/ARCHITECTURE.md) - System design
-
 ## Troubleshooting
 
-**Connection refused:**
-- Ensure Revit 2026 is running
-- Check that add-in loaded (Revit ribbon should show MCP Bridge)
-- Restart Revit
-
-**Method not found:**
-- Verify method name (case-sensitive)
-- Run `getMethods` to list available methods
-- Ensure latest DLL is installed
-
-**Element operation failed:**
-- Check that a document is open
-- Verify element IDs are valid
-- Check for blocking Revit dialogs
+| Problem | Solution |
+|---|---|
+| Connection refused | Ensure Revit is running and add-in loaded (check ribbon) |
+| Method not found | Run `getMethods` to list available methods. Names are case-sensitive. |
+| Operation failed | Check that a document is open. Verify element IDs exist. |
+| Timeout | Close any blocking Revit dialogs. Click in the drawing area. |
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file.
+MIT License. See [LICENSE](LICENSE).
 
-Created by **Weber Gouin** / **[BIM Ops Studio](https://bimopsstudio.com)**
+## Author
 
-## Contributing
+**Weber Gouin** — [BIM Ops Studio](https://bimopsstudio.com)
 
-Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### Ways to Contribute
-- Report bugs and issues
-- Suggest new methods or features
-- Submit pull requests
-- Share your use cases
-
-## Support
-
-- **Issues**: Use GitHub Issues for bugs and feature requests
-- **Email**: weberg@bimopsstudio.com
-- **Professional Support**: Contact [BIM Ops Studio](https://bimopsstudio.com) for consulting and custom implementations
-
-## Acknowledgments
-
-This project represents the first open-source bridge connecting Claude AI to Autodesk Revit, enabling AI-assisted BIM automation through the Model Context Protocol.
+The first open-source bridge connecting AI to Autodesk Revit through the Model Context Protocol.
 
 ---
 
-**Version**: 2.0.0
-**Revit**: 2025, 2026
-**Author**: Weber Gouin / BIM Ops Studio
-**Last Updated**: 2026-01
+<p align="center">
+  <em>Stop describing Revit workflows to AI. Start executing them.</em>
+</p>
