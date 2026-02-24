@@ -6,6 +6,8 @@ using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RevitMCPBridge.Helpers;
+using RevitMCPBridge.Validation;
 
 namespace RevitMCPBridge
 {
@@ -24,63 +26,27 @@ namespace RevitMCPBridge
                 // Validate UIApplication and document
                 if (uiApp?.ActiveUIDocument?.Document == null)
                 {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "No active document open in Revit"
-                    });
+                    return ResponseBuilder.Error("No active document open in Revit", "NO_ACTIVE_DOCUMENT").Build();
                 }
                 var doc = uiApp.ActiveUIDocument.Document;
 
                 // Validate required parameters
-                if (parameters["location"] == null)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "location parameter is required (array of [x, y] coordinates)"
-                    });
-                }
-                if (parameters["levelId"] == null)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "levelId parameter is required"
-                    });
-                }
+                var v = new ParameterValidator(parameters, "CreateRoom");
+                v.Require("location");
+                v.Require("levelId").IsType<int>();
+                v.ThrowIfInvalid();
 
                 var location = parameters["location"].ToObject<double[]>();
                 if (location == null || location.Length < 2)
                 {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "location must be an array with at least 2 values [x, y]"
-                    });
+                    return ResponseBuilder.Error("location must be an array with at least 2 values [x, y]", "INVALID_PARAMETER").Build();
                 }
 
-                if (!int.TryParse(parameters["levelId"].ToString(), out int levelIdInt))
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "levelId must be a valid integer"
-                    });
-                }
-                var levelId = new ElementId(levelIdInt);
-                var name = parameters["name"]?.ToString();
-                var number = parameters["number"]?.ToString();
+                var levelIdInt = v.GetRequired<int>("levelId");
+                var name = v.GetOptional<string>("name");
+                var number = v.GetOptional<string>("number");
 
-                var level = doc.GetElement(levelId) as Level;
-                if (level == null)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "Level not found"
-                    });
-                }
+                var level = ElementLookup.GetLevel(doc, levelIdInt);
 
                 using (var trans = new Transaction(doc, "Create Room"))
                 {
@@ -96,11 +62,7 @@ namespace RevitMCPBridge
                     if (room == null)
                     {
                         trans.RollBack();
-                        return JsonConvert.SerializeObject(new
-                        {
-                            success = false,
-                            error = "Failed to create room - point may not be in an enclosed area"
-                        });
+                        return ResponseBuilder.Error("Failed to create room - point may not be in an enclosed area", "ROOM_CREATION_FAILED").Build();
                     }
 
                     // Set room properties
@@ -116,26 +78,20 @@ namespace RevitMCPBridge
 
                     trans.Commit();
 
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = true,
-                        roomId = (int)room.Id.Value,
-                        name = room.Name,
-                        number = room.Number,
-                        area = room.Area,
-                        perimeter = room.Perimeter,
-                        volume = room.Volume,
-                        level = level.Name
-                    });
+                    return ResponseBuilder.Success()
+                        .With("roomId", (int)room.Id.Value)
+                        .With("name", room.Name)
+                        .With("number", room.Number)
+                        .With("area", room.Area)
+                        .With("perimeter", room.Perimeter)
+                        .With("volume", room.Volume)
+                        .With("level", level.Name)
+                        .Build();
                 }
             }
             catch (Exception ex)
             {
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message
-                });
+                return ResponseBuilder.FromException(ex).Build();
             }
         }
 
@@ -147,19 +103,15 @@ namespace RevitMCPBridge
             try
             {
                 var doc = uiApp.ActiveUIDocument.Document;
-                var roomId = new ElementId(int.Parse(parameters["roomId"].ToString()));
-                var room = doc.GetElement(roomId) as Room;
 
-                if (room == null)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "Room not found"
-                    });
-                }
+                var v = new ParameterValidator(parameters, "GetRoomInfo");
+                v.Require("roomId").IsType<int>();
+                v.ThrowIfInvalid();
 
-                var level = doc.GetElement(room.LevelId) as Level;
+                var roomIdInt = v.GetRequired<int>("roomId");
+                var room = ElementLookup.GetRoom(doc, roomIdInt);
+
+                var level = ElementLookup.TryGetElement<Level>(doc, (int)room.LevelId.Value);
 
                 // Get room boundaries
                 var boundaries = new List<object>();
@@ -188,32 +140,26 @@ namespace RevitMCPBridge
                 // Get room location point
                 var locationPoint = (room.Location as LocationPoint)?.Point;
 
-                return JsonConvert.SerializeObject(new
-                {
-                    success = true,
-                    roomId = (int)room.Id.Value,
-                    name = room.Name,
-                    number = room.Number,
-                    area = room.Area,
-                    perimeter = room.Perimeter,
-                    volume = room.Volume,
-                    unboundedHeight = room.UnboundedHeight,
-                    level = level?.Name,
-                    levelId = (int)room.LevelId.Value,
-                    location = locationPoint != null ? new[] { locationPoint.X, locationPoint.Y, locationPoint.Z } : null,
-                    department = room.get_Parameter(BuiltInParameter.ROOM_DEPARTMENT)?.AsString(),
-                    comments = room.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)?.AsString(),
-                    boundaries = boundaries,
-                    boundaryCount = segments?.Count ?? 0
-                });
+                return ResponseBuilder.Success()
+                    .With("roomId", (int)room.Id.Value)
+                    .With("name", room.Name)
+                    .With("number", room.Number)
+                    .With("area", room.Area)
+                    .With("perimeter", room.Perimeter)
+                    .With("volume", room.Volume)
+                    .With("unboundedHeight", room.UnboundedHeight)
+                    .With("level", level?.Name)
+                    .With("levelId", (int)room.LevelId.Value)
+                    .With("location", locationPoint != null ? new[] { locationPoint.X, locationPoint.Y, locationPoint.Z } : null)
+                    .With("department", room.get_Parameter(BuiltInParameter.ROOM_DEPARTMENT)?.AsString())
+                    .With("comments", room.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)?.AsString())
+                    .With("boundaries", boundaries)
+                    .With("boundaryCount", segments?.Count ?? 0)
+                    .Build();
             }
             catch (Exception ex)
             {
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message
-                });
+                return ResponseBuilder.FromException(ex).Build();
             }
         }
 
@@ -225,17 +171,13 @@ namespace RevitMCPBridge
             try
             {
                 var doc = uiApp.ActiveUIDocument.Document;
-                var roomId = new ElementId(int.Parse(parameters["roomId"].ToString()));
-                var room = doc.GetElement(roomId) as Room;
 
-                if (room == null)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "Room not found"
-                    });
-                }
+                var v = new ParameterValidator(parameters, "ModifyRoomProperties");
+                v.Require("roomId").IsType<int>();
+                v.ThrowIfInvalid();
+
+                var roomIdInt = v.GetRequired<int>("roomId");
+                var room = ElementLookup.GetRoom(doc, roomIdInt);
 
                 using (var trans = new Transaction(doc, "Modify Room Properties"))
                 {
@@ -288,7 +230,7 @@ namespace RevitMCPBridge
                         var offsetParam = room.get_Parameter(BuiltInParameter.ROOM_LOWER_OFFSET);
                         if (offsetParam != null && !offsetParam.IsReadOnly)
                         {
-                            offsetParam.Set(double.Parse(parameters["baseOffset"].ToString()));
+                            offsetParam.Set(v.GetOptional<double>("baseOffset"));
                             modified.Add("baseOffset");
                         }
                     }
@@ -299,28 +241,22 @@ namespace RevitMCPBridge
                         var limitParam = room.get_Parameter(BuiltInParameter.ROOM_UPPER_OFFSET);
                         if (limitParam != null && !limitParam.IsReadOnly)
                         {
-                            limitParam.Set(double.Parse(parameters["upperLimit"].ToString()));
+                            limitParam.Set(v.GetOptional<double>("upperLimit"));
                             modified.Add("upperLimit");
                         }
                     }
 
                     trans.Commit();
 
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = true,
-                        roomId = (int)room.Id.Value,
-                        modified = modified
-                    });
+                    return ResponseBuilder.Success()
+                        .With("roomId", (int)room.Id.Value)
+                        .With("modified", modified)
+                        .Build();
                 }
             }
             catch (Exception ex)
             {
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message
-                });
+                return ResponseBuilder.FromException(ex).Build();
             }
         }
 
@@ -332,20 +268,20 @@ namespace RevitMCPBridge
             try
             {
                 var doc = uiApp.ActiveUIDocument.Document;
-                var roomId = new ElementId(int.Parse(parameters["roomId"].ToString()));
-                var viewId = new ElementId(int.Parse(parameters["viewId"].ToString()));
 
-                var room = doc.GetElement(roomId) as Room;
-                var view = doc.GetElement(viewId) as View;
+                var v = new ParameterValidator(parameters, "PlaceRoomTag");
+                v.Require("roomId").IsType<int>();
+                v.Require("viewId").IsType<int>();
+                v.ThrowIfInvalid();
 
-                if (room == null || view == null)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "Room or view not found"
-                    });
-                }
+                var roomIdInt = v.GetRequired<int>("roomId");
+                var viewIdInt = v.GetRequired<int>("viewId");
+
+                var room = ElementLookup.GetRoom(doc, roomIdInt);
+                var view = ElementLookup.GetView(doc, viewIdInt);
+
+                var roomElementId = new ElementId(roomIdInt);
+                var viewElementId = new ElementId(viewIdInt);
 
                 using (var trans = new Transaction(doc, "Place Room Tag"))
                 {
@@ -367,35 +303,25 @@ namespace RevitMCPBridge
                         if (roomLoc == null)
                         {
                             trans.RollBack();
-                            return JsonConvert.SerializeObject(new
-                            {
-                                success = false,
-                                error = "Cannot determine room location for tag"
-                            });
+                            return ResponseBuilder.Error("Cannot determine room location for tag", "INVALID_ROOM_LOCATION").Build();
                         }
                         tagLocation = new UV(roomLoc.X, roomLoc.Y);
                     }
 
-                    var tag = doc.Create.NewRoomTag(new LinkElementId(roomId), tagLocation, viewId);
+                    var tag = doc.Create.NewRoomTag(new LinkElementId(roomElementId), tagLocation, viewElementId);
 
                     trans.Commit();
 
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = true,
-                        tagId = (int)tag.Id.Value,
-                        roomId = (int)roomId.Value,
-                        viewId = (int)viewId.Value
-                    });
+                    return ResponseBuilder.Success()
+                        .With("tagId", (int)tag.Id.Value)
+                        .With("roomId", roomIdInt)
+                        .With("viewId", viewIdInt)
+                        .Build();
                 }
             }
             catch (Exception ex)
             {
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message
-                });
+                return ResponseBuilder.FromException(ex).Build();
             }
         }
 
@@ -407,39 +333,24 @@ namespace RevitMCPBridge
             try
             {
                 // Check if UIApplication and active document are available
-                if (uiApp == null)
+                if (uiApp?.ActiveUIDocument?.Document == null)
                 {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "UIApplication is null"
-                    });
-                }
-
-                if (uiApp.ActiveUIDocument == null)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "No active Revit document. Please open a Revit project file."
-                    });
+                    return ResponseBuilder.Error("No active document open in Revit", "NO_ACTIVE_DOCUMENT").Build();
                 }
 
                 var doc = uiApp.ActiveUIDocument.Document;
+                var v = new ParameterValidator(parameters, "GetRooms");
 
                 // Get all rooms using category filter (most reliable)
-                var allRooms = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_Rooms)
-                    .WhereElementIsNotElementType()
-                    .ToElements()
-                    .OfType<Room>()
+                var allRooms = ElementLookup.GetAllRooms(doc)
                     .Where(r => r != null && r.Area > 0); // Only bounded rooms
 
-                // Apply optional filters
+                // Apply optional level filter
                 if (parameters != null && parameters["levelId"] != null)
                 {
-                    var levelId = new ElementId(int.Parse(parameters["levelId"].ToString()));
-                    allRooms = allRooms.Where(r => r.LevelId == levelId);
+                    var levelIdInt = v.GetOptional<int>("levelId");
+                    var levelElementId = new ElementId(levelIdInt);
+                    allRooms = allRooms.Where(r => r.LevelId == levelElementId);
                 }
 
                 var roomList = new List<object>();
@@ -477,21 +388,14 @@ namespace RevitMCPBridge
                     }
                 }
 
-                return JsonConvert.SerializeObject(new
-                {
-                    success = true,
-                    roomCount = roomList.Count,
-                    rooms = roomList
-                });
+                return ResponseBuilder.Success()
+                    .With("roomCount", roomList.Count)
+                    .With("rooms", roomList)
+                    .Build();
             }
             catch (Exception ex)
             {
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message,
-                    stackTrace = ex.StackTrace
-                });
+                return ResponseBuilder.FromException(ex).Build();
             }
         }
 

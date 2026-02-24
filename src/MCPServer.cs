@@ -63,6 +63,14 @@ namespace RevitMCPBridge
         }
 
         /// <summary>
+        /// Public accessor for MethodDispatchWrapper to record stats
+        /// </summary>
+        public static void RecordRequestExternal(bool success, long responseTimeMs)
+        {
+            RecordRequest(success, responseTimeMs);
+        }
+
+        /// <summary>
         /// Get list of all registered MCP methods
         /// </summary>
         public static List<string> GetRegisteredMethods()
@@ -1363,6 +1371,7 @@ namespace RevitMCPBridge
 
         /// <summary>
         /// Execute a method by name. Used by BatchProcessor for autonomous execution.
+        /// Routes through MethodDispatchWrapper for centralized logging, timing, and error handling.
         /// </summary>
         public static string ExecuteMethod(UIApplication uiApp, string methodName, JObject parameters)
         {
@@ -1373,42 +1382,31 @@ namespace RevitMCPBridge
 
             if (!_methodRegistry.TryGetValue(methodName, out var method))
             {
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = $"Method '{methodName}' not found in registry. Use getBatchMethods to list available methods."
-                });
+                return Helpers.ResponseBuilder.Error(
+                    $"Method '{methodName}' not found in registry. Use getBatchMethods to list available methods.",
+                    "METHOD_NOT_FOUND")
+                    .With("method", methodName)
+                    .With("availableCount", _methodRegistry.Count)
+                    .Build();
             }
 
+            // Route through centralized dispatch wrapper
+            var result = Helpers.MethodDispatchWrapper.Execute(methodName, method, uiApp, parameters);
+
+            // Track operation for proactive monitoring (Level 4)
             try
             {
-                var result = method(uiApp, parameters);
-
-                // Track operation for proactive monitoring (Level 4)
-                try
-                {
-                    var resultObj = JObject.Parse(result);
-                    var success = resultObj["success"]?.Value<bool>() ?? false;
-                    var doc = uiApp?.ActiveUIDocument?.Document;
-                    ProactiveMonitor.Instance.TrackOperation(methodName, success, doc);
-                }
-                catch
-                {
-                    // Don't let tracking errors affect the operation
-                }
-
-                return result;
+                var resultObj = JObject.Parse(result);
+                var success = resultObj["success"]?.Value<bool>() ?? false;
+                var doc = uiApp?.ActiveUIDocument?.Document;
+                ProactiveMonitor.Instance.TrackOperation(methodName, success, doc);
             }
-            catch (Exception ex)
+            catch
             {
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message,
-                    stackTrace = ex.StackTrace,
-                    method = methodName
-                });
+                // Don't let tracking errors affect the operation
             }
+
+            return result;
         }
 
         /// <summary>
@@ -1434,76 +1432,93 @@ namespace RevitMCPBridge
         /// </summary>
         private async Task<string> ExecuteInRevitContext(Func<UIApplication, string> action)
         {
-            try
+            // Per-request cancellation: if we time out, we cancel the queued action
+            // so it gets skipped when MCPRequestHandler processes the queue
+            using (var cts = new CancellationTokenSource())
             {
-                Log.Information("[ExecuteInRevitContext] Starting execution");
-                var handler = RevitMCPBridgeApp.GetRequestHandler();
-                var externalEvent = RevitMCPBridgeApp.GetExternalEvent();
-
-                if (handler == null || externalEvent == null)
+                try
                 {
-                    Log.Error("Request handler or external event not initialized");
-                    return JsonConvert.SerializeObject(new
+                    Log.Debug("[ExecuteInRevitContext] Starting execution");
+                    var handler = RevitMCPBridgeApp.GetRequestHandler();
+                    var externalEvent = RevitMCPBridgeApp.GetExternalEvent();
+
+                    if (handler == null || externalEvent == null)
                     {
-                        success = false,
-                        error = "MCP Bridge not properly initialized"
-                    });
-                }
-
-                // Queue the request and get the task
-                var resultTask = handler.QueueRequest(action);
-
-                // Raise the external event to trigger execution
-                var raiseResult = externalEvent.Raise();
-                Log.Information($"External event raised with result: {raiseResult}");
-
-                if (raiseResult != Autodesk.Revit.UI.ExternalEventRequest.Accepted)
-                {
-                    Log.Warning($"External event not accepted: {raiseResult}");
-                    // If pending, the event is already raised and will process the queue
-                    if (raiseResult == Autodesk.Revit.UI.ExternalEventRequest.Denied)
-                    {
-                        return JsonConvert.SerializeObject(new
-                        {
-                            success = false,
-                            error = $"External event denied - Revit may be busy or in modal state"
-                        });
+                        Log.Error("Request handler or external event not initialized");
+                        return Helpers.ResponseBuilder.Error(
+                            "MCP Bridge not properly initialized. Request handler or external event is null.",
+                            "NOT_INITIALIZED")
+                            .With("hint", "Try restarting the MCP Bridge from the Revit ribbon")
+                            .Build();
                     }
-                    else if (raiseResult == Autodesk.Revit.UI.ExternalEventRequest.TimedOut)
+
+                    // Queue the request with cancellation token
+                    var resultTask = handler.QueueRequest(action, cts.Token);
+
+                    // Raise the external event to trigger execution
+                    var raiseResult = externalEvent.Raise();
+                    Log.Debug("External event raised with result: {RaiseResult}", raiseResult);
+
+                    if (raiseResult != Autodesk.Revit.UI.ExternalEventRequest.Accepted)
                     {
-                        return JsonConvert.SerializeObject(new
+                        Log.Warning("External event not accepted: {RaiseResult}", raiseResult);
+                        if (raiseResult == Autodesk.Revit.UI.ExternalEventRequest.Denied)
                         {
-                            success = false,
-                            error = $"External event timed out during raise"
-                        });
+                            cts.Cancel(); // Cancel the queued request
+                            return Helpers.ResponseBuilder.Error(
+                                "External event denied - Revit may be busy or in a modal dialog. Close any open dialogs and try again.",
+                                "EVENT_DENIED")
+                                .With("hint", "Click in the Revit drawing area to dismiss any modal states")
+                                .Build();
+                        }
+                        else if (raiseResult == Autodesk.Revit.UI.ExternalEventRequest.TimedOut)
+                        {
+                            cts.Cancel();
+                            return Helpers.ResponseBuilder.Error(
+                                "External event timed out during raise. Revit may be unresponsive.",
+                                "EVENT_TIMEOUT")
+                                .Build();
+                        }
+                    }
+
+                    // Wait for the result with timeout (5 minutes for batch operations)
+                    var completedTask = await Task.WhenAny(resultTask, Task.Delay(300000));
+
+                    if (completedTask == resultTask)
+                    {
+                        return await resultTask;
+                    }
+                    else
+                    {
+                        // IMPORTANT: Cancel the queued request so it gets skipped
+                        // when MCPRequestHandler eventually processes it
+                        cts.Cancel();
+                        Log.Error("Request timed out after 5 minutes. Queued action has been cancelled.");
+                        return Helpers.ResponseBuilder.Error(
+                            "Request timed out after 5 minutes. Revit may be busy processing a long operation. The queued action has been cancelled.",
+                            "TIMEOUT")
+                            .With("timeoutMs", 300000)
+                            .With("queueDepth", handler.QueueDepth)
+                            .With("hint", "Check if Revit has a modal dialog open. Long operations (batch, export) may need more time.")
+                            .Build();
                     }
                 }
-
-                // Wait for the result with timeout (5 minutes for batch operations)
-                var completedTask = await Task.WhenAny(resultTask, Task.Delay(300000));
-
-                if (completedTask == resultTask)
+                catch (TaskCanceledException)
                 {
-                    return await resultTask;
+                    return Helpers.ResponseBuilder.Error(
+                        "Request was cancelled",
+                        "CANCELLED")
+                        .Build();
                 }
-                else
+                catch (Exception ex)
                 {
-                    Log.Error("Request timed out after 5 minutes");
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "Request timed out after 5 minutes"
-                    });
+                    Log.Error(ex, "Error executing in Revit context: {ExType} - {Message}", ex.GetType().Name, ex.Message);
+                    return Helpers.ResponseBuilder.Error(
+                        $"Error executing in Revit context: {ex.Message}",
+                        "EXECUTION_ERROR")
+                        .With("exceptionType", ex.GetType().FullName)
+                        .Build();
                 }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, "Error executing in Revit context");
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message
-                });
             }
         }
         
@@ -1594,8 +1609,16 @@ namespace RevitMCPBridge
             }
         }
 
+        /// <summary>
+        /// Maximum allowed request size (1MB) to prevent memory exhaustion from malformed input
+        /// </summary>
+        private const int MaxRequestSizeBytes = 1_048_576;
+
         private async Task HandleClient(NamedPipeServerStream pipeServer, CancellationToken cancellationToken)
         {
+            Interlocked.Increment(ref _currentConnections);
+            Log.Information("Client connected. Active connections: {Count}", _currentConnections);
+
             try
             {
                 using (pipeServer)
@@ -1608,34 +1631,94 @@ namespace RevitMCPBridge
                         {
                             // Use synchronous ReadLine to avoid async deadlock
                             var message = reader.ReadLine();
-                            if (string.IsNullOrEmpty(message))
+
+                            // Null means client disconnected cleanly
+                            if (message == null)
+                            {
+                                Log.Debug("Client sent null (disconnected)");
+                                break;
+                            }
+
+                            // Skip empty keepalive messages
+                            if (string.IsNullOrWhiteSpace(message))
                                 continue;
 
-                            Log.Debug($"Received message: {message}");
+                            // Reject oversized requests
+                            if (message.Length > MaxRequestSizeBytes)
+                            {
+                                Log.Warning("Rejecting oversized request: {Size} bytes (max {Max})",
+                                    message.Length, MaxRequestSizeBytes);
+                                var rejectResponse = Helpers.ResponseBuilder.Error(
+                                    $"Request too large: {message.Length} bytes exceeds {MaxRequestSizeBytes} byte limit",
+                                    "REQUEST_TOO_LARGE").Build();
+                                await writer.WriteLineAsync(rejectResponse);
+                                continue;
+                            }
+
+                            Log.Debug("Received message ({Size} bytes)", message.Length);
                             MessageReceived?.Invoke(this, message);
 
                             var response = await ProcessMessage(message);
+
+                            // Check pipe is still connected before writing
+                            if (!pipeServer.IsConnected)
+                            {
+                                Log.Warning("Client disconnected before response could be sent for message");
+                                break;
+                            }
+
                             writer.WriteLine(response);
-                            Log.Debug($"Sent response: {response}");
+                            Log.Debug("Sent response ({Size} bytes)", response?.Length ?? 0);
+                        }
+                        catch (System.IO.IOException ioEx)
+                        {
+                            // Broken pipe - client disconnected unexpectedly
+                            Log.Warning("Broken pipe detected: {Message}. Client likely disconnected.", ioEx.Message);
+                            break;
+                        }
+                        catch (ObjectDisposedException)
+                        {
+                            // Pipe was disposed (server shutting down or client gone)
+                            Log.Debug("Pipe disposed, ending client handler");
+                            break;
                         }
                         catch (Exception ex)
                         {
-                            Log.Error(ex, "Error processing message");
-                            var errorResponse = JsonConvert.SerializeObject(new
+                            Log.Error(ex, "Error processing message: {ExType}", ex.GetType().Name);
+
+                            // Try to send error response, but don't crash if pipe is broken
+                            try
                             {
-                                success = false,
-                                error = ex.Message
-                            });
-                            await writer.WriteLineAsync(errorResponse);
+                                if (pipeServer.IsConnected)
+                                {
+                                    var errorResponse = Helpers.ResponseBuilder.Error(
+                                        ex.Message, "PROCESSING_ERROR").Build();
+                                    await writer.WriteLineAsync(errorResponse);
+                                }
+                            }
+                            catch (System.IO.IOException)
+                            {
+                                Log.Warning("Could not send error response - pipe broken");
+                                break;
+                            }
                         }
                     }
                 }
 
-                Log.Information("Client disconnected");
+                Log.Information("Client disconnected cleanly");
+            }
+            catch (System.IO.IOException ioEx)
+            {
+                Log.Warning("Client connection lost: {Message}", ioEx.Message);
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Error handling client connection");
+                Log.Error(ex, "Unexpected error in client handler: {ExType}", ex.GetType().Name);
+            }
+            finally
+            {
+                Interlocked.Decrement(ref _currentConnections);
+                Log.Information("Client handler exited. Active connections: {Count}", _currentConnections);
             }
         }
         
@@ -4687,29 +4770,39 @@ namespace RevitMCPBridge
 
                         if (_methodRegistry.TryGetValue(method, out var registeredMethod))
                         {
-                            Log.Information($"[MCPServer] Executing registered method: {method}");
-                            return await ExecuteInRevitContext(uiApp => registeredMethod(uiApp, parameters));
+                            Log.Information($"[MCPServer] Executing registered method via dispatch wrapper: {method}");
+                            return await ExecuteInRevitContext(uiApp =>
+                                Helpers.MethodDispatchWrapper.Execute(method, registeredMethod, uiApp, parameters));
                         }
 
-                        return JsonConvert.SerializeObject(new
-                        {
-                            success = false,
-                            error = $"Unknown method: {method}"
-                        });
+                        return Helpers.ResponseBuilder.Error(
+                            $"Unknown method: {method}",
+                            "METHOD_NOT_FOUND")
+                            .With("method", method)
+                            .With("hint", "Use getMethods or getBatchMethods to list available methods")
+                            .Build();
                 }
+            }
+            catch (JsonReaderException ex)
+            {
+                Log.Error(ex, "Invalid JSON in MCP request");
+                return Helpers.ResponseBuilder.Error(
+                    $"Invalid JSON request: {ex.Message}",
+                    "INVALID_REQUEST")
+                    .Build();
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Error processing message");
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message
-                });
+                Log.Error(ex, "Error processing message: {ExType} - {Message}", ex.GetType().Name, ex.Message);
+                return Helpers.ResponseBuilder.Error(
+                    $"Internal error: {ex.Message}",
+                    "INTERNAL_ERROR")
+                    .With("exceptionType", ex.GetType().FullName)
+                    .Build();
             }
             finally
             {
-                // Restore dialog handling state (off by default for manual Revit use)
+                // ALWAYS restore dialog handling state (off by default for manual Revit use)
                 RevitMCPBridgeApp.AutoHandleDialogs = previousDialogState;
             }
         }

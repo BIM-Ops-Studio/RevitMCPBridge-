@@ -6,6 +6,8 @@ using Autodesk.Revit.UI;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Serilog;
+using RevitMCPBridge.Helpers;
+using RevitMCPBridge.Validation;
 
 namespace RevitMCPBridge
 {
@@ -21,129 +23,46 @@ namespace RevitMCPBridge
         {
             try
             {
-                // DIAGNOSTIC VERSION - Return detailed error info
-                if (uiApp == null)
-                    return JsonConvert.SerializeObject(new { success = false, error = "[DIAG] uiApp is NULL" });
-
-                if (uiApp.ActiveUIDocument == null)
-                    return JsonConvert.SerializeObject(new { success = false, error = "[DIAG] ActiveUIDocument is NULL" });
-
-                if (uiApp.ActiveUIDocument.Document == null)
-                    return JsonConvert.SerializeObject(new { success = false, error = "[DIAG] Document is NULL - No project open?" });
-
-                if (parameters == null)
-                    return JsonConvert.SerializeObject(new { success = false, error = "[DIAG] parameters is NULL" });
-
-                // Try parsing each parameter with detailed error reporting
-                double[] startPoint = null;
-                try { startPoint = parameters["startPoint"].ToObject<double[]>(); }
-                catch (Exception ex) { return JsonConvert.SerializeObject(new { success = false, error = $"[DIAG] startPoint parse failed: {ex.Message}" }); }
-
-                double[] endPoint = null;
-                try { endPoint = parameters["endPoint"].ToObject<double[]>(); }
-                catch (Exception ex) { return JsonConvert.SerializeObject(new { success = false, error = $"[DIAG] endPoint parse failed: {ex.Message}" }); }
-
-                int levelIdInt = 0;
-                try { levelIdInt = int.Parse(parameters["levelId"].ToString()); }
-                catch (Exception ex) { return JsonConvert.SerializeObject(new { success = false, error = $"[DIAG] levelId parse failed: {ex.Message}" }); }
-
-                // If we get here, all parsing worked
-                Log.Information("[CreateWallByPoints] Method called");
-
-                // Check null FIRST before accessing properties
-                if (uiApp == null)
-                {
-                    Log.Warning("[CreateWallByPoints] uiApp is NULL");
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "[NULL_CHECK_1] uiApp is null"
-                    });
-                }
-
-                if (uiApp.ActiveUIDocument == null)
-                {
-                    Log.Warning("[CreateWallByPoints] ActiveUIDocument is NULL");
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "[NULL_CHECK_2] ActiveUIDocument is null"
-                    });
-                }
-
                 var doc = uiApp.ActiveUIDocument.Document;
 
-                if (doc == null)
-                {
-                    Log.Warning("[CreateWallByPoints] Document is NULL");
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "[NULL_CHECK_3] Document is null. Please open a Revit project first."
-                    });
-                }
+                // Validate required parameters
+                var v = new ParameterValidator(parameters, "createWallByPoints");
+                v.Require("startPoint");
+                v.Require("endPoint");
+                v.Require("levelId").IsType<int>();
+                v.Optional("height").IsPositive();
+                v.ThrowIfInvalid();
 
-                Log.Information("[CreateWallByPoints] All null checks passed, continuing with wall creation");
+                // Extract point arrays
+                var startPoint = parameters["startPoint"].ToObject<double[]>();
+                var endPoint = parameters["endPoint"].ToObject<double[]>();
+                var levelIdInt = v.GetRequired<int>("levelId");
+                var height = v.GetOptional<double>("height", 10.0);
 
-                // Use already-parsed parameters from diagnostic section
-                var levelId = new ElementId(levelIdInt);
-                var height = parameters["height"] != null
-                    ? double.Parse(parameters["height"].ToString())
-                    : 10.0; // Default 10 feet
+                // Resolve level via ElementLookup (throws MCPRevitException if not found)
+                var level = ElementLookup.GetLevel(doc, levelIdInt);
 
-                // Get wall type - by ID, by name, or use default
+                // Resolve wall type: by ID, by name, or fall back to default
                 WallType wallType = null;
-                string requestedTypeName = null;
+                var wallTypeIdToken = parameters["wallTypeId"];
+                var wallTypeNameToken = parameters["wallTypeName"];
 
-                if (parameters["wallTypeId"] != null)
+                if (wallTypeIdToken != null)
                 {
-                    var wallTypeId = new ElementId(int.Parse(parameters["wallTypeId"].ToString()));
-                    wallType = doc.GetElement(wallTypeId) as WallType;
+                    wallType = ElementLookup.GetWallType(doc, wallTypeIdToken.Value<int>());
                 }
-                else if (parameters["wallTypeName"] != null)
+                else if (wallTypeNameToken != null)
                 {
-                    requestedTypeName = parameters["wallTypeName"].ToString();
-                    wallType = new FilteredElementCollector(doc)
-                        .OfClass(typeof(WallType))
-                        .Cast<WallType>()
-                        .FirstOrDefault(wt => wt.Name == requestedTypeName);
+                    wallType = ElementLookup.GetWallType(doc, wallTypeNameToken.Value<string>());
                 }
-
-                // If no type found, use any available wall type
-                if (wallType == null)
+                else
                 {
-                    // Try basic wall first, then any wall type
-                    wallType = new FilteredElementCollector(doc)
-                        .OfClass(typeof(WallType))
-                        .Cast<WallType>()
-                        .FirstOrDefault(wt => wt.Kind == WallKind.Basic);
-
-                    if (wallType == null)
-                    {
-                        wallType = new FilteredElementCollector(doc)
-                            .OfClass(typeof(WallType))
-                            .Cast<WallType>()
-                            .FirstOrDefault();
-                    }
+                    wallType = ElementLookup.GetDefaultWallType(doc);
                 }
 
                 if (wallType == null)
                 {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "No valid wall type found"
-                    });
-                }
-
-                var level = doc.GetElement(levelId) as Level;
-                if (level == null)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = false,
-                        error = "Invalid level ID"
-                    });
+                    return ResponseBuilder.Error("No valid wall type found in document", "NO_WALL_TYPE").Build();
                 }
 
                 using (var trans = new Transaction(doc, "Create Wall"))
@@ -153,35 +72,26 @@ namespace RevitMCPBridge
                     failureOptions.SetFailuresPreprocessor(new WarningSwallower());
                     trans.SetFailureHandlingOptions(failureOptions);
 
-                    // Create the wall line
                     var start = new XYZ(startPoint[0], startPoint[1], startPoint[2]);
                     var end = new XYZ(endPoint[0], endPoint[1], endPoint[2]);
                     var line = Line.CreateBound(start, end);
 
-                    // Create the wall
                     var wall = Wall.Create(doc, line, wallType.Id, level.Id, height, 0, false, false);
 
                     trans.Commit();
 
-                    return JsonConvert.SerializeObject(new
-                    {
-                        success = true,
-                        wallId = (int)wall.Id.Value,
-                        wallType = wallType.Name,
-                        level = level.Name,
-                        length = wall.get_Parameter(BuiltInParameter.CURVE_ELEM_LENGTH)?.AsDouble() ?? 0,
-                        height = height
-                    });
+                    return ResponseBuilder.Success()
+                        .With("wallId", (int)wall.Id.Value)
+                        .With("wallType", wallType.Name)
+                        .With("level", level.Name)
+                        .With("length", wall.get_Parameter(BuiltInParameter.CURVE_ELEM_LENGTH)?.AsDouble() ?? 0)
+                        .With("height", height)
+                        .Build();
                 }
             }
             catch (Exception ex)
             {
-                return JsonConvert.SerializeObject(new
-                {
-                    success = false,
-                    error = ex.Message,
-                    stackTrace = ex.StackTrace
-                });
+                return ResponseBuilder.FromException(ex).Build();
             }
         }
 
